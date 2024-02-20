@@ -1,0 +1,18 @@
+source leaprc.protein.ff14SB
+source leaprc.gaff2
+source leaprc.water.opc
+loadAmberParams GLO.frcmod
+loadAmberPrep GLO.prepi
+loadAmberParams SecSe.frcmod
+loadAmberPrep SecSe.off
+sys = loadPDB MouseSECclean.pdb
+addIons2 sys Na+ 0
+addIons2 sys Cl- 0 
+SolvateOct sys OPCBOX 25 
+savePDB sys MouseSecGSSG.pdb
+SaveAmberParm sys MouseSecGSSG.prmtop MouseSecGSSG.inpcrd 
+quit
+
+
+
+
