@@ -1,4 +1,4 @@
-diatance.sh - calculate the distance of neighbour residues from a desired residue
+distance.sh - calculate the distance of neighbour residues from a desired residue
 
 hbond.sh - specified the average of each solute-solute hydrogen bond formed over the course of the trajectory
 
