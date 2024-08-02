@@ -1,0 +1,81 @@
+# Generated with q_ffld2q.py, version 0.7.0
+# Date: Tue May  2 17:49:17 2023
+#
+{ACE}
+    [atoms]
+        1  CH3    ace.CH3       -0.180000
+        2  C      ace.C          0.500000
+        3  O      ace.O         -0.500000
+        4  HH31   ace.HH31       0.060000
+        5  HH32   ace.HH32       0.060000
+        6  HH33   ace.HH33       0.060000
+    [bonds]
+        CH3   C
+        CH3   HH31
+        CH3   HH32
+        CH3   HH33
+        C     O
+    [impropers]
+        CH3   C     +N    O
+    [connections]
+        tail C
+    [charge_groups]
+        CH3 C O HH31 HH32 HH33
+*--------------------------------------------------------------------------------
+{NMA}
+    [atoms]
+        1  N      nma.N         -0.500000
+        2  CA     nma.CA         0.020000
+        3  H      nma.H          0.300000
+        4  HA1    nma.HA1        0.060000
+        5  HA2    nma.HA2        0.060000
+        6  HA3    nma.HA3        0.060000
+    [bonds]
+        N     CA
+        N     H
+        CA    HA1
+        CA    HA2
+        CA    HA3
+    [impropers]
+        -C    N     CA    H
+    [connections]
+        head N
+    [charge_groups]
+        N CA H HA1 HA2 HA3
+*--------------------------------------------------------------------------------
+{SNN}
+    [atoms]
+        1  N      snn.N         -0.500000
+        2  CA     snn.CA         0.140000
+        3  C      snn.C          0.500000
+        4  O      snn.O         -0.500000
+        5  CB     snn.CB         0.047500
+        6  SG     snn.SG         0.047500
+        7  OS     snn.OS        -0.633000
+        8  H      snn.H          0.300000
+        9  HA     snn.HA         0.060000
+       10  HB2    snn.HB2        0.060000
+       11  HB3    snn.HB3        0.060000
+       12  HOS    snn.HOS        0.418000
+    [bonds]
+        N     CA
+        N     H
+        CA    C
+        CA    CB
+        CA    HA
+        C     O
+        CB    SG
+        CB    HB2
+        CB    HB3
+        SG    OS
+        OS    HOS
+    [impropers]
+        -C    N     CA    H
+        CA    C     +N    O
+    [connections]
+        head N
+        tail C
+    [charge_groups]
+        N CA C O CB SG OS H HA HB2 HB3 HOS
+*--------------------------------------------------------------------------------
+

@@ -1,0 +1,15 @@
+WARNING mmlewis warning: Wrong Lewis structure in structure input file
+mmlewis warning: Problems were identified with the following atoms:
+mmlewis warning:  1 8 9 
+mmlewis warning: Now attempting to fix the lewis structure.
+WARNING mmlewis warning: A valid lewis structure was successfully generated.
+WARNING mmlewis warning: Wrong Lewis structure in structure input file
+mmlewis warning: Problems were identified with the following atoms:
+mmlewis warning:  43 
+mmlewis warning: Now attempting to fix the lewis structure.
+FATAL mmlewis error: Problems remain with the following atoms:
+mmlewis error:  43
+FATAL mmlewis_apply(): Unable to handle mol 2
+FATAL mmlewis_apply(): Error in handling of full CT
+Skipping molecule with title:
+

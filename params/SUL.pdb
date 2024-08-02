@@ -1,0 +1,56 @@
+TITLE     Structure1
+REMARK   4      COMPLIES WITH FORMAT V. 3.0, 1-DEC-2006
+REMARK 888
+REMARK 888 WRITTEN BY MAESTRO (A PRODUCT OF SCHRODINGER, LLC)
+ATOM      1  CH3 ACE A   1      -1.811  -1.928   2.592  1.00  0.00           C  
+ATOM      2  C   ACE A   1      -1.705  -0.784   1.584  1.00  0.00           C  
+ATOM      3  O   ACE A   1      -2.583   0.075   1.542  1.00  0.00           O  
+ATOM      4 HH31 ACE A   1      -0.950  -2.588   2.486  1.00  0.00           H  
+ATOM      5 HH32 ACE A   1      -1.834  -1.521   3.603  1.00  0.00           H  
+ATOM      6 HH33 ACE A   1      -2.726  -2.492   2.408  1.00  0.00           H  
+ATOM      7  N   ALA A   2      -0.631  -0.797   0.792  1.00  0.00           N  
+ATOM      8  CA  ALA A   2      -0.382   0.220  -0.219  1.00  0.00           C  
+ATOM      9  C   ALA A   2       0.933  -0.087  -0.952  1.00  0.00           C  
+ATOM     10  O   ALA A   2       1.612  -1.071  -0.659  1.00  0.00           O  
+ATOM     11  CB  ALA A   2      -0.383   1.594   0.455  1.00  0.00           C  
+ATOM     12  H   ALA A   2       0.053  -1.534   0.881  1.00  0.00           H  
+ATOM     13  HA  ALA A   2      -1.234   0.276  -0.897  1.00  0.00           H  
+ATOM     14  HB1 ALA A   2      -0.197   2.366  -0.292  1.00  0.00           H  
+ATOM     15  HB2 ALA A   2      -1.351   1.769   0.925  1.00  0.00           H  
+ATOM     16  HB3 ALA A   2       0.400   1.628   1.213  1.00  0.00           H  
+ATOM     17  N   CYS A   3       1.283   0.810  -1.942  1.00  0.00           N  
+ATOM     18  CA  CYS A   3       2.501   0.673  -2.740  1.00  0.00           C  
+ATOM     19  C   CYS A   3       2.602   1.825  -3.751  1.00  0.00           C  
+ATOM     20  O   CYS A   3       1.737   2.697  -3.814  1.00  0.00           O  
+ATOM     21  CB  CYS A   3       2.549  -0.714  -3.407  1.00  0.00           C  
+ATOM     22  SG  CYS A   3       4.036  -0.966  -4.420  1.00  0.00           S1-
+ATOM     23  H   CYS A   3       0.687   1.601  -2.139  1.00  0.00           H  
+ATOM     24  HA  CYS A   3       3.364   0.604  -2.077  1.00  0.00           H  
+ATOM     25  HB2 CYS A   3       2.538  -1.488  -2.640  1.00  0.00           H  
+ATOM     26  HB3 CYS A   3       1.682  -0.834  -4.057  1.00  0.00           H  
+ATOM     27  N   ALA A   4       3.716   1.802  -4.564  1.00  0.00           N  
+ATOM     28  CA  ALA A   4       3.976   2.813  -5.579  1.00  0.00           C  
+ATOM     29  C   ALA A   4       5.294   2.495  -6.305  1.00  0.00           C  
+ATOM     30  O   ALA A   4       5.965   1.507  -6.004  1.00  0.00           O  
+ATOM     31  CB  ALA A   4       3.981   4.190  -4.911  1.00  0.00           C  
+ATOM     32  H   ALA A   4       4.396   1.060  -4.469  1.00  0.00           H  
+ATOM     33  HA  ALA A   4       3.128   2.870  -6.261  1.00  0.00           H  
+ATOM     34  HB1 ALA A   4       4.174   4.957  -5.660  1.00  0.00           H  
+ATOM     35  HB2 ALA A   4       3.012   4.372  -4.447  1.00  0.00           H  
+ATOM     36  HB3 ALA A   4       4.760   4.222  -4.149  1.00  0.00           H  
+ATOM     37  N   NMA A   5       5.643   3.359  -7.267  1.00  0.00           N  
+ATOM     38  CA  NMA A   5       6.857   3.217  -8.058  1.00  0.00           C  
+ATOM     39  H   NMA A   5       5.053   4.153  -7.471  1.00  0.00           H  
+ATOM     40  HA1 NMA A   5       6.922   4.037  -8.773  1.00  0.00           H  
+ATOM     41  HA2 NMA A   5       7.725   3.239  -7.400  1.00  0.00           H  
+ATOM     42  HA3 NMA A   5       6.832   2.269  -8.595  1.00  0.00           H  
+TER      43      NMA A   5
+CONECT    1    4    5    6
+CONECT    4    1
+CONECT    5    1
+CONECT    6    1
+CONECT   38   40   41   42
+CONECT   40   38
+CONECT   41   38
+CONECT   42   38
+END   

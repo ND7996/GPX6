@@ -1,0 +1,18 @@
+# Generated with q_ffld2q.py, version 0.7.0
+# Date: Tue May  2 17:49:17 2023
+#
+[options]
+
+[atom_types]
+prx.H 0.0054     0.0054     0.0433     0.0038     0.0306     1.0079 # FFLD: HO_H8_240 H(O): alcohols
+prx.O 760.645    760.645    25.0448   537.8572    17.7093     15.999 # FFLD: OH_O3_154 generic alcohols
+
+[bonds]
+prx.H       prx.O    1106.0     0.945 # FFLD: high 0 => 0 OH-HO ==> OH-HO
+prx.O       prx.O    570.0      1.452 # FFLD: high 0 => 0 OH-OH ==> OH-OH
+
+[angles]
+prx.H  prx.O   prx.O   160.0   102.22 # FFLD: high 0 OH-OH-HO ==> OH-OH-HO
+
+[torsions]
+prx.H prx.O  prx.O  prx.H  -2.5   2.0  180.0  1.0 # FFLD: med 0 HO-OH-OH-HO ==> ??-OS-OS-??

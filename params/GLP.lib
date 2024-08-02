@@ -1,0 +1,54 @@
+# Generated with q_ffld2q.py, version 0.7.0
+# Date: Wed Mar 13 14:21:20 2024
+#
+
+{GLNP}
+    [atoms]
+        1  N      glnp.N         -0.500000
+        2  CA     glnp.CA         0.140000
+        3  C      glnp.C          0.500000
+        4  O      glnp.O         -0.500000
+        5  CB     glnp.CB        -0.120000
+        6  CG     glnp.CG         0.215700
+        7  CD     glnp.CD         0.285800
+        8  OE1    glnp.OE1       -0.503000
+        9  NE2    glnp.NE2       -0.496500
+       10  H      glnp.H          0.300000
+       11  HA     glnp.HA         0.060000
+       12  HB2    glnp.HB2        0.060000
+       13  HB3    glnp.HB3        0.060000
+       14  HG2    glnp.HG2        0.060000
+       15  HG3    glnp.HG3        0.060000
+       16  HE1    glnp.HE1        0.418000
+       17  HE22   glnp.HE22       0.480000
+       18  HE21   glnp.HE21       0.480000
+    [bonds]
+        N     CA
+        N     H
+        CA    C
+        CA    CB
+        CA    HA
+        C     O
+        CB    CG
+        CB    HB2
+        CB    HB3
+        CG    CD
+        CG    HG2
+        CG    HG3
+        CD    OE1
+        CD    NE2
+        OE1   HE1
+        NE2   HE22
+        NE2   HE21
+    [impropers]
+        -C    N     CA    H
+        CA    C     +N    O
+        CG    CD    NE2   OE1
+        CD    NE2   HE21  HE22
+    [connections]
+        head N
+        tail C
+    [charge_groups]
+        N CA C O CB CG CD OE1 NE2 H HA HB2 HB3 HG2 HG3 HE1 HE22 HE21
+*--------------------------------------------------------------------------------
+

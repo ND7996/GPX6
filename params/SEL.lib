@@ -1,0 +1,30 @@
+{SEL}
+    [atoms]
+        1  N      sel.N         -0.500000
+        2  CA     sel.CA         0.140000
+        3  C      sel.C          0.500000
+        4  O      sel.O         -0.500000
+        5  CB     sel.CB        -0.300000
+        6  SE1    sel.SE1        -0.900000
+        7  H      sel.H          0.300000
+        8  HA     sel.HA         0.060000
+        9  HB2    sel.HB2        0.100000
+       10  HB3    sel.HB3        0.100000
+    [bonds]
+        N     CA
+        N     H
+        CA    C
+        CA    CB
+        CA    HA
+        C     O
+        CB    SE1
+        CB    HB2
+        CB    HB3
+    [impropers]
+        -C    N     CA    H
+        CA    C     +N    O
+    [connections]
+        head N
+        tail C
+    [charge_groups]
+        N CA C O CB SE1 H HA HB2 HB3
