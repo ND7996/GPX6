@@ -1,0 +1,10 @@
+! Read in library files
+readlib  qoplsaa.lib          
+readlib  GPX.lib
+! Read in parameter files
+readprm  qoplsaa_all.prm
+! read in structure
+readtop 47cys_mouse.top
+rx       /home/hp/nayanika/github/PhD_Thesis/EVB/protein_stepwise/GPX6MUT/set_1/mousecys/1-prep/48minim/relax_012.re
+writepdb 48minim.pdb y
+quit
