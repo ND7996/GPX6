@@ -1,0 +1,55 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+
+\title{Computational analysis of the evolution of glutathione peroxidase 6 (GPX6) activation free energy}
+\begin{document}
+\maketitle
+
+\section{EVB Model}
+
+One of the major challenges inherent to all QM/MM approaches is the high computational cost associated with the QM part of the calculation \cite{Carvalho2014}. This is important when it comes to QM/MM free energies where extensive conformational sampling is required. When one tries to deploy extensive DFT calculations to the QM region which makes the cost of the computation much more higher \cite{Carvalho2014}. So, we come to a hybrid QM/MM method using the empirical valence bond (EVB) which has proven to be very useful for calculating thermodynamic activation parameters for chemical reactions \cite{Oanca2024}. Certainly EVB can capture the changes in the environment around the protein, with the simple force field description and not a large DFT or QM/MM cluster, giving an idea of how the enzyme proceeds to work under certain environmental conditions \cite{Oanca2024}. If the activation free energy is correctly predicted at a given temperature, this just means that the sum of \(\Delta {H^}\) and \(-T\Delta {S^}\) is correctly predicted. A recent change that has been made is for cases where the reference reaction would be rather complex to parameterize the EVB potential energy surface directly on DFT calculations \cite{Oanca2024}. To understand the origin of the thermodynamic activation parameters in the EVB model, it is necessary to understand the basis of EVB. EVB approach is construction of potential energy surfaces. This method elegantly transforms a force ﬁeld based description of individual electronic ground state (GS) species into a quantum chemical framework using valence bond theory, giving an empirically-based QM/MM description of chemical reactivity \cite{Carvalho2014}. Any number of such states can in principle be used, but often a simple two-state model is considered for an elementary chemical reaction step. The system is then represented by a n × n EVB Hamiltonian \cite{Carvalho2014}.
+
+
+
+\[ 
+  \left[ {\begin{array}{cc}
+    H_{11} & H_{12} \\
+    H_{21} & H_{22} \\
+  \end{array} } \right]
+\]
+Here, $ H_{11} $ and $ H_{22} $ are the energies of the two valence states which are calculated using classical force fields. The off-diagonal matrix elements represent the coupling between the two states.  The value of the coupling term $ H_{11} $, needs to be calibrated on a reference reaction and there is also a second parameter that must be calibrated and it is phase independent, \cite{Oanca2023} the alpha shift, which corresponds to the constant difference in free energy between the reacting values in the two states. \cite{Oanca2023} These reference values (EVB parameters) are either devised from experimental data, commonly in aqueous solution, or directly by QM/MM calculations on the enzyme. 
+Catalytic residues are largely conserved in enzymes as they lower the activation energy of reactions and thereby can increase enzymatic turnover \cite{Rees2024}. Mutations in these active sites typically reduce catalytic activity \cite{Rees2024}. In this study we focus on selenoprotein Glutathione Peroxidase 6 (GPX6), while exploring the replacement in several mammalian lineages of the rare amino acid selenocysteine (Sec) for Cysteine (Cys) \cite{Rees2024}. GPXSec activity classically reduces hydroperoxides, particularly hydrogen and lipid peroxides, with glutathione (GSH) as a cofactor \cite{Rees2024}. GPXCys  containing proteins act on alternative substrates for peroxidation and may have additional functions, including signalling and oxidative protein folding. Thus,  all GPX proteins may protect cells from oxidative stress \cite{Rees2024}. The goal of this article was  to calculate the activation free energy barrier for the Glutathione Peroxidase 6 active site cysteine containing mouse and selenocysteine containing human enzyme using Empirical Valence Bond simulation, in order to determine the significant barrier difference with the change in the active site residue from cys/sec and the variants obtained from the previous phylogenetic study \cite{Rees2024}. And further more showing analysis on the affect of the catalytic activity of both due to variants imposing environmental changes inside the protein.  
+
+
+\section{Computational Methodology}
+
+The first step in preparing a simulation that has missing force field parameters along with standard parameters and library files. In this case it is Selenium (U). After equilibration, continuing with the FEP simulations which constitute the core part of the EVB methodology. The FEP protocol involves a gradual change of the (mapping) potential energy by the coupling parameter lambda. This change of potential will drive the system from the region of configurational space corresponding to the reactant state (RS) to that corresponding to product state (PS). The MD simulation required for a free energy calculation often proceeds in multiple stages. The initial stage is running at a very low temperature with strong coupling to the temperature bath (energy minimisation) to relax strain in the initial structure. Following stepwise heating of the simulated system and equilibration at the target temperature. For perturbation simulations, this phase is composed of a series of simulations using intermediate potentials defined by different sets of weight coefficients for the FEP states.
+
+
+\subsection{Computational Model Preparation}
+The initial structure was taken from snapshot of MD simulation done with openMM \cite{Eastman2017}. For creating the selenium parameters, FFLD in maestro [] was used. We used the charges provided by Maestro. Protonation states were predicted using PROPKA \cite{Søndergaard2011}, where the hydrogen and solvent was added using Q program \cite{Marelius1999} For the transition states, FFLD in maestro [] and QM/MM parameters was used. The TIP3P water model was used in combination with the protein parameters mentioned above.
+
+\subsection {MD/EVB simulations}
+
+Spherical boundary conditions \cite{King1989} were applied to the system using Q program \cite{Marelius1999} using 50 \text{\AA} diameter water covering the protein. After equilibration of the system, two separate MD/EVB free energy perturbation (FEP) calculations were done for the step 1 (until formation of selenolate ion) and the step 2 (to the formation of selenenic acid), which is the product of the reaction. The FEP protocol involves a gradual change of the (mapping) potential energy by the coupling parameter. For each of the FEP calculations, 51 decreate windows were considered, each window of 10 ps at 2 fs time step, that gave a total of 1.02 ns of sampling of each free energy profile . These calculations were replicated 10 times starting from the minimized structure. The EVB gas phase shift $\alpha$  and the off diagonal Hij were determined iteratively. in order to have an average reaction free energies and the barrier heights of all the four systems in study. The four barriers we got were essentially determined according to the QM/MM calculations that have been previously done.(TS1 - 16.4 kcal/mol and Product - 18.8 kcal/mol)
+
+
+\medskip
+
+%Sets the bibliography style to UNSRT and imports the 
+%bibliography file "references.bib".
+\bibliographystyle{unsrt}
+\bibliography{files/references}
+
+\begin{thebibliography}{9}
+\bibitem{texbook}
+
+Schrödinger Release 2024-2: Maestro, Schrödinger, LLC, New York, NY, 2024.
+
+Carvalho, A. T. P., Barrozo, A., Doron, D., Vardi Kilshtain, A., Major, D. T., & Kamerlin, S. C. L. (2014). Challenges in computational studies of enzyme structure, function and dynamics. Journal of Molecular Graphics and Modelling, 54, 62–79. https://doi.org/10.1016/j.jmgm.2014.09.003
+
+\end{thebibliography}
+\end{document}
+
+
+
