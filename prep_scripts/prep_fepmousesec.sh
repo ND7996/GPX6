@@ -1,14 +1,10 @@
 #!/bin/sh
 
 # List of directories to process
-directories="/home/hp/nayanika/github/PhD_Thesis/EVB/protein_stepwise/GPX6MUT/individual_mutants/mousecys/1-prep/S47A
-/home/hp/nayanika/github/PhD_Thesis/EVB/protein_stepwise/GPX6MUT/individual_mutants/mousecys/1-prep/F48Y
-/home/hp/nayanika/github/PhD_Thesis/EVB/protein_stepwise/GPX6MUT/individual_mutants/mousecys/1-prep/T52A
-/home/hp/nayanika/github/PhD_Thesis/EVB/protein_stepwise/GPX6MUT/individual_mutants/mousecys/1-prep/T54Q
-/home/hp/nayanika/github/PhD_Thesis/EVB/protein_stepwise/GPX6MUT/individual_mutants/mousecys/1-prep/R99C"
+directories="/home/hp/nayanika/github/PhD_Thesis/EVB/protein_stepwise/GPX6MUT/combination_5/mousesec/S47A_F48Y_T52A_T54Q_R99C"
 
 # Base directory where you want to create folders
-base_scr_dir="/home/hp/results/mousecys"
+base_scr_dir="/home/hp/results/mousesec"
 
 # Create the mousecys directory if it does not exist
 mkdir -p "$base_scr_dir"
