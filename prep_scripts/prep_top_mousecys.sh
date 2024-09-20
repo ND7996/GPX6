@@ -35,6 +35,16 @@ do
 
         pdb_filename=$(basename "$pdb_file" .pdb)
 
+        # Search for a sulfur atom (SG) around residue 49
+        sulfur_atom=$(grep -E "49[ ]+S" "$pdb_dir/$pdb_file")
+        
+        if [ -z "$sulfur_atom" ]; then
+            echo "Warning: Sulfur atom near residue 49 not found in PDB. Skipping this file."
+            continue
+        else
+            echo "Sulfur atom found: $sulfur_atom"
+        fi
+
         # Generate the correct filenames based on your format (e.g., "47_mouse.top", "47_mouse.pdb")
         output_top="${system_name}_mouse.top"
         output_pdb="${system_name}_mouse.pdb"
@@ -50,11 +60,11 @@ readlib  $gpx_lib
 readprm  $qoplsaa_prm
 
 ! read in structure
-readpdb $pdb_file
+readpdb $pdb_dir/$pdb_file
 
 set solvent_pack 2.7
 
-! Solvate around C49
+! Solvate around sulfur atom (adjust as needed)
 boundary   sphere 49:SG 25.
 solvate           49:SG 25. grid HOH
 
@@ -70,17 +80,10 @@ EOF
         echo "Generated input script for $pdb_filename in $base_scr_dir/$system_name"
         echo "Expected output files: $output_top and $output_pdb"
 
-        # Check for atom 49:SG in the PDB file
-        if grep -q "49 SG" "$pdb_dir/$pdb_file"; then
-            echo "Atom 49:SG found in PDB."
-        else
-            echo "Warning: Atom 49:SG not found in PDB. Skipping this file."
-            continue
-        fi
-
         # Run qprep5 on the generated input file to produce the topology and PDB files
         cd "$base_scr_dir/$system_name"
-        qprep5 < "$inp_file"
+        qprep5 < "$inp_file" > qprep5_output.log 2>&1
+        tail -n 20 qprep5_output.log  # Print the last 20 lines of the log
 
     else
         echo "PDB file $pdb_file not found in $pdb_dir"
