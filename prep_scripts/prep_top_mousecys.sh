@@ -1,4 +1,5 @@
 #!/bin/sh
+#working script
 
 # Base directory containing all the PDB files, libraries, and parameter files
 pdb_dir="/home/hp/nayanika/github/PhD_Thesis/EVB/protein_stepwise/GPX6MUT/individual_mutants/mousecys/1-prep"
@@ -17,10 +18,11 @@ base_scr_dir="/home/hp/results/topology/mousecys"
 # Create the base directory if it does not exist
 mkdir -p "$base_scr_dir"
 
-# Initialize a counter for the pdb files
-i=1
+# Loop through each PDB file
 for pdb_file in $pdb_files
 do
+    echo "Processing file: $pdb_file"
+    
     # Construct the system name based on the PDB file (e.g., "47" from "47_nohyd.pdb")
     system_name=$(echo $pdb_file | cut -d'_' -f1)
 
@@ -29,6 +31,8 @@ do
 
     # Check if the specified PDB file exists in the pdb_dir
     if [ -f "$pdb_dir/$pdb_file" ]; then
+        echo "Found PDB file: $pdb_file"
+
         pdb_filename=$(basename "$pdb_file" .pdb)
 
         # Generate the correct filenames based on your format (e.g., "47_mouse.top", "47_mouse.pdb")
@@ -70,17 +74,9 @@ EOF
         if grep -q "49 SG" "$pdb_dir/$pdb_file"; then
             echo "Atom 49:SG found in PDB."
         else
-            echo "Warning: Atom 49:SG not found in PDB. Check your PDB file."
+            echo "Warning: Atom 49:SG not found in PDB. Skipping this file."
             continue
         fi
-
-        # Check for required residue types
-        required_residues="PRO GLN LYS SER VAL ASP CYX ASN"
-        for res in $required_residues; do
-            if ! grep -q "$res" "$pdb_dir/$pdb_file"; then
-                echo "Warning: Residue type $res not found in PDB. Check your library."
-            fi
-        done
 
         # Run qprep5 on the generated input file to produce the topology and PDB files
         cd "$base_scr_dir/$system_name"
