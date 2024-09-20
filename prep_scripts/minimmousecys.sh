@@ -1,11 +1,7 @@
 #!/bin/sh
 
 # List of directories to process
-directories="/home/hp/nayanika/github/PhD_Thesis/EVB/protein_stepwise/GPX6MUT/individual_mutants/mousecys/1-prep/S47A
-/home/hp/nayanika/github/PhD_Thesis/EVB/protein_stepwise/GPX6MUT/individual_mutants/mousecys/1-prep/F48Y
-/home/hp/nayanika/github/PhD_Thesis/EVB/protein_stepwise/GPX6MUT/individual_mutants/mousecys/1-prep/T52A
-/home/hp/nayanika/github/PhD_Thesis/EVB/protein_stepwise/GPX6MUT/individual_mutants/mousecys/1-prep/T54Q
-/home/hp/nayanika/github/PhD_Thesis/EVB/protein_stepwise/GPX6MUT/individual_mutants/mousecys/1-prep/R99C"
+directories="/home/hp/nayanika/github/GPX6/structures/S47A_F48Y.pdb"
 
 # Base directory where you want to create folders
 base_scr_dir="/home/hp/results/mousecys"
@@ -30,9 +26,10 @@ do
     do
         if [ -f "$pdb_file" ]; then
             # Run q_genfeps.py with the system's pdb file and other input files from the current directory
-            q_genfeps.py "$dir/genfeps.proc" --pdb "$pdb_file" "$dir/relax_012.inp" relax --repeats 100 --frames 51 --fromlambda 1.0 --prefix "$base_scr_dir/$system_name/replica" --rs "$dir/run_qdyn_5.sh"
+            q_genrelax.py "$dir/genrelax.proc" --top "" --pdb "$pdb_file" --fep "$dir/GPX6_wtmousecys.fep" --outdir "$base_scr_dir/$system_name/minim" --rs "$dir/run_qdyn_5.sh"
         else
             echo "No .pdb file found in $dir"
         fi
     done
 done
+
