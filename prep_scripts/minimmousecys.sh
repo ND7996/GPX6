@@ -22,7 +22,7 @@ system_name=$(basename "$pdb_file" .pdb)
 mkdir -p "$base_scr_dir/$system_name"
 
 # Remove any existing replicas for a clean start
-rm -rf "$base_scr_dir/$system_name/replica*"
+#rm -rf "$base_scr_dir/$system_name/replica*"
 
 # Check if the .pdb file exists
 if [ -f "$pdb_file" ]; then
