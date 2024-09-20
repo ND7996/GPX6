@@ -1,12 +1,12 @@
 !new opls parameters and substrate parameters (ffld?)
-readlib  qoplsaa.lib          
-readlib  GPX.lib
+readlib  /home/hp/nayanika/github/GPX6/parameters/qoplsaa.lib          
+readlib  /home/hp/nayanika/github/GPX6/parameters/GPX.lib
 
 ! parameters
-readprm  qoplsaa_all.prm
+readprm  /home/hp/nayanika/github/GPX6/parameters/qoplsaa_all.prm
 
 ! read in structure
-readpdb mutated_mousecys_48X_TYR_52X_ALA_54X_GLN_99X_CYS.pdb
+readpdb /home/hp/nayanika/github/GPX6/structures/S47A_F48Y.pdb
 
 set solvent_pack 2.7
 
@@ -15,8 +15,8 @@ boundary   sphere 49:SG 25.
 solvate           49:SG 25. grid HOH
 
 ! write out topology and pdb with corresponding indices 
-maketop 48_52_54_99.top
-writetop 48_52_54_99.top
-writepdb 48_52_54_99.pdb y
+maketop /home/hp/nayanika/github/GPX6/topology/S47A_F48.top
+writetop /home/hp/nayanika/github/GPX6/topology/S47A_F48.top
+writepdb /home/hp/nayanika/github/GPX6/topology/S47A_F48.pdb y
 
 quit

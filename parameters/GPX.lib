@@ -1,0 +1,206 @@
+# charges added from maestro - h2o2.mae 
+# /opt/schrodinger2022-1/utilities/ffld_server -imae h2o2.mae -version 14 -print_parameters -out_file h2o2_param.log
+{PRX}
+    [atoms]
+        1  O1     prx.O   -0.418
+        2  O2     prx.O   -0.418   
+        3  H1     prx.H    0.418
+        4  H2     prx.H    0.418
+    [bonds]
+        H1    O1
+        O1    O2
+        O2    H2
+    [charge_groups]
+        O1 O2 H1 H2
+*--------------------------------------------------------------------------------
+{SEC}
+    [atoms]
+        1  N      sec.N         -0.5000
+        2  H      sec.H          0.3000
+        3  CA     sec.CA         0.1400
+        4  HA     sec.HA         0.0600
+        5  CB     sec.CB         0.0600
+        6  HB2    sec.HB2        0.0600
+        7  HB3    sec.HB3        0.0600
+        8  SE     sec.SE        -0.3350
+        9  HG     sec.HG         0.1550
+        10  C     sec.C          0.5000
+        11  O     sec.O         -0.5000
+    [bonds]
+       N    H  
+       N    CA 
+       CA   HA 
+       CA   CB 
+       CB   HB2
+       CB   HB3
+       CB   SE 
+       SE   HG 
+       CA   C  
+       C    O 
+    [connections]
+        head N
+        tail C
+    [impropers]
+        -C    N     CA    H
+        CA    C     +N    O
+    [charge_groups]
+        N  H   CA  HA 
+        CB HB2 HB3 SE  HG
+        C O 
+*--------------------------------------------------------------------------------
+{SNN}
+    [atoms]
+        1  N      snn.N         -0.5000
+        2  H      snn.H          0.3000
+        3  CA     snn.CA         0.1400
+        4  HA     snn.HA         0.0600
+        5  CB     snn.CB        -0.0182
+        6  HB2    snn.HB2        0.0600
+        7  HB3    snn.HB3        0.0600 
+        8  SG     snn.SG         0.1207
+        9  OS     snn.OS        -0.6405
+       10  HG     snn.HG         0.4180
+       11  C      snn.C          0.5000
+       12  O      snn.O         -0.5000
+    [bonds]
+        N     CA
+        N     H
+        CA    C
+        CA    CB
+        CA    HA
+        C     O
+        CB    SG
+        CB    HB2
+        CB    HB3
+        SG    OS
+        OS    HG
+    [connections]
+        head N
+        tail C
+    [impropers]
+        -C    N     CA    H
+        CA    C     +N    O
+    [charge_groups]
+        N  H CA HA
+        CB HB2 HB3 SG OS HG
+        C O 
+*--------------------------------------------------------------------------------
+{SEN}
+    [atoms]
+        1  N      sen.N         -0.5000
+        2  H      sen.H          0.3000
+        3  CA     sen.CA         0.1400
+        4  HA     sen.HA         0.0600
+        5  CB     sen.CB        -0.0182
+        6  HB2    sen.HB2        0.0600
+        7  HB3    sen.HB3        0.0600 
+        8  SE1    sen.SE1        0.1207
+        9  OS     sen.OS        -0.6405
+       10  HG     sen.HG         0.4180
+       11  C      sen.C          0.5000
+       12  O      sen.O         -0.5000
+    [bonds]
+        N     CA
+        N     H
+        CA    C
+        CA    CB
+        CA    HA
+        C     O
+        CB    SE1
+        CB    HB2
+        CB    HB3
+        SE1   OS
+        OS    HG
+    [connections]
+        head N
+        tail C
+    [impropers]
+        -C    N     CA    H
+        CA    C     +N    O
+    [charge_groups]
+        N  H CA HA
+        CB HB2 HB3 SE1 OS HG
+        C O 
+*--------------------------------------------------------------------------------
+{GLP}
+    [atoms]
+        1  N      glp.N         -0.500000
+        2  CA     glp.CA         0.140000
+        3  C      glp.C          0.500000
+        4  O      glp.O         -0.500000
+        5  CB     glp.CB        -0.120000
+        6  CG     glp.CG         0.215700
+        7  CD     glp.CD         0.285800
+        8  OE1    glp.OE1       -0.503000
+        9  NE2    glp.NE2       -0.496500
+       10  H      glp.H          0.300000
+       11  HA     glp.HA         0.060000
+       12  HB2    glp.HB2        0.060000
+       13  HB3    glp.HB3        0.060000
+       14  HG2    glp.HG2        0.060000
+       15  HG3    glp.HG3        0.060000
+       16  HE1    glp.HE1        0.418000
+       17  HE22   glp.HE22       0.480000
+       18  HE21   glp.HE21       0.480000
+    [bonds]
+        N     CA
+        N     H
+        CA    C
+        CA    CB
+        CA    HA
+        C     O
+        CB    CG
+        CB    HB2
+        CB    HB3
+        CG    CD
+        CG    HG2
+        CG    HG3
+        CD    OE1
+        CD    NE2
+        OE1   HE1
+        NE2   HE22
+        NE2   HE21
+    [impropers]
+        -C    N     CA    H
+        CA    C     +N    O
+        CG    CD    NE2   OE1
+        CD    NE2   HE21  HE22
+    [connections]
+        head N
+        tail C
+    [charge_groups]
+        N CA C O CB CG CD OE1 NE2 H HA HB2 HB3 HG2 HG3 HE1 HE22 HE21
+*--------------------------------------------------------------------------------
+{SUL}
+    [atoms]
+        1  N      sul.N         -0.500000
+        2  CA     sul.CA         0.140000
+        3  C      sul.C          0.500000
+        4  O      sul.O         -0.500000
+        5  CB     sul.CB        -0.300000
+        6  SG     sul.SG        -0.900000
+        7  H      sul.H          0.300000
+        8  HA     sul.HA         0.060000
+        9  HB2    sul.HB2        0.100000
+       10  HB3    sul.HB3        0.100000
+    [bonds]
+        N     CA
+        N     H
+        CA    C
+        CA    CB
+        CA    HA
+        C     O
+        CB    SG
+        CB    HB2
+        CB    HB3
+    [impropers]
+        -C    N     CA    H
+        CA    C     +N    O
+    [connections]
+        head N
+        tail C
+    [charge_groups]
+        N CA C O CB SG H HA HB2 HB3
+*--------------------------------------------------------------------------------
+
+
