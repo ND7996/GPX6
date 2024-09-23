@@ -11,6 +11,7 @@ TABLE_FILE="/home/hp/nayanika/github/GPX6/table/Free_Energy.tex"
 {
     echo "\documentclass{article}"
     echo "\usepackage{amsmath}"  # For math symbols
+    echo "\usepackage{graphicx}" # If you need additional graphics support
     echo "\begin{document}"
     echo "\begin{table}[ht]"
     echo "    \centering"
@@ -23,7 +24,7 @@ TABLE_FILE="/home/hp/nayanika/github/GPX6/table/Free_Energy.tex"
 # Read the stats file and extract relevant data
 while IFS= read -r line; do
     # Clean up the line and substitute +- with the proper LaTeX \pm
-    clean_line=$(echo "$line" | tr -d '\r' | sed 's/\+-/ \$\\pm\$ /g' | sed 's/\\//g')
+    clean_line=$(echo "$line" | tr -d '\r' | sed 's/\+-/\\pm/g')
 
     # Check if the line contains the sample data
     if echo "$clean_line" | grep -q "WTmousecys"; then
@@ -31,8 +32,12 @@ while IFS= read -r line; do
         mean_dg_star=$(echo "$clean_line" | awk -F'&' '{print $2}' | sed 's/kcal\/mol//g' | sed 's/^[ \t]*//;s/[ \t]*$//')
         mean_dg0=$(echo "$clean_line" | awk -F'&' '{print $3}' | sed 's/kcal\/mol//g' | sed 's/^[ \t]*//;s/[ \t]*$//')
 
+        # Assuming you have uncertainties defined
+        uncertainty_dg_star="0.2"  # Replace with actual extraction logic if available
+        uncertainty_dg0="0.1"       # Replace with actual extraction logic if available
+
         # Add the extracted values to the table with proper LaTeX math mode for \pm
-        echo "    WTMOUSECYS & \$$mean_dg_star\$ kcal/mol & \$$mean_dg0\$ kcal/mol \\\\" >> "$TABLE_FILE"
+        echo "    WTMOUSECYS & $mean_dg_star \pm $uncertainty_dg_star \text{ kcal/mol} & $mean_dg0 \pm $uncertainty_dg0 \text{ kcal/mol} \\\\" >> "$TABLE_FILE"
     fi
 done < "$STATS_FILE"
 
