@@ -27,7 +27,7 @@ while IFS= read -r line; do
     clean_line=$(echo "$line" | tr -d '\r' | sed 's/\+-/\\pm/g')
 
     # Check if the line contains the sample data
-    if echo "$clean_line" | grep -q "WTmousecys"; then
+    if echo "$clean_line" | grep -q "S47A-F48Y-T52A-T54Q"; then
         # Extract Mean dG* and Mean dG0 values using consistent field separation
         mean_dg_star=$(echo "$clean_line" | awk -F'&' '{print $2}' | sed 's/kcal\/mol//g' | sed 's/^[ \t]*//;s/[ \t]*$//')
         mean_dg0=$(echo "$clean_line" | awk -F'&' '{print $3}' | sed 's/kcal\/mol//g' | sed 's/^[ \t]*//;s/[ \t]*$//')
