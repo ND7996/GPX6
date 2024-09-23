@@ -12,7 +12,6 @@ TABLE_FILE="/home/hp/nayanika/github/GPX6/table/Free_Energy.tex"
     echo "\documentclass{article}"
     echo "\usepackage{amsmath}"  # For math symbols
     echo "\begin{document}"
-
     echo "\begin{table}[ht]"
     echo "    \centering"
     echo "    \begin{tabular}{|c|c|c|}"
@@ -21,42 +20,29 @@ TABLE_FILE="/home/hp/nayanika/github/GPX6/table/Free_Energy.tex"
     echo "    \hline"
 } > "$TABLE_FILE"
 
-# Read the existing stats file and extract the relevant lines
+# Read the stats file and extract relevant data
 while IFS= read -r line; do
-    # Sanitize the line
-    clean_line=$(echo "$line" | tr -d '\r' | sed 's/[^[:print:]]//g')
+    # Sanitize the line to remove unwanted characters
+    clean_line=$(echo "$line" | tr -d '\r' | sed 's/\\//g' | sed 's/\\pm/\$\\pm\$/g')
 
-    # Check if the line contains the header for dG* and dG0
-    if echo "$clean_line" | grep -q 'Mean dG\*'; then
-        # Skip this line as it's a header
-        continue
+    # Check if the line contains the sample data
+    if echo "$clean_line" | grep -q "WTmousecys"; then
+        # Extract Mean dG* and Mean dG0 values using consistent field separation
+        mean_dg_star=$(echo "$clean_line" | awk -F'&' '{print $2}' | sed 's/kcal\/mol//g' | sed 's/^[ \t]*//;s/[ \t]*$//')
+        mean_dg0=$(echo "$clean_line" | awk -F'&' '{print $3}' | sed 's/kcal\/mol//g' | sed 's/^[ \t]*//;s/[ \t]*$//')
+
+        # Debug output
+        echo "Debug: Mean dG* extracted: $mean_dg_star"  # Debug output
+        echo "Debug: Mean dG0 extracted: $mean_dg0"  # Debug output
+
+        # Add the extracted values to the table
+        echo "    WTMOUSECYS & $mean_dg_star kcal/mol & $mean_dg0 kcal/mol \\\\" >> "$TABLE_FILE"
     fi
-
-    # Check if the line contains data for dG* and dG0
-    if echo "$clean_line" | grep -q 'WTmousecys'; then
-        # Extract the values for WTmousecys
-        dg_star=$(echo "$clean_line" | awk '{print $NF-1 " +- " $NF}')  # Extract value for dG*
-        dg0=$(echo "$clean_line" | awk '{print $(NF-3) " +- " $(NF-1)}')  # Extract value for dG0
-        echo "Debug: dG* extracted: $dg_star"  # Debug output
-        echo "Debug: dG0 extracted: $dg0"  # Debug output
-        
-        # Add to the table
-        echo "    WTmousecys & $dg_star & $dg0 \\\\" >> "$TABLE_FILE"
-    fi
-
-    # Check if the line contains table data
-    if echo "$clean_line" | grep -q '\&'; then
-        # Escape underscores and backslashes
-        clean_line=$(echo "$clean_line" | sed -e 's/_/\\_/g' -e 's/\\pm/\$\\pm\$/g')
-
-        # Add line to the table if it's not already added
-        echo "    $clean_line \\\\" >> "$TABLE_FILE"
-    fi
-done < <(grep -A 100 '\begin{tabular}' "$STATS_FILE" | grep -B 100 '\end{table}')
+done < "$STATS_FILE"
 
 # Close the table and document
 {
-    echo "    \hline"  # Add final horizontal line
+    echo "    \hline"
     echo "    \end{tabular}"
     echo "    \caption{Free Energy Changes}"
     echo "\end{table}"
@@ -66,5 +52,3 @@ done < <(grep -A 100 '\begin{tabular}' "$STATS_FILE" | grep -B 100 '\end{table}'
 # Print the final LaTeX file for inspection
 echo "Contents of $TABLE_FILE:"
 cat "$TABLE_FILE"
-
-# End of script
