@@ -17,7 +17,7 @@ TABLE_FILE="/home/hp/nayanika/github/GPX6/table/Free_Energy.tex"
     echo "    \centering"
     echo "    \begin{tabular}{|c|c|c|}"
     echo "    \hline"
-    echo "    Sample & Mean dG* (kcal/mol) & Mean dG0 (kcal/mol) \\\\"
+    echo "    System & Mean dG* (kcal/mol) & Mean dG0 (kcal/mol) \\\\"
     echo "    \hline"
 } > "$TABLE_FILE"
 
