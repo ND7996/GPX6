@@ -22,8 +22,8 @@ TABLE_FILE="/home/hp/nayanika/github/GPX6/table/Free_Energy.tex"
 
 # Read the stats file and extract relevant data
 while IFS= read -r line; do
-    # Sanitize the line to remove unwanted characters and replace ± with \pm
-    clean_line=$(echo "$line" | tr -d '\r' | sed 's/±/\$\\pm\$/g' | sed 's/\\pm/\$\\pm\$/g')
+    # Sanitize the line to remove unwanted characters and add \pm where needed
+    clean_line=$(echo "$line" | tr -d '\r' | sed 's/\+/\$\\pm\$/g' | sed 's/\\//g')
 
     # Check if the line contains the sample data
     if echo "$clean_line" | grep -q "WTmousecys"; then
@@ -31,7 +31,11 @@ while IFS= read -r line; do
         mean_dg_star=$(echo "$clean_line" | awk -F'&' '{print $2}' | sed 's/kcal\/mol//g' | sed 's/^[ \t]*//;s/[ \t]*$//')
         mean_dg0=$(echo "$clean_line" | awk -F'&' '{print $3}' | sed 's/kcal\/mol//g' | sed 's/^[ \t]*//;s/[ \t]*$//')
 
-        # Add the extracted values to the table, ensuring correct LaTeX formatting with \pm
+        # Debug output
+        echo "Debug: Mean dG* extracted: $mean_dg_star"  # Debug output
+        echo "Debug: Mean dG0 extracted: $mean_dg0"  # Debug output
+
+        # Add the extracted values to the table
         echo "    WTMOUSECYS & $mean_dg_star kcal/mol & $mean_dg0 kcal/mol \\\\" >> "$TABLE_FILE"
     fi
 done < "$STATS_FILE"

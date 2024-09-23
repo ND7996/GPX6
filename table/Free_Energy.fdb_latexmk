@@ -1,5 +1,5 @@
 # Fdb version 4
-["lualatex"] 1727129643 "Free_Energy.tex" "Free_Energy.pdf" "Free_Energy" 1727129651 0
+["lualatex"] 1727129974 "Free_Energy.tex" "Free_Energy.pdf" "Free_Energy" 1727129980 0
   "/home/hp/.texlive2022/texmf-var/luatex-cache/generic/fonts/otl/lmroman10-regular.luc" 1727123644 127309 2c3a7c325c755353a32b5f3d0c56cb88 ""
   "/home/hp/.texlive2022/texmf-var/luatex-cache/generic/names/luaotfload-names.luc.gz" 1727123643 405747 a9366ac2cf922f45433d8c128b872e2c ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
@@ -13,6 +13,7 @@
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm" 1136768653 1124 6c73e740cf17375f03eec0ee63599741 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy5.tfm" 1136768653 1112 14d5d5f6bd3c949edecb5b872f295553 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy7.tfm" 1136768653 1120 2b3f9b25605010c69bc328bea6ac000f ""
+  "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb" 1248133631 36299 5f9df58c2139e7edcf37c8fca4bd384d ""
   "/usr/share/texlive/texmf-dist/tex/generic/unicode-data/CaseFolding.txt" 1663444472 84690 9d8a5659c16d531f765d773766ccb5b0 ""
   "/usr/share/texlive/texmf-dist/tex/generic/unicode-data/PropList.txt" 1663444472 132360 def86c24016f2b0b69ac18d444899b69 ""
   "/usr/share/texlive/texmf-dist/tex/generic/unicode-data/ScriptExtensions.txt" 1663444472 21971 6478741a243fe29af99ecfe1f86a639e ""
@@ -76,8 +77,8 @@
   "/usr/share/texmf/fonts/opentype/public/lm/lmroman10-regular.otf" 1255129361 111536 ae9d1b331000d544f47e5223081b7b54 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1727108177 4623455 fa0568a71dd9a288d6c226ee477506c6 ""
   "/var/lib/texmf/web2c/luahbtex/lualatex.fmt" 1727110969 11886858 3be6691f25fdad04d606b7469f5e70fd ""
-  "Free_Energy.aux" 1727129650 153 533f526a3bf481260dd7cb36dcd768ee "lualatex"
-  "Free_Energy.tex" 1727129639 366 bddb340e220b3b1d84e7d2da095aa773 ""
+  "Free_Energy.aux" 1727129980 153 533f526a3bf481260dd7cb36dcd768ee "lualatex"
+  "Free_Energy.tex" 1727129962 369 419fe0df3f2e3b0ffe1443f106cc9053 ""
   (generated)
   "Free_Energy.aux"
   "Free_Energy.log"
