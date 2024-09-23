@@ -1,0 +1,7 @@
+egin{table}[ht]
+        egin{tabular}{|c|c|c|}
+    \hline
+    Sample & Mean dG* (kcal/mol) & Mean dG0 (kcal/mol) \
+    \hline
+    nd{tabular}
+    nd{table}
