@@ -26,29 +26,33 @@ while IFS= read -r line; do
     # Sanitize the line
     clean_line=$(echo "$line" | tr -d '\r' | sed 's/[^[:print:]]//g')
 
-    # Check if the line contains data for dG* and dG0
-    if echo "$clean_line" | grep -q 'Mean dG*'; then
-        # Extract values
-        dg_star=$(echo "$clean_line" | awk '{print $NF}')  # Last field (assumes correct formatting)
-        echo "Debug: dG* extracted: $dg_star"  # Debug output
-    elif echo "$clean_line" | grep -q 'Mean dG0'; then
-        # Extract values
-        dg0=$(echo "$clean_line" | awk '{print $NF}')  # Last field (assumes correct formatting)
-        echo "Debug: dG0 extracted: $dg0"  # Debug output
+    # Check if the line contains the header for dG* and dG0
+    if echo "$clean_line" | grep -q 'Mean dG\*'; then
+        # Skip this line as it's a header
+        continue
     fi
 
-    # Check if the line contains table data (i.e., if it contains '&' indicating columns)
-    if echo "$clean_line" | grep -q '\&'; then
-        # Escape underscores and backslashes, and handle \pm
-        clean_line=$(echo "$clean_line" | sed -e 's/_/\\_/g' -e 's/\\pm/\$\\pm\$/g' -e 's/\$/\\$/g')
+    # Check if the line contains data for dG* and dG0
+    if echo "$clean_line" | grep -q 'WTmousecys'; then
+        # Extract the values for WTmousecys
+        dg_star=$(echo "$clean_line" | awk '{print $NF-1 " +- " $NF}')  # Extract value for dG*
+        dg0=$(echo "$clean_line" | awk '{print $(NF-3) " +- " $(NF-1)}')  # Extract value for dG0
+        echo "Debug: dG* extracted: $dg_star"  # Debug output
+        echo "Debug: dG0 extracted: $dg0"  # Debug output
+        
+        # Add to the table
+        echo "    WTmousecys & $dg_star & $dg0 \\\\" >> "$TABLE_FILE"
+    fi
 
-        # Add line to the table
+    # Check if the line contains table data
+    if echo "$clean_line" | grep -q '\&'; then
+        # Escape underscores and backslashes
+        clean_line=$(echo "$clean_line" | sed -e 's/_/\\_/g' -e 's/\\pm/\$\\pm\$/g')
+
+        # Add line to the table if it's not already added
         echo "    $clean_line \\\\" >> "$TABLE_FILE"
     fi
 done < <(grep -A 100 '\begin{tabular}' "$STATS_FILE" | grep -B 100 '\end{table}')
-
-# Add extracted dG* and dG0 values to the table
-echo "    WTmousecys & $dg_star & $dg0 \\\\" >> "$TABLE_FILE"
 
 # Close the table and document
 {
