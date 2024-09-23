@@ -37,7 +37,7 @@ while IFS= read -r line; do
         #uncertainty_dg0="0.1"       # Replace with actual extraction logic if available
 
         # Add the extracted values to the table with proper LaTeX math mode for \pm
-        echo "    WTMOUSECYS & $mean_dg_star \pm $uncertainty_dg_star \text{ kcal/mol} & $mean_dg0 \pm $uncertainty_dg0 \text{ kcal/mol} \\\\" >> "$TABLE_FILE"
+        echo "    WTMOUSECYS & $mean_dg_star \text{ kcal/mol} & $mean_dg0 \text{ kcal/mol} \\\\" >> "$TABLE_FILE"
     fi
 done < "$STATS_FILE"
 
