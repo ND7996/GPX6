@@ -22,8 +22,8 @@ TABLE_FILE="/home/hp/nayanika/github/GPX6/table/Free_Energy.tex"
 
 # Read the stats file and extract relevant data
 while IFS= read -r line; do
-    # Clean up the line and substitute +-, if found, with the proper LaTeX \pm
-    clean_line=$(echo "$line" | tr -d '\r' | sed 's/\+-/\$\\pm\$/g' | sed 's/\\//g')
+    # Clean up the line and substitute +- with the proper LaTeX \pm
+    clean_line=$(echo "$line" | tr -d '\r' | sed 's/\+-/ \$\\pm\$ /g' | sed 's/\\//g')
 
     # Check if the line contains the sample data
     if echo "$clean_line" | grep -q "WTmousecys"; then
