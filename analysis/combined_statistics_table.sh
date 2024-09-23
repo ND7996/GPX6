@@ -26,7 +26,7 @@ while IFS= read -r line; do
     # Sanitize the line
     clean_line=$(echo "$line" | tr -d '\r' | sed 's/[^[:print:]]//g')
 
-    # Check if the line contains table data
+    # Check if the line contains table data (i.e., if it contains '&' indicating columns)
     if echo "$clean_line" | grep -q '\&'; then
         # Escape underscores and backslashes, and handle \pm
         clean_line=$(echo "$clean_line" | sed -e 's/_/\\_/g' -e 's/\\pm/\$\\pm\$/g' -e 's/\$/\\$/g')
@@ -37,9 +37,9 @@ while IFS= read -r line; do
         # Add line to the table
         echo "    $clean_line \\\\" >> "$TABLE_FILE"
     fi
-done < "$STATS_FILE"
+done < <(grep -A 100 '\begin{tabular}' "$STATS_FILE" | grep -B 100 '\end{table}')
 
-# Close the table and documeacnt
+# Close the table and document
 {
     echo "    \hline"  # Add final horizontal line
     echo "    \end{tabular}"
