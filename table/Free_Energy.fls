@@ -96,6 +96,9 @@ INPUT /usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
 INPUT /usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
 INPUT /usr/share/texlive/texmf-dist/tex/latex/graphics-def/luatex.def
 INPUT /usr/share/texlive/texmf-dist/tex/latex/graphics-def/luatex.def
+INPUT /usr/share/texlive/texmf-dist/tex/latex/multirow/multirow.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/multirow/multirow.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/multirow/multirow.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-luatex.def
 INPUT /usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-luatex.def
 INPUT /usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-luatex.def
@@ -124,6 +127,7 @@ INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy5.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmex10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm
+INPUT /home/hp/.texlive2022/texmf-var/luatex-cache/generic/fonts/otl/lmroman10-bold.luc
 OUTPUT Free_Energy.pdf
 INPUT /var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map
 INPUT ./Free_Energy.aux
