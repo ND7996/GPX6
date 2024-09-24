@@ -12,17 +12,12 @@ TABLE_FILE="/home/hp/nayanika/github/GPX6/table/Free_Energy.tex"
     echo "\documentclass{article}"
     echo "\usepackage{amsmath}"  # For math symbols
     echo "\usepackage{graphicx}" # If you need additional graphics support
-    echo "\usepackage{multirow}" # For multi-row cells
     echo "\begin{document}"
     echo "\begin{table}[ht]"
     echo "    \centering"
     echo "    \begin{tabular}{|c|c|c|}"
     echo "    \hline"
     echo "    System & Mean dG* (kcal/mol) & Mean dG0 (kcal/mol) \\\\"
-    echo "    \hline"
-    #echo "    \textbf{Mouse Cys} & & \\\\"  # Add a heading for Mouse Cys
-    #echo "    \textbf{Mouse Sec} & & \\\\"  
-    #echo "    \textbf{Human Cys} & & \\\\"  
     echo "    \hline"
 } > "$TABLE_FILE"
 
@@ -31,14 +26,8 @@ while IFS= read -r line; do
     # Clean up the line and substitute +- with the proper LaTeX \pm
     clean_line=$(echo "$line" | tr -d '\r' | sed 's/\+-/\\pm/g')
 
-    # Append data with row headings for WT-Mouse Cys and Mouse Cys mutants
-    if echo "$clean_line" | grep -q "WT-Mouse Cys"; then
-        echo "$clean_line \\\\" >> "$TABLE_FILE"
-        echo "    \hline" >> "$TABLE_FILE"
-    elif echo "$clean_line" | grep -q "Mouse Cys - S47A,F48Y,T52A,T54Q,R99C"; then
-        echo "$clean_line \\\\" >> "$TABLE_FILE"
-        echo "    \hline" >> "$TABLE_FILE"
-    elif echo "$clean_line" | grep -q "WT\|S47A\|F48Y\|T54Q\|R99C"; then
+    # Check if the line contains data (includes keywords like WT, S47A, F48Y, T54Q, R99C, Cys, Sec, etc.)
+    if echo "$clean_line" | grep -q "WT\|S47A\|F48Y\|T54Q\|R99C\|Cys\|Sec\|Human"; then
         # Append the cleaned line to the table, preserving its format, and add \hline for row separation
         echo "$clean_line \\\\" >> "$TABLE_FILE"
         echo "    \hline" >> "$TABLE_FILE"
