@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.15.0 (TeX Live 2022/Debian)  (format=lualatex 2024.9.23)  25 SEP 2024 01:44
+This is LuaHBTeX, Version 1.15.0 (TeX Live 2022/Debian)  (format=lualatex 2024.9.23)  25 SEP 2024 01:51
  restricted system commands enabled.
 **Free_Energy.tex
 (./Free_Energy.tex
@@ -150,55 +150,48 @@ File: luatex.def 2022/09/22 v1.2d Graphics/color driver for luatex
 \Gin@req@height=\dimen149
 \Gin@req@width=\dimen150
 )
-(/usr/share/texlive/texmf-dist/tex/latex/multirow/multirow.sty
-Package: multirow 2021/03/15 v2.8 Span multiple rows of a table
-\multirow@colwidth=\skip53
-\multirow@cntb=\count269
-\multirow@dima=\skip54
-\bigstrutjot=\dimen151
-)
 (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-luatex.def
 File: l3backend-luatex.def 2023-01-16 L3 backend support: PDF output (LuaTeX)
-\l__color_backend_stack_int=\count270
+\l__color_backend_stack_int=\count269
 \l__pdf_internal_box=\box53
 )
 (./Free_Energy.aux)
 \openout1 = Free_Energy.aux
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 5.
-LaTeX Font Info:    ... okay on input line 5.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 5.
-LaTeX Font Info:    ... okay on input line 5.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 5.
-LaTeX Font Info:    ... okay on input line 5.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 5.
-LaTeX Font Info:    ... okay on input line 5.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 5.
-LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 5
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 4.
+LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 4
 .
  (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2022/07/10 v2.5l Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 5.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 5.
-LaTeX Font Info:    ... okay on input line 5.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 5.
-LaTeX Font Info:    ... okay on input line 5.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 5.
-LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count271
-\scratchdimen=\dimen152
+\scratchcounter=\count270
+\scratchdimen=\dimen151
 \scratchbox=\box54
-\nofMPsegments=\count272
-\nofMParguments=\count273
+\nofMPsegments=\count271
+\nofMParguments=\count272
 \everyMPshowfont=\toks22
-\MPscratchCnt=\count274
-\MPscratchDim=\dimen153
-\MPnumerator=\count275
-\makeMPintoPDFobject=\count276
+\MPscratchCnt=\count273
+\MPscratchDim=\dimen152
+\MPnumerator=\count274
+\makeMPintoPDFobject=\count275
 \everyMPtoPDFconversion=\toks23
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -209,7 +202,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-Overfull \hbox (76.71786pt too wide) in paragraph at lines 8--32
+Overfull \hbox (80.55786pt too wide) in paragraph at lines 7--32
  [][] 
  []
 
@@ -218,18 +211,18 @@ Overfull \hbox (76.71786pt too wide) in paragraph at lines 8--32
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./Free_Energy.aux))
 
 Here is how much of LuaTeX's memory you used:
- 2200 strings out of 478382
+ 2124 strings out of 478382
  100000,1977958 words of node,token memory allocated
  483 words of node memory still in use:
    6 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 1 glyph, 7 attribute, 51 glue_spec,
  7 attribute_list, 1 write nodes
-   avail lists: 1:1,2:211,3:12,4:1,5:60,6:2,7:1906,8:1,9:240,11:28
- 22254 multiletter control sequences out of 65536+600000
+   avail lists: 1:1,2:225,3:12,4:1,5:64,6:2,7:2116,8:1,9:258,11:32
+ 22187 multiletter control sequences out of 65536+600000
  27 fonts using 1469007 bytes
- 55i,8n,59p,201b,215s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 55i,8n,59p,196b,215s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf/fonts/opentype/public/lm/lmroman10-regular.otf></usr/share/tex
 live/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on Free_Energy.pdf (1 page, 16150 bytes).
+Output written on Free_Energy.pdf (1 page, 16264 bytes).
 
 PDF statistics: 19 PDF objects out of 1000 (max. 8388607)
  11 compressed objects within 1 object stream
