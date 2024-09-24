@@ -1,5 +1,6 @@
 # Fdb version 4
-["lualatex"] 1727220637 "Free_Energy.tex" "Free_Energy.pdf" "Free_Energy" 1727220644 0
+["lualatex"] 1727221232 "Free_Energy.tex" "Free_Energy.pdf" "Free_Energy" 1727221240 0
+  "/home/hp/.texlive2022/texmf-var/luatex-cache/generic/fonts/otl/lmroman10-bold.luc" 1727221231 128392 5ccdcd80529671c517f74edd952aa156 ""
   "/home/hp/.texlive2022/texmf-var/luatex-cache/generic/fonts/otl/lmroman10-regular.luc" 1727123644 127309 2c3a7c325c755353a32b5f3d0c56cb88 ""
   "/home/hp/.texlive2022/texmf-var/luatex-cache/generic/names/luaotfload-names.luc.gz" 1727123643 405747 a9366ac2cf922f45433d8c128b872e2c ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
@@ -43,6 +44,7 @@
   "/usr/share/texlive/texmf-dist/tex/latex/l3kernel/expl3.lua" 1673989714 16940 14e757e1be9764a86135ad5b4b883d66 ""
   "/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg" 1279039959 678 4792914a8f45be57bb98413425e4c7af ""
   "/usr/share/texlive/texmf-dist/tex/latex/latexconfig/lualatexquotejobname.lua" 1308175312 1031 977f79ff10b802fc398926378bec58e9 ""
+  "/usr/share/texlive/texmf-dist/tex/latex/multirow/multirow.sty" 1615845910 6149 2398eec4faa1ee24ff761581e580ecf1 ""
   "/usr/share/texlive/texmf-dist/tex/luatex/lua-uni-algos/lua-uni-case.lua" 1645915452 1921 020c660fdc1d4c83ffebb059fead7b51 ""
   "/usr/share/texlive/texmf-dist/tex/luatex/lua-uni-algos/lua-uni-normalize.lua" 1645915452 21269 eb4154856f0afe9e8d886dbf6922dcc6 ""
   "/usr/share/texlive/texmf-dist/tex/luatex/lua-uni-algos/lua-uni-parse.lua" 1645915452 2115 596f0e8384e97c26c78a8e88c65a7843 ""
@@ -84,11 +86,12 @@
   "/usr/share/texlive/texmf-dist/tex/luatex/luaotfload/luaotfload-tounicode.lua" 1664913378 7528 9bc62ed441ed23b5222925b019479f78 ""
   "/usr/share/texlive/texmf-dist/tex/luatex/luaotfload/luaotfload-unicode.lua" 1664913378 7917 30f5b1073daa0c6e85ca1db843fbd9cd ""
   "/usr/share/texlive/texmf-dist/tex/luatex/luaotfload/luaotfload.lua" 1664913378 13565 83bac25a8cf8630acccd6a7f8bb9f791 ""
+  "/usr/share/texmf/fonts/opentype/public/lm/lmroman10-bold.otf" 1255129361 111240 0af0b64d6d3df41bead3f9de314afbd4 ""
   "/usr/share/texmf/fonts/opentype/public/lm/lmroman10-regular.otf" 1255129361 111536 ae9d1b331000d544f47e5223081b7b54 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1727108177 4623455 fa0568a71dd9a288d6c226ee477506c6 ""
   "/var/lib/texmf/web2c/luahbtex/lualatex.fmt" 1727110969 11886858 3be6691f25fdad04d606b7469f5e70fd ""
-  "Free_Energy.aux" 1727220644 153 533f526a3bf481260dd7cb36dcd768ee "lualatex"
-  "Free_Energy.tex" 1727220610 865 00160f29bffb3d35b3ade6078aa5a759 ""
+  "Free_Energy.aux" 1727221239 153 533f526a3bf481260dd7cb36dcd768ee "lualatex"
+  "Free_Energy.tex" 1727221209 1329 8b8a8893898e0ed0531b539b1a260c29 ""
   (generated)
   "Free_Energy.aux"
   "Free_Energy.log"
