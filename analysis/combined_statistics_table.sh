@@ -26,18 +26,10 @@ while IFS= read -r line; do
     # Clean up the line and substitute +- with the proper LaTeX \pm
     clean_line=$(echo "$line" | tr -d '\r' | sed 's/\+-/\\pm/g')
 
-    # Check if the line contains the sample data
-    if echo "$clean_line" | grep -q "S47A-F48Y-T52A-T54Q"; then
-        # Extract Mean dG* and Mean dG0 values using consistent field separation
-        mean_dg_star=$(echo "$clean_line" | awk -F'&' '{print $2}' | sed 's/kcal\/mol//g' | sed 's/^[ \t]*//;s/[ \t]*$//')
-        mean_dg0=$(echo "$clean_line" | awk -F'&' '{print $3}' | sed 's/kcal\/mol//g' | sed 's/^[ \t]*//;s/[ \t]*$//')
-
-        # Assuming you have uncertainties defined
-        #uncertainty_dg_star="0.2"  # Replace with actual extraction logic if available
-        #uncertainty_dg0="0.1"       # Replace with actual extraction logic if available
-
-        # Add the extracted values to the table with proper LaTeX math mode for \pm
-        echo "   S47A-F48Y-T52A-T54Q & $mean_dg_star \text{ kcal/mol} & $mean_dg0 \text{ kcal/mol} \\\\" >> "$TABLE_FILE"
+    # Check if the line contains data (i.e., it includes mutations and dG values)
+    if echo "$clean_line" | grep -q "WT\|S47A\|F48Y\|T54Q\|R99C"; then
+        # Append the cleaned line to the table, preserving its format
+        echo "$clean_line \\\\" >> "$TABLE_FILE"
     fi
 done < "$STATS_FILE"
 
