@@ -20,9 +20,9 @@ TABLE_FILE="/home/hp/nayanika/github/GPX6/table/Free_Energy.tex"
     echo "    \hline"
     echo "    System & Mean dG* (kcal/mol) & Mean dG0 (kcal/mol) \\\\"
     echo "    \hline"
-    echo "    \textbf{Mouse Cys} & & \\\\"  # Add a heading for Mouse Cys
-    echo "    \textbf{Mouse Sec} & & \\\\"  
-    echo "    \textbf{Human Cys} & & \\\\"  
+    #echo "    \textbf{Mouse Cys} & & \\\\"  # Add a heading for Mouse Cys
+    #echo "    \textbf{Mouse Sec} & & \\\\"  
+    #echo "    \textbf{Human Cys} & & \\\\"  
     echo "    \hline"
 } > "$TABLE_FILE"
 

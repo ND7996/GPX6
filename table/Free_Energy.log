@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.15.0 (TeX Live 2022/Debian)  (format=lualatex 2024.9.23)  25 SEP 2024 01:40
+This is LuaHBTeX, Version 1.15.0 (TeX Live 2022/Debian)  (format=lualatex 2024.9.23)  25 SEP 2024 01:44
  restricted system commands enabled.
 **Free_Energy.tex
 (./Free_Energy.tex
@@ -209,7 +209,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-Overfull \hbox (76.71786pt too wide) in paragraph at lines 8--37
+Overfull \hbox (76.71786pt too wide) in paragraph at lines 8--32
  [][] 
  []
 
@@ -218,22 +218,21 @@ Overfull \hbox (76.71786pt too wide) in paragraph at lines 8--37
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./Free_Energy.aux))
 
 Here is how much of LuaTeX's memory you used:
- 2201 strings out of 478382
+ 2200 strings out of 478382
  100000,1977958 words of node,token memory allocated
  483 words of node memory still in use:
    6 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 1 glyph, 7 attribute, 51 glue_spec,
  7 attribute_list, 1 write nodes
-   avail lists: 1:1,2:281,3:12,4:1,5:70,6:2,7:2276,8:1,9:314,11:36
- 22255 multiletter control sequences out of 65536+600000
- 28 fonts using 1600695 bytes
- 55i,8n,59p,201b,272s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texmf/fonts/opentype/public/lm/lmroman10-bold.otf></usr/share/texmf/
-fonts/opentype/public/lm/lmroman10-regular.otf></usr/share/texlive/texmf-dist/fo
-nts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on Free_Energy.pdf (1 page, 19101 bytes).
+   avail lists: 1:1,2:211,3:12,4:1,5:60,6:2,7:1906,8:1,9:240,11:28
+ 22254 multiletter control sequences out of 65536+600000
+ 27 fonts using 1469007 bytes
+ 55i,8n,59p,201b,215s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/share/texmf/fonts/opentype/public/lm/lmroman10-regular.otf></usr/share/tex
+live/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on Free_Energy.pdf (1 page, 16150 bytes).
 
-PDF statistics: 26 PDF objects out of 1000 (max. 8388607)
- 15 compressed objects within 1 object stream
+PDF statistics: 19 PDF objects out of 1000 (max. 8388607)
+ 11 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 131072)
  1 words of extra memory for PDF output out of 10000 (max. 100000000)
 
