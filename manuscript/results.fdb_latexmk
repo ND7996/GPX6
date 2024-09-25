@@ -1,5 +1,5 @@
 # Fdb version 4
-["lualatex"] 1727279294 "results.tex" "results.pdf" "results" 1727279302 0
+["lualatex"] 1727279714 "results.tex" "results.pdf" "results" 1727279723 0
   "/home/hp/.texlive2022/texmf-var/luatex-cache/generic/fonts/otl/lmroman10-regular.luc" 1727123644 127309 2c3a7c325c755353a32b5f3d0c56cb88 ""
   "/home/hp/.texlive2022/texmf-var/luatex-cache/generic/fonts/otl/lmroman12-bold.luc" 1727260098 128281 9d287a5267ef7e46310d2a20eb9d5ccd ""
   "/home/hp/.texlive2022/texmf-var/luatex-cache/generic/fonts/otl/lmroman12-regular.luc" 1727260097 127652 ea9fc6c83383bb1337b771452cfd801e ""
@@ -104,8 +104,8 @@
   "/usr/share/texmf/fonts/opentype/public/lm/lmroman17-regular.otf" 1255129361 110248 1d75fdc9dbe45e70de83ff6cc79a81c9 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1727108177 4623455 fa0568a71dd9a288d6c226ee477506c6 ""
   "/var/lib/texmf/web2c/luahbtex/lualatex.fmt" 1727110969 11886858 3be6691f25fdad04d606b7469f5e70fd ""
-  "results.aux" 1727279301 375 1c6dbbe4bc061a4eae25392c71363749 "lualatex"
-  "results.tex" 1727279270 2050 c0662f5d79b90739561766f91f7bc880 ""
+  "results.aux" 1727279722 375 1c6dbbe4bc061a4eae25392c71363749 "lualatex"
+  "results.tex" 1727279690 2082 412c877c6a8df0912cdd4c285784d4f9 ""
   (generated)
   "results.aux"
   "results.log"
