@@ -7,15 +7,12 @@ STATS_FILE="$DATA_DIR/stats.tex"
 # File where the combined table will be stored
 TABLE_FILE="/home/hp/nayanika/github/GPX6/table/Free_Energy.tex"
 
-# Start writing the LaTeX document to the output file
+# Start writing the complete LaTeX document to the output file
 {
     echo "\documentclass{article}"
-    echo "\usepackage{amsmath}" # for \pm
-    echo "\usepackage{booktabs}" # optional for better table rules
-    echo "\usepackage{caption}"  # for table captions
+    echo "\usepackage{amsmath}"  # For math symbols
+    echo "\usepackage{graphicx}" # If you need additional graphics support
     echo "\begin{document}"
-    echo ""
-    
     echo "\begin{table}[ht]"
     echo "    \centering"
     echo "    \begin{tabular}{|c|c|c|}"
@@ -27,22 +24,21 @@ TABLE_FILE="/home/hp/nayanika/github/GPX6/table/Free_Energy.tex"
 # Read the stats file and extract relevant data
 while IFS= read -r line; do
     # Clean up the line and substitute +- with the proper LaTeX \pm
-    clean_line=$(echo "$line" | tr -d '\r' | sed 's/+/\\pm/g')
+    clean_line=$(echo "$line" | tr -d '\r' | sed 's/\+-/\\pm/g')
 
     # Check if the line contains data (includes keywords like WT, S47A, F48Y, T54Q, R99C, Cys, Sec, etc.)
-    if echo "$clean_line" | grep -qE "WT|S47A|F48Y|T54Q|R99C|Cys|Sec|Human"; then
+    if echo "$clean_line" | grep -q "WT\|S47A\|F48Y\|T54Q\|R99C\|Cys\|Sec\|Human"; then
         # Append the cleaned line to the table, preserving its format, and add \hline for row separation
         echo "$clean_line \\\\" >> "$TABLE_FILE"
         echo "    \hline" >> "$TABLE_FILE"
     fi
 done < "$STATS_FILE"
 
-# Close the table and the document
+# Close the table and document
 {
     echo "    \end{tabular}"
     echo "    \caption{Free Energy Changes}"
     echo "\end{table}"
-    echo ""
     echo "\end{document}"
 } >> "$TABLE_FILE"
 
