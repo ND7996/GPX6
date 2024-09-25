@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.15.0 (TeX Live 2022/Debian)  (format=lualatex 2024.9.23)  25 SEP 2024 14:56
+This is LuaHBTeX, Version 1.15.0 (TeX Live 2022/Debian)  (format=lualatex 2024.9.23)  25 SEP 2024 14:58
  restricted system commands enabled.
 **results.tex
 (./results.tex
@@ -225,16 +225,16 @@ Here is how much of LuaTeX's memory you used:
  493 words of node memory still in use:
    6 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 1 glyph, 7 attribute, 53 glue_spec,
  7 attribute_list, 1 write nodes
-   avail lists: 1:1,2:360,3:57,4:12,5:190,6:17,7:4655,8:1,9:320,10:8,11:313
+   avail lists: 1:1,2:360,3:57,4:13,5:190,6:17,7:4643,8:1,9:320,10:8,11:311
  22276 multiletter control sequences out of 65536+600000
  44 fonts using 2873087 bytes
- 55i,8n,59p,542b,219s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 55i,8n,59p,515b,219s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf/fonts/opentype/public/lm/lmroman10-regular.otf></usr/share/tex
 mf/fonts/opentype/public/lm/lmroman12-bold.otf></usr/share/texmf/fonts/opentype/
 public/lm/lmroman12-regular.otf></usr/share/texmf/fonts/opentype/public/lm/lmrom
 an17-regular.otf></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
 msy10.pfb>
-Output written on results.pdf (2 pages, 28856 bytes).
+Output written on results.pdf (2 pages, 28861 bytes).
 
 PDF statistics: 43 PDF objects out of 1000 (max. 8388607)
  25 compressed objects within 1 object stream
