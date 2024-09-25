@@ -2,6 +2,11 @@
 \usepackage{amsmath}
 \usepackage{graphicx}
 \usepackage{float} % This package helps with figure placement
+\usepackage{subcaption} % For subfigures
+\usepackage[export]{adjustbox} % For additional options in \includegraphics
+\usepackage{wrapfig} % For wrapping text around figures
+
+\graphicspath{{/home/hp/nayanika/github/GPX6/figures/}} % Ensure the path is correct
 
 \begin{document}
 
@@ -25,9 +30,6 @@ All the systems listed have positive dG* values, indicating that the processes a
 
 % Include the external table
 \input{/home/hp/nayanika/github/GPX6/table/Free_Energy.tex}
-
-% Set graphics path for figures
-\graphicspath{{/home/hp/nayanika/github/GPX6/figures}}
 
 \begin{figure}[H] % Use [H] to force the figure to appear here
     \centering
