@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.15.0 (TeX Live 2022/Debian)  (format=lualatex 2024.9.23)  25 SEP 2024 13:52
+This is LuaHBTeX, Version 1.15.0 (TeX Live 2022/Debian)  (format=lualatex 2024.9.23)  25 SEP 2024 14:23
  restricted system commands enabled.
 **results.tex
 (./results.tex
@@ -203,13 +203,13 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 (/home/hp/nayanika/github/GPX6/table/Free_Energy.tex
-Overfull \hbox (80.55786pt too wide) in paragraph at lines 3--30
+Overfull \hbox (80.55786pt too wide) in paragraph at lines 3--32
  [][] 
  []
 
 [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./results.aux)))
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] (./results.aux)))
 
 Here is how much of LuaTeX's memory you used:
  2152 strings out of 478382
@@ -217,19 +217,19 @@ Here is how much of LuaTeX's memory you used:
  493 words of node memory still in use:
    6 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 1 glyph, 7 attribute, 53 glue_spec,
  7 attribute_list, 1 write nodes
-   avail lists: 1:1,2:325,3:54,4:13,5:156,6:16,7:4512,8:1,9:336,10:8,11:218
+   avail lists: 1:1,2:344,3:57,4:13,5:188,6:17,7:4569,8:1,9:300,10:8,11:310
  22206 multiletter control sequences out of 65536+600000
  44 fonts using 2873087 bytes
- 55i,8n,59p,241b,217s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 55i,8n,59p,255b,217s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf/fonts/opentype/public/lm/lmroman10-regular.otf></usr/share/tex
 mf/fonts/opentype/public/lm/lmroman12-bold.otf></usr/share/texmf/fonts/opentype/
 public/lm/lmroman12-regular.otf></usr/share/texmf/fonts/opentype/public/lm/lmrom
 an17-regular.otf></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
 msy10.pfb>
-Output written on results.pdf (1 page, 27880 bytes).
+Output written on results.pdf (2 pages, 28772 bytes).
 
-PDF statistics: 40 PDF objects out of 1000 (max. 8388607)
- 23 compressed objects within 1 object stream
+PDF statistics: 43 PDF objects out of 1000 (max. 8388607)
+ 25 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 131072)
  1 words of extra memory for PDF output out of 10000 (max. 100000000)
 
