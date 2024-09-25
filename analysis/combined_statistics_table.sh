@@ -27,7 +27,7 @@ while IFS= read -r line; do
     clean_line=$(echo "$line" | tr -d '\r' | sed 's/\+-/\\pm/g')
 
     # Check if the line contains data (includes keywords like WT, S47A, F48Y, T54Q, R99C, Cys, Sec, etc.)
-    if echo "$clean_line" | grep -q "WT\|S47A\|F48Y\|T54Q\|R99C\|Cys\|Sec\|Human"; then
+    if echo "$clean_line" | grep -q "WT\|S47A\|F48Y\|T52A\|T54Q\|R99C\|Cys\|Sec\|Human"; then
         # Append the cleaned line to the table, preserving its format, and add \hline for row separation
         echo "$clean_line \\\\" >> "$TABLE_FILE"
         echo "    \hline" >> "$TABLE_FILE"
