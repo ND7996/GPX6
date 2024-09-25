@@ -1,5 +1,5 @@
 # Fdb version 4
-["lualatex"] 1727266964 "Free_Energy.tex" "Free_Energy.pdf" "Free_Energy" 1727266972 0
+["lualatex"] 1727267188 "Free_Energy.tex" "Free_Energy.pdf" "Free_Energy" 1727267195 0
   "/home/hp/.texlive2022/texmf-var/luatex-cache/generic/fonts/otl/lmroman10-regular.luc" 1727123644 127309 2c3a7c325c755353a32b5f3d0c56cb88 ""
   "/home/hp/.texlive2022/texmf-var/luatex-cache/generic/names/luaotfload-names.luc.gz" 1727123643 405747 a9366ac2cf922f45433d8c128b872e2c ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
@@ -87,8 +87,8 @@
   "/usr/share/texmf/fonts/opentype/public/lm/lmroman10-regular.otf" 1255129361 111536 ae9d1b331000d544f47e5223081b7b54 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1727108177 4623455 fa0568a71dd9a288d6c226ee477506c6 ""
   "/var/lib/texmf/web2c/luahbtex/lualatex.fmt" 1727110969 11886858 3be6691f25fdad04d606b7469f5e70fd ""
-  "Free_Energy.aux" 1727266971 153 533f526a3bf481260dd7cb36dcd768ee "lualatex"
-  "Free_Energy.tex" 1727266954 1380 5e67df475364e62ab57e1823632f74d8 ""
+  "Free_Energy.aux" 1727267194 153 533f526a3bf481260dd7cb36dcd768ee "lualatex"
+  "Free_Energy.tex" 1727267182 1454 b80e091077435c96aebdda4272b8e55b ""
   (generated)
   "Free_Energy.aux"
   "Free_Energy.log"

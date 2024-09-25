@@ -1,11 +1,11 @@
 # Fdb version 4
-["lualatex"] 1727267003 "results.tex" "results.pdf" "results" 1727267011 0
+["lualatex"] 1727267265 "results.tex" "results.pdf" "results" 1727267273 0
   "/home/hp/.texlive2022/texmf-var/luatex-cache/generic/fonts/otl/lmroman10-regular.luc" 1727123644 127309 2c3a7c325c755353a32b5f3d0c56cb88 ""
   "/home/hp/.texlive2022/texmf-var/luatex-cache/generic/fonts/otl/lmroman12-bold.luc" 1727260098 128281 9d287a5267ef7e46310d2a20eb9d5ccd ""
   "/home/hp/.texlive2022/texmf-var/luatex-cache/generic/fonts/otl/lmroman12-regular.luc" 1727260097 127652 ea9fc6c83383bb1337b771452cfd801e ""
   "/home/hp/.texlive2022/texmf-var/luatex-cache/generic/fonts/otl/lmroman17-regular.luc" 1727260096 128903 c09e0576e10f0fc037591eb3b694d3ec ""
   "/home/hp/.texlive2022/texmf-var/luatex-cache/generic/names/luaotfload-names.luc.gz" 1727123643 405747 a9366ac2cf922f45433d8c128b872e2c ""
-  "/home/hp/nayanika/github/GPX6/table/Free_Energy.tex" 1727266981 1296 be79cba4afd0bba508c73e5a55eb98a6 ""
+  "/home/hp/nayanika/github/GPX6/table/Free_Energy.tex" 1727267228 1370 530b5637bdbaf0638c6408cd86e70b1e ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmex10.tfm" 1136768653 992 662f679a0b3d2d53c1b94050fdaa3f50 ""
@@ -103,7 +103,7 @@
   "/usr/share/texmf/fonts/opentype/public/lm/lmroman17-regular.otf" 1255129361 110248 1d75fdc9dbe45e70de83ff6cc79a81c9 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1727108177 4623455 fa0568a71dd9a288d6c226ee477506c6 ""
   "/var/lib/texmf/web2c/luahbtex/lualatex.fmt" 1727110969 11886858 3be6691f25fdad04d606b7469f5e70fd ""
-  "results.aux" 1727267010 375 1c6dbbe4bc061a4eae25392c71363749 "lualatex"
+  "results.aux" 1727267272 375 1c6dbbe4bc061a4eae25392c71363749 "lualatex"
   "results.tex" 1727266228 1675 201c055e1cda2aa62766d0740bf233b4 ""
   (generated)
   "results.aux"
