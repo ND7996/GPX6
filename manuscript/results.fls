@@ -96,6 +96,9 @@ INPUT /usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
 INPUT /usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
 INPUT /usr/share/texlive/texmf-dist/tex/latex/graphics-def/luatex.def
 INPUT /usr/share/texlive/texmf-dist/tex/latex/graphics-def/luatex.def
+INPUT /usr/share/texlive/texmf-dist/tex/latex/float/float.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/float/float.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/float/float.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-luatex.def
 INPUT /usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-luatex.def
 INPUT /usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-luatex.def
