@@ -329,8 +329,12 @@ INPUT /home/hp/nayanika/github/GPX6/figures/flohe_energyprofile.png
 INPUT /home/hp/nayanika/github/GPX6/figures/morokuma_energy_profile.png
 INPUT /home/hp/nayanika/github/GPX6/figures/morokuma_energy_profile.png
 INPUT /home/hp/nayanika/github/GPX6/figures/morokuma_energy_profile.png
+INPUT ./Introduction_Method.bbl
+INPUT ./Introduction_Method.bbl
 INPUT ./Introduction_Method.aux
+INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb
+INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb

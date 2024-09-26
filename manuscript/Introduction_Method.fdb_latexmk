@@ -1,14 +1,14 @@
 # Fdb version 4
-["bibtex Introduction_Method"] 1727281320 "Introduction_Method.aux" "Introduction_Method.bbl" "Introduction_Method" 1727281321 2
-  "./acs-Introduction_Method.bib" 1727281312 306 2ec6e2c563f7f14bcefed0d36c308168 ""
+["bibtex Introduction_Method"] 1727282591 "Introduction_Method.aux" "Introduction_Method.bbl" "Introduction_Method" 1727282592 2
+  "./acs-Introduction_Method.bib" 1727282586 306 2ec6e2c563f7f14bcefed0d36c308168 ""
   "/home/hp/nayanika/github/GPX6/manuscript/references.bib" 1726765339 42544 fa8c1a026120768b1dfe9fae4e389d60 ""
   "/usr/share/texlive/texmf-dist/bibtex/bst/achemso/achemso.bst" 1669410077 30297 5c43bd44e45855d79ce641c94678cfcc ""
-  "Introduction_Method.aux" 1727281315 1585 217d014d637fea2df8bf75b53dbb6927 "lualatex"
+  "Introduction_Method.aux" 1727282586 1802 16267ef3f6d300423f7c65d54d4dc238 "lualatex"
   (generated)
   "Introduction_Method.bbl"
   "Introduction_Method.blg"
   (rewritten before read)
-["lualatex"] 1727281299 "Introduction_Method.tex" "Introduction_Method.pdf" "Introduction_Method" 1727281321 0
+["lualatex"] 1727282569 "Introduction_Method.tex" "Introduction_Method.pdf" "Introduction_Method" 1727282592 0
   "/home/hp/.texlive2022/texmf-var/luatex-cache/generic/fonts/otl/lmroman10-bold.luc" 1727221231 128392 5ccdcd80529671c517f74edd952aa156 ""
   "/home/hp/.texlive2022/texmf-var/luatex-cache/generic/fonts/otl/lmroman10-regular.luc" 1727123644 127309 2c3a7c325c755353a32b5f3d0c56cb88 ""
   "/home/hp/.texlive2022/texmf-var/luatex-cache/generic/fonts/otl/lmroman12-bold.luc" 1727260098 128281 9d287a5267ef7e46310d2a20eb9d5ccd ""
@@ -44,7 +44,9 @@
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm" 1136768653 1116 933a60c408fc0a863a92debe84b2d294 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy7.tfm" 1136768653 1120 2b3f9b25605010c69bc328bea6ac000f ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy8.tfm" 1136768653 1120 8b7d695260f3cff42e636090a8002094 ""
+  "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb" 1248133631 30251 6afa5cb1d0204815a708a080681d4674 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb" 1248133631 36741 fa121aac0049305630cf160b86157ee4 ""
+  "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb" 1248133631 35469 70d41d2b9ea31d5d813066df7c99281c ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb" 1248133631 32722 d7379af29a190c3f453aba36302ff5a9 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb" 1248133631 32726 0a1aea6fcd6468ee2cf64d891f5c43c8 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1248133631 32569 5e5ddc8df908dea60932f3c484a54c0d ""
@@ -207,6 +209,7 @@
   "/usr/share/texlive/texmf-dist/tex/luatex/luaotfload/luaotfload-unicode.lua" 1664913378 7917 30f5b1073daa0c6e85ca1db843fbd9cd ""
   "/usr/share/texlive/texmf-dist/tex/luatex/luaotfload/luaotfload.lua" 1664913378 13565 83bac25a8cf8630acccd6a7f8bb9f791 ""
   "/usr/share/texmf/fonts/opentype/public/lm/lmroman10-bold.otf" 1255129361 111240 0af0b64d6d3df41bead3f9de314afbd4 ""
+  "/usr/share/texmf/fonts/opentype/public/lm/lmroman10-regular.otf" 1255129361 111536 ae9d1b331000d544f47e5223081b7b54 ""
   "/usr/share/texmf/fonts/opentype/public/lm/lmroman12-bold.otf" 1255129361 110496 b9c8767d4cc3bf3f4b21f676bf89aa78 ""
   "/usr/share/texmf/fonts/opentype/public/lm/lmroman12-italic.otf" 1255129361 117732 558aeb4ada25b652cc2e9bcf0771e962 ""
   "/usr/share/texmf/fonts/opentype/public/lm/lmroman12-regular.otf" 1255129361 110400 d844cffffa1af59f9d2bb1bfdb6f1a2c ""
@@ -216,9 +219,9 @@
   "/usr/share/texmf/fonts/opentype/public/lm/lmsans12-regular.otf" 1255129361 95160 a298a0c894450a41822166397e6bc032 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1727108177 4623455 fa0568a71dd9a288d6c226ee477506c6 ""
   "/var/lib/texmf/web2c/luahbtex/lualatex.fmt" 1727110969 11886858 3be6691f25fdad04d606b7469f5e70fd ""
-  "Introduction_Method.aux" 1727281315 1585 217d014d637fea2df8bf75b53dbb6927 "lualatex"
-  "Introduction_Method.bbl" 1727281321 4098 55e3ce1299c79d1db8dfc9831b1cc769 "bibtex Introduction_Method"
-  "Introduction_Method.tex" 1727281295 6757 5239f70d978d8c5153c8e7185aae761f ""
+  "Introduction_Method.aux" 1727282586 1802 16267ef3f6d300423f7c65d54d4dc238 "lualatex"
+  "Introduction_Method.bbl" 1727282592 5029 8040a1767d795d3778825cbe4957fc23 "bibtex Introduction_Method"
+  "Introduction_Method.tex" 1727282567 9316 23e8ca4ee18d71bad134e11427a02ed7 ""
   (generated)
   "Introduction_Method.aux"
   "Introduction_Method.log"
