@@ -6,8 +6,6 @@
 #SBATCH --cpus-per-task=4          # Number of CPU cores per task (adjust as needed)
 #SBATCH --mem=16G              # Memory per node (adjust as needed)
 #SBATCH --time=24:00:00           # Time limit hrs:min:sec (adjust as needed)
-#SBATCH --mail-type=END,FAIL        # Notification type (END = job finished, FAIL = job failed)
-#SBATCH --mail-user=your.email@example.com # Email address for notifications
 
 OK="(\033[0;32m   OK   \033[0m)"
 FAILED="(\033[0;31m FAILED \033[0m)"
