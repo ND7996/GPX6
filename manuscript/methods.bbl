@@ -1,0 +1,14 @@
+\begin{thebibliography}{1}
+
+\bibitem{Marelius1999}
+John Marelius, Karin Kolmodin, Isabella Feierberg, and Johan Åqvist.
+\newblock Q: A molecular dynamics program for free energy calculations and
+  empirical valence bond simulations in biomolecular systems, 1999.
+
+\bibitem{King1989}
+Gregory King and Arieh Warshel.
+\newblock A surface constrained all-atom solvent model for effective
+  simulations of polar solutions.
+\newblock {\em The Journal of Chemical Physics}, 91:3647--3661, 1989.
+
+\end{thebibliography}

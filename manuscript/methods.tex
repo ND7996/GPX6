@@ -2,6 +2,8 @@
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath}
 \usepackage{hyperref}
+\usepackage{graphics}
+
 
 \begin{document}
 
@@ -30,10 +32,10 @@ The second term represents the free energy difference between the mapping potent
 \(E_g\) is the solution to the secular determinant. The system is then represented by an \(n \times n\) EVB Hamiltonian.
 
 \[ 
-  \left[ {\begin{array}{cc}
+  \left[\begin{array}{cc}
     H_{11} & H_{12} \\
     H_{21} & H_{22} \\
-  \end{array} } \right]
+  \end{array}\right]
 \]
 
 Here, \(H_{11}\) and \(H_{22}\) are the energies of the two valence states which are calculated using classical force fields. 
@@ -60,14 +62,12 @@ The first step in preparing a simulation that has missing force field parameters
 
 The initial structure used to make the EVB model was for mouse cysteine wild type (PDB ID - 7FC2) and for human selenocysteine wild type it was generated with alphafold. For creating the selenium parameters (selenol, selenolate ion and selenenic acid) FFLD in maestro [] was used. We used the charges provided by Maestro [], the hydrogen and solvent was added using Q program \cite{Marelius1999}. The TIP3P water parameters were used in combination with the other protein parameters not present in the standard OPLS library in Q mentioned above.
 
-\subsection {EVB simulations}
+\subsection{EVB simulations}
 
 Spherical boundary conditions \cite{King1989} were applied to the system using Q program \cite{Marelius1999} using 50 \text{\AA} diameter water covering the protein.
 
 \begin{figure}
-\begin{center}
-\includegraphics[width=0.7\linewidth, height=4cm]{/home/hp/nayanika/github/GPX6/figures/solvent_sphere.png} 
-\end{center}
+\includegraphics{../figures/solvent_sphere.png} 
 \caption{Sphere of Water Molecules around the protein}
 \label{fig:figure1}
 \end{figure}
@@ -80,16 +80,8 @@ After equilibration of the system, two separate MD/EVB free energy perturbation 
 %Sets the bibliography style to UNSRT and imports the 
 %bibliography file "references.bib".
 \bibliographystyle{unsrt}
-\bibliography{files/references}
+\bibliography{references}
 
-\begin{thebibliography}{9}
-\bibitem{texbook}
-
-Schrödinger Release 2024-2: Maestro, Schrödinger, LLC, New York, NY, 2024.
-
-Carvalho, A. T. P., Barrozo, A., Doron, D., Vardi Kilshtain, A., Major, D. T., & Kamerlin, S. C. L. (2014). Challenges in computational studies of enzyme structure, function and dynamics. Journal of Molecular Graphics and Modelling, 54, 62–79. https://doi.org/10.1016/j.jmgm.2014.09.003
-
-\end{thebibliography}
 
 
 
