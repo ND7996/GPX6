@@ -1,10 +1,7 @@
 #!/bin/sh
 
 # List of directories to process
-directories="/home/hp/nayanika/github/PhD_Thesis/EVB/protein_stepwise/GPX6MUT/individual_mutants/mousecys/1-prep/S47A
-/home/hp/nayanika/github/PhD_Thesis/EVB/protein_stepwise/GPX6MUT/individual_mutants/mousecys/1-prep/F48Y
-/home/hp/nayanika/github/PhD_Thesis/EVB/protein_stepwise/GPX6MUT/individual_mutants/mousecys/1-prep/T52A
-/home/hp/nayanika/github/PhD_Thesis/EVB/protein_stepwise/GPX6MUT/individual_mutants/mousecys/1-prep/T54Q
+directories="/home/hp/nayanika/github/PhD_Thesis/EVB/protein_stepwise/GPX6MUT/individual_mutants/mousecys/1-prep/T54Q
 /home/hp/nayanika/github/PhD_Thesis/EVB/protein_stepwise/GPX6MUT/individual_mutants/mousecys/1-prep/R99C"
 
 # Base directory where you want to create folders
