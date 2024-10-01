@@ -1,0 +1,176 @@
+Finding intermodel H-bonds								Finding intermodel H-bonds								
+Finding intramodel H-bonds								Finding intramodel H-bonds								
+Constraints relaxed by 0.4 angstroms and 20 degrees								Constraints relaxed by 0.4 angstroms and 20 degrees								
+Models used:								Models used:								
+	#0 original_humansec.pdb									#0 original_humansec.pdb								
+																
+H-bonds (donor, acceptor, hydrogen, D..A dist, D-H..A dist):								H-bonds (donor, acceptor, hydrogen, D..A dist, D-H..A dist):								
+GLN 2.X NE2    ASN 3.X OD1    no hydrogen  2.901  N/A								GLN 2.X NE2    ASN 3.X OD1    no hydrogen  2.901  N/A								
+ARG 4.X N      GLN 2.X O      no hydrogen  2.744  N/A								ARG 4.X N      GLN 2.X O      no hydrogen  2.744  N/A								
+ARG 4.X NH1    ASP 137.X OD2  no hydrogen  2.797  N/A								ARG 4.X NH1    ASP 137.X OD2  no hydrogen  2.797  N/A								
+ARG 4.X NH2    ASP 137.X OD1  no hydrogen  2.908  N/A								ARG 4.X NH2    ASP 137.X OD1  no hydrogen  2.908  N/A								
+ARG 4.X NH2    ASP 137.X OD2  no hydrogen  3.095  N/A								ARG 4.X NH2    ASP 137.X OD2  no hydrogen  3.095  N/A								
+LYS 5.X NZ     ASP 186.X OD2  no hydrogen  2.715  N/A								LYS 5.X NZ     ASP 186.X OD2  no hydrogen  2.715  N/A								
+VAL 6.X N      HID 173.X O    no hydrogen  3.094  N/A								VAL 6.X N      HID 173.X O    no hydrogen  3.094  N/A								
+CYX 8.X N      VAL 171.X O    no hydrogen  2.918  N/A								CYX 8.X N      VAL 171.X O    no hydrogen  2.918  N/A								
+ASN 9.X N      SER 131.X O    no hydrogen  2.875  N/A								ASN 9.X N      SER 131.X O    no hydrogen  2.875  N/A								
+GLY 11.X N     ASN 9.X OD1    no hydrogen  2.762  N/A								GLY 11.X N     ASN 9.X OD1    no hydrogen  2.762  N/A								
+THR 15.X N     GLU 18.X OE1   no hydrogen  3.089  N/A								THR 15.X N     GLU 18.X OE1   no hydrogen  3.089  N/A								
+THR 15.X N     GLU 18.X OE2   no hydrogen  2.847  N/A								THR 15.X N     GLU 18.X OE2   no hydrogen  2.847  N/A								
+THR 15.X OG1   GLU 18.X OE2   no hydrogen  2.740  N/A								THR 15.X OG1   GLU 18.X OE2   no hydrogen  2.740  N/A								
+ILE 16.X N     GLY 168.X O    no hydrogen  2.931  N/A								ILE 16.X N     GLY 168.X O    no hydrogen  2.931  N/A								
+TYR 17.X OH    LYS 38.X O     no hydrogen  2.751  N/A								TYR 17.X OH    LYS 38.X O     no hydrogen  2.751  N/A								
+ALA 21.X N     ILE 30.X O     no hydrogen  3.264  N/A								ALA 21.X N     ILE 30.X O     no hydrogen  3.264  N/A								
+THR 23.X N     GLU 28.X O     no hydrogen  2.888  N/A								THR 23.X N     GLU 28.X O     no hydrogen  2.888  N/A								
+THR 23.X OG1   ASN 25.X OD1   no hydrogen  2.690  N/A								THR 23.X OG1   ASN 25.X OD1   no hydrogen  2.690  N/A								
+THR 23.X OG1   GLU 28.X O     no hydrogen  3.245  N/A								THR 23.X OG1   GLU 28.X O     no hydrogen  3.245  N/A								
+LEU 24.X N     LEU 110.X O    no hydrogen  2.989  N/A								LEU 24.X N     LEU 110.X O    no hydrogen  2.989  N/A								
+GLY 26.X N     THR 23.X O     no hydrogen  2.973  N/A								GLY 26.X N     THR 23.X O     no hydrogen  2.973  N/A								
+TYR 29.X N     GLU 28.X OE2   no hydrogen  3.139  N/A								TYR 29.X N     GLU 28.X OE2   no hydrogen  3.139  N/A								
+ILE 30.X N     ALA 21.X O     no hydrogen  3.155  N/A								ILE 30.X N     ALA 21.X O     no hydrogen  3.155  N/A								
+PHE 32.X N     TYR 19.X O     no hydrogen  2.846  N/A								PHE 32.X N     TYR 19.X O     no hydrogen  2.846  N/A								
+GLN 34.X N     GLN 31.X O     no hydrogen  3.413  N/A								GLN 34.X N     GLN 31.X O     no hydrogen  3.413  N/A								
+PHE 35.X N     PHE 32.X O     no hydrogen  2.821  N/A								PHE 35.X N     PHE 32.X O     no hydrogen  2.821  N/A								
+ALA 36.X N     LYS 33.X O     no hydrogen  3.202  N/A								ALA 36.X N     LYS 33.X O     no hydrogen  3.202  N/A								
+LYS 38.X N     TYR 17.X OH    no hydrogen  3.214  N/A								LYS 38.X N     TYR 17.X OH    no hydrogen  3.214  N/A								
+VAL 40.X N     VAL 164.X O    no hydrogen  2.838  N/A								VAL 40.X N     VAL 164.X O    no hydrogen  2.838  N/A								
+LEU 41.X N     ILE 71.X O     no hydrogen  2.791  N/A								LEU 41.X N     ILE 71.X O     no hydrogen  2.791  N/A								
+PHE 42.X N     PHE 162.X O    no hydrogen  2.933  N/A								PHE 42.X N     PHE 162.X O    no hydrogen  2.933  N/A								
+VAL 43.X N     LEU 73.X O     no hydrogen  3.004  N/A								VAL 43.X N     LEU 73.X O     no hydrogen  3.004  N/A								
+ASN 44.X ND2   TRP 157.X O    no hydrogen  3.304  N/A								ASN 44.X ND2   TRP 157.X O    no hydrogen  3.304  N/A								
+VAL 45.X N     PHE 75.X O     no hydrogen  3.046  N/A								VAL 45.X N     PHE 75.X O     no hydrogen  3.046  N/A								
+ALA 47.X N     GLU 84.X OE2   no hydrogen  2.885  N/A								ALA 47.X N     GLU 84.X OE2   no hydrogen  2.885  N/A								
+TYR 48.X N     GLN 83.X O     no hydrogen  3.117  N/A								TYR 48.X N     GLN 83.X O     no hydrogen  3.117  N/A								
+SEC 49.X N     ALA 46.X O     no hydrogen  3.096  N/A								SEC 49.X N     ALA 46.X O     no hydrogen  3.096  N/A								
+ALA 52.X N     SEC 49.X O     no hydrogen  3.248  N/A								ALA 52.X N     SEC 49.X O     no hydrogen  3.248  N/A								
+GLN 54.X N     LEU 51.X O     no hydrogen  3.228  N/A								GLN 54.X N     LEU 51.X O     no hydrogen  3.228  N/A								
+GLN 54.X NE2   ALA 178.X O    no hydrogen  2.886  N/A								GLN 54.X NE2   ALA 178.X O    no hydrogen  2.886  N/A								
+TYR 55.X N     ALA 52.X O     no hydrogen  3.449  N/A								TYR 55.X N     ALA 52.X O     no hydrogen  3.449  N/A								
+GLU 57.X N     GLN 54.X O     no hydrogen  3.009  N/A								GLU 57.X N     GLN 54.X O     no hydrogen  3.009  N/A								
+LEU 58.X N     GLN 54.X O     no hydrogen  3.128  N/A								LEU 58.X N     GLN 54.X O     no hydrogen  3.128  N/A								
+ASN 59.X N     TYR 55.X O     no hydrogen  3.210  N/A								ASN 59.X N     TYR 55.X O     no hydrogen  3.210  N/A								
+ASN 59.X ND2   VAL 105.X O    no hydrogen  3.032  N/A								ASN 59.X ND2   VAL 105.X O    no hydrogen  3.032  N/A								
+ALA 60.X N     PRO 56.X O     no hydrogen  3.018  N/A								ALA 60.X N     PRO 56.X O     no hydrogen  3.018  N/A								
+LEU 61.X N     GLU 57.X O     no hydrogen  3.049  N/A								LEU 61.X N     GLU 57.X O     no hydrogen  3.049  N/A								
+GLN 62.X N     LEU 58.X O     no hydrogen  3.153  N/A								GLN 62.X N     LEU 58.X O     no hydrogen  3.153  N/A								
+GLN 62.X NE2   GLN 62.X O     no hydrogen  2.732  N/A								GLN 62.X NE2   GLN 62.X O     no hydrogen  2.732  N/A								
+GLN 62.X NE2   VAL 70.X O     no hydrogen  2.777  N/A								GLN 62.X NE2   VAL 70.X O     no hydrogen  2.777  N/A								
+GLU 63.X N     ASN 59.X O     no hydrogen  3.087  N/A								GLU 63.X N     ASN 59.X O     no hydrogen  3.087  N/A								
+GLU 64.X N     ALA 60.X O     no hydrogen  2.898  N/A								GLU 64.X N     ALA 60.X O     no hydrogen  2.898  N/A								
+LEU 65.X N     LEU 61.X O     no hydrogen  3.319  N/A								LEU 65.X N     LEU 61.X O     no hydrogen  3.319  N/A								
+LYS 66.X N     GLU 63.X O     no hydrogen  3.289  N/A								LYS 66.X N     GLU 63.X O     no hydrogen  3.289  N/A								
+LYS 66.X NZ    GLU 63.X OE1   no hydrogen  3.081  N/A								LYS 66.X NZ    GLU 63.X OE1   no hydrogen  3.081  N/A								
+LYS 66.X NZ    GLU 63.X OE2   no hydrogen  2.935  N/A								LYS 66.X NZ    GLU 63.X OE2   no hydrogen  2.935  N/A								
+PHE 68.X N     LEU 65.X O     no hydrogen  3.122  N/A								PHE 68.X N     LEU 65.X O     no hydrogen  3.122  N/A								
+ILE 71.X N     HID 39.X O     no hydrogen  3.326  N/A								ILE 71.X N     HID 39.X O     no hydrogen  3.326  N/A								
+VAL 72.X N     GLN 62.X OE1   no hydrogen  2.931  N/A								VAL 72.X N     GLN 62.X OE1   no hydrogen  2.931  N/A								
+LEU 73.X N     LEU 41.X O     no hydrogen  2.941  N/A								LEU 73.X N     LEU 41.X O     no hydrogen  2.941  N/A								
+ALA 74.X N     GLN 109.X O    no hydrogen  2.939  N/A								ALA 74.X N     GLN 109.X O    no hydrogen  2.939  N/A								
+PHE 75.X N     VAL 43.X O     no hydrogen  3.250  N/A								PHE 75.X N     VAL 43.X O     no hydrogen  3.250  N/A								
+CYS 77.X N     VAL 45.X O     no hydrogen  3.046  N/A								CYS 77.X N     VAL 45.X O     no hydrogen  3.046  N/A								
+CYS 77.X SG    GLN 79.X OE1   no hydrogen  3.799  N/A								CYS 77.X SG    GLN 79.X OE1   no hydrogen  3.799  N/A								
+CYS 77.X SG    GLY 114.X O    no hydrogen  3.193  N/A								CYS 77.X SG    GLY 114.X O    no hydrogen  3.193  N/A								
+GLN 79.X NE2   ASN 117.X O    no hydrogen  3.068  N/A								GLN 79.X NE2   ASN 117.X O    no hydrogen  3.068  N/A								
+GLY 81.X N     GLN 144.X O    no hydrogen  2.859  N/A								GLY 81.X N     GLN 144.X O    no hydrogen  2.859  N/A								
+GLN 83.X N     PHE 80.X O     no hydrogen  3.151  N/A								GLN 83.X N     PHE 80.X O     no hydrogen  3.151  N/A								
+GLU 84.X N     ASN 78.X OD1   no hydrogen  2.765  N/A								GLU 84.X N     ASN 78.X OD1   no hydrogen  2.765  N/A								
+GLU 90.X N     THR 87.X O     no hydrogen  2.845  N/A								GLU 90.X N     THR 87.X O     no hydrogen  2.845  N/A								
+ILE 91.X N     THR 87.X O     no hydrogen  3.310  N/A								ILE 91.X N     THR 87.X O     no hydrogen  3.310  N/A								
+ILE 91.X N     ASN 88.X O     no hydrogen  3.271  N/A								ILE 91.X N     ASN 88.X O     no hydrogen  3.271  N/A								
+LEU 92.X N     ASN 88.X O     no hydrogen  2.987  N/A								LEU 92.X N     ASN 88.X O     no hydrogen  2.987  N/A								
+LEU 93.X N     SER 89.X O     no hydrogen  3.379  N/A								LEU 93.X N     SER 89.X O     no hydrogen  3.379  N/A								
+GLY 94.X N     GLU 90.X O     no hydrogen  2.751  N/A								GLY 94.X N     GLU 90.X O     no hydrogen  2.751  N/A								
+LEU 95.X N     ILE 91.X O     no hydrogen  2.818  N/A								LEU 95.X N     ILE 91.X O     no hydrogen  2.818  N/A								
+LYS 96.X N     LEU 92.X O     no hydrogen  3.324  N/A								LYS 96.X N     LEU 92.X O     no hydrogen  3.324  N/A								
+TYR 97.X N     LEU 93.X O     no hydrogen  2.808  N/A								TYR 97.X N     LEU 93.X O     no hydrogen  2.808  N/A								
+VAL 98.X N     GLY 94.X O     no hydrogen  2.922  N/A								VAL 98.X N     GLY 94.X O     no hydrogen  2.922  N/A								
+CYS 99.X N     GLY 94.X O     no hydrogen  2.805  N/A								CYS 99.X N     GLY 94.X O     no hydrogen  2.805  N/A								
+CYS 99.X SG    ALA 47.X O     no hydrogen  3.351  N/A								CYS 99.X SG    ALA 47.X O     no hydrogen  3.351  N/A								
+GLY 101.X N    LEU 95.X O     no hydrogen  3.064  N/A								GLY 101.X N    LEU 95.X O     no hydrogen  3.064  N/A								
+GLY 103.X N    LYS 96.X O     no hydrogen  2.669  N/A								GLY 103.X N    LYS 96.X O     no hydrogen  2.669  N/A								
+PHE 104.X N    LYS 96.X O     no hydrogen  3.270  N/A								PHE 104.X N    LYS 96.X O     no hydrogen  3.270  N/A								
+SER 107.X N    ASN 59.X OD1   no hydrogen  3.057  N/A								SER 107.X N    ASN 59.X OD1   no hydrogen  3.057  N/A								
+GLN 109.X NE2  LEU 110.X O    no hydrogen  2.800  N/A								GLN 109.X NE2  LEU 110.X O    no hydrogen  2.800  N/A								
+GLU 112.X N    LEU 22.X O     no hydrogen  2.988  N/A								GLU 112.X N    LEU 22.X O     no hydrogen  2.988  N/A								
+LYS 113.X N    ASN 88.X OD1   no hydrogen  3.017  N/A								LYS 113.X N    ASN 88.X OD1   no hydrogen  3.017  N/A								
+LYS 113.X NZ   GLU 84.X O     no hydrogen  2.808  N/A								LYS 113.X NZ   GLU 84.X O     no hydrogen  2.808  N/A								
+LYS 113.X NZ   GLY 86.X O     no hydrogen  2.904  N/A								LYS 113.X NZ   GLY 86.X O     no hydrogen  2.904  N/A								
+GLY 114.X N    PRO 76.X O     no hydrogen  3.125  N/A								GLY 114.X N    PRO 76.X O     no hydrogen  3.125  N/A								
+VAL 116.X N    GLN 79.X OE1   no hydrogen  2.847  N/A								VAL 116.X N    GLN 79.X OE1   no hydrogen  2.847  N/A								
+ASN 117.X N    GLN 79.X OE1   no hydrogen  2.975  N/A								ASN 117.X N    GLN 79.X OE1   no hydrogen  2.975  N/A								
+ASN 117.X ND2  ILE 155.X O    no hydrogen  3.161  N/A								ASN 117.X ND2  ILE 155.X O    no hydrogen  3.161  N/A								
+GLU 119.X N    GLU 148.X O    no hydrogen  2.834  N/A								GLU 119.X N    GLU 148.X O    no hydrogen  2.834  N/A								
+GLU 121.X N    GLY 118.X O    no hydrogen  3.362  N/A								GLU 121.X N    GLY 118.X O    no hydrogen  3.362  N/A								
+GLN 122.X N    ASP 115.X O    no hydrogen  3.013  N/A								GLN 122.X N    ASP 115.X O    no hydrogen  3.013  N/A								
+GLN 122.X NE2  ASP 115.X O    no hydrogen  2.678  N/A								GLN 122.X NE2  ASP 115.X O    no hydrogen  2.678  N/A								
+THR 126.X N    GLN 122.X O    no hydrogen  2.880  N/A								THR 126.X N    GLN 122.X O    no hydrogen  2.880  N/A								
+THR 126.X OG1  GLU 121.X OE1  no hydrogen  2.980  N/A								THR 126.X OG1  GLU 121.X OE1  no hydrogen  2.980  N/A								
+THR 126.X OG1  GLN 122.X O    no hydrogen  3.214  N/A								THR 126.X OG1  GLN 122.X O    no hydrogen  3.214  N/A								
+PHE 127.X N    LYS 123.X O    no hydrogen  2.885  N/A								PHE 127.X N    LYS 123.X O    no hydrogen  2.885  N/A								
+LEU 128.X N    VAL 124.X O    no hydrogen  3.257  N/A								LEU 128.X N    VAL 124.X O    no hydrogen  3.257  N/A								
+LYS 129.X N    PHE 125.X O    no hydrogen  2.937  N/A								LYS 129.X N    PHE 125.X O    no hydrogen  2.937  N/A								
+LYS 129.X NZ   VAL 116.X O    no hydrogen  2.731  N/A								LYS 129.X NZ   VAL 116.X O    no hydrogen  2.731  N/A								
+LYS 129.X NZ   ASN 117.X OD1  no hydrogen  3.088  N/A								LYS 129.X NZ   ASN 117.X OD1  no hydrogen  3.088  N/A								
+LYS 129.X NZ   GLU 121.X OE2  no hydrogen  2.693  N/A								LYS 129.X NZ   GLU 121.X OE2  no hydrogen  2.693  N/A								
+LYS 129.X NZ   ASP 154.X OD1  no hydrogen  2.731  N/A								LYS 129.X NZ   ASP 154.X OD1  no hydrogen  2.731  N/A								
+ASN 130.X N    THR 126.X O    no hydrogen  2.738  N/A								ASN 130.X N    THR 126.X O    no hydrogen  2.738  N/A								
+ASN 130.X ND2  THR 126.X O    no hydrogen  3.026  N/A								ASN 130.X ND2  THR 126.X O    no hydrogen  3.026  N/A								
+SER 131.X N    LEU 128.X O    no hydrogen  2.912  N/A								SER 131.X N    LEU 128.X O    no hydrogen  2.912  N/A								
+SER 131.X OG   ASN 9.X O      no hydrogen  2.942  N/A								SER 131.X OG   ASN 9.X O      no hydrogen  2.942  N/A								
+CYX 132.X N    LEU 128.X O    no hydrogen  2.884  N/A								CYX 132.X N    LEU 128.X O    no hydrogen  2.884  N/A								
+THR 135.X OG1  GLU 160.X OE1  no hydrogen  2.584  N/A								THR 135.X OG1  GLU 160.X OE1  no hydrogen  2.584  N/A								
+SER 136.X OG   LEU 138.X O    no hydrogen  3.055  N/A								SER 136.X OG   LEU 138.X O    no hydrogen  3.055  N/A								
+LEU 138.X N    SER 136.X OG   no hydrogen  2.948  N/A								LEU 138.X N    SER 136.X OG   no hydrogen  2.948  N/A								
+SER 141.X OG   SER 143.X OG   no hydrogen  3.288  N/A								SER 141.X OG   SER 143.X OG   no hydrogen  3.288  N/A								
+SER 143.X N    SER 141.X OG   no hydrogen  3.065  N/A								SER 143.X N    SER 141.X OG   no hydrogen  3.065  N/A								
+SER 143.X OG   SER 141.X OG   no hydrogen  3.288  N/A								SER 143.X OG   SER 141.X OG   no hydrogen  3.288  N/A								
+GLN 144.X N    SER 141.X O    no hydrogen  3.098  N/A								GLN 144.X N    SER 141.X O    no hydrogen  3.098  N/A								
+LEU 145.X N    SER 142.X O    no hydrogen  3.460  N/A								LEU 145.X N    SER 142.X O    no hydrogen  3.460  N/A								
+PHE 146.X N    GLN 79.X O     no hydrogen  2.869  N/A								PHE 146.X N    GLN 79.X O     no hydrogen  2.869  N/A								
+TRP 147.X NE1  ASP 154.X OD2  no hydrogen  2.744  N/A								TRP 147.X NE1  ASP 154.X OD2  no hydrogen  2.744  N/A								
+LYS 151.X N    ASP 154.X OD2  no hydrogen  2.853  N/A								LYS 151.X N    ASP 154.X OD2  no hydrogen  2.853  N/A								
+LYS 151.X NZ   GLU 121.X OE1  no hydrogen  3.152  N/A								LYS 151.X NZ   GLU 121.X OE1  no hydrogen  3.152  N/A								
+LYS 151.X NZ   GLU 121.X OE2  no hydrogen  2.660  N/A								LYS 151.X NZ   GLU 121.X OE2  no hydrogen  2.660  N/A								
+ASP 154.X N    LYS 151.X O    no hydrogen  3.197  N/A								ASP 154.X N    LYS 151.X O    no hydrogen  3.197  N/A								
+ARG 156.X N    THR 135.X OG1  no hydrogen  2.944  N/A								ARG 156.X N    THR 135.X OG1  no hydrogen  2.944  N/A								
+ARG 156.X NE   SER 136.X O    no hydrogen  2.830  N/A								ARG 156.X NE   SER 136.X O    no hydrogen  2.830  N/A								
+ARG 156.X NH1  ASP 154.X O    no hydrogen  2.803  N/A								ARG 156.X NH1  ASP 154.X O    no hydrogen  2.803  N/A								
+TRP 157.X N    GLU 160.X OE1  no hydrogen  3.209  N/A								TRP 157.X N    GLU 160.X OE1  no hydrogen  3.209  N/A								
+ASN 158.X ND2  CYS 77.X O     no hydrogen  2.872  N/A								ASN 158.X ND2  CYS 77.X O     no hydrogen  2.872  N/A								
+ASN 158.X ND2  GLN 83.X OE1   no hydrogen  2.869  N/A								ASN 158.X ND2  GLN 83.X OE1   no hydrogen  2.869  N/A								
+PHE 159.X N    ASN 44.X O     no hydrogen  2.762  N/A								PHE 159.X N    ASN 44.X O     no hydrogen  2.762  N/A								
+LYS 161.X NZ   GLN 54.X OE1   no hydrogen  2.671  N/A								LYS 161.X NZ   GLN 54.X OE1   no hydrogen  2.671  N/A								
+LYS 161.X NZ   PHE 159.X O    no hydrogen  2.890  N/A								LYS 161.X NZ   PHE 159.X O    no hydrogen  2.890  N/A								
+LYS 161.X NZ   HID 176.X O    no hydrogen  2.930  N/A								LYS 161.X NZ   HID 176.X O    no hydrogen  2.930  N/A								
+LYS 161.X NZ   ALA 178.X O    no hydrogen  3.004  N/A								LYS 161.X NZ   ALA 178.X O    no hydrogen  3.004  N/A								
+PHE 162.X N    PHE 42.X O     no hydrogen  2.957  N/A								PHE 162.X N    PHE 42.X O     no hydrogen  2.957  N/A								
+LEU 163.X N    MET 172.X O    no hydrogen  2.848  N/A								LEU 163.X N    MET 172.X O    no hydrogen  2.848  N/A								
+VAL 164.X N    VAL 40.X O     no hydrogen  2.741  N/A								VAL 164.X N    VAL 40.X O     no hydrogen  2.741  N/A								
+GLY 165.X N    VAL 169.X O    no hydrogen  2.998  N/A								GLY 165.X N    VAL 169.X O    no hydrogen  2.998  N/A								
+GLY 168.X N    GLY 165.X O    no hydrogen  3.093  N/A								GLY 168.X N    GLY 165.X O    no hydrogen  3.093  N/A								
+VAL 171.X N    LEU 163.X O    no hydrogen  2.865  N/A								VAL 171.X N    LEU 163.X O    no hydrogen  2.865  N/A								
+HID 173.X N    VAL 6.X O      no hydrogen  2.861  N/A								HID 173.X N    VAL 6.X O      no hydrogen  2.861  N/A								
+HID 173.X ND1  LYS 161.X O    no hydrogen  3.041  N/A								HID 173.X ND1  LYS 161.X O    no hydrogen  3.041  N/A								
+TRP 174.X N    LYS 161.X O    no hydrogen  3.037  N/A								TRP 174.X N    LYS 161.X O    no hydrogen  3.037  N/A								
+TRP 174.X NE1  ASP 186.X OD2  no hydrogen  2.783  N/A								TRP 174.X NE1  ASP 186.X OD2  no hydrogen  2.783  N/A								
+PHE 175.X N    ARG 4.X O      no hydrogen  3.282  N/A								PHE 175.X N    ARG 4.X O      no hydrogen  3.282  N/A								
+ALA 178.X N    PHE 175.X O    no hydrogen  2.935  N/A								ALA 178.X N    PHE 175.X O    no hydrogen  2.935  N/A								
+LYS 184.X N    VAL 180.X O    no hydrogen  3.032  N/A								LYS 184.X N    VAL 180.X O    no hydrogen  3.032  N/A								
+LYS 184.X NZ   GLU 64.X OE2   no hydrogen  2.786  N/A								LYS 184.X NZ   GLU 64.X OE2   no hydrogen  2.786  N/A								
+SER 185.X N    SER 181.X O    no hydrogen  3.119  N/A								SER 185.X N    SER 181.X O    no hydrogen  3.119  N/A								
+ASP 186.X N    THR 182.X O    no hydrogen  3.110  N/A								ASP 186.X N    THR 182.X O    no hydrogen  3.110  N/A								
+ILE 187.X N    VAL 183.X O    no hydrogen  3.007  N/A								ILE 187.X N    VAL 183.X O    no hydrogen  3.007  N/A								
+LEU 188.X N    LYS 184.X O    no hydrogen  2.843  N/A								LEU 188.X N    LYS 184.X O    no hydrogen  2.843  N/A								
+GLU 189.X N    SER 185.X O    no hydrogen  2.907  N/A								GLU 189.X N    SER 185.X O    no hydrogen  2.907  N/A								
+TYR 190.X N    ASP 186.X O    no hydrogen  3.181  N/A								TYR 190.X N    ASP 186.X O    no hydrogen  3.181  N/A								
+LEU 191.X N    ILE 187.X O    no hydrogen  3.117  N/A								LEU 191.X N    ILE 187.X O    no hydrogen  3.117  N/A								
+LYS 192.X N    LEU 188.X O    no hydrogen  3.261  N/A								LYS 192.X N    LEU 188.X O    no hydrogen  3.261  N/A								
+LYS 192.X NZ   GLU 189.X OE1  no hydrogen  3.133  N/A								LYS 192.X NZ   GLU 189.X OE1  no hydrogen  3.133  N/A								
+LYS 192.X NZ   GLU 189.X OE2  no hydrogen  2.864  N/A								LYS 192.X NZ   GLU 189.X OE2  no hydrogen  2.864  N/A								
+GLN 193.X N    GLU 189.X O    no hydrogen  3.292  N/A								GLN 193.X N    GLU 189.X O    no hydrogen  3.292  N/A								
+PHE 194.X N    TYR 190.X O    no hydrogen  2.892  N/A								PHE 194.X N    TYR 190.X O    no hydrogen  2.892  N/A								
+ASN 195.X N    LEU 191.X O    no hydrogen  3.328  N/A								ASN 195.X N    LEU 191.X O    no hydrogen  3.328  N/A								
+ASN 195.X ND2  LEU 191.X O    no hydrogen  3.040  N/A								ASN 195.X ND2  LEU 191.X O    no hydrogen  3.040  N/A								
+THR 196.X N    GLN 193.X O    no hydrogen  2.934  N/A								THR 196.X N    GLN 193.X O    no hydrogen  2.934  N/A								
+THR 196.X OG1  LYS 192.X O    no hydrogen  2.821  N/A								THR 196.X OG1  LYS 192.X O    no hydrogen  2.821  N/A								
+HIE 197.X N    GLN 193.X O    no hydrogen  2.980  N/A								HIE 197.X N    GLN 193.X O    no hydrogen  2.980  N/A								
