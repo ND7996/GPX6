@@ -66,17 +66,6 @@ The EVB method allows calibration of simulated reference reactions to experiment
 
 Spherical boundary conditions \cite{King1989} were applied to the system using Q program \cite{Marelius1999} with a 50 \text{\AA} diameter water sphere surrounding the protein.
 
-\begin{figure}[H]
-\centering % Center the figure
-\includegraphics{../figures/solvent_sphere.png} 
-\caption{Sphere of Water Molecules around the protein}
-\label{fig:figure1}
-\end{figure}
-
-\FloatBarrier % Forces all floats to be placed before proceeding
-
-\clearpage % Starts new content on a fresh page
-
 After equilibration of the system, EVB free energy perturbation (FEP) calculations were done for the step 1 (until formation of selenolate ion). The FEP protocol involves a gradual change of the (mapping) potential energy by the coupling parameter. For each of the FEP calculations, 51 discrete windows were considered, each window of 10 ps at 2 fs time step, that gave a total of 1.02 ns of sampling of each free energy profile. These calculations were replicated 100 times starting from the minimized structure for each of the systems, wild type and mutants. The EVB gas phase shift $\alpha$ and the off-diagonal \(H_{ij}\) were determined iteratively for all systems keeping human selenocysteine as our reference, the barrier was determined according to the QM/MM calculations carried out by Morokuma \cite{Prabhakar2006} for the first step of reaction which was 16.4 kcal/mol.
 
 % Sets the bibliography style to UNSRT and imports the bibliography file "references.bib".
