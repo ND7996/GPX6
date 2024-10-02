@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.15.0 (TeX Live 2022/Debian)  (format=lualatex 2024.9.23)  2 OCT 2024 18:29
+This is LuaHBTeX, Version 1.15.0 (TeX Live 2022/Debian)  (format=lualatex 2024.9.23)  2 OCT 2024 18:31
  restricted system commands enabled.
  file:line:error style messages enabled.
 **methods.tex
@@ -369,40 +369,22 @@ e
 ))
 [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-<../figures/solvent_sphere.png, id=46, 1644.1425pt x 706.64pt>
-File: ../figures/solvent_sphere.png Graphic file (type png)
-<use ../figures/solvent_sphere.png>
-Package luatex.def Info: ../figures/solvent_sphere.png  used on input line 71.
-(luatex.def)             Requested size: 1644.1385pt x 706.63828pt.
-
-Overfull \hbox (1299.1385pt too wide) in paragraph at lines 71--72
- [][] 
- []
-
-[2]
-Overfull \vbox (192.69827pt too high) has occurred while \output is active []
-
-
-[3
-warning  (pdf backend): ignoring duplicate destination with the name 'figure.1'
-<../figures/solvent_sphere.png>] (./methods.bbl) [4
-
-] (./methods.aux)
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] (./methods.bbl)
+[3] (./methods.aux)
 Package rerunfilecheck Info: File `methods.out' has not changed.
 (rerunfilecheck)             Checksum: F1C58E88300AD91B91EB1FBD4676665E;717.
 )
 
 Here is how much of LuaTeX's memory you used:
- 9520 strings out of 478382
+ 9502 strings out of 478382
  100000,1977958 words of node,token memory allocated
  533 words of node memory still in use:
    6 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 1 glyph, 17 attribute, 53 glue_spec
 , 17 attribute_list, 1 write nodes
-   avail lists: 2:390,3:120,4:21,5:492,6:29,7:9252,8:58,9:466,10:14,11:732
- 29261 multiletter control sequences out of 65536+600000
+   avail lists: 2:360,3:119,4:21,5:492,6:31,7:9252,8:58,9:465,10:14,11:732
+ 29251 multiletter control sequences out of 65536+600000
  34 fonts using 2390887 bytes
- 72i,9n,72p,1118b,334s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 72i,9n,72p,1118b,332s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf/fonts/opentype/public/lm/lmroman10-italic.otf></usr/share/texm
 f/fonts/opentype/public/lm/lmroman7-regular.otf></usr/share/texmf/fonts/opentype
 /public/lm/lmroman5-regular.otf></usr/share/texmf/fonts/opentype/public/lm/lmrom
@@ -417,10 +399,10 @@ ts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1
 msfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
 m/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5
 .pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on methods.pdf (4 pages, 590450 bytes).
+Output written on methods.pdf (3 pages, 127581 bytes).
 
-PDF statistics: 141 PDF objects out of 1000 (max. 8388607)
- 105 compressed objects within 2 object streams
- 19 named destinations out of 1000 (max. 131072)
+PDF statistics: 134 PDF objects out of 1000 (max. 8388607)
+ 101 compressed objects within 2 object streams
+ 17 named destinations out of 1000 (max. 131072)
  33 words of extra memory for PDF output out of 10000 (max. 100000000)
 

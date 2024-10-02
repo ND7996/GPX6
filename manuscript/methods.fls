@@ -223,9 +223,6 @@ INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm
 INPUT /home/hp/.texlive2022/texmf-var/luatex-cache/generic/fonts/otl/lmroman7-regular.luc
 INPUT /home/hp/.texlive2022/texmf-var/luatex-cache/generic/fonts/otl/lmroman5-regular.luc
 INPUT /var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map
-INPUT ../figures/solvent_sphere.png
-INPUT ../figures/solvent_sphere.png
-INPUT ../figures/solvent_sphere.png
 INPUT ./methods.bbl
 INPUT ./methods.bbl
 INPUT /home/hp/.texlive2022/texmf-var/luatex-cache/generic/fonts/otl/lmroman10-italic.luc
