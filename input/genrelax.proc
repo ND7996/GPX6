@@ -58,7 +58,7 @@ $49.SG$    $49.HG1$     0.0  1.5   5. 1
 $196.O1$   $196.H1$     0.0  1.5   5. 1 
 $83.OE1$   $196.H1$     0.0  1.5   5. 2 
 $196.O1$   $49.HG1$     0.0  1.5   5. 2 
- 
+
 #[angle_restraints]
 # angle restraints here
 
@@ -105,7 +105,7 @@ SOLUTE           20.0  0 0 0
 _____________________________________________________________
 
 [MD]
-steps                  5000
+steps                  50000
 stepsize                 0.5
 bath_coupling            0.5
 
@@ -141,7 +141,7 @@ steps                    500
 _____________________________________________________________
 
 [MD]
-steps                  5000
+steps                  50000
 stepsize                 0.5
 bath_coupling            0.5
 
@@ -149,3 +149,4 @@ bath_coupling            0.5
 output                  1000 
 trajectory              1000
 temperature             1000
+

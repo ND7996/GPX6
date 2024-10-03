@@ -1,26 +1,14 @@
 #!/bin/sh
 
 # List of directories to process
-directories="/home/hp/nayanika/github/PhD_Thesis/EVB/protein_stepwise/GPX6MUT/individual_mutants/mousecys/1-prep/T54Q
-/home/hp/nayanika/github/PhD_Thesis/EVB/protein_stepwise/GPX6MUT/individual_mutants/mousecys/1-prep/R99C"
+directories="/home/hp/results/mousecys/T178A/minim"
+directories="$directories /home/hp/nayanika/github/GPX6/input"  # Combine both directories
 
 # Base directory where you want to create folders
-base_scr_dir="/home/hp/results/mousecys"
+base_scr_dir="/home/hp/results/mousecys/T178A"
 
-# Directory containing run_qdyn_5.sh script
-script_source_dir="/home/hp/nayanika/github/GPX6/cluster_scripts"
-
-# Ensure the source script exists
-if [ ! -f "$script_source_dir/run_qdyn_5.sh" ]; then
-    echo "Error: run_qdyn_5.sh not found in $script_source_dir"
-    exit 1
-fi
-
-# Create the mousecys directory if it does not exist
+# Create the base directory if it does not exist
 mkdir -p "$base_scr_dir"
-
-# Copy all files from cluster_scripts to base_scr_dir
-cp "$script_source_dir"/* "$base_scr_dir/"
 
 # Loop through each directory and process .pdb files
 for dir in $directories
@@ -38,29 +26,12 @@ do
     for pdb_file in "$dir"/*.pdb
     do
         if [ -f "$pdb_file" ]; then
-            # Run q_genfeps.py with the system's pdb file and other input files from the current directory
-            q_genfeps.py "$dir/genfeps.proc" --pdb "$pdb_file" "$dir/relax_012.inp" relax --repeats 100 --frames 51 --fromlambda 1.0 --prefix "$base_scr_dir/$system_name/replica" --rs "$dir/run_qdyn_5.sh"
-
-            # Create replicas and copy run_qdyn_5.sh to each replica folder
-            for replica_dir in "$base_scr_dir/$system_name/replica"*
-            do
-                cp "$dir/run_qdyn_5.sh" "$replica_dir/"
-            done
+            # Run q_genfeps.py with the specified path for selgenfeps.proc
+            q_genfeps.py "/home/hp/nayanika/github/GPX6/input/genfeps.proc" --pdb "$pdb_file" "$dir/relax_012.inp" relax --repeats 100 --frames 51 --fromlambda 1.0 --prefix "$base_scr_dir/$system_name/replica" --rs "$dir/run_qdyn_5.sh"
         else
             echo "No .pdb file found in $dir"
         fi
     done
 done
 
-# Additional task to copy run_qdyn_5.sh to all the listed directories
-for dir in $directories
-do
-    # Check if the directory exists
-    if [ -d "$dir" ]; then
-        # Copy run_qdyn_5.sh to each directory
-        cp "$script_source_dir/run_qdyn_5.sh" "$dir/"
-        echo "Copied run_qdyn_5.sh to $dir"
-    else
-        echo "$dir does not exist"
-    fi
-done
+echo "Processing completed for all directories."

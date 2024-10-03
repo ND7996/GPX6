@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Path to the .pdb file
-pdb_file="/home/hp/nayanika/github/GPX6/pdb_top/S47A_F48Y.pdb"
+pdb_file="/home/hp/nayanika/github/GPX6/prep_structures/mousecys/T178A.pdb"
 
 # Base directory where you want to create folders
 base_scr_dir="/home/hp/results/mousecys"
@@ -9,7 +9,7 @@ base_scr_dir="/home/hp/results/mousecys"
 # Directories for the input files
 run_dir="/home/hp/nayanika/github/GPX6/cluster_scripts"
 genrelax_dir="/home/hp/nayanika/github/GPX6/input"
-topology_dir="/home/hp/nayanika/github/GPX6/pdb_top"
+topology_dir="/home/hp/nayanika/github/GPX6/prep_structures/mousecys"
 fep_dir="/home/hp/nayanika/github/GPX6/input/fep"  # Correct FEP directory path
 
 # Create the mousecys directory if it does not exist
@@ -28,7 +28,7 @@ mkdir -p "$base_scr_dir/$system_name"
 if [ -f "$pdb_file" ]; then
     # Run q_genrelax.py with the specified directories and inputs
     q_genrelax.py "$genrelax_dir/genrelax.proc" \
-    --top "$topology_dir/S47A_F48Y.top" \
+    --top "$topology_dir/T178A.top" \
     --pdb "$pdb_file" \
     --fep "$fep_dir/GPX6_wtmousecys.fep" \
     --outdir "$base_scr_dir/$system_name/minim" \

@@ -1,0 +1,24 @@
+!new opls parameters and substrate parameters (ffld?)
+readlib  /home/hp/nayanika/github/GPX6/parameters/qoplsaa.lib          
+readlib  /home/hp/nayanika/github/GPX6/parameters/GPX.lib
+
+! parameters
+readprm  /home/hp/nayanika/github/GPX6/parameters/qoplsaa_all2.prm
+
+! read in structure
+readpdb Q144H.pdb
+
+set solvent_pack 2.7
+
+boundary   sphere 49:SE 25.
+solvate           49:SE 25. grid HOH
+
+! write out topology and pdb with corresponding indices
+maketop Q144H.top
+writetop Q144H.top
+writepdb Q144H.pdb y
+
+quit
+
+
+
