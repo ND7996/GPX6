@@ -19,6 +19,8 @@ TABLE_FILE="/home/hp/nayanika/github/GPX6/table/Free_Energy.tex"
     echo "    \hline"
     echo "    System & Mean dG* (kcal/mol) & Mean dG0 (kcal/mol) \\\\"
     echo "    \hline"
+    echo "    Distance & 10 Å &  \\\\"  # Add the row with distance info
+    echo "    \hline"
 } > "$TABLE_FILE"
 
 # Read the stats file and extract relevant data
@@ -27,7 +29,7 @@ while IFS= read -r line; do
     clean_line=$(echo "$line" | tr -d '\r' | sed 's/\+-/\\pm/g')
 
     # Check if the line contains data (includes keywords like WT, S47A, F48Y, T54Q, R99C, Cys, Sec, etc.)
-    if echo "$clean_line" | grep -q "WT\|S47A\|F48Y\|T52A\|T54Q\|R99C\|Cys\|Sec\|Human"; then
+    if echo "$clean_line" | grep -q "WT\|S47A\|F48Y\|T52A\|T54Q\|R99C\|Cys\|Sec\|Mouse\|Human"; then
         # Append the cleaned line to the table, preserving its format, and add \hline for row separation
         echo "$clean_line \\\\" >> "$TABLE_FILE"
         echo "    \hline" >> "$TABLE_FILE"
