@@ -17,9 +17,9 @@ TABLE_FILE="/home/hp/nayanika/github/GPX6/table/Free_Energy.tex"
     echo "    \centering"
     echo "    \begin{tabular}{|c|c|c|}"
     echo "    \hline"
+    echo "    Distance & 10 Å &  \\\\"  # Add the row with distance info
     echo "    System & Mean dG* (kcal/mol) & Mean dG0 (kcal/mol) \\\\"
     echo "    \hline"
-    echo "    Distance & 10 Å &  \\\\"  # Add the row with distance info
     echo "    \hline"
 } > "$TABLE_FILE"
 
