@@ -15,7 +15,6 @@ TABLE_FILE="/home/hp/nayanika/github/GPX6/table/Free_Energy.tex"
     echo "\begin{document}"
     echo "\begin{table}[ht]"
     echo "    \centering"
-    echo "    Distance = 10 Å \\\\"  # Add the row with distance info
     echo "    \begin{tabular}{|c|c|c|}"
     echo "    \hline"
     echo "    System & Mean dG* (kcal/mol) & Mean dG0 (kcal/mol) \\\\"
@@ -38,7 +37,7 @@ done < "$STATS_FILE"
 # Close the table and document
 {
     echo "    \end{tabular}"
-    echo "    \caption{Free energy changes in wild type and mutants at 10 Å distance}"
+    echo "    \caption{Free energy changes in wild type and mutants at 10 Å distance with errors}"
     echo "\end{table}"
     echo "\end{document}"
 } >> "$TABLE_FILE"
