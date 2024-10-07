@@ -15,11 +15,10 @@ TABLE_FILE="/home/hp/nayanika/github/GPX6/table/Free_Energy.tex"
     echo "\begin{document}"
     echo "\begin{table}[ht]"
     echo "    \centering"
+    echo "    Distance = 10 Å \\\\"  # Add the row with distance info
     echo "    \begin{tabular}{|c|c|c|}"
     echo "    \hline"
-    echo "    Distance & 10 Å &  \\\\"  # Add the row with distance info
     echo "    System & Mean dG* (kcal/mol) & Mean dG0 (kcal/mol) \\\\"
-    echo "    \hline"
     echo "    \hline"
 } > "$TABLE_FILE"
 
@@ -28,7 +27,7 @@ while IFS= read -r line; do
     # Clean up the line and substitute +- with the proper LaTeX \pm
     clean_line=$(echo "$line" | tr -d '\r' | sed 's/\+-/\\pm/g')
 
-    # Check if the line contains data (includes keywords like WT, S47A, F48Y, T54Q, R99C, Cys, Sec, etc.)
+    # Check if the line contains data (includes keywords like WT, S47A, F48Y, T52A, T54Q, R99C, Cys, Sec, Mouse, Human, etc.)
     if echo "$clean_line" | grep -q "WT\|S47A\|F48Y\|T52A\|T54Q\|R99C\|Cys\|Sec\|Mouse\|Human"; then
         # Append the cleaned line to the table, preserving its format, and add \hline for row separation
         echo "$clean_line \\\\" >> "$TABLE_FILE"
@@ -39,7 +38,7 @@ done < "$STATS_FILE"
 # Close the table and document
 {
     echo "    \end{tabular}"
-    echo "    \caption{Free Energy Changes}"
+    echo "    \caption{Free energy changes in wild type and mutants at 10 Å distance}"
     echo "\end{table}"
     echo "\end{document}"
 } >> "$TABLE_FILE"
