@@ -5,7 +5,7 @@ directories="/home/hp/results/mousecys/T178A/minim"
 directories="$directories /home/hp/nayanika/github/GPX6/input"  # Combine both directories
 
 # Base directory where you want to create folders
-base_scr_dir="/home/hp/results/mousecys/T178A"
+base_scr_dir="/home/hp/results/mousecys/H177Q"
 
 # Create the base directory if it does not exist
 mkdir -p "$base_scr_dir"
