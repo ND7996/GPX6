@@ -1,5 +1,5 @@
 # Fdb version 4
-["lualatex"] 1728483691 "distances.tex" "distances.pdf" "distances" 1728483698 0
+["lualatex"] 1728483882 "distances.tex" "distances.pdf" "distances" 1728483889 0
   "/home/hp/.texlive2022/texmf-var/luatex-cache/generic/fonts/otl/lmroman10-bold.luc" 1727221231 128392 5ccdcd80529671c517f74edd952aa156 ""
   "/home/hp/.texlive2022/texmf-var/luatex-cache/generic/fonts/otl/lmroman10-regular.luc" 1727123644 127309 2c3a7c325c755353a32b5f3d0c56cb88 ""
   "/home/hp/.texlive2022/texmf-var/luatex-cache/generic/names/luaotfload-names.luc.gz" 1727123643 405747 a9366ac2cf922f45433d8c128b872e2c ""
@@ -73,8 +73,8 @@
   "/usr/share/texmf/fonts/opentype/public/lm/lmroman10-regular.otf" 1255129361 111536 ae9d1b331000d544f47e5223081b7b54 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1727108177 4623455 fa0568a71dd9a288d6c226ee477506c6 ""
   "/var/lib/texmf/web2c/luahbtex/lualatex.fmt" 1727110969 11886858 3be6691f25fdad04d606b7469f5e70fd ""
-  "distances.aux" 1728483697 192 111b1d14b891c055176155787ce40eb1 "lualatex"
-  "distances.tex" 1728483662 1395 b0a1a4d8c6cb28f094289ee57943faae ""
+  "distances.aux" 1728483888 192 111b1d14b891c055176155787ce40eb1 "lualatex"
+  "distances.tex" 1728483873 1725 e9742f0d0ec9c01011a6558e04b39752 ""
   (generated)
   "distances.aux"
   "distances.log"
