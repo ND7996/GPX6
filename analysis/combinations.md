@@ -10,7 +10,7 @@ combinations - 177,178 - 15
 
 combinations - 102, 104    130,142,143   148,173  ?????
 
-25 anstrong 
+25 angstrong 
 
 combinations - 181, 182, 184     119,120     24,25 
 
