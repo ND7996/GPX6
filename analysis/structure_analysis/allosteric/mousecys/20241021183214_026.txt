@@ -1,0 +1,42 @@
+pocket0
+Volume:969.807
+SASA:354.059
+Druggability Score:0.869
+logitProb:0.900
+nmaScore:1.000
+hitScore:0.920
+pocket1
+Volume:232.114
+SASA:152.157
+Druggability Score:0.145
+logitProb:0.637
+nmaScore:1.000
+hitScore:0.710
+pocket2
+Volume:701.796
+SASA:265.26
+Druggability Score:0.084
+logitProb:0.522
+nmaScore:1.000
+hitScore:0.618
+pocket3
+Volume:423.926
+SASA:179.146
+Druggability Score:0.116
+logitProb:0.520
+nmaScore:1.000
+hitScore:0.616
+pocket4
+Volume:537.564
+SASA:202.185
+Druggability Score:0.121
+logitProb:0.561
+nmaScore:1.000
+hitScore:0.649
+pocket5
+Volume:393.732
+SASA:271.885
+Druggability Score:0.078
+logitProb:0.466
+nmaScore:1.000
+hitScore:0.573

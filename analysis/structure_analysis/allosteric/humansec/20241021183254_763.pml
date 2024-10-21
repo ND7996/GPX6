@@ -1,0 +1,13 @@
+load 20241021183254_763.pdb
+cmd.select("pocket0","///X/119+148+115+118+142+121+82+117+146+147+79+145+120+")
+cmd.color("red","pocket0")
+cmd.select("pocket1","///X/45+61+161+74+183+162+58+180+42+174+43+73+54+108+41+159+72+")
+cmd.color("red","pocket1")
+cmd.select("pocket2","///Y/198+ or ///X/160+135+175+157+156+176+140+138+141+139+145+136+144+")
+cmd.color("red","pocket2")
+cmd.select("pocket3","///X/86+98+55+94+95+90+85+99+84+91+48+47+")
+cmd.color("red","pocket3")
+cmd.select("pocket4","///X/106+107+95+105+96+104+109+108+92+25+24+110+")
+cmd.color("red","pocket4")
+cmd.select("pocket5","///X/134+135+133+155+132+162+128+42+129+124+125+153+")
+cmd.color("red","pocket5")
