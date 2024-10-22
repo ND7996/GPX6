@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Path to the .pdb file
-pdb_file="/home/hp/nayanika/github/GPX6/prep_structures/humansec/Q177H.pdb"
+pdb_file="/home/hp/nayanika/github/GPX6/prep_structures/humansec/S143E.pdb"
 
 # Base directory where you want to create folders
 base_scr_dir="/home/hp/results/humansec"
@@ -28,7 +28,7 @@ mkdir -p "$base_scr_dir/$system_name"
 if [ -f "$pdb_file" ]; then
     # Run q_genrelax.py with the specified directories and inputs
     q_genrelax.py "$genrelax_dir/selgenrelax.proc" \
-    --top "$topology_dir/Q177H.top" \
+    --top "$topology_dir/S143E.top" \
     --pdb "$pdb_file" \
     --fep "$fep_dir/GPX6_wthumansec.fep" \
     --outdir "$base_scr_dir/$system_name/minim" \
