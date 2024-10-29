@@ -1,11 +1,11 @@
 #!/bin/sh
 
 # List of directories to process
-directories="/home/hp/results/mousecys/Y104F/minim"
+directories="/home/hp/results/mousecys/E143S/minim"
 directories="$directories /home/hp/nayanika/github/GPX6/input"  # Combine both directories
 
 # Base directory where you want to create folders
-base_scr_dir="/home/hp/results/mousecys/Y104F"
+base_scr_dir="/home/hp/results/mousecys/E143S"
 
 # Create the base directory if it does not exist
 mkdir -p "$base_scr_dir"
