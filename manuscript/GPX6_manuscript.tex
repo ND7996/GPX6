@@ -54,6 +54,10 @@ Directed evolution mimics natural selection to optimize enzyme traits. Computati
 
 To guide the selection of mutations for directed evolution, a multiple sequence alignment was performed between the human and mouse wild-type protein. This MSA revealed 47 positions that differed between the human and mouse sequences, suggesting potential sites for mutagenesis. In order to prioritize residues for mutagenesis, the distances from the alpha carbon of Cys/Sec49 (active site residue) and rest of the 46 positions were calculated. Residues were then grouped into distance criteria of <10 Å, 10-15 Å, 15-20 Å, 20-25 Å, 25-30 Å, and 30-35 Å. This distance-based approach allowed us to select residues within different proximity ranges to Cys/Sec49. Grouping residues into distance bins provides a systematic and stochastic way to explore the impact of mutations at varying distances from the target residue (Cys/Sec49). We have mutated all these residues one by one slowly changing the human into mouse and the mouse into human structure, in order to understand the changes in the activation barrier in going from proximal to distal mutations in both the structures.
 
+\subsection{Combinations of Variants}
+
+The approach was more targeted towards leveraging the calculated free energy changes of individual mutants within specific distance bins relative to Cys/Sec49. Mutants exhibiting the lowest ΔG values within each distance bin (10 Å, 15 Å, 20 Å, 25 Å, 30 Å, and 35 Å) were selected and combined. This strategy aimed to identify a "mutant pathway" for directed evolution, progressively incorporating beneficial mutations based on their proximity to the active site and their predicted energetic contributions.
+
 \subsection{Empirical Valence Bond Model based on QM/MM Calculations}
 
 The EVB approach constructs potential energy surfaces for elementary chemical reaction steps \cite{Oanca2024}. Using a two-state model, the EVB Hamiltonian provides insights into thermodynamic activation parameters based on classical force fields and coupling terms derived from DFT or QM/MM calibrations \cite{Oanca2023}.
