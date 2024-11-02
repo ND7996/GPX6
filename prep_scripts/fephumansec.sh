@@ -1,11 +1,11 @@
 #!/bin/sh
 
 # List of directories to process
-directories="/home/hp/results/humansec/T87K/minim"
-directories="$directories /home/hp/nayanika/github/GPX6/input"  # Combine both directories
+directories="/home/hp/results/humansec/S143E/minim"
+directories="$directories /home/hp/nayanika/github/S143E/input"  # Combine both directories
 
 # Base directory where you want to create folders
-base_scr_dir="/home/hp/results/humansec/T87K"
+base_scr_dir="/home/hp/results/humansec/S143E"
 
 # Create the base directory if it does not exist
 mkdir -p "$base_scr_dir"
@@ -29,6 +29,14 @@ else
     echo "run_replica.sh not found, proceeding without it."
 fi
 
+# Copy run_replica.sh to base_scr_dir
+if [ -n "$run_replica_file" ]; then
+    cp "$run_replica_file" "$base_scr_dir/run_replica.sh"
+    echo "Copied run_replica.sh to $base_scr_dir"
+else
+    echo "run_replica.sh not found, skipping copy."
+fi
+
 # Loop through each directory and process .pdb files
 for dir in $directories
 do
@@ -46,28 +54,29 @@ do
     do
         if [ -f "$pdb_file" ]; then
             # Run q_genfeps.py with the specified path for selgenfeps.proc
-             q_genfeps.py "/home/hp/nayanika/github/GPX6/input/selgenfeps.proc" --pdb "$pdb_file" "$dir/relax_012.inp" relax --repeats 100 --frames 51 --fromlambda 1.0 --prefix "$base_scr_dir/$system_name/replica" --rs "$run_qdyn_file"
+            q_genfeps.py "/home/hp/nayanika/github/GPX6/input/selgenfeps.proc" --pdb "$pdb_file" "$dir/relax_012.inp" relax --repeats 100 --frames 51 --fromlambda 1.0 --prefix "$base_scr_dir/$system_name/replica" --rs "$run_qdyn_file"
 
-            # Copy the run_qdyn_5.sh script to each replica folder
+            # Verify that the replica directories were created
             for replica_dir in "$base_scr_dir/$system_name/replica"*; do
                 if [ -d "$replica_dir" ]; then
-                    # Copy run_qdyn_5.sh from the cluster scripts directory to each replica
+                    # Copy the run_qdyn_5.sh script to each replica folder
                     cp "$run_qdyn_file" "$replica_dir/"
                 else
-                    echo "Replica directory $replica_dir not found"
+                    echo "Failed to create directory: $replica_dir"
                 fi
             done
 
-            # Optionally, run run_replica.sh if it's present
+            # Optionally, run run_replica.sh if it's present and replicas exist
             if [ -n "$run_replica_file" ]; then
                 for replica_dir in "$base_scr_dir/$system_name/replica"*; do
                     if [ -d "$replica_dir" ]; then
-                        bash "$run_replica_file" "$replica_dir"
+                        bash "$base_scr_dir/run_replica.sh" "$replica_dir"
                     else
-                        echo "Replica directory $replica_dir not found, skipping."
+                        echo "Replica directory does not exist: $replica_dir"
                     fi
                 done
             fi
+
         else
             echo "No .pdb file found in $dir"
         fi
