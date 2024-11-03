@@ -12,15 +12,17 @@
 Generate topology files for PDB files:
 
 - **Topology File**: Done with qprep in Q program
-
+  - [Cysteine](prep_structures/mousecys/prep5.inp)
+  - [Selenocysteine](prep_structures/humansec/prep5.inp)
+ 
 - **Available Files**:
-  - [Mouse Topology Files](prep_structures/mousecys/prep5.inp)
-  - [Human Topology Files](prep_structures/humansec/prep5.inp)
+  - [Mouse Topology Files](prep_structures/mousecys)
+  - [Human Topology Files](prep_structures/humansec)
 
-### 3. Create Files for **Minimization**
+### 3. Create Input Files for **Minimization**
 Further processing files for minimization will be handled in this step.
 
-- **Available Files**:
+- **Code**
   - [Cysteine](prep_scripts/minimcysteine.ipynb)
   - [Selenocysteine](prep_scripts/minimselenocysteine.ipynb)
   
