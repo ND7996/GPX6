@@ -11,11 +11,11 @@
 ### 2. Create **Topology Files**
 Generate topology files for PDB files:
 
-- **Topology File**: [Done with qprep in Q program](https://github.com/ND7996/GPX6/blob/main/prep_structures/mousecys/prep5.inp)
+- **Topology File**: Done with qprep in Q program
 
 - **Available Files**:
-  - [Mouse Topology Files](prep_structures/mousecys)
-  - [Human Topology Files](prep_structures/humansec)
+  - [Mouse Topology Files](prep_structures/mousecys/prep5.inp)
+  - [Human Topology Files](prep_structures/humansec/prep5.inp)
 
 ### 3. Create Files for **Minimization**
 Further processing files for minimization will be handled in this step.
