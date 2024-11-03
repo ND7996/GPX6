@@ -1,6 +1,6 @@
 Create PDB structures 
 
-[Link Text] prep_structures/prep_structure.ipynb
+[Link Text](prep_structures/prep_structure.ipynb)
 
 
 
