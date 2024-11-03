@@ -6,7 +6,7 @@ readlib  /home/hp/nayanika/github/GPX6/parameters/GPX.lib
 readprm  /home/hp/nayanika/github/GPX6/parameters/qoplsaa_all2.prm
 
 ! read in structure
-readpdb S143E.pdb
+readpdb A52T.pdb
 
 set solvent_pack 2.7
 
@@ -14,9 +14,9 @@ boundary   sphere 49:SE 25.
 solvate           49:SE 25. grid HOH
 
 ! write out topology and pdb with corresponding indices
-maketop  S143E.top
-writetop S143E.top
-writepdb S143E.pdb y
+maketop A52T.top
+writetop A52T.top
+writepdb A52T.pdb y
 
 quit
 
