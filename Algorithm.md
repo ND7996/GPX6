@@ -1,4 +1,4 @@
-## Protocol for Running Empirical Valence Bond Simulations On Several Mutations with Q
+## Protocol for Running Empirical Valence Bond Simulations On Several Mutations
 
 ### 1. Create **PDB Structures** of Single and Combinations of Mutations
 
@@ -22,5 +22,6 @@ Generate topology files for all PDB files individually:
 Further processing files for minimization will be handled in this step.
 
 - **Available Files**:
-  - [Mouse Topology Files](prep_structures/mousecys)
-  - [Human Topology Files](prep_structures/humansec)
+  - [Cysteine](prep_scripts/minimcysteine.ipynb)
+  - [Selenocysteine](prep_scripts/minimselenocysteine.ipynb)
+  
