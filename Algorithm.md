@@ -1,23 +1,22 @@
-## RUNNING SEVERAL MUTATIONS WITH Q
+## Running Several Mutations with Q
 
-1. Create **PDB structures** for the 47 mutations in mouse and human sequence 
+### 1. Create **PDB Structures** for Single Mutations
+Transform mouse sequences to human and vice versa:
 
-CODE : [Link Text](prep_structures/prep_structure.ipynb)
+- **Code**: [View PDB Creation Code](prep_structures/prep_structure.ipynb)
 
-AVALIABLE FILES : [Link Text](prep_structures/mousecys) - MOUSE STRUCTURES
+- **Available Files**:
+  - [Mouse Structures](prep_structures/mousecys)
+  - [Human Structures](prep_structures/humansec)
 
-AVALIABLE FILES : [Link Text](prep_structures/humansec) - HUMAN STRUCTURES
+### 2. Create **Topology Files**
+Generate topology files for all PDB files individually:
 
-2. Create **TOPOLOGY** files for all the PDB files individually
+- **Example Topology File**: [Mouse Topology Example](https://github.com/ND7996/GPX6/blob/main/prep_structures/mousecys/prep5.inp)
 
-[Link Text](https://github.com/ND7996/GPX6/blob/main/prep_structures/mousecys/prep5.inp)
+- **Available Files**:
+  - [Mouse Topology Files](prep_structures/mousecys)
+  - [Human Topology Files](prep_structures/humansec)
 
-AVALIABLE FILES : [Link Text](prep_structures/mousecys) - MOUSE TOPOLOGY FILES
-
-AVALIABLE FILES : [Link Text](prep_structures/humansec) - HUMAN TOPOLOGY FILES
-
-3. Creating files to run minimisation
-
-
-
-
+### 3. Create Files for **Minimization**
+Further processing and minimization files will be handled in this step.
