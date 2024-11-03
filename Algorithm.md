@@ -9,10 +9,9 @@
   - [Human Structures](prep_structures/humansec)
 
 ### 2. Create **Topology Files**
-Generate topology files for all PDB files individually:
+Generate topology files for PDB files:
 
-- **Topology File**: [Done with qprep in Q program]
-- (https://github.com/ND7996/GPX6/blob/main/prep_structures/mousecys/prep5.inp)
+- **Topology File**: [Done with qprep in Q program](https://github.com/ND7996/GPX6/blob/main/prep_structures/mousecys/prep5.inp)
 
 - **Available Files**:
   - [Mouse Topology Files](prep_structures/mousecys)
