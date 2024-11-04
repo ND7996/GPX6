@@ -39,14 +39,12 @@ Generate topology files for PDB files:
     
 ### 6. Analysis
 
-- **Code to Copy**
-  - [Energy Files](prep_scripts/fepcysteine.ipynb)
-  - [Trajectory Files](prep_scripts/fepselenocysteine.ipynb)
+  - [Energy Files](analysis/copy_energy.sh)
+  - [Trajectory Files](analysis/copy_dcd.sh)
     
 - **Code**
-- [Mapping Energies]()
-- [Trajectory Analysis]()
- 
+- [Mapping Energies](analysis/mapper.sh)
+
   
     
   
