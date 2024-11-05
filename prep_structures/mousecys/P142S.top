@@ -1,6 +1,6 @@
 Q topology file
-TITLE      P142S.top
-DATE       20241021
+TITLE      /home/hp/nayanika/github/GPX6/prep_structures/mousecys/P142S.top
+DATE       20241105
 VERSION     5.06
 LIB_FILES  /home/hp/nayanika/github/GPX6/parameters/qoplsaa.lib;/home/hp/nayanika/github/GPX6/parameters/GPX.lib
 FORCEFIELD OPLS-AA
