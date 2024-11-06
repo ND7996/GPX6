@@ -1,4 +1,4 @@
-## Protocol for Running Empirical Valence Bond Simulations On Several Mutations
+## OPTIMIZING ENZYME
 
 ### 1. Create **PDB Structures** of Single and Combinations of Mutations
 
