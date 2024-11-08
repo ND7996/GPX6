@@ -1,0 +1,50 @@
+# Generated with QTools, version 0.7.0
+# Date: Fri Nov  8 23:16:43 2024
+# CWD: /home/hp/nayanika/github/GPX6/prep_scripts
+# Cmdline: /home/hp/nayanika/github/qtools/qscripts-cli/q_genrelax.py /home/hp/nayanika/github/GPX6/input/selgenrelax.proc --top /home/hp/nayanika/github/GPX6/prep_structures/humansec/K120N.top --pdb /home/hp/nayanika/github/GPX6/prep_structures/humansec/K120N.pdb --fep /home/hp/nayanika/github/GPX6/input/fep/GPX6_wthumansec.fep --outdir /home/hp/nayanika/github/GPX6/prep_structures/humansec/K120N/minim --rs /home/hp/nayanika/github/GPX6/cluster_scripts/run_qdyn_5.sh
+[md]
+steps                                           100
+random_seed                                  229705
+temperature                                     0.1
+stepsize                                        0.1
+bath_coupling                                   0.1
+initial_temperature                             0.1
+separate_scaling                                 on
+lrf                                              on
+shake_solvent                                    on
+
+[cut-offs]
+solute_solute                                    10
+solvent_solvent                                  10
+solute_solvent                                   10
+q_atom                                           99
+
+[sphere]
+shell_radius                                   20.0
+shell_force                                     0.0
+
+[intervals]
+non_bond                                         25
+output                                           10
+temperature                                      10
+trajectory                                       10
+
+[files]
+topology                                  K120N.top
+final                                  relax_001.re
+trajectory                            relax_001.dcd
+fep                             GPX6_wthumansec.fep
+
+[lambdas]
+1.00  0.
+
+[sequence_restraints]
+1      3050   20.0   0      0      0     
+
+[distance_restraints]
+761    3082   0.0    3.2    10.    0     
+1285   3082   0.0    3.2    10.    0     
+761    762    0.0    1.5    5.     1     
+3082   3084   0.0    1.5    5.     1     
+1285   3084   0.0    1.5    5.     2     
+3082   762    0.0    1.5    5.     2     
