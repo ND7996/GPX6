@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.15.0 (TeX Live 2022/Debian)  (format=lualatex 2024.9.23)  28 OCT 2024 15:01
+This is LuaHBTeX, Version 1.15.0 (TeX Live 2022/Debian)  (format=lualatex 2024.9.23)  11 NOV 2024 15:08
  restricted system commands enabled.
 **Free_Energy.tex
 (./Free_Energy.tex
@@ -202,6 +202,9 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
+
+LaTeX Warning: Float too large for page by 3.22974pt on input line 95.
+
 [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./Free_Energy.aux))
 
 Here is how much of LuaTeX's memory you used:
@@ -210,13 +213,13 @@ Here is how much of LuaTeX's memory you used:
  490 words of node memory still in use:
    6 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 1 glyph, 8 attribute, 51 glue_spec,
  8 attribute_list, 2 write nodes
-   avail lists: 1:1,2:580,3:11,4:2,5:162,6:4,7:5797,8:1,9:702,10:1,11:108
+   avail lists: 1:1,2:724,3:11,4:2,5:198,6:4,7:7323,8:1,9:882,10:1,11:144
  22187 multiletter control sequences out of 65536+600000
  27 fonts using 1469007 bytes
  55i,8n,59p,217b,215s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf/fonts/opentype/public/lm/lmroman10-regular.otf></usr/share/tex
 live/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on Free_Energy.pdf (1 page, 18641 bytes).
+Output written on Free_Energy.pdf (1 page, 19674 bytes).
 
 PDF statistics: 19 PDF objects out of 1000 (max. 8388607)
  11 compressed objects within 1 object stream
