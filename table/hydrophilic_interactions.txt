@@ -1,0 +1,21 @@
+Chain X:
+GLN <-> ASN: 3.86 Å
+GLN <-> TYR: 4.74 Å
+GLN <-> SER: 3.96 Å
+GLN <-> THR: 4.65 Å
+ASN <-> GLN: 3.86 Å
+ASN <-> SER: 3.94 Å
+ASN <-> CYS: 3.80 Å
+ASN <-> THR: 3.93 Å
+TYR <-> GLN: 3.86 Å
+CYS <-> ASN: 3.80 Å
+THR <-> ASN: 3.93 Å
+THR <-> SER: 5.00 Å
+THR <-> GLN: 4.65 Å
+SER <-> ASN: 3.94 Å
+SER <-> THR: 5.00 Å
+SER <-> SER: 3.90 Å
+SER <-> GLN: 3.96 Å
+
+Chain Y:
+
