@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.15.0 (TeX Live 2022/Debian)  (format=lualatex 2024.9.23)  3 DEC 2024 14:18
+This is LuaHBTeX, Version 1.15.0 (TeX Live 2022/Debian)  (format=lualatex 2024.9.23)  3 DEC 2024 15:00
  restricted system commands enabled.
  file:line:error style messages enabled.
 **Variants.tex
@@ -116,49 +116,57 @@ Package: array 2022/09/04 v2.5g Tabular extension package (FMi)
 (/usr/share/texlive/texmf-dist/tex/latex/placeins/placeins.sty
 Package: placeins 2005/04/18  v 2.2
 )
+(/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count195
+\float@exts=\toks18
+\float@box=\box53
+\@float@everytoks=\toks19
+\@floatcapt=\box54
+)
 (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-luatex.def
 File: l3backend-luatex.def 2023-01-16 L3 backend support: PDF output (LuaTeX)
-\l__color_backend_stack_int=\count195
-\l__pdf_internal_box=\box53
+\l__color_backend_stack_int=\count196
+\l__pdf_internal_box=\box55
 )
 (./Variants.aux)
 \openout1 = Variants.aux
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 11.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 12.
 LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 1
-1.
+2.
  (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2022/07/10 v2.5l Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count196
+\scratchcounter=\count197
 \scratchdimen=\dimen157
-\scratchbox=\box54
-\nofMPsegments=\count197
-\nofMParguments=\count198
-\everyMPshowfont=\toks18
-\MPscratchCnt=\count199
+\scratchbox=\box56
+\nofMPsegments=\count198
+\nofMParguments=\count199
+\everyMPshowfont=\toks20
+\MPscratchCnt=\count266
 \MPscratchDim=\dimen158
-\MPnumerator=\count266
-\makeMPintoPDFobject=\count267
-\everyMPtoPDFconversion=\toks19
+\MPnumerator=\count267
+\makeMPintoPDFobject=\count268
+\everyMPtoPDFconversion=\toks21
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
@@ -169,83 +177,21 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 13.
+(Font)              <12> on input line 14.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 13.
+(Font)              <8> on input line 14.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 13.
+(Font)              <6> on input line 14.
 </home/hp/nayanika/github/GPX6/figures/Residue_human_Distances.png, id=1, 715.4
 73pt x 596.9502pt>
 File: /home/hp/nayanika/github/GPX6/figures/Residue_human_Distances.png Graphic
  file (type png)
 <use /home/hp/nayanika/github/GPX6/figures/Residue_human_Distances.png>
 Package luatex.def Info: /home/hp/nayanika/github/GPX6/figures/Residue_human_Di
-stances.png  used on input line 26.
+stances.png  used on input line 27.
 (luatex.def)             Requested size: 276.00105pt x 230.27742pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-</home/hp/nayanika/github/GPX6/figures/Residue_mouse_Distances.png, id=2, 715.4
-73pt x 596.9502pt>
-File: /home/hp/nayanika/github/GPX6/figures/Residue_mouse_Distances.png Graphic
- file (type png)
-<use /home/hp/nayanika/github/GPX6/figures/Residue_mouse_Distances.png>
-Package luatex.def Info: /home/hp/nayanika/github/GPX6/figures/Residue_mouse_Di
-stances.png  used on input line 33.
-(luatex.def)             Requested size: 276.00105pt x 230.27742pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-</home/hp/nayanika/github/GPX6/figures/3d_clustering_residues.png, id=12, 689.9
-376pt x 591.8913pt>
-File: /home/hp/nayanika/github/GPX6/figures/3d_clustering_residues.png Graphic 
-file (type png)
-<use /home/hp/nayanika/github/GPX6/figures/3d_clustering_residues.png>
-Package luatex.def Info: /home/hp/nayanika/github/GPX6/figures/3d_clustering_re
-sidues.png  used on input line 46.
-(luatex.def)             Requested size: 276.00105pt x 236.78845pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-</home/hp/nayanika/github/GPX6/figures/clustered_mutants.png, id=13, 1634.105pt
- x 807.015pt>
-File: /home/hp/nayanika/github/GPX6/figures/clustered_mutants.png Graphic file 
-(type png)
-<use /home/hp/nayanika/github/GPX6/figures/clustered_mutants.png>
-Package luatex.def Info: /home/hp/nayanika/github/GPX6/figures/clustered_mutant
-s.png  used on input line 57.
-(luatex.def)             Requested size: 276.00105pt x 136.30412pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[2</home/hp/nayanika/github/GPX6/figures/Residue_human_Distances.png>] [3</home/
-hp/nayanika/github/GPX6/figures/Residue_mouse_Distances.png>] [4</home/hp/nayani
-ka/github/GPX6/figures/3d_clustering_residues.png></home/hp/nayanika/github/GPX6
-/figures/clustered_mutants.png>] (./Variants.aux))
-
-Here is how much of LuaTeX's memory you used:
- 1630 strings out of 478382
- 100000,1977958 words of node,token memory allocated
- 421 words of node memory still in use:
-   3 hlist, 1 vlist, 1 rule, 2 glue, 3 kern, 1 glyph, 4 attribute, 51 glue_spec,
- 4 attribute_list, 1 write nodes
-   avail lists: 2:188,3:87,4:15,5:312,6:20,7:6479,8:1,9:153,10:12,11:557
- 21687 multiletter control sequences out of 65536+600000
- 30 fonts using 2003815 bytes
- 55i,6n,59p,876b,240s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texmf/fonts/opentype/public/lm/lmroman10-regular.otf></usr/share/tex
-mf/fonts/opentype/public/lm/lmroman12-bold.otf></usr/share/texmf/fonts/opentype/
-public/lm/lmroman12-regular.otf></usr/share/texmf/fonts/opentype/public/lm/lmrom
-an17-regular.otf>
-Output written on Variants.pdf (4 pages, 2275908 bytes).
-
-PDF statistics: 53 PDF objects out of 1000 (max. 8388607)
- 26 compressed objects within 1 object stream
- 0 named destinations out of 1000 (max. 131072)
- 1 words of extra memory for PDF output out of 10000 (max. 100000000)
-
+</home/hp/nayanik

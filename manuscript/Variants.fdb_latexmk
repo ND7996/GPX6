@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1733231928 "Variants.tex" "Variants.pdf" "Variants" 1733231961 0
+["pdflatex"] 1733232406 "Variants.tex" "Variants.pdf" "Variants" 1733232440 0
   "/home/hp/.texlive2022/texmf-var/luatex-cache/generic/fonts/otl/lmroman10-regular.luc" 1727123644 127309 2c3a7c325c755353a32b5f3d0c56cb88 ""
   "/home/hp/.texlive2022/texmf-var/luatex-cache/generic/fonts/otl/lmroman12-bold.luc" 1727260098 128281 9d287a5267ef7e46310d2a20eb9d5ccd ""
   "/home/hp/.texlive2022/texmf-var/luatex-cache/generic/fonts/otl/lmroman12-regular.luc" 1727260097 127652 ea9fc6c83383bb1337b771452cfd801e ""
@@ -34,6 +34,7 @@
   "/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd" 1667332637 2430 8418b3f1835e588625becbcac4dbce56 ""
   "/usr/share/texlive/texmf-dist/tex/latex/booktabs/booktabs.sty" 1579038678 6078 f1cb470c9199e7110a27851508ed7a5c ""
   "/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty" 1579991033 13886 d1306dcf79a944f6988e688c1785f9ce ""
+  "/usr/share/texlive/texmf-dist/tex/latex/float/float.sty" 1137110151 6749 16d2656a1984957e674b149555f1ea1d ""
   "/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg" 1465944070 1224 978390e9c2234eab29404bc21b268d1e ""
   "/usr/share/texlive/texmf-dist/tex/latex/graphics-def/luatex.def" 1663965824 19478 ff26a264ed286e649e9023efac2574b2 ""
   "/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty" 1654720880 18387 8f900a490197ebaf93c02ae9476d4b09 ""
@@ -93,8 +94,8 @@
   "/usr/share/texmf/fonts/opentype/public/lm/lmroman17-regular.otf" 1255129361 110248 1d75fdc9dbe45e70de83ff6cc79a81c9 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1727108177 4623455 fa0568a71dd9a288d6c226ee477506c6 ""
   "/var/lib/texmf/web2c/luahbtex/lualatex.fmt" 1727110969 11886858 3be6691f25fdad04d606b7469f5e70fd ""
-  "Variants.aux" 1733231959 1437 abbc8b924f60fd7bd026a45b0b5ed1e1 "pdflatex"
-  "Variants.tex" 1733231857 5498 c6582a70d47a6b02637f222f641ef22f ""
+  "Variants.aux" 1733232439 1437 d464649ebefb2c3ab41c676d911c50b4 "pdflatex"
+  "Variants.tex" 1733232402 5701 9d672df5c580236f7d094fc8da8fa903 ""
   (generated)
   "Variants.aux"
   "Variants.log"
