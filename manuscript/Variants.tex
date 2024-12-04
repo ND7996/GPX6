@@ -9,6 +9,9 @@
 \author{Your Name} % Replace with your name
 \date{}
 
+% Set graphic path to the directory containing the images
+\graphicspath{{/home/hp/nayanika/github/GPX6/figures/}} % Add the path to your images
+
 \begin{document}
 
 \maketitle
@@ -24,14 +27,14 @@ By analyzing the 47 single mutants, we aim to systematically explore the structu
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\linewidth]{/home/hp/nayanika/github/GPX6/figures/Residue_human_Distances.png} % Replace with your image file name
+    \includegraphics[width=0.8\linewidth]{Residue_human_Distances.png}
     \caption{Distance of residues from the active site for human mutants. The figure highlights proximity of each residue to Cys/Sec49.}
     \label{fig:human_distances}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\linewidth]{/home/hp/nayanika/github/GPX6/figures/Residue_mouse_Distances.png} % Replace with your image file name
+    \includegraphics[width=0.8\linewidth]{Residue_mouse_Distances.png}
     \caption{Distance of residues from the active site for mouse mutants. The figure highlights proximity of each residue to Cys/Sec49.}
     \label{fig:mouse_distances}
 \end{figure}
@@ -39,133 +42,26 @@ By analyzing the 47 single mutants, we aim to systematically explore the structu
 \FloatBarrier % Forces all previous figures to appear before this section
 
 \subsection{Clustering the Variants}
+The output explains the clustering results of the residues based on their coordinates, which are derived from their distance and free energy values. Here's what the output indicates:
 
-The image below shows a 3D scatter plot of residues clustered based on their spatial proximity, hydrophobicity, and free energy values. The analysis begins by extracting residue data from a PDB file, where each residue’s position and amino acid identity are mapped. The residues are represented by their 3D coordinates, which are then used to compute pairwise distances. These distances are input into the KMeans clustering algorithm to group residues spatially, with the optimal number of clusters determined using the Elbow Method.
+Clusters:
+\begin{itemize}
+    \item \textbf{Cluster 1:} This cluster contains most of the residues, with coordinates generally clustered at higher distance and free energy values. For example, residues like 3 (Coordinates = (21.63, 24.64)) and 4 (Coordinates = (19.64, 22.52)) are in this cluster. Residues that belong to this cluster have relatively closer distances to each other in terms of both the distance and free energy values, with some exceptions for outliers like residues 33 and 192, which are farther from the cluster's centroid.
+    \item \textbf{Cluster 2:} This cluster has a few residues that are grouped separately based on their distinct coordinate values. Examples include residue 24 (Coordinates = (18.69, 17.85)) and residue 47 (Coordinates = (5.59, 17.38)). These residues generally have lower or more varied values for both distance and free energy compared to Cluster 1.
+\end{itemize}
 
-Residues are color-coded based on their **hydrophobicity** (a physicochemical property) to highlight how the hydrophobicity influences the clustering. The clustering provides insight into spatial relationships and physicochemical properties that might play a role in protein function.
+Centroids: The centroids of the two clusters are the average points of all residues in each cluster. The distances to these centroids reflect how far each residue is from the center of its cluster. Residues closer to the centroid have a smaller distance, while those farther away are considered outliers or more variable. For example, Residue 30 (Coordinates = (26.67, 20.93)) is very close to its centroid in Cluster 1 (Distance to Centroid = 2.04). Residue 33 (Coordinates = (30.54, 30.57)) has a relatively larger distance to the centroid (Distance = 11.92), indicating it may be somewhat of an outlier or not as well aligned with the main cluster.
 
-Cluster 0: (P, E, H at positions 142-144)
-    • Residues: Proline (P), Glutamic acid (E), Histidine (H)
-    • Interpretation: These residues form a structural region, and their proximity to Cys/Sec49 is relatively far (16.44, 15.29, and 11.60 Å). 
-Cluster 1: (V, Q, Y at positions 16, 33, 35)
-    • Residues: Valine (V), Glutamine (Q), Tyrosine (Y)
-    • Interpretation: These residues are located at a distance of 27.12, 30.54, and 28.03 Å from Cys/Sec49, respectively.
-Cluster 2: (R, I, Q, M at positions 181-188)
-    • Residues: Arginine (R), Isoleucine (I), Glutamine (Q), Methionine (M)
-    • Interpretation: These residues are located further away from the active site, with distances ranging from 19.54 Å to 27.64 Å. 
-Cluster 3: (S, F, R at positions 47, 48, 99)
-    • Residues: Serine (S), Phenylalanine (F), Arginine (R)
-    • Interpretation: These residues are closer to the active site, with distances ranging from 5.59 to 9.50 Å. This suggests they have a more direct influence on the active site. 
-Cluster 4: (N, T, S at positions 192-195)
-    • Residues: Asparagine (N), Threonine (T), Serine (S)
-    • Interpretation: These residues are at relatively greater distances from Cys/Sec49, with distances ranging from 33.41 to 35.43 Å. 
-Cluster 5: (D, N, S, D at positions 119, 120, 126, 148)
-    • Residues: Aspartic acid (D), Asparagine (N), Serine (S)
-    • Interpretation: These residues are located between 16.44 and 23.30 Å from Cys/Sec49. 
-Cluster 6: (H, T at positions 177-178)
-    • Residues: Histidine (H), Threonine (T)
-    • Interpretation: The distances between these residues and Cys/Sec49 are 20.19 and 14.81 Å.
-Cluster 7: (I, D, G at positions 24-27)
-    • Residues: Isoleucine (I), Aspartic acid (D), Glycine (G)
-    • Interpretation: These residues are further away from the active site, with distances ranging from 18.69 to 26.67 Å.
-Cluster 8: (I, T at positions 40, 71)
-    • Residues: Isoleucine (I), Threonine (T)
-    • Interpretation: With distances of 23.17 and 23.11 Å from Cys/Sec49.
-Cluster 9: (K, S at positions 3, 4)
-    • Residues: Lysine (K), Serine (S)
-    • Interpretation: These residues are 21.63 and 19.64 Å from Cys/Sec49. 
-Cluster 10: (T, T at positions 52, 54)
-    • Residues: Threonine (T)
-    • Interpretation: The two Threonine residues at distances of 5.20 and 10.00 Å from Cys/Sec49 are relatively close. 
-Cluster 11: (E, F at positions 137, 139)
-    • Residues: Glutamic acid (E), Phenylalanine (F)
-    • Interpretation: These residues are situated at distances of 21.60 and 16.28 Å, which are moderate. 
-Cluster 12: (G at position 102)
-    • Residue: Glycine (G)
-    • Interpretation: Glycine is located at a distance of 16.77 Å
-Cluster 13: (P, N at positions 67, 69)
-    • Residues: Proline (P), Asparagine (N)
-    • Interpretation: With distances of 30.74 and 27.97 Å
-Cluster 14: (T, N at positions 60, 107)
-    • Residues: Threonine (T), Asparagine (N)
-    • Interpretation: With distances ranging from 19.05 to 19.80 Å
-Cluster 15: (N, F, V, N at positions 22-31)
-    • Residues: Asparagine (N), Phenylalanine (F), Valine (V)
-    • Interpretation: These residues are 22.91, 26.66, and 28.12 Å from Cys/Sec49
-Cluster 16: (G at position 74)
-    • Residue: Glycine (G)
-    • Interpretation: Glycine at 14.29 Å 
-Cluster 17: (R at position 173)
-    • Residue: Arginine (R)
-    • Interpretation: Arginine at 20.19 Å 
-Cluster 18: (Y at position 104)
-    • Residue: Tyrosine (Y)
-    • Interpretation: Tyrosine at 16.10 Å 
-Cluster 19: (K at position 87)
-    • Residue: Lysine (K)
-    • Interpretation: Lysine at 16.44 Å 
+Interpretation: The clustering reveals two distinct groups of residues based on their distance and free energy characteristics. Cluster 1 contains residues that have higher free energy and distance values and are generally more tightly clustered around their centroid. Cluster 2 contains residues with lower distance and free energy values, and they are more spread out from their centroid.
 
-    Cluster 0: (P, E, H at positions 142-144)
-    • Residues: Proline (P), Glutamic acid (E), Histidine (H)
-    • Interpretation: These residues may form a specific structural region with a mix of hydrophobic (Proline) and polar (Glutamic acid, Histidine) properties. 
-    • Residues: Valine (V), Glutamine (Q), Tyrosine (Y)
-    • Interpretation: This cluster contains a hydrophobic residue (Valine) and polar residues (Glutamine, Tyrosine). 
-Cluster 2: (R, I, Q, M at positions 181-188)
-    • Residues: Arginine (R), Isoleucine (I), Glutamine (Q), Methionine (M)
-    • Interpretation: This cluster is rich in charged (Arginine) and hydrophobic (Isoleucine, Methionine) residues
-Cluster 3: (S, F, R at positions 47, 48, 99)
-    • Residues: Serine (S), Phenylalanine (F), Arginine (R)
-    • Interpretation: This cluster involves a polar residue (Serine), an aromatic residue (Phenylalanine), and a basic residue (Arginine).
-Cluster 4: (N, T, S at positions 192-195)
-    • Residues: Asparagine (N), Threonine (T), Serine (S)
-    • Interpretation: The cluster contains polar residues
-Cluster 5: (D, N, S, D at positions 119, 120, 126, 148)
-    • Residues: Aspartic acid (D), Asparagine (N), Serine (S)
-    • Interpretation: This cluster involves acidic (Aspartic acid) and polar (Serine, Asparagine) residues
-Cluster 6: (H, T at positions 177-178)
-    • Residues: Histidine (H), Threonine (T)
-    • Interpretation: This small cluster of polar residues 
-Cluster 7: (I, D, G at positions 24-27)
-    • Residues: Isoleucine (I), Aspartic acid (D), Glycine (G)
-    • Interpretation: A mix of hydrophobic (Isoleucine) and polar (Aspartic acid) residues, with Glycine 
-Cluster 8: (I, T at positions 40, 71)
-    • Residues: Isoleucine (I), Threonine (T)
-    • Interpretation: The hydrophobic Isoleucine and polar Threonine residues
-Cluster 9: (K, S at positions 3, 4)
-    • Residues: Lysine (K), Serine (S)
-    • Interpretation: The charged Lysine and polar Serine residues
-Cluster 10: (T, T at positions 52, 54)
-    • Residues: Threonine (T)
-    • Interpretation: This cluster consists of two Threonine residues
-Cluster 11: (E, F at positions 137, 139)
-    • Residues: Glutamic acid (E), Phenylalanine (F)
-    • Interpretation: This cluster involves a charged (Glutamic acid) and aromatic (Phenylalanine) residue
-Cluster 14: (T, N at positions 60, 107)
-    • Residues: Threonine (T), Asparagine (N)
-    • Interpretation: A cluster of polar residues l
-Cluster 15: (N, F, V, N at positions 22-31)
-    • Residues: Asparagine (N), Phenylalanine (F), Valine (V)
-    • Interpretation: The combination of polar (Asparagine) and hydrophobic (Phenylalanine, Valine) residues 
+Outliers: Some residues (like 33, 192, 194, 195) are farther from their respective centroids, suggesting they may behave differently from the majority in terms of their distance and free energy values.
 
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\linewidth]{/home/hp/nayanika/github/GPX6/figures/3d_clustering_residues.png} % Replace with your image file name
-    \caption{3D clustering of residues based on spatial proximity, hydrophobicity, and free energy values. Each cluster represents residues grouped by their spatial location and physicochemical properties.}
-    \label{fig:3d_clustering}
-\end{figure}
+Overall, this clustering indicates that the residues naturally group into two major clusters, with a few outliers in each cluster. The distances to the centroids highlight which residues are more strongly associated with their respective clusters and which are farther away, suggesting variability in their behavior.
 
 \FloatBarrier % Forces all previous figures to appear before this section
 
 \subsection{Visualizing the Clusters}
 
 The following figure illustrates the clustering of mutants based on the distances from the active site and other relevant features. This visualization provides a clear representation of how mutations at different positions affect the protein’s structure and potential function.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\linewidth]{/home/hp/nayanika/github/GPX6/figures/clustered_mutants.png} % Replace with your image file name
-    \caption{Visualization of clustered mutants showing the proximity of residues to Cys/Sec49.}
-    \label{fig:clustered_mutants}
-\end{figure}
 
 \end{document}
