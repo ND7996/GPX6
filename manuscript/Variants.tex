@@ -45,20 +45,55 @@ By analyzing the 47 single mutants, we aim to systematically explore the structu
 The output explains the clustering results of the residues based on their coordinates, which are derived from their distance and free energy values. Here's what the output indicates:
 
 Clusters:
-\begin{itemize}
-    \item \textbf{Cluster 1:} This cluster contains most of the residues, with coordinates generally clustered at higher distance and free energy values. For example, residues like 3 (Coordinates = (21.63, 24.64)) and 4 (Coordinates = (19.64, 22.52)) are in this cluster. Residues that belong to this cluster have relatively closer distances to each other in terms of both the distance and free energy values, with some exceptions for outliers like residues 33 and 192, which are farther from the cluster's centroid.
-    \item \textbf{Cluster 2:} This cluster has a few residues that are grouped separately based on their distinct coordinate values. Examples include residue 24 (Coordinates = (18.69, 17.85)) and residue 47 (Coordinates = (5.59, 17.38)). These residues generally have lower or more varied values for both distance and free energy compared to Cluster 1.
-\end{itemize}
 
-Centroids: The centroids of the two clusters are the average points of all residues in each cluster. The distances to these centroids reflect how far each residue is from the center of its cluster. Residues closer to the centroid have a smaller distance, while those farther away are considered outliers or more variable. For example, Residue 30 (Coordinates = (26.67, 20.93)) is very close to its centroid in Cluster 1 (Distance to Centroid = 2.04). Residue 33 (Coordinates = (30.54, 30.57)) has a relatively larger distance to the centroid (Distance = 11.92), indicating it may be somewhat of an outlier or not as well aligned with the main cluster.
+Input Data Preparation
+Selected Residues (selected_residues): A list of residues, where each residue is represented as a tuple (position, original_amino_acid, mutated_amino_acid).
+Distance Data (distance_dict): A dictionary mapping residue positions to their corresponding distance values.
+Free Energy Data (free_energy_dict): A dictionary mapping residue positions to their corresponding free energy values.
+2. Filtering and Data Extraction
 
-Interpretation: The clustering reveals two distinct groups of residues based on their distance and free energy characteristics. Cluster 1 contains residues that have higher free energy and distance values and are generally more tightly clustered around their centroid. Cluster 2 contains residues with lower distance and free energy values, and they are more spread out from their centroid.
+For each residue, it checks if the position exists in both distance_dict and free_energy_dict.
+If valid, it adds a [distance, free_energy] pair to the data list.
+The residue position is also recorded in residue_indices.
+Finally, the data list is converted into a NumPy array for compatibility with the KMeans algorithm.
 
-Outliers: Some residues (like 33, 192, 194, 195) are farther from their respective centroids, suggesting they may behave differently from the majority in terms of their distance and free energy values.
+3. Clustering Using KMeans
+KMeans Initialization: The algorithm is configured to create 2 clusters (n_clusters=2) with a fixed random seed (random_state=42) to ensure reproducibility.
+Fitting and Prediction: The fit_predict method clusters the residues based on their distance and free energy.
+4. Output Residue Cluster Information
+The code prints the cluster assignment for each residue, along with its coordinates (distance, free energy).
+5. Distances to Centroids
+The script computes the distance of each residue to its assigned cluster centroid using kmeans.transform().
+These distances are printed for each residue, providing insight into how close the residue is to the cluster center.
 
-Overall, this clustering indicates that the residues naturally group into two major clusters, with a few outliers in each cluster. The distances to the centroids highlight which residues are more strongly associated with their respective clusters and which are farther away, suggesting variability in their behavior.
+Hydrophobicity Difference=Hydrophobicity of Mutant−Hydrophobicity of Wild-Type
+If the amino acid is not in the hydrophobicity scale, a default value of 0 is used.
+If the residue position exists in both distance_dict and free_energy_dict, the following data is appended:
+Distance (from distance_dict).
+Free energy (from free_energy_dict).
+Hydrophobicity difference (calculated).
+Residue indices are stored for later reference.
+The resulting data is converted into a NumPy array.
 
-\FloatBarrier % Forces all previous figures to appear before this section
+Clustering Using KMeans
+The KMeans algorithm is used with n_clusters=2 to classify residues into two groups based on the 3D feature space:
+Distance
+Free energy
+Hydrophobicity difference
+Cluster assignments (clusters) are generated for each residue.
+
+This script:
+1. Loads mutation free energy and path data from JSON files.
+2. Computes energy differences and rewards for specific node positions.
+3. Generates detailed visualizations showing energy rewards along paths, making it easier to analyze trends and relationships between node positions and energy rewards.
+
+DETAILS
+
+- Paths starting with "49" or ending with "33" are selected, and the top 30 entries are retained.
+- The filtered data is sorted by energy values in ascending order.
+
+The data is divided into chunks of a maximum of 30 subplots per figure.
+
 
 \subsection{Visualizing the Clusters}
 
