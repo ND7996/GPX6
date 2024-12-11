@@ -19,7 +19,7 @@ dcd_files = [
 ]
 
 # Reference PDB file
-pdb_file = "/home/hp/results/mousecys/K3N/minim/minim.pdb"  # Replace with the path to your .pdb file
+pdb_file = "/home/hp/results/mousecys/N22L/minim/minim.pdb"  # Replace with the path to your .pdb file
 
 # Load the reference structure using the PDB file
 u = mda.Universe(pdb_file, dcd_files[0])  # Initialize with the first .dcd file

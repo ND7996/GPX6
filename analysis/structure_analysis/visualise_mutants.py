@@ -1,7 +1,7 @@
 from pymol import cmd
 
 # Path to the PDB file
-pdb_path = "/home/hp/results/mousecys/K3N/minim/minim.pdb"  # Replace with actual filename
+pdb_path = "/home/hp/results/mousecys/N22L/minim/minim.pdb"  # Replace with actual filename
 
 # Residues to select (include chain if needed, e.g., ("A", 3))
 residues = [
