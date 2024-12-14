@@ -2,57 +2,53 @@ This is BibTeX, Version 0.99d (TeX Live 2022/Debian)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: GPX6_manuscript.aux
 The style file: achemso.bst
+Illegal, another \bibstyle command---line 9 of file GPX6_manuscript.aux
+ : \bibstyle
+ :          {achemso}
+I'm skipping whatever remains of this command
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: acs-GPX6_manuscript.bib
-Database file #2: references.bib
-Warning--I didn't find a database entry for "hondal_differing_2011"
-Warning--I didn't find a database entry for "cardey_selenocysteine_2007"
-Warning--I didn't find a database entry for ""
-Warning--I didn't find a database entry for "14"
-Warning--I didn't find a database entry for "prabhakar_elucidation_2005"
-Warning--I didn't find a database entry for "prabhakar_is_2006"
-Warning--I didn't find a database entry for "flohe_glutathione_2022"
-Warning--I didn't find a database entry for "rees_ancient_2024"
+Database file #2: /home/hp/nayanika/github/GPX6/manuscript/references.bib
 achemso 2022-11-25 v3.13f
-You've used 2 entries,
+You've used 1 entry,
             2538 wiz_defined-function locations,
-            763 strings with 7103 characters,
-and the built_in function-call counts, 850 in all, are:
-= -- 47
-> -- 73
+            747 strings with 6465 characters,
+and the built_in function-call counts, 205 in all, are:
+= -- 9
+> -- 5
 < -- 4
-+ -- 31
-- -- 29
-* -- 79
-:= -- 121
-add.period$ -- 2
-call.type$ -- 2
++ -- 4
+- -- 3
+* -- 3
+:= -- 27
+add.period$ -- 0
+call.type$ -- 1
 change.case$ -- 4
 chr.to.int$ -- 2
-cite$ -- 2
-duplicate$ -- 54
-empty$ -- 35
-format.name$ -- 27
-if$ -- 143
+cite$ -- 1
+duplicate$ -- 15
+empty$ -- 13
+format.name$ -- 0
+if$ -- 31
 int.to.chr$ -- 0
 int.to.str$ -- 1
 missing$ -- 0
-newline$ -- 34
-num.names$ -- 3
-pop$ -- 3
+newline$ -- 28
+num.names$ -- 0
+pop$ -- 1
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 2
+skip$ -- 1
 stack$ -- 0
-substring$ -- 21
-swap$ -- 68
-text.length$ -- 2
+substring$ -- 6
+swap$ -- 9
+text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 1
-type$ -- 11
+type$ -- 4
 warning$ -- 0
-while$ -- 7
+while$ -- 3
 width$ -- 0
-write$ -- 41
-(There were 8 warnings)
+write$ -- 28
+(There was 1 error message)
