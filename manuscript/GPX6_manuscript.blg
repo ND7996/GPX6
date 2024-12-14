@@ -4,7 +4,7 @@ The top-level auxiliary file: GPX6_manuscript.aux
 The style file: achemso.bst
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: acs-GPX6_manuscript.bib
-Database file #2: /home/hp/nayanika/github/GPX6/manuscript/references.bib
+Database file #2: references.bib
 Warning--I didn't find a database entry for "hondal_differing_2011"
 Warning--I didn't find a database entry for "cardey_selenocysteine_2007"
 Warning--I didn't find a database entry for ""
@@ -16,7 +16,7 @@ Warning--I didn't find a database entry for "rees_ancient_2024"
 achemso 2022-11-25 v3.13f
 You've used 2 entries,
             2538 wiz_defined-function locations,
-            763 strings with 7144 characters,
+            763 strings with 7103 characters,
 and the built_in function-call counts, 850 in all, are:
 = -- 47
 > -- 73
