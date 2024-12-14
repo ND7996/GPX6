@@ -1,0 +1,41 @@
+\providecommand{\latin}[1]{#1}
+\makeatletter
+\providecommand{\doi}
+  {\begingroup\let\do\@makeother\dospecials
+  \catcode`\{=1 \catcode`\}=2 \doi@aux}
+\providecommand{\doi@aux}[1]{\endgroup\texttt{#1}}
+\makeatother
+\providecommand*\mcitethebibliography{\thebibliography}
+\csname @ifundefined\endcsname{endmcitethebibliography}
+  {\let\endmcitethebibliography\endthebibliography}{}
+\begin{mcitethebibliography}{2}
+\providecommand*\natexlab[1]{#1}
+\providecommand*\mciteSetBstSublistMode[1]{}
+\providecommand*\mciteSetBstMaxWidthForm[2]{}
+\providecommand*\mciteBstWouldAddEndPuncttrue
+  {\def\EndOfBibitem{\unskip.}}
+\providecommand*\mciteBstWouldAddEndPunctfalse
+  {\let\EndOfBibitem\relax}
+\providecommand*\mciteSetBstMidEndSepPunct[3]{}
+\providecommand*\mciteSetBstSublistLabelBeginEnd[3]{}
+\providecommand*\EndOfBibitem{}
+\mciteSetBstSublistMode{f}
+\mciteSetBstMaxWidthForm{subitem}{(\alph{mcitesubitemcount})}
+\mciteSetBstSublistLabelBeginEnd
+  {\mcitemaxwidthsubitemform\space}
+  {\relax}
+  {\relax}
+
+\bibitem[Orian \latin{et~al.}(2015)Orian, Mauri, Roveri, Toppo, Benazzi,
+  Bosello-Travain, De~Palma, Maiorino, Miotto, Zaccarin, Polimeno, Flohé, and
+  Ursini]{orian_selenocysteine_2015}
+Orian,~L.; Mauri,~P.; Roveri,~A.; Toppo,~S.; Benazzi,~L.; Bosello-Travain,~V.;
+  De~Palma,~A.; Maiorino,~M.; Miotto,~G.; Zaccarin,~M.; Polimeno,~A.;
+  Flohé,~L.; Ursini,~F. Selenocysteine oxidation in glutathione peroxidase
+  catalysis: an {MS}-supported quantum mechanics study. \emph{Free Radical
+  Biology and Medicine} \textbf{2015}, \emph{87}, 1--14\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\end{mcitethebibliography}

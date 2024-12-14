@@ -1,0 +1,58 @@
+This is BibTeX, Version 0.99d (TeX Live 2022/Debian)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: GPX6_manuscript.aux
+The style file: achemso.bst
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Database file #1: acs-GPX6_manuscript.bib
+Database file #2: /home/hp/nayanika/github/GPX6/manuscript/references.bib
+Warning--I didn't find a database entry for "hondal_differing_2011"
+Warning--I didn't find a database entry for "cardey_selenocysteine_2007"
+Warning--I didn't find a database entry for ""
+Warning--I didn't find a database entry for "14"
+Warning--I didn't find a database entry for "prabhakar_elucidation_2005"
+Warning--I didn't find a database entry for "prabhakar_is_2006"
+Warning--I didn't find a database entry for "flohe_glutathione_2022"
+Warning--I didn't find a database entry for "rees_ancient_2024"
+achemso 2022-11-25 v3.13f
+You've used 2 entries,
+            2538 wiz_defined-function locations,
+            763 strings with 7144 characters,
+and the built_in function-call counts, 850 in all, are:
+= -- 47
+> -- 73
+< -- 4
++ -- 31
+- -- 29
+* -- 79
+:= -- 121
+add.period$ -- 2
+call.type$ -- 2
+change.case$ -- 4
+chr.to.int$ -- 2
+cite$ -- 2
+duplicate$ -- 54
+empty$ -- 35
+format.name$ -- 27
+if$ -- 143
+int.to.chr$ -- 0
+int.to.str$ -- 1
+missing$ -- 0
+newline$ -- 34
+num.names$ -- 3
+pop$ -- 3
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 2
+stack$ -- 0
+substring$ -- 21
+swap$ -- 68
+text.length$ -- 2
+text.prefix$ -- 0
+top$ -- 1
+type$ -- 11
+warning$ -- 0
+while$ -- 7
+width$ -- 0
+write$ -- 41
+(There were 8 warnings)
