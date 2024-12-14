@@ -1,14 +1,14 @@
 # Fdb version 4
-["bibtex GPX6_manuscript"] 1734180832 "GPX6_manuscript.aux" "GPX6_manuscript.bbl" "GPX6_manuscript" 1734180835 0
-  "./acs-GPX6_manuscript.bib" 1734180834 306 2ec6e2c563f7f14bcefed0d36c308168 ""
-  "/home/hp/nayanika/github/GPX6/manuscript/references.bib" 1734178417 42626 713625ae3abce89fd24ecfa4e110c232 ""
+["bibtex GPX6_manuscript"] 1734181106 "GPX6_manuscript.aux" "GPX6_manuscript.bbl" "GPX6_manuscript" 1734181109 0
+  "./acs-GPX6_manuscript.bib" 1734181108 306 2ec6e2c563f7f14bcefed0d36c308168 ""
+  "./references.bib" 1734178417 42626 713625ae3abce89fd24ecfa4e110c232 ""
   "/usr/share/texlive/texmf-dist/bibtex/bst/achemso/achemso.bst" 1669410077 30297 5c43bd44e45855d79ce641c94678cfcc ""
-  "GPX6_manuscript.aux" 1734180834 2089 e8df89f8954bf739fb64860769502f1e "pdflatex"
+  "GPX6_manuscript.aux" 1734181108 2048 1532c33bd63ecd4196c34f483226d004 "pdflatex"
   (generated)
   "GPX6_manuscript.bbl"
   "GPX6_manuscript.blg"
   (rewritten before read)
-["pdflatex"] 1734180832 "GPX6_manuscript.tex" "GPX6_manuscript.pdf" "GPX6_manuscript" 1734180835 0
+["pdflatex"] 1734181106 "GPX6_manuscript.tex" "GPX6_manuscript.pdf" "GPX6_manuscript" 1734181109 0
   "/home/hp/.texlive2022/texmf-var/luatex-cache/generic/fonts/otl/lmroman10-bold.luc" 1727221231 128392 5ccdcd80529671c517f74edd952aa156 ""
   "/home/hp/.texlive2022/texmf-var/luatex-cache/generic/fonts/otl/lmroman10-regular.luc" 1727123644 127309 2c3a7c325c755353a32b5f3d0c56cb88 ""
   "/home/hp/.texlive2022/texmf-var/luatex-cache/generic/fonts/otl/lmroman12-bold.luc" 1727260098 128281 9d287a5267ef7e46310d2a20eb9d5ccd ""
@@ -227,10 +227,10 @@
   "/usr/share/texmf/fonts/opentype/public/lm/lmsans12-regular.otf" 1255129361 95160 a298a0c894450a41822166397e6bc032 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1727108177 4623455 fa0568a71dd9a288d6c226ee477506c6 ""
   "/var/lib/texmf/web2c/luahbtex/lualatex.fmt" 1727110969 11886858 3be6691f25fdad04d606b7469f5e70fd ""
-  "GPX6_manuscript.aux" 1734180834 2089 e8df89f8954bf739fb64860769502f1e "pdflatex"
-  "GPX6_manuscript.bbl" 1734180832 1730 020ba8efee02fc556d4c8cc608c08436 "bibtex GPX6_manuscript"
-  "GPX6_manuscript.out" 1734180834 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "GPX6_manuscript.tex" 1734180820 9121 eb6e7cf1c7d9bd0d889687d1d28f0c88 ""
+  "GPX6_manuscript.aux" 1734181108 2048 1532c33bd63ecd4196c34f483226d004 "pdflatex"
+  "GPX6_manuscript.bbl" 1734181106 1730 020ba8efee02fc556d4c8cc608c08436 "bibtex GPX6_manuscript"
+  "GPX6_manuscript.out" 1734181108 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "GPX6_manuscript.tex" 1734181090 9080 0297472dd8e85127a2ce05565a28d52c ""
   (generated)
   "GPX6_manuscript.aux"
   "GPX6_manuscript.log"
