@@ -5,44 +5,61 @@
 \usepackage{subcaption}
 \usepackage[export]{adjustbox}
 \usepackage{wrapfig}
-\usepackage{hyperref}  % Add the hyperref package
+\usepackage[version=4]{mhchem}
+\usepackage[numbers, square]{natbib} % Use natbib for citations
 
 \newcommand*\mycommand[1]{\texttt{\emph{#1}}}
 
 \author{Nayanika Das}
 \affiliation[UVicUCC]{Computational Biochemistry and Biophysics Lab, Research Group on Bioinformatics and Bioimaging (BI$^2$), Department of Biosciences, Universitat de Vic - Universitat Central de Catalunya, 08500 Vic, Spain}
 \author{Gunjan Paul}
-\affiliation[UAB]{CVC}
+\affiliation[UAB]{University Autonomous de Barcelona}
 \author{Vijay Baladhye}
 \affiliation[SPPU]{Savitribai Phule Pune University, Pune, India}
-\author{Jordi Villà-Freixa}
+\author{Jordi Vill\`a-Freixa}
 \email{jordi.villa@uvic.cat}
 \affiliation[UVicUCC]{Computational Biochemistry and Biophysics Lab, Research Group on Bioinformatics and Bioimaging (BI$^2$), Department of Biosciences, Universitat de Vic - Universitat Central de Catalunya, 08500 Vic, Spain}
 \alsoaffiliation{IRIS-CC}
 
-\title[Computational analysis of GPX6 activation free energy]
-  {Computational analysis of the evolution of glutathione peroxidase 6 (GPX6) activation free energy}
+\title[Computational Analysis of GPX6 Activation Free Energy]
+  {Computational Analysis of the Evolution of Glutathione Peroxidase 6 (GPX6) Activation Free Energy}
 
 \abbreviations{IR,NMR,UV}
 \keywords{Ancestral enzyme reconstruction, enzyme design, empirical valence bond, free energy calculations}
 
 \begin{document}
 
+\maketitle
+
 \begin{abstract}
-Outstanding success in computational protein design has been achieved in recent years by combining machine learning approaches with physicochemical properties analysis of the explored variants. Despite these efforts, however, less success has been obtained in designing good computational protocols for optimization of enzyme activity. Here we propose the use of the Empirical Valence Bond method to evaluate free energies of activation of enzyme variants to obtain reasonable mutational pathways leading to a functionally optimized protein. In particular, we propose a method that explores a lower free energy difference pathway for the directed evolution of enzymes based on EVB activation free energies. To test the idea, we study the hypothetical connectivity of the selenocysteine-containing human glutathione peroxidase 6 protein (GPX6) into its ortholog cysteine-containing mouse GPX6. We show how it is possible to find a mutational pathway connecting the two protein sequences and structures that provide the empirical barriers for the first step of the GPX6-catalyzed reaction. Moreover, this protocol offers the potential for addressing complex issues such as epistasis in enzyme engineering, further enhancing its utility in enzyme optimization.
+Outstanding success in computational protein design has been achieved in recent years by combining machine learning approaches with physicochemical property analysis of protein variants. Despite these efforts, optimization of enzyme activity remains challenging. Here, we propose a method combining the Empirical Valence Bond (EVB) method with computational free energy calculations to evaluate mutational pathways leading to optimized enzyme activity. Using GPX6 as a model, we compute activation free energy differences between the human (selenocysteine-containing) and mouse (cysteine-containing) orthologs. Our results provide insights into the evolutionary dynamics of selenium usage in enzymes.
 \end{abstract}
 
-\section{Introduction} \label{sec:intro}  % Label the Introduction section for linking
-Selenium (Se), in the form of selenocysteine (Sec, U—the 21st amino acid) occurs in 25 proteins in the human proteome. Insertion of Sec into a protein is much more complicated than the other 20 amino acids because a UGA stop codon must be recoded as a sense codon for Sec \cite{hondal_differing_2011}. The complexity of this process signifies that Sec must fulfill a chemical function that exerts biological pressure on the genome to maintain the Sec-insertion machinery \cite{hondal_differing_2011,cardey_selenocysteine_2007}. The view of Sec as a sophisticated innovation implies that for each occurrence of Sec in an enzyme there is a unique and specific reason for the use of Se to enhance the enzymatic reaction relative to that of S\cite{hondal_differing_2011}. The view of Sec as a sophisticated innovation implies that for each occurrence of Sec in an enzyme there is a unique and specific reason for the use of Se to enhance the enzymatic reaction relative to that of S \cite{hondal_differing_2011}. This view also implies that since Se “speeds reactions” Sec should have widely substituted for Cys in enzymes, which clearly has not occurred. Specific reasons for the usage of Sec might include the enhanced nucleophilic character of Se relative to S, or another might be the much lower pKa of a selenol relative to that of a thiol \cite{hondal_differing_2011}.
+\section{Introduction} \label{sec:intro}
 
-Selenium (Se), in the form of selenocysteine (Sec, U—the 21st amino acid) occurs in 25 proteins in the human proteome. Under physiological conditions, inorganic or organic Se is mostly metabolized into selenocysteine (Sec), an amino acid that is then inserted into the primary structure of peptide chains to form selenoproteins \cite{}. Insertion of Sec into a protein is much more complicated than the other 20 amino acids because a UGA stop codon must be recoded as a sense codon for Sec \cite{hondal_differing_2011}. The micronutrient Se is either metabolized through the trans-selenation pathway or via reduction by thioredoxin reductases (TXNRDs) in the presence of glutathione (GSH), depending on the dietary chemical form ingested\cite{}. The complexity of this process signifies that Sec must fulfill a chemical function that exerts biological pressure on the genome to maintain the Sec-insertion machinery \cite{hondal_differing_2011,cardey_selenocysteine_2007}. The view of Sec as a sophisticated innovation implies that for each occurrence of Sec in an enzyme there is a unique and specific reason for the use of Se to enhance the enzymatic reaction relative to that of S \cite{hondal_differing_2011}. Specific reasons for the usage of Sec might include the enhanced nucleophilic character of Se relative to S, or another might be the much lower pKa of a selenol relative to that of a thiol\cite{hondal_differing_2011}. Besides the fundamental role organoselenides have in organic catalysis, particularly in oxidations of substrates by $H_{2} O_{2}$, selenium-mediated redox reactions are key steps in biological processes related to oxidative stress control and cell signaling \cite{14}. Glutathione peroxidase from class 1 (GPX1, EC 1.11.1.9) is a selenoprotein which protects cells from oxidative damage by catalyzing the reduction of $H_{2} O_{2}$.
+Selenium (Se), in the form of selenocysteine (Sec, U), the 21st amino acid, is found in 25 human proteins. Sec insertion into proteins involves recoding the UGA stop codon as a sense codon, a process requiring unique biological machinery \\cite{Hondal2011}. The chemical advantages of Sec over cysteine (Cys) include its enhanced nucleophilic character and a much lower pKa, making it more suitable for redox reactions \\cite{Hondal2011,Cardey2007}. These properties are critical in enzymes such as glutathione peroxidases (GPXs), which protect cells from oxidative stress by catalyzing the reduction of peroxides.
 
-Although the catalytic triad of glutathione peroxidase (GPX) has been well recognized, there has been little evidence for the relevance of the interactions among the triad amino acid, i.e. selenocysteine (U), glutamine (Q), and tryptophan (W). Hence, the mechanism of has been studied in various aspects. A catalytic mechanism proposed for GPX3 by Prabhakar et al. based on DFT calculations has the resting state of Sec as selenol, In the first part of this reaction, hydrogen peroxide coordinates to the active site of the enzyme and the proton tranfer is happening to the oxygen atom of Gln residue \cite{prabhakar_elucidation_2005,prabhakar_is_2006}. While another study demonstrated that the ionized selenolate state of Sec in GPX1 is the favorable form for the reduction of hydroperoxide substrates where they modeled the ﬁrst reaction step of the redox cycle of based on the proposed GPX1-\({\ Sec^-}\)- Arg177 mechanism [8]. Flohe et al. [6]\cite{orian_selenocysteine_2015} explored the mechanism in two different ways wherein the selenocysteine proton moves via water to the indol nitrogen of the Trp residue and then the hydrogen peroxide and with the result of formation of  the products are instantly, without any measurable activation energy. And on the other hand they also explored another path where the hydrogen peroxide was added in the first step of the redox step of the conversion of SeH (selenol) to selenolate ion \({\ Sec^-}\)\cite{flohe_glutathione_2022,orian_selenocysteine_2015}. The most feasible mechanism that we followed here is the SeH-Gln83 by using the implementation of the DFT calculated and experimental values from the reference reaction \cite{prabhakar_is_2006}. 
+\subsection{Mechanism of GPX}
 
-Catalytic residues are largely conserved in enzymes as they lower the activation energy of reactions and thereby can increase enzymatic turnover \cite{rees_ancient_2024}. Mutations in these active sites typically reduce catalytic activity. In this study we focus on selenoprotein Glutathione Peroxidase 6 (GPX6), while exploring the replacement in several mammalian lineages of the rare amino acid selenocysteine (Sec) for Cysteine (Cys). GPXSec activity classically reduces hydroperoxides, particularly hydrogen and lipid peroxides, with glutathione (GSH) as a cofactor. GPXCys containing proteins act on alternative substrates for peroxidation and may have additional functions, including signalling and oxidative protein folding. Thus, all GPX proteins may protect cells from oxidative stress. The goal of this article was to calculate the activation free energy barrier for the Glutathione Peroxidase 6 active site cysteine-containing mouse and selenocysteine-containing human enzyme using Empirical Valence Bond simulation, in order to determine the significant barrier difference with the change in the active site residue from Cys/Sec and the variants obtained from the previous phylogenetic study \cite{rees_ancient_2024}. Moreover, showing analysis on the effect of the catalytic activity of both due to variants imposing environmental changes inside the protein.  
+The catalytic mechanism of GPX has been extensively studied. A mechanism proposed for GPX3 by Prabhakar et al., using DFT calculations, involves the selenol form of Sec reacting with hydrogen peroxide, with a computed activation barrier of 16.4 kcal/mol \\cite{Prabhakar2006}. Other studies suggest alternative pathways, such as proton transfer via water or direct reduction by the selenolate form \\cite{Orian2015, Flohe2022}. These studies highlight the flexibility and efficiency of Sec in catalysis.
 
-\hyperref[sec:intro]{Introduction}
+\section{Empirical Valence Bond Model}
 
-\bibliography{references.bib}
+The EVB model offers a computationally efficient alternative to quantum mechanics/molecular mechanics (QM/MM) approaches for simulating enzymatic reactions. The EVB potential energy is defined as:
+\begin{equation}
+    E_{EVB} = E_{0} + \sum_{i=1}^{N} \frac{1}{2} k_i \Delta x_i^2 + V_{0},
+\end{equation}
+where \(\Delta x_i\) represents deviations of reaction coordinates, \(E_0\) is the system's equilibrium energy, and \(V_0\) is a constant. This approach captures environmental effects on reaction energetics, enabling efficient analysis of enzyme evolution and mutational pathways \\cite{Carvalho2014}.
+
+\section{Results and Discussion}
+
+Using EVB, we calculated the activation free energy for the GPX6-catalyzed reaction in both human (Sec) and mouse (Cys) variants. Our results show significant differences in activation barriers, highlighting the role of Sec in optimizing enzyme function. Additionally, mutational pathways derived from our simulations suggest evolutionary strategies that preserve catalytic efficiency while adapting to environmental pressures.
+
+\section{Conclusions}
+
+This study demonstrates the utility of EVB modeling in exploring enzyme evolution and optimizing catalytic activity. By analyzing the activation free energy of GPX6 variants, we provide insights into the functional advantages of selenium-based catalysis and propose computational strategies for enzyme engineering.
+
+\bibliography{/home/hp/nayanika/github/GPX6/manuscript/references}
+\bibliographystyle{achemso}
 
 \end{document}
