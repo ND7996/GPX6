@@ -278,11 +278,6 @@ INPUT /home/hp/.texlive2022/texmf-var/luatex-cache/generic/fonts/otl/lmroman10-r
 INPUT /home/hp/.texlive2022/texmf-var/luatex-cache/generic/fonts/otl/lmroman10-bold.luc
 OUTPUT GPX6_manuscript.pdf
 INPUT /var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map
-INPUT /home/hp/.texlive2022/texmf-var/luatex-cache/generic/fonts/otl/lmroman17-regular.luc
-INPUT /home/hp/.texlive2022/texmf-var/luatex-cache/generic/fonts/otl/lmroman8-regular.luc
-INPUT /home/hp/.texlive2022/texmf-var/luatex-cache/generic/fonts/otl/lmroman8-bold.luc
 INPUT ./GPX6_manuscript.aux
-INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
-INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb
