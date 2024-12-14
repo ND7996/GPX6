@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1734179915 "GPX6_manuscript.tex" "GPX6_manuscript.pdf" "GPX6_manuscript" 1734179917 0
+["pdflatex"] 1734180335 "GPX6_manuscript.tex" "GPX6_manuscript.pdf" "GPX6_manuscript" 1734180337 0
   "/home/hp/.texlive2022/texmf-var/luatex-cache/generic/fonts/otl/lmroman10-bold.luc" 1727221231 128392 5ccdcd80529671c517f74edd952aa156 ""
   "/home/hp/.texlive2022/texmf-var/luatex-cache/generic/fonts/otl/lmroman10-regular.luc" 1727123644 127309 2c3a7c325c755353a32b5f3d0c56cb88 ""
   "/home/hp/.texlive2022/texmf-var/luatex-cache/generic/fonts/otl/lmroman12-bold.luc" 1727260098 128281 9d287a5267ef7e46310d2a20eb9d5ccd ""
@@ -184,8 +184,8 @@
   "/usr/share/texmf/fonts/opentype/public/lm/lmsans12-regular.otf" 1255129361 95160 a298a0c894450a41822166397e6bc032 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1727108177 4623455 fa0568a71dd9a288d6c226ee477506c6 ""
   "/var/lib/texmf/web2c/luahbtex/lualatex.fmt" 1727110969 11886858 3be6691f25fdad04d606b7469f5e70fd ""
-  "GPX6_manuscript.aux" 1734179917 207 53957d73e1dd379cdb0cc959933c0d68 "pdflatex"
-  "GPX6_manuscript.tex" 1734179844 2597 f2ef182975351b2a2cac77ba95c4252e ""
+  "GPX6_manuscript.aux" 1734180337 207 53957d73e1dd379cdb0cc959933c0d68 "pdflatex"
+  "GPX6_manuscript.tex" 1734180026 2569 19200c56559bf41f23f3bf64a01ee74f ""
   (generated)
   "GPX6_manuscript.aux"
   "GPX6_manuscript.log"
