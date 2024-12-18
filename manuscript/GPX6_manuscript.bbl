@@ -8,7 +8,7 @@
 \providecommand*\mcitethebibliography{\thebibliography}
 \csname @ifundefined\endcsname{endmcitethebibliography}
   {\let\endmcitethebibliography\endthebibliography}{}
-\begin{mcitethebibliography}{1}
+\begin{mcitethebibliography}{9}
 \providecommand*\natexlab[1]{#1}
 \providecommand*\mciteSetBstSublistMode[1]{}
 \providecommand*\mciteSetBstMaxWidthForm[2]{}
@@ -26,4 +26,76 @@
   {\relax}
   {\relax}
 
+\bibitem[Hondal and Ruggles(2011)Hondal, and Ruggles]{Hondal2011}
+Hondal,~R.~J.; Ruggles,~E.~L. Selenium and selenocysteine: A review of their
+  role in the enzymatic function and evolution. \emph{Biochimica et Biophysica
+  Acta (BBA) - Molecular Cell Research} \textbf{2011}, \emph{1810},
+  1246--1251\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Cardey and Enescu(2007)Cardey, and Enescu]{Cardey2007}
+Cardey,~B.; Enescu,~M. Selenocysteine versus cysteine reactivity: A theoretical
+  study of their oxidation by hydrogen peroxide. \emph{Journal of Physical
+  Chemistry A} \textbf{2007}, \emph{111}, 673--678\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Rees \latin{et~al.}(2024)Rees, Sarangi, Cheng, Floor, Andrés, Miguel,
+  Villà-Freixa, Arnér, and Castellano]{Rees2024}
+Rees,~J.; Sarangi,~G.; Cheng,~Q.; Floor,~M.; Andrés,~A.~M.; Miguel,~B.~O.;
+  Villà-Freixa,~J.; Arnér,~E. S.~J.; Castellano,~S. Ancient loss of catalytic
+  selenocysteine spurred convergent adaptation in a mammalian oxidoreductase.
+  \emph{Genome Biology and Evolution} \textbf{2024}, \relax
+\mciteBstWouldAddEndPunctfalse
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Prabhakar \latin{et~al.}(2006)Prabhakar, Vreven, Frisch, Morokuma, and
+  Musaev]{Prabhakar2006}
+Prabhakar,~R.; Vreven,~T.; Frisch,~M.~J.; Morokuma,~K.; Musaev,~D.~G. Is the
+  protein surrounding the active site critical for hydrogen peroxide reduction
+  by selenoprotein glutathione peroxidase? An ONIOM study. \emph{Journal of
+  Physical Chemistry B} \textbf{2006}, \emph{110}, 13608--13613\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Prabhakar and Morokuma(2005)Prabhakar, and Morokuma]{Prabhakar2005}
+Prabhakar,~R.; Morokuma,~K. ONIOM Study of the Mechanism of the GPX3 Enzyme: A
+  QM/MM Analysis. \emph{Journal of the American Chemical Society}
+  \textbf{2005}, \emph{127}, 17860--17871\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Orian \latin{et~al.}(2015)Orian, Mauri, Roveri, Toppo, Benazzi,
+  Bosello-Travain, Palma, Maiorino, Miotto, Zaccarin, Polimeno, Flohé, and
+  Ursini]{Orian2015}
+Orian,~L.; Mauri,~P.; Roveri,~A.; Toppo,~S.; Benazzi,~L.; Bosello-Travain,~V.;
+  Palma,~A.~D.; Maiorino,~M.; Miotto,~G.; Zaccarin,~M.; Polimeno,~A.;
+  Flohé,~L.; Ursini,~F. Selenocysteine oxidation in glutathione peroxidase
+  catalysis: An MS-supported quantum mechanics study. \emph{Free Radical
+  Biology and Medicine} \textbf{2015}, \emph{87}, 1--14\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Carvalho \latin{et~al.}(2014)Carvalho, \latin{et~al.}
+  others]{Carvalho2014}
+Carvalho,~A. T.~P.; others Title of the Paper. \emph{Journal Name}
+  \textbf{2014}, \emph{X}, 123--456\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Oanca \latin{et~al.}(2024)Oanca, \latin{et~al.} others]{Oanca2024}
+Oanca,~G.; others Another Title. \emph{Another Journal} \textbf{2024},
+  \emph{Y}, 789--1011\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
 \end{mcitethebibliography}
