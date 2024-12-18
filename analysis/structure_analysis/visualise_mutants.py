@@ -48,3 +48,10 @@ cmd.show("sticks", "mutated_residues")
 # Optional: Color the selected residues
 cmd.color("red", "mutated_residues")
 
+# Set the background to white for better visibility
+cmd.bg_color("white")
+
+# Save the visualization as a PNG image
+image_path = "/home/hp/nayanika/github/GPX6/figures/visualise_all_mutants.png"
+cmd.png(image_path, width=1920, height=1080, dpi=300)
+print(f"Visualization saved as image: {image_path}")
