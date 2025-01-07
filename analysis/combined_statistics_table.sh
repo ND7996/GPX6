@@ -3,9 +3,9 @@
 # Directory containing the stats file
 DATA_DIR="/home/hp/nayanika/github/GPX6/analysis"
 # File containing the existing tables
-STATS_FILE="$DATA_DIR/stats.tex"
+STATS_FILE="$DATA_DIR/stats2.tex"
 # File where the combined table will be stored
-TABLE_FILE="/home/hp/nayanika/github/GPX6/table/Free_Energy.tex"
+TABLE_FILE="/home/hp/nayanika/github/GPX6/table/Free_Energy2.tex"
 
 # Start writing the complete LaTeX document to the output file
 {
