@@ -27,6 +27,8 @@ with DCDWriter(output_file, u.atoms.n_atoms) as w:
     for dcd in dcd_files:
         print(f"Processing {dcd}...")
         u.load_new(dcd)  # Load the next .dcd file
+        num_frames = len(u.trajectory)
+        print(num_frames)
         for ts in u.trajectory:  # Iterate over all frames in the trajectory
             w.write(u.atoms)
 
