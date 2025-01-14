@@ -4,7 +4,7 @@ import glob
 import os
 
 # Define the path to the directory containing relax files and minim.pdb
-data_path = "/home/hp/results/C49U/P142S/replica000"
+data_path = "/home/hp/results/C49U/T60A/replica000"
 
 # Find all relax.dcd files in the specified directory
 dcd_files = sorted(glob.glob(os.path.join(data_path, "fep_*.dcd")))  # Sort to maintain numerical order
@@ -14,7 +14,7 @@ pdb_file = os.path.join(data_path, "minim.pdb")  # The PDB file in the same fold
 
 # Check if files are found
 if not dcd_files:
-    raise FileNotFoundError(f"No relax_*.dcd files found in the directory: {data_path}")
+    raise FileNotFoundError(f"No *.dcd files found in the directory: {data_path}")
 
 # Load the reference structure using the PDB file
 u = mda.Universe(pdb_file, dcd_files[0])  # Initialize with the first .dcd file
