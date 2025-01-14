@@ -4,7 +4,6 @@ from MDAnalysis.coordinates.DCD import DCDWriter
 
 # List all the .dcd files in the order they should be combined
 dcd_files = [
-    "equil_000_1.000.dcd", "equil_001_1.000.dcd", "equil_002_1.000.dcd", "equil_003_1.000.dcd", "equil_004_1.000.dcd",
     "fep_000_1.000.dcd", "fep_001_0.980.dcd", "fep_002_0.960.dcd", "fep_003_0.940.dcd", "fep_004_0.920.dcd",
     "fep_005_0.900.dcd", "fep_006_0.880.dcd", "fep_007_0.860.dcd", "fep_008_0.840.dcd", "fep_009_0.820.dcd",
     "fep_010_0.800.dcd", "fep_011_0.780.dcd", "fep_012_0.760.dcd", "fep_013_0.740.dcd", "fep_014_0.720.dcd",
@@ -19,7 +18,7 @@ dcd_files = [
 ]
 
 # Reference PDB file
-pdb_file = "/home/hp/results/mousecys/N22L/minim/minim.pdb"  # Replace with the path to your .pdb file
+pdb_file = "/home/hp/results/C49U/P142S/minim.pdb"  # Replace with the path to your .pdb file
 
 # Load the reference structure using the PDB file
 u = mda.Universe(pdb_file, dcd_files[0])  # Initialize with the first .dcd file

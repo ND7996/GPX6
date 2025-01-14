@@ -1,0 +1,2254 @@
+
+Build and version information
+
+Build number 5.10.27
+Build date   20240812
+Built:       
+      by     nsekhar
+      on     hpc
+      git id 9325b9c29ad62a733df16f540968e33ee6c78260
+      with   GNU Fortran Ubuntu 13.2.0-23ubuntu4 13.2.0
+Current date 2025- 1- 5 and time 16:19:18
+
+--------------------- Reading input from fep_007_0.860.inp --------------------
+Boundary: sphere
+Number of MD steps =     10000  Stepsize (fs)    =     0.100
+Target temperature =    300.00  T-relax time     =     10.00
+ No thermostat chosen. Berendsen thermostat will be used.
+ Leap frog integrator used by default.
+Solute and solvent atoms coupled separately to heat bath.
+Shake constaints on all solvent bonds    : on 
+Shake constaints on all solute bonds     : off
+Shake constaints on all bonds to hydrogen: off
+Nonbonded method   = LRF Taylor expansion outside cut-off
+Cut-off radii for non-bonded interactions:
+Solute-solute:     10.00
+Solvent-solvent:   10.00
+Solute-solvent:    10.00
+Q-atom-non-Q-atom: 99.00
+LRF:               99.00
+ Radius of inner restrained shell set to 85% of exclusion shell radius.
+Radius of inner restrained shell       =       0.850
+Non-bonded pair list update interval   =      30
+Energy summary print-out interval      =     500
+Temperature print-out interval         =     200
+Trajectory write interval              =     500
+Energy file write interval             =       5
+All atoms will be included in the trajectory.
+Topology file      = P142S.top
+Initial coord. file= fep_006_0.880.re
+Final coord. file  = fep_007_0.860.re
+Trajectory file    = fep_007_0.860.dcd
+Energy output file = fep_007_0.860.en
+FEP input file     = GPX6_wtmousesec.fep
+
+External rstr file = cont_relax_012.re.rest
+
+lambda-values      =  0.86000 0.14000
+
+List of excluded atom groups
+
+Listing of restraining data:
+
+No. of distance restraints =         6
+atom_i atom_j   dist1   dist2   fc        state
+   761   3065    0.00    3.20   10.00       0
+  1285   3065    0.00    3.20   10.00       0
+   761    762    0.00    1.50    5.00       1
+  3065   3067    0.00    1.50    5.00       1
+  1285   3067    0.00    1.50    5.00       2
+  3065    762    0.00    1.50    5.00       2
+---------------------------- Reading topology file ---------------------------
+/home/hp/nayanika/github/GPX6/prep_structures/C49U/P142S.top                    
+
+No. of solute atoms     =       3068
+No. of solvent atoms    =       3750
+No. of coordinates      =      20454
+No. of atom type codes  =       6818
+No. of solute bonds     =       3111
+No. of solvent bonds    =       3750
+No. of solute angles    =       5619
+No. of solvent angles   =       1250
+No. of solute torsions  =      11354
+No. of solvent torsions =          0
+No. of solute impropers =        650
+No. of solvent impropers=          0
+No. of atomic charges   =       6818
+No. of solute chargegrps=        750
+No. of solvent chargegps=       1250
+Charge group cut-off    : Switching atoms
+vdW  rule [ 1=G / 2=A ] =          1
+El-static 1-4 damping   =      0.500
+Coulomb constant        =   332.0716
+No. of atom types       =        147
+No. of LJ type 2 pairs  =          0
+No. of heavy atoms      =       2806
+No. of 1-4 neighbours   =       8196
+No. long-range 1-4 nbrs =          0
+No. of nbor exclusions  =      13730
+No. of long-range excls =          0
+No. of residues         =       1446
+No of solute residues   =        196
+No. of molecules        =       1252
+Atom type names         =        147
+SYBYL atom types        =        147
+Boundary: sphere
+Exclusion radius        =     25.000
+Eff. solvent radius     =     23.930
+Solute centre           =     37.914    31.866    49.100
+Solvent centre          =     37.914    31.866    49.100
+No. of excluded atoms   =        598
+Molecular topology read successfully.
+
+
+Refreshing topology coords for restraining...
+
+Found      492 solute atoms in the restrained shell region ( 21.25 to  25.00)
+----------------------------- Reading restart file ----------------------------
+Total number of atoms        =    6818
+Number of waters encountered =    1250
+
+----------------------------- Reading Q atom list ----------------------------
+No. of fep/evb states    =     2
+No. of fep/evb atoms     =    24
+Atom nos.:   761   762   758   759   760   756   757   754   755  3065
+Atom nos.:  3066  3067  3068  1286  1287  1288  1284  1285  1278  1279
+Atom nos.:  1280  1281  1282  1283
+--------------------------- Reading fep/evb strategy --------------------------
+
+No. of changing charges  =    24
+Effective Q-atom charges for all Q-atoms
+Q atom    charge in state 1 state 2
+     1               -0.335  -0.900
+     2                0.155   0.418
+     3                0.060  -0.300
+     4                0.060   0.100
+     5                0.060   0.100
+     6                0.140   0.140
+     7                0.060   0.060
+     8               -0.500  -0.500
+     9                0.300   0.300
+    10               -0.418  -0.418
+    11               -0.418  -0.418
+    12                0.418   0.418
+    13                0.418   0.418
+    14               -0.760  -0.496
+    15                0.380   0.480
+    16                0.380   0.480
+    17                0.500   0.286
+    18               -0.500  -0.503
+    19               -0.120  -0.120
+    20                0.060   0.060
+    21                0.060   0.060
+    22               -0.120   0.216
+    23                0.060   0.060
+    24                0.060   0.060
+
+   SUM               -0.000  -0.000
+
+No. of Q-atom types  =    37
+Name            Ai      Bi      Ci     ai Ai(1-4) Bi(1-4)    Mass
+sec.SE     2447.79   46.79  165.00  2.50  1730.85   33.09   78.96
+sel.SE1    2447.79   46.79  165.00  2.50  1730.85   33.09   32.06
+sec.HG       84.57    5.41    1.00  2.50    59.80    3.83    1.01
+prx.H         0.01    0.04    1.00  2.50     0.00    0.03    1.01
+sec.CB      944.52   22.03    1.00  2.50   667.88   15.58   12.01
+sel.CB      944.52   22.03    1.00  2.50   667.88   15.58   12.01
+sec.HB2      84.57    5.41    1.00  2.50    59.80    3.83    1.01
+sel.HB2      84.57    5.41    1.00  2.50    59.80    3.83    1.01
+sec.HB3      84.57    5.41    1.00  2.50    59.80    3.83    1.01
+sel.HB3      84.57    5.41    1.00  2.50    59.80    3.83    1.01
+sec.CA      944.52   22.03    1.00  2.50   667.88   15.58   12.01
+sel.CA      944.52   22.03    1.00  2.50   667.88   15.58   12.01
+sec.HA       84.57    5.41    1.00  2.50    59.80    3.83    1.01
+sel.HA       84.57    5.41    1.00  2.50    59.80    3.83    1.01
+sec.N       971.75   28.31    1.00  2.50   687.13   20.02   14.01
+sel.N       971.75   28.31    1.00  2.50   687.13   20.02   14.01
+sec.H         0.01    0.04    1.00  2.50     0.00    0.03    1.01
+sel.H         0.01    0.04    1.00  2.50     0.00    0.03    1.01
+prx.O       760.64   25.04  110.00  2.50   537.86   17.71   16.00
+glp.HE1       0.01    0.04  110.00  2.50     0.00    0.03    1.01
+N237        971.75   28.31    1.00  2.50   687.13   20.02   14.01
+glp.NE2     971.75   28.31    1.00  2.50   687.13   20.02   14.01
+H240          0.00    0.00    1.00  2.50     0.00    0.00    1.01
+glp.HE21      0.01    0.04    1.00  2.50     0.00    0.03    1.01
+glp.HE22      0.01    0.04    1.00  2.50     0.00    0.03    1.01
+C235       1802.24   34.18    1.00  2.50  1274.37   24.17   12.01
+glp.CD     1802.24   34.18    1.00  2.50  1274.38   24.17   12.01
+O236        616.44   23.77  110.00  2.50   435.89   16.81   16.00
+glp.OE1     760.64   25.04  110.00  2.50   537.86   17.71   16.00
+C136        944.52   22.03    1.00  2.50   667.88   15.58   12.01
+glp.CB      944.52   22.03    1.00  2.50   667.88   15.58   12.01
+H140         84.57    5.41    1.00  2.50    59.80    3.83    1.01
+glp.HB2      84.57    5.41    1.00  2.50    59.80    3.83    1.01
+glp.HB3      84.57    5.41    1.00  2.50    59.80    3.83    1.01
+glp.CG      944.52   22.03    1.00  2.50   667.88   15.58   12.01
+glp.HG2      84.57    5.41    1.00  2.50    59.80    3.83    1.01
+glp.HG3      84.57    5.41    1.00  2.50    59.80    3.83    1.01
+
+Assigning Q-atom types to all Q atoms:
+Q atom    atom type in  state 1  state 2
+     1                  sec.SE   sel.SE1 
+     2                  sec.HG   prx.H   
+     3                  sec.CB   sel.CB  
+     4                  sec.HB2  sel.HB2 
+     5                  sec.HB3  sel.HB3 
+     6                  sec.CA   sel.CA  
+     7                  sec.HA   sel.HA  
+     8                  sec.N    sel.N   
+     9                  sec.H    sel.H   
+    10                  prx.O    prx.O   
+    11                  prx.O    prx.O   
+    12                  prx.H    glp.HE1 
+    13                  prx.H    prx.H   
+    14                  N237     glp.NE2 
+    15                  H240     glp.HE21
+    16                  H240     glp.HE22
+    17                  C235     glp.CD  
+    18                  O236     glp.OE1 
+    19                  C136     glp.CB  
+    20                  H140     glp.HB2 
+    21                  H140     glp.HB3 
+    22                  C136     glp.CG  
+    23                  H140     glp.HG2 
+    24                  H140     glp.HG3 
+
+No. of soft repulsion non-bonded pairs =     4
+q-atom_i q-atom_j
+      10       12
+       1        2
+      10        2
+      18       12
+
+Q-bond types:
+type #  Morse E_diss    alpha       b0  Harmonic force_k 
+     1        102.00     2.26     0.96
+     2         81.00     1.87     1.47
+     3        102.00     2.26     0.96
+     4                            1.97            444.00
+     5                            1.81            444.00
+     6                            1.33            980.00
+     7                            1.29           1270.00
+     8                            1.23           1140.00
+     9                            1.37            880.00
+    10                            1.52            634.00
+    11                            1.49            580.00
+    12                            1.01            868.00
+    13                            1.01            980.00
+    14                            1.01            980.00
+
+
+No. of changing bonds    =    10
+atom_i atom_j   bond type in state 1 state 2
+  3065   3067                      1       0
+   761    762                      2       0
+   762   3065                      0       1
+  1285   3067                      0       3
+   758    761                      4       5
+  1284   1286                      6       7
+  1284   1285                      8       9
+  1281   1284                     10      11
+  1286   1287                     12      13
+  1286   1288                     12      14
+
+Q-angle types:
+type #       force-k   theta0
+     1        160.00   102.22
+     2        150.00    99.00
+     3        140.00   105.55
+     4        130.00   111.00
+     5        100.00   114.70
+     6        126.00   111.10
+     7        140.00   109.02
+     8         70.00   119.80
+     9         90.00   118.89
+    10         90.00   118.89
+    11        140.00   116.60
+    12        140.00   120.65
+    13        160.00   120.40
+    14        170.00   110.81
+    15         70.00   120.00
+    16         60.00   117.83
+    17         70.00   109.50
+    18         90.00   109.33
+    19         90.00   109.33
+    20        160.00   122.90
+    21        200.00   117.62
+
+
+No. of changing angles   =    14
+atom_i atom_j atom_k    angle type in state 1 state 2
+  3066   3065   3067                        1       0
+   758    761    762                        2       0
+   762   3065   3066                        0       1
+  1284   1285   3067                        0       3
+   756    758    761                        4       5
+  1278   1281   1284                        6       7
+  1284   1286   1287                        8       9
+  1284   1286   1288                        8      10
+  1281   1284   1286                       11      12
+  1281   1284   1285                       13      14
+  1287   1286   1288                       15      16
+  1282   1281   1284                       17      18
+  1283   1281   1284                       17      19
+  1285   1284   1286                       20      21
+
+Q-torsion types:
+type #       force-k     mult    delta
+     1         -2.50     2.00   180.00
+     2          0.00     1.00     0.00
+     3          0.00     1.00     0.00
+     4          0.00     1.00     0.00
+     5          1.50     2.00   180.00
+     6          1.50     2.00   180.00
+     7          0.57     1.00     0.00
+     8         -0.08     2.00   180.00
+     9          0.20     3.00     0.00
+    10          0.71     1.00     0.00
+    11          0.04     2.00   180.00
+    12          0.01     3.00     0.00
+    13          1.42     1.00     0.00
+    14         -0.18     2.00   180.00
+    15         -0.16     3.00     0.00
+    16          0.00     1.00     0.00
+    17          0.20     1.00     0.00
+    18          0.65     2.00   180.00
+    19          0.07     3.00     0.00
+    20          0.00     1.00     0.00
+    21          2.45     2.00   180.00
+    22          2.00     2.00   180.00
+    23          2.00     2.00   180.00
+    24         -0.05     3.00     0.00
+    25          0.15     3.00     0.00
+    26          0.15     3.00     0.00
+    27          2.45     2.00   180.00
+    28          2.00     2.00   180.00
+    29          2.00     2.00   180.00
+
+
+No. of changing torsions =    33
+atom_i atom_j atom_k atom_l    torsion type in state 1 state 2
+  3067   3065   3066   3068                          1       0
+   756    758    761    762                          2       0
+   759    758    761    762                          3       0
+   760    758    761    762                          4       0
+   762   3065   3066   3068                          0       1
+  1281   1284   1285   3067                          0       5
+  1286   1284   1285   3067                          0       6
+   754    756    758    761                          7       0
+   754    756    758    761                          8       0
+   754    756    758    761                          9       0
+   754    756    758    761                          0      10
+   754    756    758    761                          0      11
+   754    756    758    761                          0      12
+  1278   1281   1284   1286                         13       0
+  1278   1281   1284   1286                         14       0
+  1278   1281   1284   1286                         15       0
+  1278   1281   1284   1286                          0      16
+  1278   1281   1284   1285                         17       0
+  1278   1281   1284   1285                         18       0
+  1278   1281   1284   1285                         19       0
+  1278   1281   1284   1285                          0      20
+  1281   1284   1286   1287                         21       0
+  1281   1284   1286   1287                          0      22
+  1281   1284   1286   1288                         21       0
+  1281   1284   1286   1288                          0      23
+  1279   1278   1281   1284                         24       0
+  1279   1278   1281   1284                          0      25
+  1280   1278   1281   1284                         24       0
+  1280   1278   1281   1284                          0      26
+  1285   1284   1286   1287                         27       0
+  1285   1284   1286   1287                          0      28
+  1285   1284   1286   1288                         27       0
+  1285   1284   1286   1288                          0      29
+
+Q-improper types:
+type #       force-k     imp0
+     1          2.50   180.00
+     2          1.00   180.00
+
+
+No. of changing impropers=     1
+atom_i atom_j atom_k atom_l    improper type in state 1 state 2
+  1284   1286   1287   1288                           1       2
+
+No. of offdiagonal (Hij) functions =     1
+state_i state_j atom_k atom_l     Aij mu_ij
+      1       2      1     12    0.00  0.00
+No softcore section found. Using normal LJ potentials.
+
+---------------- Removing redefined interactions from topology ---------------
+type      atom1 atom2 atom3 atom4
+bond        758   761
+bond        761   762
+bond       1284  1281
+bond       1286  1284
+bond       1286  1287
+bond       1286  1288
+bond       1284  1285
+bond       3067  3065
+angle       756   758   761
+angle       758   761   762
+angle      1278  1281  1284
+angle      1281  1284  1286
+angle      1284  1281  1282
+angle      1284  1281  1283
+angle      1281  1284  1285
+angle      1284  1286  1287
+angle      1284  1286  1288
+angle      1286  1284  1285
+angle      1287  1286  1288
+angle      3067  3065  3066
+torsion     754   756   758   761
+torsion     754   756   758   761
+torsion     754   756   758   761
+torsion     756   758   761   762
+torsion     759   758   761   762
+torsion     760   758   761   762
+torsion    1284  1281  1278  1279
+torsion    1284  1281  1278  1280
+torsion    1286  1284  1281  1278
+torsion    1286  1284  1281  1278
+torsion    1286  1284  1281  1278
+torsion    1285  1284  1281  1278
+torsion    1285  1284  1281  1278
+torsion    1285  1284  1281  1278
+torsion    1287  1286  1284  1281
+torsion    1287  1286  1284  1285
+torsion    1288  1286  1284  1281
+torsion    1288  1286  1284  1285
+torsion    3067  3065  3066  3068
+improper   1288  1286  1284  1287
+
+---------------------------- Initialising dynamics ---------------------------
+Total charge of non-Q atoms             =      -5.00
+Total charge of excluded atoms          =       1.00
+Total charge of system                  =      -5.00
+Target water sphere radius              =      23.93
+Surface inward harmonic force constant  =      60.00
+Surface attraction well depth           =       0.79
+Surface attraction well width           =       0.42
+Water polarisation restraints           : ON, Born correction enabled
+Radial polarisation force constant      =      20.00
+
+Setting up 3 water shells for polarisation restraints.
+Loaded polarisation restraint data from restart file.
+Shell #    outer radius    inner radius
+      1           23.93           23.43
+      2           23.43           22.43
+      3           22.43           20.93
+
+Number of shake constraints             =       3750
+No. molecules with shake constraints    =       1250
+No. of Rcq indep. nb pairs involving q-atoms =   449 in state :  1
+No. of Rcq indep. nb pairs involving q-atoms =   449 in state :  2
+
+Coordinates for  6818 atoms will be written to the trajectory.
+------------------------ Distribution of charge groups -----------------------
+node value solute-solute solute-water  water-water     Q-solute      Q-water       #Shake       #Atoms   #Molecules
+     total           750          750         1250          750         1250         1250         6818         1252
+----------------------------- End of distribution ----------------------------
+
+Initial temperatures are : Ttot =    387.67 Tfree =    302.64
+Solvent temperatures are : Ttot =    303.55 Tfree =    303.55
+ Solute temperatures are : Ttot =    456.21 Tfree =    301.71
+
+------------------------ Nonbonded pair list generation -----------------------
+=======================  Energy summary at step      0 ========================
+                        el       vdW      bond     angle   torsion  improper
+solute              -6125.57     -415.52     1276.55     1654.48      976.88      136.62
+solvent            -11642.65     1833.96        0.00        0.00        0.00        0.00
+solute-solvent      -2556.16      -90.42
+LRF                  -124.41
+Q-atom               -110.03      -17.44     -159.66        2.42       -3.42        0.03
+
+                     total       fix slvnt_rad slvnt_pol     shell    solute
+restraints            685.14      995.29     -433.35       25.09       93.89        4.23
+
+                     total potential   kinetic
+SUM                 -8246.82   -14679.21     6432.39
+======================= Q-atom energies at step      0 ========================
+type   st lambda        el       vdW      bond     angle   torsion  improper
+Q-Q     1 0.8600    -19.14      1.16
+Q-Q     2 0.1400   -133.62     21.44
+
+Q-prot  1 0.8600    -44.79    -21.11
+Q-prot  2 0.1400    -39.53    -20.10
+
+Q-wat   1 0.8600    -29.99     -0.47
+Q-wat   2 0.1400    -35.90     -0.40
+
+Q-surr. 1 0.8600    -74.78    -21.59
+Q-surr. 2 0.1400    -75.43    -20.50
+
+Q-any   1 0.8600    -93.91    -20.43   -180.49      0.87     -3.88      0.03
+Q-any   2 0.1400   -209.05      0.94    -31.67     11.88     -0.55      0.01
+
+type   st lambda     total restraint
+Q-SUM   1 0.8600   -296.89      0.92
+Q-SUM   2 0.1400   -203.90     24.53
+H( 1, 2) =    0.00 dist. between Q-atoms   1  12 =    3.77
+===============================================================================
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+---------------------- Water polarisation restraint data ---------------------
+shell    <n>    <theta>    theta_0 theta_corr
+    1  148.3     91.689     90.000      0.774
+    2  160.9     89.459     90.000      2.554
+    3  231.1     91.468     90.000     -0.110
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+---------------------- Water polarisation restraint data ---------------------
+shell    <n>    <theta>    theta_0 theta_corr
+    1  148.0     92.562     90.000      3.337
+    2  161.4     91.669     90.000      4.223
+    3  232.3     93.310     90.000      3.200
+Temperature at step     200:         T_tot=     383.5         T_free=     301.9
+                             T_free_solute=     302.3 T_free_solvent=     301.4
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+Temperature at step     269:         T_tot=     391.4         T_free=     299.5
+                             T_free_solute=     299.3 T_free_solvent=     299.8
+------------------------ Nonbonded pair list generation -----------------------
+Temperature at step     296:         T_tot=     383.5         T_free=     300.3
+                             T_free_solute=     300.3 T_free_solvent=     300.2
+------------------------ Nonbonded pair list generation -----------------------
+---------------------- Water polarisation restraint data ---------------------
+shell    <n>    <theta>    theta_0 theta_corr
+    1  148.9     90.420     90.000      3.756
+    2  161.1     89.549     90.000      3.772
+    3  233.8     89.087     90.000      2.286
+------------------------ Nonbonded pair list generation -----------------------
+Temperature at step     356:         T_tot=     391.5         T_free=     302.4
+                             T_free_solute=     299.2 T_free_solvent=     305.6
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+---------------------- Water polarisation restraint data ---------------------
+shell    <n>    <theta>    theta_0 theta_corr
+    1  146.8     87.926     90.000      1.682
+    2  162.9     89.303     90.000      3.075
+    3  235.6     87.748     90.000      0.034
+Temperature at step     400:         T_tot=     384.5         T_free=     304.3
+                             T_free_solute=     302.4 T_free_solvent=     306.2
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+---------------------- Water polarisation restraint data ---------------------
+shell    <n>    <theta>    theta_0 theta_corr
+    1  145.9     90.188     90.000      1.870
+    2  164.9     92.007     90.000      5.082
+    3  237.4     91.174     90.000      1.208
+=======================  Energy summary at step    500 ========================
+                        el       vdW      bond     angle   torsion  improper
+solute              -6161.31     -421.33     1312.30     1622.22      973.84      125.38
+solvent            -11513.03     1781.36        0.00        0.00        0.00        0.00
+solute-solvent      -2591.11     -131.82
+LRF                   -86.78
+Q-atom               -109.54      -14.61     -158.64        2.66       -3.14        0.11
+
+                     total       fix slvnt_rad slvnt_pol     shell    solute
+restraints            798.48     1046.48     -430.52       61.27      117.61        3.64
+
+                     total potential   kinetic
+SUM                 -8196.47   -14574.97     6378.50
+======================= Q-atom energies at step    500 ========================
+type   st lambda        el       vdW      bond     angle   torsion  improper
+Q-Q     1 0.8600    -19.31      0.36
+Q-Q     2 0.1400   -131.11     20.47
+
+Q-prot  1 0.8600    -46.55    -17.81
+Q-prot  2 0.1400    -39.51    -16.76
+
+Q-wat   1 0.8600    -28.41     -0.13
+Q-wat   2 0.1400    -32.77     -0.05
+
+Q-surr. 1 0.8600    -74.96    -17.94
+Q-surr. 2 0.1400    -72.27    -16.81
+
+Q-any   1 0.8600    -94.27    -17.58   -179.44      0.50     -3.62      0.12
+Q-any   2 0.1400   -203.39      3.65    -30.88     15.90     -0.18      0.05
+
+type   st lambda     total restraint
+Q-SUM   1 0.8600   -293.79      0.49
+Q-SUM   2 0.1400   -191.87     22.98
+H( 1, 2) =    0.00 dist. between Q-atoms   1  12 =    3.80
+===============================================================================
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+---------------------- Water polarisation restraint data ---------------------
+shell    <n>    <theta>    theta_0 theta_corr
+    1  146.2     91.553     90.000      3.423
+    2  166.8     91.366     90.000      6.448
+    3  235.5     92.225     90.000      3.433
+Temperature at step     600:         T_tot=     385.1         T_free=     302.9
+                             T_free_solute=     296.5 T_free_solvent=     309.3
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+Temperature at step     661:         T_tot=     393.2         T_free=     301.5
+                             T_free_solute=     299.3 T_free_solvent=     303.6
+------------------------ Nonbonded pair list generation -----------------------
+Temperature at step     695:         T_tot=     385.4         T_free=     300.8
+                             T_free_solute=     301.6 T_free_solvent=     300.0
+---------------------- Water polarisation restraint data ---------------------
+shell    <n>    <theta>    theta_0 theta_corr
+    1  142.5     90.049     90.000      3.472
+    2  173.8     87.701     90.000      4.149
+    3  230.8     88.212     90.000      1.644
+------------------------ Nonbonded pair list generation -----------------------
+Temperature at step     746:         T_tot=     393.3         T_free=     302.4
+                             T_free_solute=     304.3 T_free_solvent=     300.6
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+Temperature at step     788:         T_tot=     385.3         T_free=     300.9
+                             T_free_solute=     300.8 T_free_solvent=     301.0
+---------------------- Water polarisation restraint data ---------------------
+shell    <n>    <theta>    theta_0 theta_corr
+    1  140.4     89.414     90.000      2.886
+    2  178.2     87.969     90.000      2.118
+    3  227.1     88.307     90.000     -0.049
+Temperature at step     800:         T_tot=     381.6         T_free=     301.1
+                             T_free_solute=     301.7 T_free_solvent=     300.5
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+---------------------- Water polarisation restraint data ---------------------
+shell    <n>    <theta>    theta_0 theta_corr
+    1  140.1     89.631     90.000      2.518
+    2  180.6     91.697     90.000      3.815
+    3  225.7     92.967     90.000      2.919
+Temperature at step     912:         T_tot=     389.4         T_free=     301.3
+                             T_free_solute=     304.5 T_free_solvent=     298.2
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+---------------------- Water polarisation restraint data ---------------------
+shell    <n>    <theta>    theta_0 theta_corr
+    1  137.7     89.533     90.000      2.051
+    2  183.2     91.601     90.000      5.415
+    3  221.7     91.631     90.000      4.549
+=======================  Energy summary at step   1000 ========================
+                        el       vdW      bond     angle   torsion  improper
+solute              -6161.80     -411.48     1293.18     1594.63      952.90      124.38
+solvent            -11659.71     1877.65        0.00        0.00        0.00        0.00
+solute-solvent      -2538.88     -144.08
+LRF                  -105.56
+Q-atom               -106.81      -16.52     -157.82        3.78       -2.07        0.26
+
+                     total       fix slvnt_rad slvnt_pol     shell    solute
+restraints            685.86      978.36     -434.88       38.81      100.14        3.43
+
+                     total potential   kinetic
+SUM                 -8243.63   -14772.09     6528.46
+======================= Q-atom energies at step   1000 ========================
+type   st lambda        el       vdW      bond     angle   torsion  improper
+Q-Q     1 0.8600    -19.73     -0.66
+Q-Q     2 0.1400   -139.99     21.52
+
+Q-prot  1 0.8600    -44.58    -18.78
+Q-prot  2 0.1400    -40.83    -17.69
+
+Q-wat   1 0.8600    -25.84     -0.34
+Q-wat   2 0.1400    -28.35     -0.27
+
+Q-surr. 1 0.8600    -70.42    -19.12
+Q-surr. 2 0.1400    -69.18    -17.96
+
+Q-any   1 0.8600    -90.15    -19.79   -180.93      1.69     -2.67      0.28
+Q-any   2 0.1400   -209.17      3.56    -15.83     16.61      1.64      0.11
+
+type   st lambda     total restraint
+Q-SUM   1 0.8600   -291.22      0.35
+Q-SUM   2 0.1400   -180.76     22.30
+H( 1, 2) =    0.00 dist. between Q-atoms   1  12 =    3.55
+===============================================================================
+Temperature at step    1000:         T_tot=     393.6         T_free=     305.1
+                             T_free_solute=     308.7 T_free_solvent=     301.6
+------------------------ Nonbonded pair list generation -----------------------
+Temperature at step    1026:         T_tot=     385.8         T_free=     302.3
+                             T_free_solute=     304.6 T_free_solvent=     300.0
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+---------------------- Water polarisation restraint data ---------------------
+shell    <n>    <theta>    theta_0 theta_corr
+    1  136.0     89.573     90.000      1.624
+    2  181.5     88.343     90.000      3.759
+    3  223.9     86.443     90.000      0.992
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+Temperature at step    1176:         T_tot=     393.9         T_free=     301.6
+                             T_free_solute=     301.3 T_free_solvent=     301.9
+------------------------ Nonbonded pair list generation -----------------------
+---------------------- Water polarisation restraint data ---------------------
+shell    <n>    <theta>    theta_0 theta_corr
+    1  134.2     90.983     90.000      2.607
+    2  185.0     88.363     90.000      2.121
+    3  220.7     88.140     90.000     -0.868
+Temperature at step    1200:         T_tot=     387.4         T_free=     303.8
+                             T_free_solute=     307.0 T_free_solvent=     300.7
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+---------------------- Water polarisation restraint data ---------------------
+shell    <n>    <theta>    theta_0 theta_corr
+    1  134.6     90.761     90.000      3.368
+    2  188.2     92.321     90.000      4.442
+    3  215.9     92.943     90.000      2.076
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+---------------------- Water polarisation restraint data ---------------------
+shell    <n>    <theta>    theta_0 theta_corr
+    1  132.8     89.145     90.000      2.513
+    2  193.3     90.493     90.000      4.935
+    3  213.3     91.539     90.000      3.615
+Temperature at step    1400:         T_tot=     385.0         T_free=     301.0
+                             T_free_solute=     302.3 T_free_solvent=     299.7
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+---------------------- Water polarisation restraint data ---------------------
+shell    <n>    <theta>    theta_0 theta_corr
+    1  128.9     88.707     90.000      1.220
+    2  199.1     87.057     90.000      1.992
+    3  210.8     88.315     90.000      1.931
+=======================  Energy summary at step   1500 ========================
+                        el       vdW      bond     angle   torsion  improper
+solute              -6146.28     -423.54     1245.92     1556.93      971.11      127.01
+solvent            -11614.17     1838.64        0.00        0.00        0.00        0.00
+solute-solvent      -2540.91     -105.50
+LRF                  -109.99
+Q-atom               -105.50      -17.20     -159.62        2.13       -1.89        0.23
+
+                     total       fix slvnt_rad slvnt_pol     shell    solute
+restraints            728.55     1041.46     -436.13       12.01      107.99        3.21
+
+                     total potential   kinetic
+SUM                 -8295.90   -14754.11     6458.22
+======================= Q-atom energies at step   1500 ========================
+type   st lambda        el       vdW      bond     angle   torsion  improper
+Q-Q     1 0.8600    -19.25      0.25
+Q-Q     2 0.1400   -130.47     22.46
+
+Q-prot  1 0.8600    -44.15    -18.53
+Q-prot  2 0.1400    -43.36    -17.70
+
+Q-wat   1 0.8600    -25.64     -2.16
+Q-wat   2 0.1400    -32.81     -2.08
+
+Q-surr. 1 0.8600    -69.79    -20.69
+Q-surr. 2 0.1400    -76.17    -19.78
+
+Q-any   1 0.8600    -89.04    -20.44   -180.87      0.82     -2.42      0.25
+Q-any   2 0.1400   -206.64      2.68    -29.14     10.19      1.34      0.10
+
+type   st lambda     total restraint
+Q-SUM   1 0.8600   -291.43      0.28
+Q-SUM   2 0.1400   -200.21     21.26
+H( 1, 2) =    0.00 dist. between Q-atoms   1  12 =    3.64
+===============================================================================
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+---------------------- Water polarisation restraint data ---------------------
+shell    <n>    <theta>    theta_0 theta_corr
+    1  130.9     90.722     90.000      1.941
+    2  199.5     89.562     90.000      1.554
+    3  207.5     90.139     90.000      2.070
+Temperature at step    1600:         T_tot=     384.5         T_free=     297.4
+                             T_free_solute=     296.1 T_free_solvent=     298.7
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+---------------------- Water polarisation restraint data ---------------------
+shell    <n>    <theta>    theta_0 theta_corr
+    1  130.1     91.116     90.000      3.057
+    2  198.9     92.496     90.000      4.051
+    3  208.3     93.109     90.000      5.179
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+Temperature at step    1747:         T_tot=     392.4         T_free=     306.3
+                             T_free_solute=     304.5 T_free_solvent=     308.1
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+---------------------- Water polarisation restraint data ---------------------
+shell    <n>    <theta>    theta_0 theta_corr
+    1  126.4     89.062     90.000      2.119
+    2  202.4     90.391     90.000      4.441
+    3  210.2     90.389     90.000      5.568
+Temperature at step    1800:         T_tot=     387.7         T_free=     303.2
+                             T_free_solute=     304.5 T_free_solvent=     302.0
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+Temperature at step    1883:         T_tot=     380.1         T_free=     297.5
+                             T_free_solute=     294.6 T_free_solvent=     300.4
+------------------------ Nonbonded pair list generation -----------------------
+---------------------- Water polarisation restraint data ---------------------
+shell    <n>    <theta>    theta_0 theta_corr
+    1  125.5     88.108     90.000      0.227
+    2  200.0     87.855     90.000      2.297
+    3  212.4     86.508     90.000      2.075
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+---------------------- Water polarisation restraint data ---------------------
+shell    <n>    <theta>    theta_0 theta_corr
+    1  128.6     91.167     90.000      1.394
+    2  194.6     89.862     90.000      2.159
+    3  212.5     88.732     90.000      0.807
+=======================  Energy summary at step   2000 ========================
+                        el       vdW      bond     angle   torsion  improper
+solute              -6148.68     -399.18     1295.63     1629.70      971.56      127.05
+solvent            -11626.43     1830.24        0.00        0.00        0.00        0.00
+solute-solvent      -2538.93     -116.14
+LRF                  -151.16
+Q-atom               -112.21      -11.27     -159.86        3.44       -2.61        0.12
+
+                     total       fix slvnt_rad slvnt_pol     shell    solute
+restraints            737.12     1008.39     -433.07       43.54      114.16        4.11
+
+                     total potential   kinetic
+SUM                 -8298.85   -14671.62     6372.77
+======================= Q-atom energies at step   2000 ========================
+type   st lambda        el       vdW      bond     angle   torsion  improper
+Q-Q     1 0.8600    -19.49      2.19
+Q-Q     2 0.1400   -133.02     22.75
+
+Q-prot  1 0.8600    -43.63    -19.82
+Q-prot  2 0.1400    -43.53    -19.09
+
+Q-wat   1 0.8600    -31.94      3.37
+Q-wat   2 0.1400    -41.02      3.46
+
+Q-surr. 1 0.8600    -75.57    -16.45
+Q-surr. 2 0.1400    -84.55    -15.62
+
+Q-any   1 0.8600    -95.06    -14.26   -180.06      1.60     -3.06      0.13
+Q-any   2 0.1400   -217.57      7.12    -35.72     14.72      0.15      0.05
+
+type   st lambda     total restraint
+Q-SUM   1 0.8600   -289.91      0.80
+Q-SUM   2 0.1400   -206.78     24.47
+H( 1, 2) =    0.00 dist. between Q-atoms   1  12 =    3.75
+===============================================================================
+Temperature at step    2000:         T_tot=     384.2         T_free=     297.2
+                             T_free_solute=     296.4 T_free_solvent=     298.0
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+---------------------- Water polarisation restraint data ---------------------
+shell    <n>    <theta>    theta_0 theta_corr
+    1  129.3     93.205     90.000      4.599
+    2  192.8     92.005     90.000      4.163
+    3  216.1     90.749     90.000      1.556
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+---------------------- Water polarisation restraint data ---------------------
+shell    <n>    <theta>    theta_0 theta_corr
+    1  129.0     90.970     90.000      5.568
+    2  195.2     89.562     90.000      3.725
+    3  215.1     88.640     90.000      0.196
+Temperature at step    2200:         T_tot=     386.6         T_free=     303.7
+                             T_free_solute=     307.6 T_free_solvent=     299.9
+------------------------ Nonbonded pair list generation -----------------------
+Temperature at step    2220:         T_tot=     378.9         T_free=     300.0
+                             T_free_solute=     298.4 T_free_solvent=     301.6
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+Temperature at step    2292:         T_tot=     386.8         T_free=     302.2
+                             T_free_solute=     302.3 T_free_solvent=     302.1
+---------------------- Water polarisation restraint data ---------------------
+shell    <n>    <theta>    theta_0 theta_corr
+    1  126.2     89.361     90.000      4.929
+    2  200.9     87.179     90.000      0.903
+    3  211.4     88.523     90.000     -1.282
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+---------------------- Water polarisation restraint data ---------------------
+shell    <n>    <theta>    theta_0 theta_corr
+    1  125.3     91.264     90.000      6.192
+    2  202.8     89.370     90.000      0.274
+    3  211.8     92.328     90.000      1.046
+Temperature at step    2400:         T_tot=     384.9         T_free=     298.7
+                             T_free_solute=     299.3 T_free_solvent=     298.1
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+---------------------- Water polarisation restraint data ---------------------
+shell    <n>    <theta>    theta_0 theta_corr
+    1  125.2     89.930     90.000      6.122
+    2  204.8     92.385     90.000      2.659
+    3  209.5     91.127     90.000      2.173
+=======================  Energy summary at step   2500 ========================
+                        el       vdW      bond     angle   torsion  improper
+solute              -6183.27     -422.19     1256.69     1613.15      981.88      135.92
+solvent            -11655.19     1853.31        0.00        0.00        0.00        0.00
+solute-solvent      -2541.96     -126.51
+LRF                  -136.35
+Q-atom               -107.21      -13.84     -159.30        3.75       -3.61        0.07
+
+                     total       fix slvnt_rad slvnt_pol     shell    solute
+restraints            694.57      976.62     -437.42       40.05      110.76        4.55
+
+                     total potential   kinetic
+SUM                 -8307.97   -14810.09     6502.12
+======================= Q-atom energies at step   2500 ========================
+type   st lambda        el       vdW      bond     angle   torsion  improper
+Q-Q     1 0.8600    -21.16      1.15
+Q-Q     2 0.1400   -131.25     21.02
+
+Q-prot  1 0.8600    -44.18    -17.49
+Q-prot  2 0.1400    -42.21    -17.02
+
+Q-wat   1 0.8600    -25.83     -0.36
+Q-wat   2 0.1400    -32.31     -0.28
+
+Q-surr. 1 0.8600    -70.01    -17.86
+Q-surr. 2 0.1400    -74.51    -17.30
+
+Q-any   1 0.8600    -91.17    -16.70   -179.02      1.93     -3.98      0.08
+Q-any   2 0.1400   -205.76      3.72    -38.13     14.91     -1.37      0.03
+
+type   st lambda     total restraint
+Q-SUM   1 0.8600   -287.76      1.10
+Q-SUM   2 0.1400   -200.82     25.78
+H( 1, 2) =    0.00 dist. between Q-atoms   1  12 =    3.63
+===============================================================================
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+---------------------- Water polarisation restraint data ---------------------
+shell    <n>    <theta>    theta_0 theta_corr
+    1  126.0     87.315     90.000      3.437
+    2  203.0     90.035     90.000      2.694
+    3  210.2     87.128     90.000     -0.699
+Temperature at step    2600:         T_tot=     386.7         T_free=     302.8
+                             T_free_solute=     308.5 T_free_solvent=     297.0
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+---------------------- Water polarisation restraint data ---------------------
+shell    <n>    <theta>    theta_0 theta_corr
+    1  128.8     88.037     90.000      1.474
+    2  199.1     89.551     90.000      2.245
+    3  211.4     88.568     90.000     -2.131
+Temperature at step    2729:         T_tot=     379.0         T_free=     298.1
+                             T_free_solute=     296.1 T_free_solvent=     300.2
+------------------------ Nonbonded pair list generation -----------------------
+Temperature at step    2755:         T_tot=     387.0         T_free=     298.5
+                             T_free_solute=     298.0 T_free_solvent=     299.1
+------------------------ Nonbonded pair list generation -----------------------
+Temperature at step    2786:         T_tot=     379.2         T_free=     299.0
+                             T_free_solute=     298.1 T_free_solvent=     299.8
+------------------------ Nonbonded pair list generation -----------------------
+---------------------- Water polarisation restraint data ---------------------
+shell    <n>    <theta>    theta_0 theta_corr
+    1  127.4     92.318     90.000      3.791
+    2  201.7     90.710     90.000      2.955
+    3  211.5     93.002     90.000      0.872
+Temperature at step    2800:         T_tot=     381.3         T_free=     300.8
+                             T_free_solute=     300.9 T_free_solvent=     300.8
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+Temperature at step    2856:         T_tot=     389.2         T_free=     300.1
+                             T_free_solute=     295.2 T_free_solvent=     304.9
+Temperature at step    2878:         T_tot=     381.1         T_free=     300.6
+                             T_free_solute=     297.2 T_free_solvent=     303.9
+------------------------ Nonbonded pair list generation -----------------------
+---------------------- Water polarisation restraint data ---------------------
+shell    <n>    <theta>    theta_0 theta_corr
+    1  128.5     91.228     90.000      5.019
+    2  202.2     90.961     90.000      3.916
+    3  210.8     91.459     90.000      2.331
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+---------------------- Water polarisation restraint data ---------------------
+shell    <n>    <theta>    theta_0 theta_corr
+    1  128.1     88.423     90.000      3.443
+    2  200.2     89.810     90.000      3.727
+    3  212.7     86.977     90.000     -0.692
+=======================  Energy summary at step   3000 ========================
+                        el       vdW      bond     angle   torsion  improper
+solute              -6048.58     -395.50     1286.34     1596.93      977.00      135.76
+solvent            -11565.31     1802.52        0.00        0.00        0.00        0.00
+solute-solvent      -2605.20      -79.59
+LRF                  -194.02
+Q-atom               -109.62      -13.61     -155.66        2.48       -3.45        0.00
+
+                     total       fix slvnt_rad slvnt_pol     shell    solute
+restraints            680.74      964.98     -435.83       36.65      109.28        5.66
+
+                     total potential   kinetic
+SUM                 -8257.31   -14688.77     6431.46
+======================= Q-atom energies at step   3000 ========================
+type   st lambda        el       vdW      bond     angle   torsion  improper
+Q-Q     1 0.8600    -19.40     -1.74
+Q-Q     2 0.1400   -144.39     20.60
+
+Q-prot  1 0.8600    -43.66    -15.79
+Q-prot  2 0.1400    -42.71    -15.01
+
+Q-wat   1 0.8600    -28.30      0.68
+Q-wat   2 0.1400    -34.71      0.73
+
+Q-surr. 1 0.8600    -71.96    -15.12
+Q-surr. 2 0.1400    -77.41    -14.28
+
+Q-any   1 0.8600    -91.35    -16.86   -180.06      1.22     -3.94      0.00
+Q-any   2 0.1400   -221.81      6.32     -5.78     10.22     -0.45      0.00
+
+type   st lambda     total restraint
+Q-SUM   1 0.8600   -289.14      1.85
+Q-SUM   2 0.1400   -182.44     29.06
+H( 1, 2) =    0.00 dist. between Q-atoms   1  12 =    3.88
+===============================================================================
+Temperature at step    3000:         T_tot=     387.7         T_free=     302.1
+                             T_free_solute=     303.6 T_free_solvent=     300.6
+------------------------ Nonbonded pair list generation -----------------------
+Temperature at step    3049:         T_tot=     379.8         T_free=     302.5
+                             T_free_solute=     301.2 T_free_solvent=     303.7
+------------------------ Nonbonded pair list generation -----------------------
+Temperature at step    3079:         T_tot=     387.7         T_free=     300.6
+                             T_free_solute=     300.3 T_free_solvent=     301.0
+------------------------ Nonbonded pair list generation -----------------------
+---------------------- Water polarisation restraint data ---------------------
+shell    <n>    <theta>    theta_0 theta_corr
+    1  128.7     89.122     90.000      2.565
+    2  197.5     89.810     90.000      3.537
+    3  214.8     89.417     90.000     -1.275
+------------------------ Nonbonded pair list generation -----------------------
+Temperature at step    3133:         T_tot=     380.0         T_free=     298.3
+                             T_free_solute=     299.8 T_free_solvent=     296.9
+------------------------ Nonbonded pair list generation -----------------------
+Temperature at step    3168:         T_tot=     388.0         T_free=     299.1
+                             T_free_solute=     297.6 T_free_solvent=     300.7
+------------------------ Nonbonded pair list generation -----------------------
+---------------------- Water polarisation restraint data ---------------------
+shell    <n>    <theta>    theta_0 theta_corr
+    1  129.8     90.622     90.000      3.186
+    2  195.3     90.459     90.000      3.996
+    3  215.1     94.000     90.000      2.726
+Temperature at step    3200:         T_tot=     385.6         T_free=     304.5
+                             T_free_solute=     302.9 T_free_solvent=     306.2
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+Temperature at step    3258:         T_tot=     393.5         T_free=     303.8
+                             T_free_solute=     300.0 T_free_solvent=     307.6
+------------------------ Nonbonded pair list generation -----------------------
+Temperature at step    3290:         T_tot=     385.5         T_free=     301.4
+                             T_free_solute=     300.9 T_free_solvent=     302.0
+------------------------ Nonbonded pair list generation -----------------------
+---------------------- Water polarisation restraint data ---------------------
+shell    <n>    <theta>    theta_0 theta_corr
+    1  132.9     89.597     90.000      2.784
+    2  192.4     88.862     90.000      2.857
+    3  213.3     90.505     90.000      3.231
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+---------------------- Water polarisation restraint data ---------------------
+shell    <n>    <theta>    theta_0 theta_corr
+    1  136.1     88.848     90.000      1.631
+    2  192.3     88.144     90.000      1.001
+    3  206.8     86.964     90.000      0.195
+Temperature at step    3400:         T_tot=     386.0         T_free=     302.3
+                             T_free_solute=     300.4 T_free_solvent=     304.2
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+---------------------- Water polarisation restraint data ---------------------
+shell    <n>    <theta>    theta_0 theta_corr
+    1  140.0     90.975     90.000      2.606
+    2  188.2     90.983     90.000      1.984
+    3  208.1     89.986     90.000      0.181
+=======================  Energy summary at step   3500 ========================
+                        el       vdW      bond     angle   torsion  improper
+solute              -6030.00     -430.20     1305.38     1560.42      987.76      145.89
+solvent            -11567.45     1795.25        0.00        0.00        0.00        0.00
+solute-solvent      -2582.99      -90.87
+LRF                  -227.35
+Q-atom               -109.20      -17.60     -156.84        3.16       -3.15        0.04
+
+                     total       fix slvnt_rad slvnt_pol     shell    solute
+restraints            690.05      969.76     -440.99       38.28      118.31        4.69
+
+                     total potential   kinetic
+SUM                 -8290.34   -14727.71     6437.37
+======================= Q-atom energies at step   3500 ========================
+type   st lambda        el       vdW      bond     angle   torsion  improper
+Q-Q     1 0.8600    -17.21     -3.16
+Q-Q     2 0.1400   -138.90     20.22
+
+Q-prot  1 0.8600    -46.82    -16.13
+Q-prot  2 0.1400    -42.88    -15.43
+
+Q-wat   1 0.8600    -27.22     -1.69
+Q-wat   2 0.1400    -37.66     -1.63
+
+Q-surr. 1 0.8600    -74.04    -17.82
+Q-surr. 2 0.1400    -80.54    -17.06
+
+Q-any   1 0.8600    -91.25    -20.98   -181.48      1.79     -3.92      0.04
+Q-any   2 0.1400   -219.44      3.16     -5.47     11.60      1.53      0.02
+
+type   st lambda     total restraint
+Q-SUM   1 0.8600   -294.44      1.36
+Q-SUM   2 0.1400   -183.42     25.18
+H( 1, 2) =    0.00 dist. between Q-atoms   1  12 =    4.00
+===============================================================================
+------------------------ Nonbonded pair list generation -----------------------
+Temperature at step    3523:         T_tot=     378.4         T_free=     297.8
+                             T_free_solute=     298.5 T_free_solvent=     297.2
+------------------------ Nonbonded pair list generation -----------------------
+Temperature at step    3563:         T_tot=     386.4         T_free=     298.5
+                             T_free_solute=     298.3 T_free_solvent=     298.6
+------------------------ Nonbonded pair list generation -----------------------
+Temperature at step    3577:         T_tot=     394.4         T_free=     298.7
+                             T_free_solute=     297.5 T_free_solvent=     299.9
+------------------------ Nonbonded pair list generation -----------------------
+---------------------- Water polarisation restraint data ---------------------
+shell    <n>    <theta>    theta_0 theta_corr
+    1  136.7     91.556     90.000      4.163
+    2  192.9     93.151     90.000      5.135
+    3  207.4     91.797     90.000      1.978
+Temperature at step    3600:         T_tot=     391.3         T_free=     300.5
+                             T_free_solute=     299.4 T_free_solvent=     301.6
+Temperature at step    3614:         T_tot=     383.6         T_free=     301.8
+                             T_free_solute=     300.9 T_free_solvent=     302.6
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+---------------------- Water polarisation restraint data ---------------------
+shell    <n>    <theta>    theta_0 theta_corr
+    1  136.4     89.287     90.000      3.450
+    2  188.8     90.433     90.000      5.568
+    3  212.5     88.116     90.000      0.094
+Temperature at step    3705:         T_tot=     375.8         T_free=     300.5
+                             T_free_solute=     300.0 T_free_solvent=     300.9
+------------------------ Nonbonded pair list generation -----------------------
+Temperature at step    3727:         T_tot=     383.9         T_free=     302.1
+                             T_free_solute=     301.9 T_free_solvent=     302.2
+------------------------ Nonbonded pair list generation -----------------------
+Temperature at step    3753:         T_tot=     391.9         T_free=     304.3
+                             T_free_solute=     303.8 T_free_solvent=     304.8
+------------------------ Nonbonded pair list generation -----------------------
+Temperature at step    3797:         T_tot=     384.2         T_free=     304.0
+                             T_free_solute=     300.7 T_free_solvent=     307.2
+---------------------- Water polarisation restraint data ---------------------
+shell    <n>    <theta>    theta_0 theta_corr
+    1  136.8     88.219     90.000      1.668
+    2  186.7     87.705     90.000      3.273
+    3  216.2     87.905     90.000     -2.000
+Temperature at step    3800:         T_tot=     383.5         T_free=     303.8
+                             T_free_solute=     300.4 T_free_solvent=     307.2
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+---------------------- Water polarisation restraint data ---------------------
+shell    <n>    <theta>    theta_0 theta_corr
+    1  136.9     90.369     90.000      2.038
+    2  182.2     88.817     90.000      2.090
+    3  219.7     92.432     90.000      0.431
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+Temperature at step    3981:         T_tot=     392.0         T_free=     302.7
+                             T_free_solute=     301.7 T_free_solvent=     303.7
+------------------------ Nonbonded pair list generation -----------------------
+---------------------- Water polarisation restraint data ---------------------
+shell    <n>    <theta>    theta_0 theta_corr
+    1  134.7     91.479     90.000      3.517
+    2  181.2     90.036     90.000      2.126
+    3  221.6     93.085     90.000      3.516
+=======================  Energy summary at step   4000 ========================
+                        el       vdW      bond     angle   torsion  improper
+solute              -6085.32     -423.70     1207.58     1518.96      979.24      126.28
+solvent            -11720.70     1882.08        0.00        0.00        0.00        0.00
+solute-solvent      -2533.03     -160.29
+LRF                  -133.32
+Q-atom               -115.28      -14.67     -153.34        4.51       -2.68        0.11
+
+                     total       fix slvnt_rad slvnt_pol     shell    solute
+restraints            663.38      948.36     -430.70       38.74      102.73        4.26
+
+                     total potential   kinetic
+SUM                 -8348.46   -14960.17     6611.71
+======================= Q-atom energies at step   4000 ========================
+type   st lambda        el       vdW      bond     angle   torsion  improper
+Q-Q     1 0.8600    -19.77     -2.78
+Q-Q     2 0.1400   -143.91     15.66
+
+Q-prot  1 0.8600    -48.94    -13.68
+Q-prot  2 0.1400    -46.77    -13.00
+
+Q-wat   1 0.8600    -28.07     -0.89
+Q-wat   2 0.1400    -38.19     -0.86
+
+Q-surr. 1 0.8600    -77.01    -14.57
+Q-surr. 2 0.1400    -84.96    -13.86
+
+Q-any   1 0.8600    -96.78    -17.35   -178.24      4.14     -3.35      0.12
+Q-any   2 0.1400   -228.88      1.80     -0.39      6.84      1.40      0.05
+
+type   st lambda     total restraint
+Q-SUM   1 0.8600   -290.60      0.86
+Q-SUM   2 0.1400   -194.08     25.09
+H( 1, 2) =    0.00 dist. between Q-atoms   1  12 =    3.96
+===============================================================================
+Temperature at step    4000:         T_tot=     398.6         T_free=     304.1
+                             T_free_solute=     305.6 T_free_solvent=     302.7
+Temperature at step    4014:         T_tot=     390.8         T_free=     301.4
+                             T_free_solute=     301.1 T_free_solvent=     301.6
+------------------------ Nonbonded pair list generation -----------------------
+Temperature at step    4027:         T_tot=     382.8         T_free=     301.3
+                             T_free_solute=     302.2 T_free_solvent=     300.4
+------------------------ Nonbonded pair list generation -----------------------
+Temperature at step    4057:         T_tot=     375.1         T_free=     300.0
+                             T_free_solute=     302.1 T_free_solvent=     297.9
+------------------------ Nonbonded pair list generation -----------------------
+---------------------- Water polarisation restraint data ---------------------
+shell    <n>    <theta>    theta_0 theta_corr
+    1  133.9     88.909     90.000      2.426
+    2  179.6     88.885     90.000      1.011
+    3  222.2     88.902     90.000      2.418
+------------------------ Nonbonded pair list generation -----------------------
+Temperature at step    4138:         T_tot=     383.2         T_free=     297.5
+                             T_free_solute=     296.3 T_free_solvent=     298.7
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+---------------------- Water polarisation restraint data ---------------------
+shell    <n>    <theta>    theta_0 theta_corr
+    1  137.1     87.663     90.000      0.088
+    2  174.8     90.770     90.000      1.781
+    3  223.5     88.150     90.000      0.568
+Temperature at step    4200:         T_tot=     390.9         T_free=     301.3
+                             T_free_solute=     300.2 T_free_solvent=     302.3
+------------------------ Nonbonded pair list generation -----------------------
+Temperature at step    4249:         T_tot=     383.2         T_free=     300.5
+                             T_free_solute=     299.8 T_free_solvent=     301.2
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+---------------------- Water polarisation restraint data ---------------------
+shell    <n>    <theta>    theta_0 theta_corr
+    1  135.9     92.288     90.000      2.377
+    2  172.9     91.885     90.000      3.666
+    3  225.9     91.499     90.000      2.067
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+Temperature at step    4379:         T_tot=     391.2         T_free=     302.9
+                             T_free_solute=     304.2 T_free_solvent=     301.7
+------------------------ Nonbonded pair list generation -----------------------
+---------------------- Water polarisation restraint data ---------------------
+shell    <n>    <theta>    theta_0 theta_corr
+    1  135.3     93.545     90.000      5.921
+    2  172.1     89.639     90.000      3.305
+    3  230.8     90.570     90.000      2.638
+Temperature at step    4400:         T_tot=     394.4         T_free=     301.0
+                             T_free_solute=     301.2 T_free_solvent=     300.8
+------------------------ Nonbonded pair list generation -----------------------
+Temperature at step    4432:         T_tot=     386.4         T_free=     302.2
+                             T_free_solute=     304.1 T_free_solvent=     300.2
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+---------------------- Water polarisation restraint data ---------------------
+shell    <n>    <theta>    theta_0 theta_corr
+    1  131.1     88.219     90.000      4.140
+    2  172.9     87.647     90.000      0.953
+    3  230.7     87.466     90.000      0.104
+=======================  Energy summary at step   4500 ========================
+                        el       vdW      bond     angle   torsion  improper
+solute              -6119.55     -432.40     1310.84     1595.91      951.12      131.05
+solvent            -11653.17     1916.03        0.00        0.00        0.00        0.00
+solute-solvent      -2632.82     -113.37
+LRF                  -103.70
+Q-atom               -110.29      -12.45     -159.70        2.48       -2.99        0.07
+
+                     total       fix slvnt_rad slvnt_pol     shell    solute
+restraints            716.90     1016.22     -433.34       22.68      107.06        4.29
+
+                     total potential   kinetic
+SUM                 -8216.23   -14716.04     6499.81
+======================= Q-atom energies at step   4500 ========================
+type   st lambda        el       vdW      bond     angle   torsion  improper
+Q-Q     1 0.8600    -19.44     -1.29
+Q-Q     2 0.1400   -131.80     25.70
+
+Q-prot  1 0.8600    -46.47    -15.85
+Q-prot  2 0.1400    -38.70    -15.36
+
+Q-wat   1 0.8600    -28.75      0.82
+Q-wat   2 0.1400    -35.79      0.89
+
+Q-surr. 1 0.8600    -75.22    -15.02
+Q-surr. 2 0.1400    -74.49    -14.47
+
+Q-any   1 0.8600    -94.66    -16.31   -181.08      1.63     -3.59      0.08
+Q-any   2 0.1400   -206.29     11.23    -28.36      7.70      0.67      0.03
+
+type   st lambda     total restraint
+Q-SUM   1 0.8600   -292.84      1.09
+Q-SUM   2 0.1400   -191.06     23.95
+H( 1, 2) =    0.00 dist. between Q-atoms   1  12 =    3.74
+===============================================================================
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+---------------------- Water polarisation restraint data ---------------------
+shell    <n>    <theta>    theta_0 theta_corr
+    1  128.9     87.042     90.000      1.182
+    2  174.7     89.830     90.000      0.783
+    3  229.4     90.366     90.000      0.470
+Temperature at step    4600:         T_tot=     385.5         T_free=     300.5
+                             T_free_solute=     301.1 T_free_solvent=     299.9
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+---------------------- Water polarisation restraint data ---------------------
+shell    <n>    <theta>    theta_0 theta_corr
+    1  129.3     89.631     90.000      0.813
+    2  175.9     93.778     90.000      4.561
+    3  228.3     92.985     90.000      3.455
+------------------------ Nonbonded pair list generation -----------------------
+Temperature at step    4733:         T_tot=     393.6         T_free=     302.7
+                             T_free_solute=     301.4 T_free_solvent=     304.0
+------------------------ Nonbonded pair list generation -----------------------
+Temperature at step    4768:         T_tot=     385.7         T_free=     301.6
+                             T_free_solute=     301.0 T_free_solvent=     302.1
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+---------------------- Water polarisation restraint data ---------------------
+shell    <n>    <theta>    theta_0 theta_corr
+    1  130.7     91.141     90.000      1.954
+    2  175.7     91.109     90.000      5.670
+    3  225.5     89.195     90.000      2.650
+Temperature at step    4800:         T_tot=     384.8         T_free=     298.3
+                             T_free_solute=     296.8 T_free_solvent=     299.7
+------------------------ Nonbonded pair list generation -----------------------
+Temperature at step    4859:         T_tot=     377.0         T_free=     299.5
+                             T_free_solute=     297.1 T_free_solvent=     301.8
+------------------------ Nonbonded pair list generation -----------------------
+Temperature at step    4882:         T_tot=     384.9         T_free=     301.1
+                             T_free_solute=     298.5 T_free_solvent=     303.8
+------------------------ Nonbonded pair list generation -----------------------
+---------------------- Water polarisation restraint data ---------------------
+shell    <n>    <theta>    theta_0 theta_corr
+    1  129.6     90.872     90.000      2.826
+    2  176.2     86.621     90.000      2.291
+    3  225.3     86.492     90.000     -0.858
+------------------------ Nonbonded pair list generation -----------------------
+Temperature at step    4922:         T_tot=     392.9         T_free=     305.3
+                             T_free_solute=     305.0 T_free_solvent=     305.5
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+---------------------- Water polarisation restraint data ---------------------
+shell    <n>    <theta>    theta_0 theta_corr
+    1  131.6     90.143     90.000      2.969
+    2  176.8     87.981     90.000      0.273
+    3  221.0     91.428     90.000      0.570
+=======================  Energy summary at step   5000 ========================
+                        el       vdW      bond     angle   torsion  improper
+solute              -6026.30     -396.79     1324.70     1561.34     1018.67      135.20
+solvent            -11604.57     1858.14        0.00        0.00        0.00        0.00
+solute-solvent      -2621.66     -112.86
+LRF                  -198.50
+Q-atom               -107.64      -12.71     -160.08        3.54       -3.27        0.00
+
+                     total       fix slvnt_rad slvnt_pol     shell    solute
+restraints            638.51      939.06     -437.96       29.09      104.47        3.85
+
+                     total potential   kinetic
+SUM                 -8259.00   -14704.29     6445.30
+======================= Q-atom energies at step   5000 ========================
+type   st lambda        el       vdW      bond     angle   torsion  improper
+Q-Q     1 0.8600    -16.53      1.55
+Q-Q     2 0.1400   -127.34     21.71
+
+Q-prot  1 0.8600    -47.46    -15.53
+Q-prot  2 0.1400    -42.79    -14.79
+
+Q-wat   1 0.8600    -28.04     -1.66
+Q-wat   2 0.1400    -33.41     -1.59
+
+Q-surr. 1 0.8600    -75.50    -17.20
+Q-surr. 2 0.1400    -76.20    -16.39
+
+Q-any   1 0.8600    -92.03    -15.65   -179.80      2.39     -3.74      0.00
+Q-any   2 0.1400   -203.54      5.33    -38.98     10.64     -0.40      0.00
+
+type   st lambda     total restraint
+Q-SUM   1 0.8600   -288.16      0.67
+Q-SUM   2 0.1400   -203.55     23.39
+H( 1, 2) =    0.00 dist. between Q-atoms   1  12 =    3.73
+===============================================================================
+Temperature at step    5000:         T_tot=     388.6         T_free=     297.3
+                             T_free_solute=     294.3 T_free_solvent=     300.2
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+---------------------- Water polarisation restraint data ---------------------
+shell    <n>    <theta>    theta_0 theta_corr
+    1  133.9     88.250     90.000      1.219
+    2  175.4     92.588     90.000      2.861
+    3  220.2     93.443     90.000      4.013
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+---------------------- Water polarisation restraint data ---------------------
+shell    <n>    <theta>    theta_0 theta_corr
+    1  134.1     88.338     90.000     -0.443
+    2  175.0     90.907     90.000      3.768
+    3  220.9     88.384     90.000      2.397
+Temperature at step    5200:         T_tot=     385.6         T_free=     300.1
+                             T_free_solute=     302.5 T_free_solvent=     297.6
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+---------------------- Water polarisation restraint data ---------------------
+shell    <n>    <theta>    theta_0 theta_corr
+    1  132.4     91.293     90.000      0.850
+    2  177.8     87.865     90.000      1.633
+    3  217.7     86.821     90.000     -0.782
+------------------------ Nonbonded pair list generation -----------------------
+Temperature at step    5331:         T_tot=     393.5         T_free=     303.2
+                             T_free_solute=     303.8 T_free_solvent=     302.6
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+Temperature at step    5374:         T_tot=     385.8         T_free=     296.9
+                             T_free_solute=     296.2 T_free_solvent=     297.6
+------------------------ Nonbonded pair list generation -----------------------
+---------------------- Water polarisation restraint data ---------------------
+shell    <n>    <theta>    theta_0 theta_corr
+    1  131.3     94.433     90.000      5.283
+    2  182.0     89.924     90.000      1.557
+    3  214.3     91.499     90.000      0.717
+Temperature at step    5400:         T_tot=     384.9         T_free=     298.6
+                             T_free_solute=     299.0 T_free_solvent=     298.2
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+---------------------- Water polarisation restraint data ---------------------
+shell    <n>    <theta>    theta_0 theta_corr
+    1  132.3     91.931     90.000      7.214
+    2  178.8     92.213     90.000      3.770
+    3  216.9     92.248     90.000      2.965
+=======================  Energy summary at step   5500 ========================
+                        el       vdW      bond     angle   torsion  improper
+solute              -6072.73     -402.50     1332.32     1623.05      963.11      134.13
+solvent            -11587.12     1804.96        0.00        0.00        0.00        0.00
+solute-solvent      -2647.07      -92.23
+LRF                  -173.24
+Q-atom               -112.78      -11.59     -157.18        2.08       -3.15        0.02
+
+                     total       fix slvnt_rad slvnt_pol     shell    solute
+restraints            751.81     1017.46     -432.97       56.14      107.19        3.99
+
+                     total potential   kinetic
+SUM                 -8227.12   -14648.12     6421.00
+======================= Q-atom energies at step   5500 ========================
+type   st lambda        el       vdW      bond     angle   torsion  improper
+Q-Q     1 0.8600    -18.10      0.34
+Q-Q     2 0.1400   -128.23     18.38
+
+Q-prot  1 0.8600    -47.30    -15.51
+Q-prot  2 0.1400    -42.59    -14.62
+
+Q-wat   1 0.8600    -31.83      0.92
+Q-wat   2 0.1400    -37.42      0.99
+
+Q-surr. 1 0.8600    -79.13    -14.59
+Q-surr. 2 0.1400    -80.01    -13.64
+
+Q-any   1 0.8600    -97.24    -14.24   -178.11      1.39     -3.66      0.03
+Q-any   2 0.1400   -208.24      4.74    -28.66      6.33      0.01      0.01
+
+type   st lambda     total restraint
+Q-SUM   1 0.8600   -291.15      0.68
+Q-SUM   2 0.1400   -201.47     24.33
+H( 1, 2) =    0.00 dist. between Q-atoms   1  12 =    3.76
+===============================================================================
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+---------------------- Water polarisation restraint data ---------------------
+shell    <n>    <theta>    theta_0 theta_corr
+    1  131.2     87.146     90.000      4.360
+    2  176.8     89.529     90.000      3.298
+    3  221.2     87.753     90.000      0.718
+Temperature at step    5600:         T_tot=     386.1         T_free=     298.3
+                             T_free_solute=     299.4 T_free_solvent=     297.2
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+---------------------- Water polarisation restraint data ---------------------
+shell    <n>    <theta>    theta_0 theta_corr
+    1  130.0     86.724     90.000      1.084
+    2  178.9     88.366     90.000      1.664
+    3  221.3     87.357     90.000     -1.925
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+---------------------- Water polarisation restraint data ---------------------
+shell    <n>    <theta>    theta_0 theta_corr
+    1  128.9     90.893     90.000      1.977
+    2  177.7     90.586     90.000      2.250
+    3  227.1     92.537     90.000      0.611
+Temperature at step    5800:         T_tot=     381.5         T_free=     297.1
+                             T_free_solute=     297.5 T_free_solvent=     296.8
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+Temperature at step    5861:         T_tot=     389.4         T_free=     301.3
+                             T_free_solute=     298.1 T_free_solvent=     304.4
+------------------------ Nonbonded pair list generation -----------------------
+---------------------- Water polarisation restraint data ---------------------
+shell    <n>    <theta>    theta_0 theta_corr
+    1  127.8     91.906     90.000      3.884
+    2  177.4     91.046     90.000      3.296
+    3  227.1     91.515     90.000      2.126
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+---------------------- Water polarisation restraint data ---------------------
+shell    <n>    <theta>    theta_0 theta_corr
+    1  129.7     88.580     90.000      2.464
+    2  175.3     88.752     90.000      2.048
+    3  227.9     86.044     90.000     -1.830
+=======================  Energy summary at step   6000 ========================
+                        el       vdW      bond     angle   torsion  improper
+solute              -6196.50     -402.06     1314.25     1616.93     1003.63      145.66
+solvent            -11564.32     1795.26        0.00        0.00        0.00        0.00
+solute-solvent      -2597.44     -113.94
+LRF                   -31.52
+Q-atom               -109.92      -20.00     -156.81        2.93       -2.66        0.23
+
+                     total       fix slvnt_rad slvnt_pol     shell    solute
+restraints            801.14     1064.68     -432.37       51.52      112.90        4.40
+
+                     total potential   kinetic
+SUM                 -8121.11   -14515.15     6394.04
+======================= Q-atom energies at step   6000 ========================
+type   st lambda        el       vdW      bond     angle   torsion  improper
+Q-Q     1 0.8600    -18.93     -2.28
+Q-Q     2 0.1400   -147.52     21.66
+
+Q-prot  1 0.8600    -43.43    -20.69
+Q-prot  2 0.1400    -35.67    -19.56
+
+Q-wat   1 0.8600    -29.41     -0.55
+Q-wat   2 0.1400    -38.22     -0.50
+
+Q-surr. 1 0.8600    -72.84    -21.24
+Q-surr. 2 0.1400    -73.88    -20.06
+
+Q-any   1 0.8600    -91.77    -23.52   -181.79      1.48     -3.15      0.25
+Q-any   2 0.1400   -221.40      1.60     -3.37     11.87      0.40      0.10
+
+type   st lambda     total restraint
+Q-SUM   1 0.8600   -297.57      0.94
+Q-SUM   2 0.1400   -185.13     25.67
+H( 1, 2) =    0.00 dist. between Q-atoms   1  12 =    3.89
+===============================================================================
+Temperature at step    6000:         T_tot=     385.5         T_free=     298.8
+                             T_free_solute=     297.7 T_free_solvent=     299.9
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+---------------------- Water polarisation restraint data ---------------------
+shell    <n>    <theta>    theta_0 theta_corr
+    1  129.6     88.628     90.000      1.092
+    2  177.7     89.254     90.000      1.302
+    3  224.5     87.910     90.000     -3.919
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+---------------------- Water polarisation restraint data ---------------------
+shell    <n>    <theta>    theta_0 theta_corr
+    1  128.1     91.492     90.000      2.583
+    2  181.4     92.598     90.000      3.900
+    3  224.5     93.353     90.000     -0.566
+Temperature at step    6200:         T_tot=     386.2         T_free=     304.5
+                             T_free_solute=     302.1 T_free_solvent=     306.9
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+---------------------- Water polarisation restraint data ---------------------
+shell    <n>    <theta>    theta_0 theta_corr
+    1  128.1     91.984     90.000      4.568
+    2  183.5     89.632     90.000      3.532
+    3  222.6     92.032     90.000      1.466
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+---------------------- Water polarisation restraint data ---------------------
+shell    <n>    <theta>    theta_0 theta_corr
+    1  129.8     87.673     90.000      2.241
+    2  181.9     87.783     90.000      1.315
+    3  223.3     87.332     90.000     -1.203
+Temperature at step    6400:         T_tot=     383.9         T_free=     301.8
+                             T_free_solute=     304.0 T_free_solvent=     299.5
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+---------------------- Water polarisation restraint data ---------------------
+shell    <n>    <theta>    theta_0 theta_corr
+    1  129.0     87.769     90.000      0.009
+    2  182.8     91.289     90.000      2.604
+    3  224.3     90.339     90.000     -0.863
+=======================  Energy summary at step   6500 ========================
+                        el       vdW      bond     angle   torsion  improper
+solute              -6072.30     -411.53     1276.63     1613.71      974.30      133.36
+solvent            -11544.27     1810.32        0.00        0.00        0.00        0.00
+solute-solvent      -2620.02     -117.02
+LRF                  -137.45
+Q-atom               -109.22      -14.65     -157.54        3.46       -2.52        0.28
+
+                     total       fix slvnt_rad slvnt_pol     shell    solute
+restraints            794.78     1077.70     -432.60       45.74       98.63        5.32
+
+                     total potential   kinetic
+SUM                 -8215.71   -14579.67     6363.96
+======================= Q-atom energies at step   6500 ========================
+type   st lambda        el       vdW      bond     angle   torsion  improper
+Q-Q     1 0.8600    -18.92     -0.61
+Q-Q     2 0.1400   -140.92     24.41
+
+Q-prot  1 0.8600    -43.68    -17.03
+Q-prot  2 0.1400    -33.56    -15.94
+
+Q-wat   1 0.8600    -29.93     -0.67
+Q-wat   2 0.1400    -37.23     -0.62
+
+Q-surr. 1 0.8600    -73.61    -17.71
+Q-surr. 2 0.1400    -70.79    -16.56
+
+Q-any   1 0.8600    -92.53    -18.32   -181.13      1.58     -2.95      0.31
+Q-any   2 0.1400   -211.71      7.85    -12.62     15.02      0.17      0.12
+
+type   st lambda     total restraint
+Q-SUM   1 0.8600   -291.43      1.61
+Q-SUM   2 0.1400   -173.09     28.08
+H( 1, 2) =    0.00 dist. between Q-atoms   1  12 =    3.98
+===============================================================================
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+Temperature at step    6556:         T_tot=     391.7         T_free=     304.3
+                             T_free_solute=     306.6 T_free_solvent=     302.0
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+---------------------- Water polarisation restraint data ---------------------
+shell    <n>    <theta>    theta_0 theta_corr
+    1  128.8     90.953     90.000      0.963
+    2  183.0     93.640     90.000      6.244
+    3  224.8     93.438     90.000      2.575
+Temperature at step    6600:         T_tot=     389.6         T_free=     304.5
+                             T_free_solute=     301.3 T_free_solvent=     307.7
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+Temperature at step    6692:         T_tot=     381.9         T_free=     299.0
+                             T_free_solute=     298.9 T_free_solvent=     299.1
+---------------------- Water polarisation restraint data ---------------------
+shell    <n>    <theta>    theta_0 theta_corr
+    1  128.2     92.293     90.000      3.255
+    2  184.8     88.183     90.000      4.427
+    3  221.8     89.069     90.000      1.644
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+---------------------- Water polarisation restraint data ---------------------
+shell    <n>    <theta>    theta_0 theta_corr
+    1  131.0     89.968     90.000      3.224
+    2  181.5     85.360     90.000     -0.212
+    3  220.5     86.831     90.000     -1.525
+Temperature at step    6800:         T_tot=     384.5         T_free=     303.8
+                             T_free_solute=     299.4 T_free_solvent=     308.3
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+---------------------- Water polarisation restraint data ---------------------
+shell    <n>    <theta>    theta_0 theta_corr
+    1  134.3     88.593     90.000      1.816
+    2  179.0     91.463     90.000      1.251
+    3  219.1     92.289     90.000      0.763
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+---------------------- Water polarisation restraint data ---------------------
+shell    <n>    <theta>    theta_0 theta_corr
+    1  130.0     88.597     90.000      0.414
+    2  184.3     95.309     90.000      6.559
+    3  216.5     93.271     90.000      4.034
+=======================  Energy summary at step   7000 ========================
+                        el       vdW      bond     angle   torsion  improper
+solute              -6087.39     -383.99     1307.02     1596.57      959.61      132.11
+solvent            -11662.35     1873.86        0.00        0.00        0.00        0.00
+solute-solvent      -2601.33     -117.67
+LRF                  -161.67
+Q-atom               -109.08      -20.97     -155.71        3.64       -2.03        0.39
+
+                     total       fix slvnt_rad slvnt_pol     shell    solute
+restraints            724.98      964.67     -438.46       81.90      113.61        3.25
+
+                     total potential   kinetic
+SUM                 -8258.15   -14704.02     6445.87
+======================= Q-atom energies at step   7000 ========================
+type   st lambda        el       vdW      bond     angle   torsion  improper
+Q-Q     1 0.8600    -19.98      0.47
+Q-Q     2 0.1400   -137.07     18.85
+
+Q-prot  1 0.8600    -42.03    -22.15
+Q-prot  2 0.1400    -34.37    -21.40
+
+Q-wat   1 0.8600    -30.00     -1.98
+Q-wat   2 0.1400    -42.53     -1.95
+
+Q-surr. 1 0.8600    -72.03    -24.13
+Q-surr. 2 0.1400    -76.90    -23.34
+
+Q-any   1 0.8600    -92.00    -23.66   -178.07      2.41     -2.58      0.43
+Q-any   2 0.1400   -213.97     -4.49    -18.32     11.19      1.35      0.17
+
+type   st lambda     total restraint
+Q-SUM   1 0.8600   -293.22      0.27
+Q-SUM   2 0.1400   -202.46     21.61
+H( 1, 2) =    0.00 dist. between Q-atoms   1  12 =    3.62
+===============================================================================
+Temperature at step    7000:         T_tot=     388.6         T_free=     301.4
+                             T_free_solute=     297.9 T_free_solvent=     304.8
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+---------------------- Water polarisation restraint data ---------------------
+shell    <n>    <theta>    theta_0 theta_corr
+    1  127.8     89.996     90.000      0.410
+    2  182.4     89.598     90.000      6.157
+    3  219.2     87.313     90.000      1.348
+Temperature at step    7100:         T_tot=     380.6         T_free=     298.9
+                             T_free_solute=     297.1 T_free_solvent=     300.7
+------------------------ Nonbonded pair list generation -----------------------
+Temperature at step    7134:         T_tot=     388.4         T_free=     300.4
+                             T_free_solute=     297.1 T_free_solvent=     303.8
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+---------------------- Water polarisation restraint data ---------------------
+shell    <n>    <theta>    theta_0 theta_corr
+    1  127.4     92.296     90.000      2.706
+    2  179.4     85.832     90.000      1.989
+    3  221.2     87.930     90.000     -0.722
+Temperature at step    7200:         T_tot=     380.8         T_free=     301.4
+                             T_free_solute=     298.3 T_free_solvent=     304.4
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+Temperature at step    7267:         T_tot=     388.7         T_free=     302.3
+                             T_free_solute=     303.0 T_free_solvent=     301.7
+------------------------ Nonbonded pair list generation -----------------------
+---------------------- Water polarisation restraint data ---------------------
+shell    <n>    <theta>    theta_0 theta_corr
+    1  132.2     92.983     90.000      5.689
+    2  176.8     89.866     90.000      1.856
+    3  221.3     93.170     90.000      2.448
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+---------------------- Water polarisation restraint data ---------------------
+shell    <n>    <theta>    theta_0 theta_corr
+    1  131.5     90.382     90.000      6.070
+    2  179.0     91.663     90.000      3.519
+    3  221.3     91.799     90.000      4.246
+Temperature at step    7400:         T_tot=     384.7         T_free=     301.9
+                             T_free_solute=     301.3 T_free_solvent=     302.4
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+---------------------- Water polarisation restraint data ---------------------
+shell    <n>    <theta>    theta_0 theta_corr
+    1  130.0     86.569     90.000      2.639
+    2  181.8     89.050     90.000      2.569
+    3  221.6     86.874     90.000      1.120
+=======================  Energy summary at step   7500 ========================
+                        el       vdW      bond     angle   torsion  improper
+solute              -6121.41     -408.34     1335.54     1570.62      995.08      143.50
+solvent            -11627.61     1855.15        0.00        0.00        0.00        0.00
+solute-solvent      -2557.31     -151.79
+LRF                   -92.95
+Q-atom               -113.79      -16.56     -156.49        3.98       -3.16        0.11
+
+                     total       fix slvnt_rad slvnt_pol     shell    solute
+restraints            671.32      988.39     -432.44       13.92       97.72        3.72
+
+                     total potential   kinetic
+SUM                 -8301.13   -14674.13     6373.00
+======================= Q-atom energies at step   7500 ========================
+type   st lambda        el       vdW      bond     angle   torsion  improper
+Q-Q     1 0.8600    -19.09     -0.00
+Q-Q     2 0.1400   -135.62     19.36
+
+Q-prot  1 0.8600    -43.06    -21.74
+Q-prot  2 0.1400    -33.13    -21.07
+
+Q-wat   1 0.8600    -34.81      2.38
+Q-wat   2 0.1400    -48.36      2.42
+
+Q-surr. 1 0.8600    -77.88    -19.37
+Q-surr. 2 0.1400    -81.49    -18.65
+
+Q-any   1 0.8600    -96.97    -19.37   -179.37      3.95     -3.63      0.12
+Q-any   2 0.1400   -217.12      0.71    -15.94      4.19     -0.31      0.05
+
+type   st lambda     total restraint
+Q-SUM   1 0.8600   -294.73      0.54
+Q-SUM   2 0.1400   -205.14     23.28
+H( 1, 2) =    0.00 dist. between Q-atoms   1  12 =    3.71
+===============================================================================
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+---------------------- Water polarisation restraint data ---------------------
+shell    <n>    <theta>    theta_0 theta_corr
+    1  129.6     87.590     90.000      0.229
+    2  186.7     89.200     90.000      1.769
+    3  216.8     88.844     90.000     -0.036
+Temperature at step    7600:         T_tot=     382.0         T_free=     298.4
+                             T_free_solute=     301.0 T_free_solvent=     295.9
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+---------------------- Water polarisation restraint data ---------------------
+shell    <n>    <theta>    theta_0 theta_corr
+    1  129.4     89.615     90.000     -0.157
+    2  189.2     92.479     90.000      4.248
+    3  213.4     93.235     90.000      3.199
+Temperature at step    7701:         T_tot=     389.9         T_free=     301.1
+                             T_free_solute=     298.9 T_free_solvent=     303.3
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+---------------------- Water polarisation restraint data ---------------------
+shell    <n>    <theta>    theta_0 theta_corr
+    1  131.2     90.428     90.000      0.271
+    2  186.9     90.828     90.000      5.075
+    3  214.8     90.233     90.000      3.432
+Temperature at step    7800:         T_tot=     382.4         T_free=     300.2
+                             T_free_solute=     300.2 T_free_solvent=     300.1
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+---------------------- Water polarisation restraint data ---------------------
+shell    <n>    <theta>    theta_0 theta_corr
+    1  131.6     91.058     90.000      1.329
+    2  184.2     87.624     90.000      2.699
+    3  220.9     86.322     90.000     -0.246
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+---------------------- Water polarisation restraint data ---------------------
+shell    <n>    <theta>    theta_0 theta_corr
+    1  131.9     91.430     90.000      2.759
+    2  180.3     88.690     90.000      1.389
+    3  225.0     90.689     90.000      0.443
+=======================  Energy summary at step   8000 ========================
+                        el       vdW      bond     angle   torsion  improper
+solute              -6069.35     -416.48     1249.98     1660.43      956.19      124.24
+solvent            -11587.22     1823.72        0.00        0.00        0.00        0.00
+solute-solvent      -2578.60     -113.19
+LRF                  -142.74
+Q-atom               -110.63      -13.15     -157.90        2.61       -2.69        0.22
+
+                     total       fix slvnt_rad slvnt_pol     shell    solute
+restraints            648.52      928.30     -437.90       45.83      107.56        4.72
+
+                     total potential   kinetic
+SUM                 -8320.27   -14726.03     6405.77
+======================= Q-atom energies at step   8000 ========================
+type   st lambda        el       vdW      bond     angle   torsion  improper
+Q-Q     1 0.8600    -17.03     -0.75
+Q-Q     2 0.1400   -142.26     25.26
+
+Q-prot  1 0.8600    -43.72    -17.46
+Q-prot  2 0.1400    -38.40    -16.51
+
+Q-wat   1 0.8600    -31.52      1.28
+Q-wat   2 0.1400    -42.82      1.34
+
+Q-surr. 1 0.8600    -75.23    -16.18
+Q-surr. 2 0.1400    -81.23    -15.18
+
+Q-any   1 0.8600    -92.26    -16.93   -181.22      1.37     -3.19      0.24
+Q-any   2 0.1400   -223.49     10.09    -14.65     10.22      0.34      0.10
+
+type   st lambda     total restraint
+Q-SUM   1 0.8600   -290.79      1.20
+Q-SUM   2 0.1400   -191.03     26.37
+H( 1, 2) =    0.00 dist. between Q-atoms   1  12 =    3.74
+===============================================================================
+Temperature at step    8000:         T_tot=     386.2         T_free=     298.6
+                             T_free_solute=     298.7 T_free_solvent=     298.6
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+---------------------- Water polarisation restraint data ---------------------
+shell    <n>    <theta>    theta_0 theta_corr
+    1  129.5     90.527     90.000      3.286
+    2  182.2     91.565     90.000      2.954
+    3  225.3     94.316     90.000      4.759
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+---------------------- Water polarisation restraint data ---------------------
+shell    <n>    <theta>    theta_0 theta_corr
+    1  129.6     87.947     90.000      1.233
+    2  182.9     90.448     90.000      3.402
+    3  219.9     90.411     90.000      5.170
+Temperature at step    8200:         T_tot=     385.5         T_free=     299.1
+                             T_free_solute=     303.0 T_free_solvent=     295.3
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+---------------------- Water polarisation restraint data ---------------------
+shell    <n>    <theta>    theta_0 theta_corr
+    1  129.3     88.164     90.000     -0.603
+    2  184.3     89.748     90.000      3.150
+    3  220.1     85.923     90.000      1.093
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+---------------------- Water polarisation restraint data ---------------------
+shell    <n>    <theta>    theta_0 theta_corr
+    1  127.2     92.998     90.000      2.395
+    2  186.9     91.222     90.000      4.372
+    3  220.6     89.551     90.000      0.645
+Temperature at step    8400:         T_tot=     379.7         T_free=     295.8
+                             T_free_solute=     294.5 T_free_solvent=     297.2
+Temperature at step    8428:         T_tot=     387.6         T_free=     297.8
+                             T_free_solute=     297.1 T_free_solvent=     298.4
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+Temperature at step    8467:         T_tot=     379.9         T_free=     299.2
+                             T_free_solute=     294.5 T_free_solvent=     303.8
+------------------------ Nonbonded pair list generation -----------------------
+---------------------- Water polarisation restraint data ---------------------
+shell    <n>    <theta>    theta_0 theta_corr
+    1  128.7     94.357     90.000      6.752
+    2  185.8     91.056     90.000      5.428
+    3  220.3     93.213     90.000      3.858
+=======================  Energy summary at step   8500 ========================
+                        el       vdW      bond     angle   torsion  improper
+solute              -6059.00     -385.35     1299.91     1580.81      978.77      141.89
+solvent            -11514.80     1783.60        0.00        0.00        0.00        0.00
+solute-solvent      -2601.77     -124.97
+LRF                  -160.17
+Q-atom               -110.38      -17.15     -155.27        3.45       -1.88        0.32
+
+                     total       fix slvnt_rad slvnt_pol     shell    solute
+restraints            781.47     1015.15     -430.21       88.41      103.13        4.99
+
+                     total potential   kinetic
+SUM                 -8219.87   -14560.50     6340.63
+======================= Q-atom energies at step   8500 ========================
+type   st lambda        el       vdW      bond     angle   torsion  improper
+Q-Q     1 0.8600    -18.05     -0.11
+Q-Q     2 0.1400   -137.45     18.42
+
+Q-prot  1 0.8600    -46.90    -17.77
+Q-prot  2 0.1400    -39.63    -16.21
+
+Q-wat   1 0.8600    -27.92     -2.09
+Q-wat   2 0.1400    -40.89     -2.03
+
+Q-surr. 1 0.8600    -74.82    -19.86
+Q-surr. 2 0.1400    -80.52    -18.24
+
+Q-any   1 0.8600    -92.87    -19.97   -179.79      1.49     -2.37      0.35
+Q-any   2 0.1400   -217.97      0.18     -4.59     15.49      1.13      0.14
+
+type   st lambda     total restraint
+Q-SUM   1 0.8600   -291.75      1.41
+Q-SUM   2 0.1400   -178.67     26.96
+H( 1, 2) =    0.00 dist. between Q-atoms   1  12 =    3.82
+===============================================================================
+------------------------ Nonbonded pair list generation -----------------------
+Temperature at step    8535:         T_tot=     387.7         T_free=     302.4
+                             T_free_solute=     301.4 T_free_solvent=     303.4
+------------------------ Nonbonded pair list generation -----------------------
+Temperature at step    8566:         T_tot=     380.0         T_free=     297.7
+                             T_free_solute=     295.9 T_free_solvent=     299.4
+------------------------ Nonbonded pair list generation -----------------------
+---------------------- Water polarisation restraint data ---------------------
+shell    <n>    <theta>    theta_0 theta_corr
+    1  131.2     90.136     90.000      6.888
+    2  181.7     87.089     90.000      2.517
+    3  225.3     89.101     90.000      2.959
+Temperature at step    8600:         T_tot=     383.8         T_free=     302.2
+                             T_free_solute=     307.6 T_free_solvent=     296.9
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+---------------------- Water polarisation restraint data ---------------------
+shell    <n>    <theta>    theta_0 theta_corr
+    1  131.0     87.059     90.000      3.947
+    2  184.0     86.842     90.000     -0.642
+    3  223.4     88.153     90.000      1.112
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+---------------------- Water polarisation restraint data ---------------------
+shell    <n>    <theta>    theta_0 theta_corr
+    1  134.4     89.305     90.000      3.252
+    2  182.8     92.396     90.000      1.754
+    3  220.6     92.090     90.000      3.202
+Temperature at step    8800:         T_tot=     384.6         T_free=     298.0
+                             T_free_solute=     294.5 T_free_solvent=     301.5
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+---------------------- Water polarisation restraint data ---------------------
+shell    <n>    <theta>    theta_0 theta_corr
+    1  138.0     90.117     90.000      3.369
+    2  177.7     93.639     90.000      5.393
+    3  223.2     92.308     90.000      5.510
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+---------------------- Water polarisation restraint data ---------------------
+shell    <n>    <theta>    theta_0 theta_corr
+    1  138.0     88.390     90.000      1.759
+    2  174.4     88.235     90.000      3.627
+    3  225.8     87.514     90.000      3.024
+=======================  Energy summary at step   9000 ========================
+                        el       vdW      bond     angle   torsion  improper
+solute              -6070.91     -404.84     1283.06     1582.55      980.66      142.54
+solvent            -11451.77     1793.42        0.00        0.00        0.00        0.00
+solute-solvent      -2634.00      -98.22
+LRF                  -131.71
+Q-atom               -110.62      -15.14     -156.61        3.75       -2.14        0.31
+
+                     total       fix slvnt_rad slvnt_pol     shell    solute
+restraints            677.78      989.18     -439.51       23.11      101.43        3.56
+
+                     total potential   kinetic
+SUM                 -8256.19   -14611.89     6355.70
+======================= Q-atom energies at step   9000 ========================
+type   st lambda        el       vdW      bond     angle   torsion  improper
+Q-Q     1 0.8600    -18.28     -0.92
+Q-Q     2 0.1400   -144.91     23.76
+
+Q-prot  1 0.8600    -45.37    -18.46
+Q-prot  2 0.1400    -41.06    -17.70
+
+Q-wat   1 0.8600    -28.34      0.67
+Q-wat   2 0.1400    -39.09      0.73
+
+Q-surr. 1 0.8600    -73.71    -17.79
+Q-surr. 2 0.1400    -80.15    -16.98
+
+Q-any   1 0.8600    -91.99    -18.71   -182.03      3.51     -2.52      0.34
+Q-any   2 0.1400   -225.06      6.78     -0.43      5.23      0.15      0.13
+
+type   st lambda     total restraint
+Q-SUM   1 0.8600   -290.90      0.49
+Q-SUM   2 0.1400   -190.80     22.40
+H( 1, 2) =    0.00 dist. between Q-atoms   1  12 =    4.03
+===============================================================================
+Temperature at step    9000:         T_tot=     383.2         T_free=     300.0
+                             T_free_solute=     298.6 T_free_solvent=     301.4
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+---------------------- Water polarisation restraint data ---------------------
+shell    <n>    <theta>    theta_0 theta_corr
+    1  137.2     89.619     90.000      1.378
+    2  176.2     86.014     90.000     -0.359
+    3  224.6     88.285     90.000      1.309
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+---------------------- Water polarisation restraint data ---------------------
+shell    <n>    <theta>    theta_0 theta_corr
+    1  134.1     92.723     90.000      4.101
+    2  179.2     92.046     90.000      1.688
+    3  224.5     91.523     90.000      2.832
+Temperature at step    9200:         T_tot=     384.9         T_free=     301.4
+                             T_free_solute=     303.1 T_free_solvent=     299.7
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+---------------------- Water polarisation restraint data ---------------------
+shell    <n>    <theta>    theta_0 theta_corr
+    1  131.8     90.512     90.000      4.613
+    2  178.3     94.068     90.000      5.756
+    3  226.6     90.216     90.000      3.048
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+Temperature at step    9384:         T_tot=     377.3         T_free=     299.5
+                             T_free_solute=     297.5 T_free_solvent=     301.6
+------------------------ Nonbonded pair list generation -----------------------
+---------------------- Water polarisation restraint data ---------------------
+shell    <n>    <theta>    theta_0 theta_corr
+    1  129.4     85.008     90.000     -0.379
+    2  183.3     89.445     90.000      5.201
+    3  224.2     88.723     90.000      1.771
+Temperature at step    9400:         T_tot=     380.2         T_free=     299.6
+                             T_free_solute=     297.2 T_free_solvent=     301.9
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+Temperature at step    9462:         T_tot=     388.1         T_free=     299.3
+                             T_free_solute=     295.4 T_free_solvent=     303.1
+------------------------ Nonbonded pair list generation -----------------------
+---------------------- Water polarisation restraint data ---------------------
+shell    <n>    <theta>    theta_0 theta_corr
+    1  133.0     88.522     90.000     -1.857
+    2  183.8     87.553     90.000      2.754
+    3  219.6     91.110     90.000      2.880
+=======================  Energy summary at step   9500 ========================
+                        el       vdW      bond     angle   torsion  improper
+solute              -6128.56     -429.35     1314.61     1581.68      964.89      134.79
+solvent            -11373.21     1759.33        0.00        0.00        0.00        0.00
+solute-solvent      -2648.38     -110.40
+LRF                   -87.60
+Q-atom               -105.42      -18.00     -158.93        3.69       -2.13        0.11
+
+                     total       fix slvnt_rad slvnt_pol     shell    solute
+restraints            683.86      964.06     -429.71       36.16      110.50        2.85
+
+                     total potential   kinetic
+SUM                 -8130.61   -14619.03     6488.42
+======================= Q-atom energies at step   9500 ========================
+type   st lambda        el       vdW      bond     angle   torsion  improper
+Q-Q     1 0.8600    -20.02      0.31
+Q-Q     2 0.1400   -132.71     22.87
+
+Q-prot  1 0.8600    -45.42    -18.37
+Q-prot  2 0.1400    -40.62    -17.62
+
+Q-wat   1 0.8600    -23.97     -3.21
+Q-wat   2 0.1400    -30.43     -3.14
+
+Q-surr. 1 0.8600    -69.40    -21.58
+Q-surr. 2 0.1400    -71.05    -20.77
+
+Q-any   1 0.8600    -89.41    -21.27   -180.90      2.61     -2.58      0.12
+Q-any   2 0.1400   -203.77      2.11    -23.98     10.31      0.62      0.05
+
+type   st lambda     total restraint
+Q-SUM   1 0.8600   -291.35      0.08
+Q-SUM   2 0.1400   -194.78     19.88
+H( 1, 2) =    0.00 dist. between Q-atoms   1  12 =    3.72
+===============================================================================
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+Temperature at step    9585:         T_tot=     380.3         T_free=     300.3
+                             T_free_solute=     299.2 T_free_solvent=     301.4
+------------------------ Nonbonded pair list generation -----------------------
+---------------------- Water polarisation restraint data ---------------------
+shell    <n>    <theta>    theta_0 theta_corr
+    1  133.2     96.329     90.000      4.472
+    2  185.8     90.137     90.000      2.891
+    3  217.9     91.766     90.000      4.647
+Temperature at step    9600:         T_tot=     381.4         T_free=     301.9
+                             T_free_solute=     301.9 T_free_solvent=     301.9
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+---------------------- Water polarisation restraint data ---------------------
+shell    <n>    <theta>    theta_0 theta_corr
+    1  130.8     93.639     90.000      8.111
+    2  190.0     90.516     90.000      3.407
+    3  217.3     87.443     90.000      2.089
+------------------------ Nonbonded pair list generation -----------------------
+Temperature at step    9742:         T_tot=     389.2         T_free=     302.0
+                             T_free_solute=     300.3 T_free_solvent=     303.6
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+---------------------- Water polarisation restraint data ---------------------
+shell    <n>    <theta>    theta_0 theta_corr
+    1  131.1     83.583     90.000      1.695
+    2  190.9     90.175     90.000      3.582
+    3  216.8     86.195     90.000     -1.715
+Temperature at step    9800:         T_tot=     390.8         T_free=     300.4
+                             T_free_solute=     296.4 T_free_solvent=     304.4
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+---------------------- Water polarisation restraint data ---------------------
+shell    <n>    <theta>    theta_0 theta_corr
+    1  132.9     84.261     90.000     -4.045
+    2  191.3     90.696     90.000      4.278
+    3  218.0     91.685     90.000     -0.030
+Temperature at step    9927:         T_tot=     383.0         T_free=     301.9
+                             T_free_solute=     299.9 T_free_solvent=     303.8
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+------------------------ Nonbonded pair list generation -----------------------
+---------------------- Water polarisation restraint data ---------------------
+shell    <n>    <theta>    theta_0 theta_corr
+    1  130.2     93.835     90.000     -0.209
+    2  195.9     89.671     90.000      3.949
+    3  215.8     94.311     90.000      4.281
+
+=========================== FINAL  Energy summary =============================
+                        el       vdW      bond     angle   torsion  improper
+solute              -6154.24     -405.16     1376.93     1582.63      964.08      125.04
+solvent            -11428.66     1757.30        0.00        0.00        0.00        0.00
+solute-solvent      -2603.80     -133.90
+LRF                   -37.86
+Q-atom               -107.00      -15.98     -158.42        2.38       -3.29        0.02
+
+                     total       fix slvnt_rad slvnt_pol     shell    solute
+restraints            711.45      980.60     -437.01       68.62       94.50        4.74
+
+                     total potential   kinetic
+SUM                 -8165.84   -14528.48     6362.64
+=========================== FINAL Q-atom energies =============================
+type   st lambda        el       vdW      bond     angle   torsion  improper
+Q-Q     1 0.8600    -17.75      0.11
+Q-Q     2 0.1400   -131.25     20.64
+
+Q-prot  1 0.8600    -46.12    -17.50
+Q-prot  2 0.1400    -39.31    -16.70
+
+Q-wat   1 0.8600    -27.09     -1.59
+Q-wat   2 0.1400    -35.02     -1.52
+
+Q-surr. 1 0.8600    -73.21    -19.09
+Q-surr. 2 0.1400    -74.34    -18.23
+
+Q-any   1 0.8600    -90.95    -18.98   -180.25      1.16     -3.76      0.02
+Q-any   2 0.1400   -205.59      2.42    -24.35      9.85     -0.41      0.01
+
+type   st lambda     total restraint
+Q-SUM   1 0.8600   -291.51      1.25
+Q-SUM   2 0.1400   -191.92     26.15
+H( 1, 2) =    0.00 dist. between Q-atoms   1  12 =    3.85
+===============================================================================
+Total time of main loop:                               729.4(s)
+ QDyn version 5.10.27 , git id=9325b9c29ad62a733df16f540968e33ee6c78260 terminated normally.
+###############################################################################
