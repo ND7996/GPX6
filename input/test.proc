@@ -9,7 +9,8 @@ SOLUTE            $1.N$      $195.O$
 [MD]
 stepsize                 1
 temperature             300
-thermostat             langevin
+initial_temperature     300
+random_seed              -1
 bath_coupling            10 
 lrf                      on
 shake_solvent            on
@@ -111,7 +112,7 @@ ______________________________________________________
 {FEP}
 #######################################################
 [MD]
-steps                1000000
+steps                20000
 
 [intervals]
 energy                   5
