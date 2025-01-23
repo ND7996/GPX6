@@ -42,7 +42,7 @@ if cmd.count_atoms("mutated_residues") == 0:
 cmd.show("sticks", "mutated_residues")
 
 # Optional: Color the selected residues
-cmd.color("red", "mutated_residues")
+cmd.color("green", "mutated_residues")
 
 # Set the background to white for better visibility
 cmd.bg_color("white")

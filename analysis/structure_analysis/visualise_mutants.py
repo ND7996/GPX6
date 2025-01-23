@@ -1,7 +1,7 @@
 from pymol import cmd
 
 # Path to the PDB file
-pdb_path = "/home/hp/results/mousecys/N22L/minim/minim.pdb"  # Replace with actual filename
+pdb_path = "/home/hp/results/C49U/T60A/minim/minim.pdb"  # Replace with actual filename
 
 # Residues to select (include chain if needed, e.g., ("A", 3))
 residues = [
@@ -46,7 +46,7 @@ if cmd.count_atoms("mutated_residues") == 0:
 cmd.show("sticks", "mutated_residues")
 
 # Optional: Color the selected residues
-cmd.color("red", "mutated_residues")
+cmd.color("brown", "mutated_residues")
 
 # Set the background to white for better visibility
 cmd.bg_color("white")
