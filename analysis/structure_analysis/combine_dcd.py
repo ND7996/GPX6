@@ -4,13 +4,13 @@ import glob
 import os
 
 # Define the path to the directory containing relax files and minim.pdb
-data_path = "/home/hp/results/C49U/replica_randomseeds_all_1ns"
+data_path = "/home/hp/results/C49U/S47A/replica000"
 
 # Find all relax.dcd files in the specified directory
 dcd_files = sorted(glob.glob(os.path.join(data_path, "fep*.dcd")))  # Sort to maintain numerical order
 
 # Reference PDB file
-pdb_file = os.path.join(data_path, "minim.pdb")  # The PDB file in the same folder
+pdb_file = os.path.join(data_path, "equil.pdb")  # The PDB file in the same folder
 
 # Check if files are found
 if not dcd_files:
