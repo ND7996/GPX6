@@ -65,8 +65,9 @@ cd "$target_dir"  # Change to the specific folder
 sh "$target_dir/prep.sh"
 echo "Topology and PDB files generated in $target_dir!"
 
-#(CHANGE SOME ATOMS) (EXTRA STEP) 
+#(CHANGE SOME ATOMS)(EXTRA STEP) 
 # Run the atomnames script to generate the atom names in PDB files
 sh "$target_dir/atomnames.sh"
 echo "atom names changed in $target_dir!" 
+
 
