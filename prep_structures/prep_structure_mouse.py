@@ -75,7 +75,7 @@ def mutate_residues(pdb_file, mutations):
     cmd.delete("all")
 
 # Example usage 
-pdb_file_path = "/home/hp/nayanika/github/GPX6/prep_structures/C49U/C49U.pdb"
+pdb_file_path = "/home/hp/nayanika/github/GPX6/prep_structures/MOUSE/C49U/C49U.pdb"
  # Replace with your actual PDB file path
 
 # Run the mutation function

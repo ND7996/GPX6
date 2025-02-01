@@ -1,6 +1,6 @@
 Q topology file
 TITLE      N107S.top"
-DATE       20250131
+DATE       20250201
 VERSION     5.06
 LIB_FILES  /home/hp/nayanika/github/GPX6/parameters/qoplsaa.lib;/home/hp/nayanika/github/GPX6/parameters/GPX.lib
 FORCEFIELD OPLS-AA
