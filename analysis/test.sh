@@ -45,8 +45,6 @@ generate_folders() {
 generate_folders
 
 
-
-
 # PREP_STRUCTURES (Generate PDB files)
 echo "Running prep_structure_mouse.py..."
 python3 /home/hp/nayanika/github/GPX6/prep_structures/prep_structure_mouse.py
@@ -67,11 +65,8 @@ cd "$target_dir"  # Change to the specific folder
 sh "$target_dir/prep.sh"
 echo "Topology and PDB files generated in $target_dir!"
 
-atomnames 
-
-minim
-
-preprestart
-
-fep
+#(CHANGE SOME ATOMS) (EXTRA STEP) 
+# Run the atomnames script to generate the atom names in PDB files
+sh "$target_dir/atomnames.sh"
+echo "atom names changed in $target_dir!" 
 
