@@ -1,6 +1,6 @@
 Q topology file
 TITLE      H177Q.top"
-DATE       20250202
+DATE       20250203
 VERSION     5.06
 LIB_FILES  /home/hp/nayanika/github/GPX6/parameters/qoplsaa.lib;/home/hp/nayanika/github/GPX6/parameters/GPX.lib
 FORCEFIELD OPLS-AA
