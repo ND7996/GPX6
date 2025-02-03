@@ -68,3 +68,5 @@ echo "Topology and PDB files generated in $target_dir!"
 # Run the atomnames script to generate the atom names in PDB files
 sh "$target_dir/atomnames.sh"
 echo "Atom names changed in $target_dir!" 
+
+cp -r /home/hp/nayanika/github/GPX6/prep_structures/MOUSE/48_47_52_99_54_144_177_74_178_143_87_142_104_102_139_24_181_4_60_107 /home/hp/results/MOUSE
