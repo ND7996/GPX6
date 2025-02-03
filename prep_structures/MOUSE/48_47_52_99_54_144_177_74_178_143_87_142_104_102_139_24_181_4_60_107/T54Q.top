@@ -1,6 +1,6 @@
 Q topology file
 TITLE      T54Q.top"
-DATE       20250201
+DATE       20250202
 VERSION     5.06
 LIB_FILES  /home/hp/nayanika/github/GPX6/parameters/qoplsaa.lib;/home/hp/nayanika/github/GPX6/parameters/GPX.lib
 FORCEFIELD OPLS-AA
