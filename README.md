@@ -77,20 +77,3 @@ mean dG* value ± standard error
 mean dG0 value ± standard error
 
 
-
-
-
-STEP 1 - Prepare the Structures:
-Runs prep_structure_mouse.py to generate mutated PDB files with predefined Mouse-to-Human substitutions.
-These PDB files are saved in the MOUSE or HUMAN mutation directory.
-
-STEP 2 - Running Qprep:
-Moves to the same directory where the mutated PDBs were generated (target_dir).
-Runs prep.sh to generate topology (.top) and modified PDB files.
-Uses the base name of each PDB file to create qprep5 input files (.inp).
-Runs qprep5 to apply solvation and boundary conditions, preparing the structures for relaxation.
-
-Extra Step - Modifying Atom Names:
-Runs atomnames.sh to ensure atom names are correctly formatted.
-
-
