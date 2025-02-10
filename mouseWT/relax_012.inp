@@ -1,0 +1,48 @@
+# Generated with QTools, version 0.7.1
+# Date: Mon May 13 16:18:57 2024
+# CWD: /home/nayda/stepwise/mousecys/WT
+# Cmdline: /home/apps/apps/qtools/0.7.1_develmp/qscripts-cli/q_genrelax.py genrelax.proc --top GPX6cys_mouse.top --pdb GPX6cys_mouse.pdb --fep GPX6_wtmousecys.fep --outdir minim3 --rest top --rs run_Q5.10_amd.sh
+[md]
+steps                                         50000
+random_seed                                  141509
+temperature                                     0.1
+stepsize                                        0.5
+bath_coupling                                   0.5
+initial_temperature                             0.1
+separate_scaling                                 on
+lrf                                              on
+shake_solvent                                    on
+
+[cut-offs]
+solute_solute                                    10
+solvent_solvent                                  10
+solute_solvent                                   10
+q_atom                                           99
+
+[sphere]
+shell_radius                                   20.0
+shell_force                                     0.0
+
+[intervals]
+non_bond                                         25
+output                                         1000
+temperature                                    1000
+trajectory                                     1000
+
+[files]
+topology                          GPX6cys_mouse.top
+restart                                relax_011.re
+final                                  relax_012.re
+trajectory                            relax_012.dcd
+fep                             GPX6_wtmousecys.fep
+
+[lambdas]
+1.00  0.
+
+[distance_restraints]
+730    3052   0.0    3.2    10.    0     
+1258   3052   0.0    3.2    10.    0     
+730    731    0.0    1.5    5.     1     
+3052   3054   0.0    1.5    5.     1     
+1258   3054   0.0    1.5    5.     2     
+3052   731    0.0    1.5    5.     2     

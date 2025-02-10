@@ -1,0 +1,66 @@
+TITLE     Structure1
+REMARK   4      COMPLIES WITH FORMAT V. 3.0, 1-DEC-2006
+REMARK 888
+REMARK 888 WRITTEN BY MAESTRO (A PRODUCT OF SCHRODINGER, LLC)
+ATOM      1  N   GLN A   2      -0.458  -1.828   0.839  1.00  0.00           N  
+ATOM      2  CA  GLN A   2      -0.214  -0.808  -0.172  1.00  0.00           C  
+ATOM      3  C   GLN A   2       1.103  -1.125  -0.897  1.00  0.00           C  
+ATOM      4  O   GLN A   2       1.775  -2.112  -0.597  1.00  0.00           O  
+ATOM      5  CB  GLN A   2      -0.257   0.610   0.438  1.00  0.00           C  
+ATOM      6  CG  GLN A   2      -0.018   1.804  -0.501  1.00  0.00           C  
+ATOM      7  CD  GLN A   2      -0.076   3.168   0.173  1.00  0.00           C  
+ATOM      8  OE1 GLN A   2       0.929   3.684   0.649  1.00  0.00           O  
+ATOM      9  NE2 GLN A   2      -1.262   3.766   0.227  1.00  0.00           N1+
+ATOM     10  H   GLN A   2       0.226  -2.566   0.928  1.00  0.00           H  
+ATOM     11  HA  GLN A   2      -1.083  -0.727  -0.824  1.00  0.00           H  
+ATOM     12  HB2 GLN A   2      -1.238   0.787   0.878  1.00  0.00           H  
+ATOM     13  HB3 GLN A   2       0.508   0.697   1.209  1.00  0.00           H  
+ATOM     14  HG2 GLN A   2       0.970   1.720  -0.953  1.00  0.00           H  
+ATOM     15  HG3 GLN A   2      -0.776   1.809  -1.284  1.00  0.00           H  
+ATOM     16  HE1 GLN A   2       0.701   4.536   1.029  1.00  0.00           H  
+ATOM     17 HE22 GLN A   2      -1.351   4.672   0.664  1.00  0.00           H  
+ATOM     18 HE21 GLN A   2      -2.074   3.315  -0.169  1.00  0.00           H  
+ATOM     19  N   ALA A   3       1.462  -0.235  -1.888  1.00  0.00           N  
+ATOM     20  CA  ALA A   3       2.678  -0.383  -2.676  1.00  0.00           C  
+ATOM     21  C   ALA A   3       2.768   0.774  -3.682  1.00  0.00           C  
+ATOM     22  O   ALA A   3       1.897   1.642  -3.736  1.00  0.00           O  
+ATOM     23  CB  ALA A   3       2.757  -1.763  -3.323  1.00  0.00           C  
+ATOM     24  H   ALA A   3       0.872   0.559  -2.092  1.00  0.00           H  
+ATOM     25  HA  ALA A   3       3.535  -0.471  -2.008  1.00  0.00           H  
+ATOM     26  HB1 ALA A   3       3.255  -1.683  -4.289  1.00  0.00           H  
+ATOM     27  HB2 ALA A   3       3.322  -2.436  -2.677  1.00  0.00           H  
+ATOM     28  HB3 ALA A   3       1.750  -2.156  -3.464  1.00  0.00           H  
+ATOM     29  N   NMA A   4       3.846   0.761  -4.477  1.00  0.00           N  
+ATOM     30  CA  NMA A   4       4.098   1.777  -5.490  1.00  0.00           C  
+ATOM     31  H   NMA A   4       4.531   0.024  -4.389  1.00  0.00           H  
+ATOM     32  HA1 NMA A   4       5.032   1.553  -6.005  1.00  0.00           H  
+ATOM     33  HA2 NMA A   4       3.279   1.784  -6.209  1.00  0.00           H  
+ATOM     34  HA3 NMA A   4       4.171   2.755  -5.014  1.00  0.00           H  
+ATOM     35  CH3 ACE A   0      -4.531  -3.387   5.146  1.00  0.00           C  
+ATOM     36  C   ACE A   0      -3.223  -3.687   4.413  1.00  0.00           C  
+ATOM     37  O   ACE A   0      -2.563  -4.676   4.724  1.00  0.00           O  
+ATOM     38 HH31 ACE A   0      -4.976  -2.478   4.739  1.00  0.00           H  
+ATOM     39 HH32 ACE A   0      -5.222  -4.220   5.013  1.00  0.00           H  
+ATOM     40 HH33 ACE A   0      -4.330  -3.249   6.208  1.00  0.00           H  
+ATOM     41  N   ALA A   1      -2.875  -2.824   3.452  1.00  0.00           N  
+ATOM     42  CA  ALA A   1      -1.659  -2.972   2.665  1.00  0.00           C  
+ATOM     43  C   ALA A   1      -1.569  -1.815   1.658  1.00  0.00           C  
+ATOM     44  O   ALA A   1      -2.440  -0.947   1.604  1.00  0.00           O  
+ATOM     45  CB  ALA A   1      -1.580  -4.352   2.017  1.00  0.00           C  
+ATOM     46  H   ALA A   1      -3.465  -2.030   3.248  1.00  0.00           H  
+ATOM     47  HA  ALA A   1      -0.801  -3.060   3.332  1.00  0.00           H  
+ATOM     48  HB1 ALA A   1      -1.082  -4.273   1.051  1.00  0.00           H  
+ATOM     49  HB2 ALA A   1      -1.015  -5.025   2.663  1.00  0.00           H  
+ATOM     50  HB3 ALA A   1      -2.587  -4.745   1.876  1.00  0.00           H  
+TER      51      ALA A   1
+CONECT    8   16
+CONECT   30   32   33   34
+CONECT   32   30
+CONECT   33   30
+CONECT   34   30
+CONECT   35   38   39   40
+CONECT   38   35
+CONECT   39   35
+CONECT   40   35
+CONECT   16    8
+END   

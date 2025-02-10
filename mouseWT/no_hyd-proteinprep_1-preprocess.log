@@ -1,0 +1,28 @@
+Fixing common structure mistakes...
+  No mistakes were found
+Pre-treating metals...
+Done treating metals
+Assigning bond orders...
+  Using CCD: True
+CCD template assignment failed for HET "PRX " due to:
+  CCD and het structures have different number of atoms.
+  Falling back to bond order assignment based on geometry.
+  Assigned the following bonds (format: atom1, atom2, order): {(1557, 1558, 3)}
+Removing and re-adding hydrogens...
+Treating metals...
+Creating di-sulfur bonds...
+  File "/opt/schrodinger2022-1/internal/lib/python3.8/site-packages/schrodinger/tasks/tasks.py", line 932, in guard
+    yield
+  File "/opt/schrodinger2022-1/internal/lib/python3.8/site-packages/schrodinger/tasks/tasks.py", line 1214, in runBackend
+    self.mainFunction()
+  File "/opt/schrodinger2022-1/internal/lib/python3.8/site-packages/schrodinger/application/prepwizard2/tasks.py", line 307, in mainFunction
+    antibody.annotate_ab_regions(
+<PreprocessTask: no_hyd-proteinprep_1-preprocess - WAITING>> failed: AttributeError("'NoneType' object has no attribute 'annotate_ab_regions'")
+  File "/opt/schrodinger2022-1/internal/lib/python3.8/site-packages/schrodinger/tasks/tasks.py", line 932, in guard
+    yield
+  File "/opt/schrodinger2022-1/internal/lib/python3.8/site-packages/schrodinger/tasks/tasks.py", line 1214, in runBackend
+    self.mainFunction()
+  File "/opt/schrodinger2022-1/internal/lib/python3.8/site-packages/schrodinger/application/prepwizard2/tasks.py", line 307, in mainFunction
+    antibody.annotate_ab_regions(
+
+'NoneType' object has no attribute 'annotate_ab_regions'

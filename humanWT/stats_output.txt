@@ -1,0 +1,6 @@
+----- Statistics -----
+
+#                 Mean      Std.dev    Median    Std.error       N
+dG*              16.37       8.65      16.36       0.95         83
+dG0             -60.85      16.72     -65.47       1.84         83
+dG_lambda       -62.60      13.41     -65.98       1.34        100

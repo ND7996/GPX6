@@ -1,0 +1,10 @@
+! Read in library files
+readlib  qoplsaa.lib          
+readlib  GPX.lib
+! Read in parameter files
+readprm  qoplsaa_all2.prm
+! read in structure
+readtop GPX6sec_human.top
+rx       relax_012.re
+writepdb GPX6sec_humanrestart.pdb y
+quit

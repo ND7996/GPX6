@@ -1,0 +1,11 @@
+readlib  ../../LIB/qoplsaa.lib          
+readlib  ../../LIB/GPX.lib
+readprm  ../../LIB/qoplsaa_all.prm
+readpdb  ../../STRUCTURE/human.pdb
+boundary sphere 49:SE 20.
+solvate 49:SE 20. grid HOH
+maketop  GPX_wtnew.top
+writetop GPX_wtnew.top
+writepdb GPX_wtnew.pdb y
+quit
+

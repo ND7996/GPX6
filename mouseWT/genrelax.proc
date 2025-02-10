@@ -1,0 +1,151 @@
+# This is an example input for relaxation inputs generation with q_genrelax.py
+# I know it's a horrible and not really clear way of generating inputs, 
+# but it still seems better than manually modifying 15 input files just to change a sequence restraint 
+# or to hard code certain values in arrays in a bash script (I'm looking at you Paul)
+#
+# Basically, there are three sections in curly braces:
+# SCRIPT_VARS   -   contains user defined constants that will be replaced with their values if they appear in this input. Useful for seq.restr. Example:  RESTRAINT1     5993  6003
+#                   try to make them unique and descriptive, not something like MD (that would suck for you)
+# GENERAL       -   qdyn5 parameters, used in all steps.
+# STEPS         -   qdyn5 parameters for each relaxation step, separated by "________________". These values override the ones defined in the GENERAL section.
+#
+#
+# Run MD @ 0.1K to "minimize" the badly positioned 
+# water molecules and to remove bad contacts
+#
+
+#######################################################
+{SCRIPT_VARS}
+#######################################################
+SOLUTE            $1.N$      $195.O$
+
+#######################################################
+{GENERAL}
+#######################################################
+[MD]
+temperature              0.1
+initial_temperature      0.1
+stepsize                 0.1
+bath_coupling            0.1
+random_seed               -1
+separate_scaling          on
+lrf                       on
+shake_solvent             on
+
+[cut-offs]
+solute_solute             10
+solute_solvent            10
+solvent_solvent           10
+q_atom                    99
+
+[sphere]
+shell_force              0.0
+shell_radius            20.0
+
+[intervals]
+non_bond                 25
+output                   10 
+trajectory               10
+temperature              10
+
+[lambdas]
+1.00  0.
+
+[distance_restraints]
+$49.SG$    $196.O1$     0.0  3.2  10. 0 
+$83.OE1$   $196.O1$     0.0  3.2  10. 0  
+$49.SG$    $49.HG1$     0.0  1.5   5. 1
+$196.O1$   $196.H1$     0.0  1.5   5. 1 
+$83.OE1$   $196.H1$     0.0  1.5   5. 2 
+$196.O1$   $49.HG1$     0.0  1.5   5. 2 
+ 
+#[angle_restraints]
+# angle restraints here
+
+#######################################################
+{STEPS}
+#######################################################
+
+# minimize the solvent 
+# - a few short steps to prevent instant hotspots (new velocities)
+
+[MD]
+steps                    100
+
+[sequence_restraints]
+SOLUTE           20.0  0 0 0
+_____________________________________________________________
+
+[MD]
+steps                    100
+
+[sequence_restraints]
+SOLUTE           20.0  0 0 0
+_____________________________________________________________
+
+[MD]
+steps                    100
+
+[sequence_restraints]
+SOLUTE           20.0  0 0 0
+_____________________________________________________________
+
+[MD]
+steps                    200
+
+[sequence_restraints]
+SOLUTE           20.0  0 0 0
+_____________________________________________________________
+
+[MD]
+steps                    500
+
+[sequence_restraints]
+SOLUTE           20.0  0 0 0
+_____________________________________________________________
+
+[MD]
+steps                  50000
+stepsize                 0.5
+bath_coupling            0.5
+
+[intervals]
+output                  1000 
+trajectory              1000
+temperature             1000
+
+[sequence_restraints]
+SOLUTE           20.0  0 0 0
+_____________________________________________________________
+
+
+# minimize everything
+[MD]
+steps                    100
+_____________________________________________________________
+
+[MD]
+steps                    100
+_____________________________________________________________
+
+[MD]
+steps                    100
+_____________________________________________________________
+
+[MD]
+steps                    200
+_____________________________________________________________
+
+[MD]
+steps                    500
+_____________________________________________________________
+
+[MD]
+steps                  50000
+stepsize                 0.5
+bath_coupling            0.5
+
+[intervals]
+output                  1000 
+trajectory              1000
+temperature             1000
