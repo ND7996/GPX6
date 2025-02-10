@@ -1,0 +1,23 @@
+
+Build and version information
+
+Build number 5.10.22
+Build date   20240304
+Built:       
+      by     nayanika
+      on     nayanika-HP-Pavilion-Gaming-Laptop-15-ec0xxx
+      git id 9325b9c29ad62a733df16f540968e33ee6c78260
+      with   GNU Fortran Ubuntu 9.4.0-1ubuntu1~20.04.2 9.4.0
+Current date 2024- 3-20 and time 12:16:57
+
+------------------------- Reading input from prep5.inp ------------------------
+Boundary: sphere
+>>> WARNING: Entering unsupported compatibility mode
+             to read version 2 input file.
+             New features unavailable.
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!! ABNORMAL TERMINATION !!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+ABNORMAL TERMINATION of Qdyn5
+Terminating due to Wrong input format.
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!

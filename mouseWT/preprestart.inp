@@ -1,0 +1,10 @@
+! Read in library files
+readlib  qoplsaa.lib          
+readlib  GPX.lib
+! Read in parameter files
+readprm  qoplsaa_all.prm
+! read in structure
+readtop GPX6cys_mouse.top
+rx       relax_012.re
+writepdb GPX6cys_mouserestart.pdb y
+quit

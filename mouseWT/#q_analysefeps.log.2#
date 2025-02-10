@@ -1,0 +1,151 @@
+
+------------------------------- Free energies ---------------------------------
+ Qfep_output  dG*         dG0         dG_lambda  
+ rep00/qfep.out       23.56      -62.20      -62.71 
+ rep01/qfep.out       16.96      -68.46      -69.04 
+ rep02/qfep.out  None        None            -56.99 
+ rep03/qfep.out       19.81      -36.61      -36.87 
+ rep04/qfep.out       19.63      -63.60      -64.23 
+ rep05/qfep.out       22.04      -35.07      -35.61 
+ rep06/qfep.out       19.86      -42.65      -43.12 
+ rep07/qfep.out       19.28      -70.64      -71.12 
+ rep08/qfep.out  None        None            -75.16 
+ rep09/qfep.out       17.05      -70.39      -70.87 
+ rep10/qfep.out  None        None            -62.16 
+ rep11/qfep.out  None        None            -62.57 
+ rep12/qfep.out       18.83      -31.29      -31.97 
+ rep13/qfep.out       19.51      -53.65      -54.49 
+ rep14/qfep.out       24.07      -54.02      -53.95 
+ rep15/qfep.out       20.50      -38.77      -39.28 
+ rep16/qfep.out       16.41      -70.78      -71.09 
+ rep17/qfep.out       22.84      -57.31      -56.78 
+ rep18/qfep.out       23.79      -48.37      -48.92 
+ rep19/qfep.out       20.00      -66.12      -66.81 
+ rep20/qfep.out       21.86      -64.04      -64.52 
+ rep21/qfep.out       19.95      -67.01      -67.61 
+ rep22/qfep.out       20.51      -52.64      -53.29 
+ rep23/qfep.out       18.25      -65.51      -65.94 
+ rep24/qfep.out       14.50      -51.68      -52.30 
+ rep25/qfep.out       24.15      -50.00      -50.48 
+ rep26/qfep.out       19.76      -64.53      -64.96 
+ rep27/qfep.out       21.93      -56.40      -56.69 
+ rep28/qfep.out  None        None            -73.30 
+ rep29/qfep.out       18.45      -44.77      -45.36 
+ rep30/qfep.out       19.15      -65.48      -66.45 
+ rep31/qfep.out       19.22      -72.98      -73.58 
+ rep32/qfep.out       21.67      -58.97      -59.74 
+ rep33/qfep.out       14.69      -58.86      -59.07 
+ rep34/qfep.out  None        None            -32.67 
+ rep35/qfep.out       17.44      -71.49      -72.05 
+ rep36/qfep.out       21.72      -57.06      -57.52 
+ rep37/qfep.out       20.33      -39.40      -39.94 
+ rep38/qfep.out       20.53      -63.97      -64.41 
+ rep39/qfep.out  None        None            -46.88 
+ rep40/qfep.out       17.35      -73.59      -74.06 
+ rep41/qfep.out  None        None            -69.15 
+ rep42/qfep.out       21.43      -41.46      -42.11 
+ rep43/qfep.out  None        None            -68.21 
+ rep44/qfep.out       17.56      -57.67      -58.23 
+ rep45/qfep.out       18.27      -32.62      -33.23 
+ rep46/qfep.out  None        None            -49.56 
+ rep47/qfep.out  None        None            -44.96 
+ rep48/qfep.out       13.09      -66.20      -66.97 
+ rep49/qfep.out       22.20      -62.14      -63.00 
+ rep50/qfep.out  None        None            -71.39 
+ rep51/qfep.out       19.13      -33.54      -33.86 
+ rep52/qfep.out  None        None            -48.20 
+ rep53/qfep.out       21.10      -48.86      -49.44 
+ rep54/qfep.out  None        None            -37.84 
+ rep55/qfep.out       14.97      -69.21      -69.55 
+ rep56/qfep.out  None        None            -64.48 
+ rep57/qfep.out       16.67      -59.54      -60.09 
+ rep58/qfep.out       23.88      -50.26      -50.80 
+ rep59/qfep.out       20.77      -63.79      -64.20 
+ rep60/qfep.out       20.52      -61.89      -62.93 
+ rep61/qfep.out       16.49      -73.01      -73.26 
+ rep62/qfep.out       19.37      -62.45      -62.94 
+ rep63/qfep.out  None        None            -54.95 
+ rep64/qfep.out       17.22      -66.05      -66.01 
+ rep65/qfep.out  None        None            -65.15 
+ rep66/qfep.out       78.48        0.09      -56.48 
+ rep67/qfep.out       18.10      -67.46      -68.29 
+ rep68/qfep.out       16.61      -58.22      -58.49 
+ rep69/qfep.out       14.73      -68.81      -69.26 
+ rep70/qfep.out       18.36      -53.74      -53.78 
+ rep71/qfep.out  None        None            -45.82 
+ rep72/qfep.out       21.99      -66.91      -67.44 
+ rep73/qfep.out       20.98      -57.81      -58.30 
+ rep74/qfep.out       16.66      -68.76      -69.33 
+ rep75/qfep.out  None        None            -44.98 
+ rep76/qfep.out       16.84      -60.80      -61.29 
+ rep77/qfep.out  None        None            -84.98 
+ rep78/qfep.out  None        None            -49.08 
+ rep79/qfep.out  None        None            -66.66 
+ rep80/qfep.out       22.23      -49.90      -50.43 
+ rep81/qfep.out  None        None            -63.10 
+ rep82/qfep.out       20.51      -31.67      -31.99 
+ rep83/qfep.out       19.02      -67.59      -68.04 
+ rep84/qfep.out       19.58      -29.27      -29.80 
+ rep85/qfep.out       20.24      -44.08      -44.32 
+ rep86/qfep.out  None        None            -77.50 
+ rep87/qfep.out  None        None            -73.18 
+ rep88/qfep.out  None        None            -59.20 
+ rep89/qfep.out       17.80      -62.20      -62.56 
+ rep90/qfep.out  None        None            -63.24 
+ rep91/qfep.out       20.32      -59.15      -59.92 
+ rep92/qfep.out       19.52      -65.02      -65.65 
+ rep93/qfep.out       19.47      -39.01      -40.31 
+ rep94/qfep.out       17.95      -43.70      -44.27 
+ rep95/qfep.out       66.02       -0.01      -52.06 
+ rep96/qfep.out       18.58      -68.99      -69.60 
+ rep97/qfep.out       15.72      -66.35      -66.70 
+ rep98/qfep.out       17.06      -51.92      -52.30 
+ rep99/qfep.out       17.26      -68.28      -68.90 
+
+----------------------------------- SUMMARY -----------------------------------
+# Analysed with: QTools/q_analysefeps.py (0.7.0)
+# Work dir: /home/hp/nayanika/github/PhD_Thesis/EVB/protein_stepwise/GPX6WT/mousecys/1-prep
+# Date: Mon Sep 30 14:42:09 2024
+# CMDline: /home/hp/nayanika/github/qtools/qscripts-cli/q_analysefeps.py rep00 rep01 rep02 rep03 rep04 rep05 rep06 rep07 rep08 rep09 rep10 rep11 rep12 rep13 rep14 rep15 rep16 rep17 rep18 rep19 rep20 rep21 rep22 rep23 rep24 rep25 rep26 rep27 rep28 rep29 rep30 rep31 rep32 rep33 rep34 rep35 rep36 rep37 rep38 rep39 rep40 rep41 rep42 rep43 rep44 rep45 rep46 rep47 rep48 rep49 rep50 rep51 rep52 rep53 rep54 rep55 rep56 rep57 rep58 rep59 rep60 rep61 rep62 rep63 rep64 rep65 rep66 rep67 rep68 rep69 rep70 rep71 rep72 rep73 rep74 rep75 rep76 rep77 rep78 rep79 rep80 rep81 rep82 rep83 rep84 rep85 rep86 rep87 rep88 rep89 rep90 rep91 rep92 rep93 rep94 rep95 rep96 rep97 rep98 rep99
+
+
+----- Statistics -----
+
+#                 Mean      Std.dev    Median    Std.error       N
+dG*              20.72       9.10      19.51       1.07         73
+dG0             -55.43      15.14     -59.15       1.77         73
+dG_lambda       -58.02      12.17     -60.69       1.22        100
+
+
+------- Fails --------
+
+Failed to produce dGa/dG0:
+-> rep02/qfep.out: Bad reaction free energy profile - 0 local minima (instead of 2)
+-> rep08/qfep.out: Bad reaction free energy profile - 1 local minima (instead of 2)
+-> rep10/qfep.out: Bad reaction free energy profile - 1 local minima (instead of 2)
+-> rep11/qfep.out: Bad reaction free energy profile - 1 local minima (instead of 2)
+-> rep28/qfep.out: Bad reaction free energy profile - 1 local minima (instead of 2)
+-> rep34/qfep.out: Bad reaction free energy profile - 1 local minima (instead of 2)
+-> rep39/qfep.out: Bad reaction free energy profile - 1 local minima (instead of 2)
+-> rep41/qfep.out: Bad reaction free energy profile - 1 local minima (instead of 2)
+-> rep43/qfep.out: Bad reaction free energy profile - 1 local minima (instead of 2)
+-> rep46/qfep.out: Bad reaction free energy profile - 1 local minima (instead of 2)
+-> rep47/qfep.out: Bad reaction free energy profile - 1 local minima (instead of 2)
+-> rep50/qfep.out: Bad reaction free energy profile - 0 local minima (instead of 2)
+-> rep52/qfep.out: Bad reaction free energy profile - 1 local minima (instead of 2)
+-> rep54/qfep.out: Bad reaction free energy profile - 1 local minima (instead of 2)
+-> rep56/qfep.out: Bad reaction free energy profile - 1 local minima (instead of 2)
+-> rep63/qfep.out: Bad reaction free energy profile - 0 local minima (instead of 2)
+-> rep65/qfep.out: Bad reaction free energy profile - 1 local minima (instead of 2)
+-> rep71/qfep.out: Bad reaction free energy profile - 0 local minima (instead of 2)
+-> rep75/qfep.out: Bad reaction free energy profile - 1 local minima (instead of 2)
+-> rep77/qfep.out: Bad reaction free energy profile - 1 local minima (instead of 2)
+-> rep78/qfep.out: Bad reaction free energy profile - 1 local minima (instead of 2)
+-> rep79/qfep.out: Bad reaction free energy profile - 1 local minima (instead of 2)
+-> rep81/qfep.out: Bad reaction free energy profile - 1 local minima (instead of 2)
+-> rep86/qfep.out: Bad reaction free energy profile - 1 local minima (instead of 2)
+-> rep87/qfep.out: Bad reaction free energy profile - 1 local minima (instead of 2)
+-> rep88/qfep.out: Bad reaction free energy profile - 1 local minima (instead of 2)
+-> rep90/qfep.out: Bad reaction free energy profile - 1 local minima (instead of 2)
+-------------------------------------------------------------------------------
+

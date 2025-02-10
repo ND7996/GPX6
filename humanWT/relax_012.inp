@@ -1,0 +1,48 @@
+# Generated with QTools, version 0.7.1
+# Date: Wed May 29 00:41:25 2024
+# CWD: /home/nayda/stepwise/humansec/WT
+# Cmdline: /home/apps/apps/qtools/0.7.1_develmp/qscripts-cli/q_genrelax.py genrelax.proc --top GPX6sec_human.top --pdb GPX6sec_human.pdb --fep GPX6_wthumansec.fep --outdir minim2 --rest top --rs run_Q5.10_amd.sh
+[md]
+steps                                         50000
+random_seed                                   87728
+temperature                                     0.1
+stepsize                                        0.5
+bath_coupling                                   0.5
+initial_temperature                             0.1
+separate_scaling                                 on
+lrf                                              on
+shake_solvent                                    on
+
+[cut-offs]
+solute_solute                                    10
+solvent_solvent                                  10
+solute_solvent                                   10
+q_atom                                           99
+
+[sphere]
+shell_radius                                   20.0
+shell_force                                     0.0
+
+[intervals]
+non_bond                                         25
+output                                         1000
+temperature                                    1000
+trajectory                                     1000
+
+[files]
+topology                          GPX6sec_human.top
+restart                                relax_011.re
+final                                  relax_012.re
+trajectory                            relax_012.dcd
+fep                             GPX6_wthumansec.fep
+
+[lambdas]
+1.00  0.
+
+[distance_restraints]
+761    3090   0.0    3.2    10.    0     
+1285   3090   0.0    3.2    10.    0     
+761    762    0.0    1.5    5.     1     
+3090   3092   0.0    1.5    5.     1     
+1285   3092   0.0    1.5    5.     2     
+3090   762    0.0    1.5    5.     2     

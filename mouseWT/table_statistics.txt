@@ -1,0 +1,16 @@
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{lccccc}
+\toprule
+\textbf{Parameter} & \textbf{Mean} & \textbf{Std. dev} & \textbf{Median} & \textbf{Std. error} & \textbf{N} \\
+\midrule
+dG*               & 8.46           & 2.86             & 8.38            & 0.29               & 100        \\
+dG0              & -27.78         & 12.20            & -30.83          & 1.22               & 100        \\
+dG\_lambda       & -31.32         & 12.17            & -33.99          & 1.22               & 100        \\
+\bottomrule
+\end{tabular}
+\caption{Statistical summary of thermodynamic parameters}
+\end{table}
+
+
