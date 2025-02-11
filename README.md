@@ -10,7 +10,6 @@ Saves the final solvated structures as ${base_name}_solvated.pdb and the topolog
 
 ### STEP 3 - Making FEP file
 This step executes the makeFEP.py script within the directory:
-[Go to FEP Directory](../../input/fep)
 The script utilizes the qmap file and the solvated PDB structure to generate the required FEP file
 Inputs:
 fepmousecys.qmap → for Mouse WT
