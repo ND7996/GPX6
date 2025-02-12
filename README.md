@@ -58,4 +58,14 @@ Generates a Latex table of
 mean dG* value ± standard error 
 mean dG0 value ± standard error
 
-
+.
+├── prep_structures/
+│   ├── MOUSE/
+│   └── HUMAN/
+├── input/
+│   └── fep/
+├── prep_scripts/
+│   ├── minimcysteine.ipynb
+│   └── fepcysteine.ipynb
+└── results/
+    └── minim/
