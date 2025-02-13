@@ -23,7 +23,7 @@ q_atom                    99
 
 [intervals]
 non_bond                 30
-output           	500
+output           	    500
 trajectory              500  
 temperature             200
 
@@ -42,7 +42,7 @@ $196.O1$   $49.HG1$     0.0  1.5   5. 2
 # solvent heat-up 
  
 [MD] 
-steps                  200 # 10 K 10. kcal solute restraints 
+steps                  2000 # 10 K 10. kcal solute restraints 
 initial_temperature      1 
 temperature              1 
 random_seed              -1
@@ -52,7 +52,7 @@ SOLUTE     10.0 0 0 0
 _____________________________________________________________ 
  
 [MD] 
-steps                  300 # 100 K 10. kcal solute restraints 
+steps                  3000 # 100 K 10. kcal solute restraints 
 temperature             100 
  
 [sequence_restraints] 
@@ -60,7 +60,7 @@ SOLUTE     10.0 0 0 0
 _____________________________________________________________ 
  
 [MD] 
-steps                  500 # 300 K 10. kcal solute restraints 
+steps                  5000 # 300 K 10. kcal solute restraints 
  
 [sequence_restraints] 
 SOLUTE     10.0 0 0 0 
@@ -69,28 +69,28 @@ _____________________________________________________________
 # releasing restraints 
  
 [MD] 
-steps                 1000 # $TEMP$ K 5.0 kcal solute restraints 
+steps                 10000 # $TEMP$ K 5.0 kcal solute restraints 
  
 [sequence_restraints] 
 SOLUTE      5.0 0 0 0 
 _____________________________________________________________ 
  
 [MD] 
-steps                 1000 # $TEMP$ K 2.0 kcal solute restraints 
+steps                 10000 # $TEMP$ K 2.0 kcal solute restraints 
  
 [sequence_restraints] 
 SOLUTE      2.0 0 0 0 
 _____________________________________________________________ 
  
 [MD] 
-steps                 1000 # $TEMP$ K 1.0 kcal solute restraints 
+steps                 10000 # $TEMP$ K 1.0 kcal solute restraints 
  
 [sequence_restraints] 
 SOLUTE      1.0 0 0 0 
 _____________________________________________________________ 
  
 [MD] 
-steps                 1000 # $TEMP$ K 0.5 kcal solute restraints 
+steps                 10000 # $TEMP$ K 0.5 kcal solute restraints 
  
 [sequence_restraints] 
 SOLUTE      0.5 0 0 0 
@@ -98,21 +98,21 @@ SOLUTE      0.5 0 0 0
 _____________________________________________________________ 
  
 [MD] 
-steps                 1000 
+steps                 10000 
  
 [sequence_restraints] 
 SOLUTE      0.1 0 0 0 
 ______________________________________________________
 
 [MD] 
-steps                 5000
+steps                 500000 
 ______________________________________________________
 
 #######################################################
 {FEP}
 #######################################################
 [MD]
-steps                5000
+steps                20000
 
 [intervals]
 energy                   5
