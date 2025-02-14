@@ -1,51 +1,44 @@
 #!/bin/bash
 
-# Directory containing the stats file
-DATA_DIR="/home/hp/nayanika/github/GPX6/analysis"
-# File containing the existing tables
-STATS_FILE="$DATA_DIR/statsmouse1.tex"
-# File where the combined table will be stored
-TABLE_FILE="/home/hp/nayanika/github/GPX6/table/Free_Energy1.tex"
+# List of mutation folders
+folders=("D148E" "E143S" "F139L" "F48Y" "G102S" "H144Q" "H177Q" "I24L" "K87T" "N107S" "P142S" "R181S" "R99C" "S47A" "S4R" "T178A" "T52A" "T54Q" "T60A" "Y104F")
 
-# Start writing the complete LaTeX document to the output file
+# Output combined LaTeX file
+combined_output="combined_latex_table.tex"
+
+# Start writing the combined LaTeX file
 {
-    echo "\documentclass{article}"
-    echo "\usepackage{amsmath}"  # For math symbols
-    echo "\usepackage{graphicx}" # If you need additional graphics support
-    echo "\begin{document}"
-} > "$TABLE_FILE"
+  echo "\\documentclass{article}"
+  echo "\\usepackage{booktabs}"
+  echo "\\begin{document}"
+  echo "\\begin{table}[ht]"
+  echo "\\centering"
+  echo "\\begin{tabular}{|c|c|c|}"
+  echo "\\hline"
+  echo "Mutation & Mean dG* & Mean dG0 \\\\"
+  echo "\\hline"
+} > "$combined_output"
 
-# Read the stats file and extract relevant data
-while IFS= read -r line; do
-    # Clean up the line and substitute +- with the proper LaTeX \pm
-    clean_line=$(echo "$line" | tr -d '\r' | sed 's/\+-/\\pm/g')
+# Loop through each folder and append its LaTeX table content
+for folder in "${folders[@]}"; do
+  if [ -f "$folder/latex_table.tex" ]; then
+    echo "Adding results from $folder..."
+    tail -n +2 "$folder/latex_table.tex" >> "$combined_output"  # Skip the first header line
+  else
+    echo "Skipping $folder (latex_table.tex not found)."
+  fi
+done
 
-    # Check if the line contains one of the specific mutations (e.g., N107S, T60A)
-    if echo "$clean_line" | grep -q -E "N107S|T60A|S4R|R181S|I24L|G102S|Y104F|P142S|K87T|E143S|T178A|G74A|H177Q|H144Q|Q54T|C99R|T52A|S47A|F48Y|Sec C49U|Cys"; then
-        # Add the cleaned line to the table for specific mutations
-        echo "\\begin{table}[ht]" >> "$TABLE_FILE"
-        echo "    \\centering" >> "$TABLE_FILE"
-        echo "    \\begin{tabular}{|c|c|c|}" >> "$TABLE_FILE"
-        echo "    \\hline" >> "$TABLE_FILE"
-        echo "    System & Mean dG* (kcal/mol) & Mean dG0 (kcal/mol) \\\\" >> "$TABLE_FILE"
-        echo "    \\hline" >> "$TABLE_FILE"
-
-        # Add the cleaned line to the table
-        echo "    $clean_line \\\\" >> "$TABLE_FILE"
-        echo "    \\hline" >> "$TABLE_FILE"
-
-        # Close the table
-        echo "    \\end{tabular}" >> "$TABLE_FILE"
-        echo "    \\caption{Free energy changes for selected mutations}" >> "$TABLE_FILE"
-        echo "\\end{table}" >> "$TABLE_FILE"
-    fi
-done < "$STATS_FILE"
-
-# Close the document
+# Finish LaTeX document
 {
-    echo "\end{document}"
-} >> "$TABLE_FILE"
+  echo "\\end{tabular}"
+  echo "\\caption{Combined Free Energy Changes}"
+  echo "\\end{table}"
+  echo "\\end{document}"
+} >> "$combined_output"
 
-# Print the final LaTeX file for inspection
-echo "Contents of $TABLE_FILE:"
-cat "$TABLE_FILE"
+# Notify the user
+echo "Combined LaTeX table written to $combined_output"
+
+# Show LaTeX file content
+cat "$combined_output"
