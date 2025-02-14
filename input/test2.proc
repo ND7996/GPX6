@@ -12,7 +12,7 @@ stepsize                 1
 steps                   200
 temperature             300
 initial_temperature     300
-random_seed              -1
+random_seed             123435 
 bath_coupling            10 
 lrf                      on
 shake_solvent            on
@@ -107,5 +107,6 @@ ______________________________________________________
 
 [intervals]
 energy                   5
+random_seed           78992
 trajectory	           500
 output                 500
