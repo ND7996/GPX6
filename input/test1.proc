@@ -10,9 +10,9 @@ SOLUTE            $1.N$      $195.O$
 [MD]
 stepsize                 1
 steps                   200
-random_seed            7988
 temperature             300
 initial_temperature     300
+random_seed             1234
 bath_coupling            10 
 lrf                      on
 shake_solvent            on
@@ -38,7 +38,7 @@ temperature             200
 [MD] 
 initial_temperature      1 
 temperature              1 
-random_seed            7988
+random_seed              -1
 
 [sequence_restraints] 
 SOLUTE     10.0 0 0 0 
@@ -161,7 +161,6 @@ ______________________________________________________
 [MD]
 
 [intervals]
-random_seed             7988
 energy                   5
 trajectory	           500
 output                 500
