@@ -51,17 +51,3 @@ Generates a Latex table and csv file
 mean dG* value ± standard error 
 mean dG0 value ± standard error
 
-<<<<<<< HEAD
-.
-├── prep_structures/
-│   ├── MOUSE/
-│   └── HUMAN/
-├── input/
-│   └── fep/
-├── prep_scripts/
-│   ├── minimcysteine.ipynb
-│   └── fepcysteine.ipynb
-└── results/
-    └── minim/
-=======
->>>>>>> 09a3c8bdefcb1baddf31ee357897cc1461743a95
