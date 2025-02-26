@@ -5,8 +5,12 @@ import os
 
 # Set the paths
 pdb_file = "/home/hp/results/MOUSE/level0/D148E/minim/D148E_minim.pdb"
-dcd_path = "/home/hp/results/MOUSE/level0/D148E/product_10_10"
-#dcd_path = "/home/hp/results/MOUSE_OLD/MOUSE/level0/D148E/test5000"
+#dcd_path = "/home/hp/results/MOUSE/level0/D148E/test3000"
+#dcd_path = "/home/hp/results/MOUSE/level0/D148E/product_5_5"
+#dcd_path = "/home/hp/results/MOUSE/level0/D148E/product_10_10"
+dcd_path = "/home/hp/results/MOUSE/level0/D148E/product_5_5_CR"
+
+
 dcd_files = sorted(glob.glob(os.path.join(dcd_path, "*.dcd")))
 
 # Initialize PyMOL
