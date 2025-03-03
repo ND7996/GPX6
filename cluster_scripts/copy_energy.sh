@@ -1,22 +1,30 @@
 #!/bin/bash
 
-# Loop through 0 to 99
-for i in $(seq 0 99); do
-    # Format the folder names with leading zeros
-    replica_folder=$(printf "replica%03d" $i)
-    destination_folder=$(printf "rep%02d" $i)
+# Define the main directory containing replica folders
+BASE_DIR="/home/nsekhar/stepwise/MUT/step1/MOUSE_OLD/level0/R181S"
 
-    # Create destination folder if it doesn't exist
-    mkdir -p $destination_folder
+# Navigate to the base directory
+cd "$BASE_DIR" || { echo "Failed to enter $BASE_DIR"; exit 1; }
 
-    # Check if the replica folder exists before copying files
+# Loop through all replicaXXX folders
+for replica_folder in replica[0-9][0-9][0-9]; do
+    # Check if the replica folder exists before processing
     if [ -d "$replica_folder" ]; then
-        # Copy .en and q_enfiles.list files from replica folder to destination folder
-        cp $replica_folder/*.en $replica_folder/q_enfiles.list $destination_folder/ 2>/dev/null
+        # Extract numeric part and format as repXX
+        replica_number=${replica_folder#replica}
+        destination_folder=$(printf "rep%02d" "$replica_number")
+
+        # Create destination folder if it doesn't exist
+        mkdir -p "$destination_folder"
+
+        # Copy only .en files to the destination folder
+        cp "$replica_folder"/*.en "$destination_folder"/ 2>/dev/null
     else
-        echo "Folder $replica_folder does not exist."
+        echo "Folder $replica_folder does not exist in $BASE_DIR."
     fi
+
 done
 
-echo "All files copied successfully."
-
+echo "All .en files copied successfully!"
+~                                                                                                                                                                                      
+~                                                        
