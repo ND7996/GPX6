@@ -1,21 +1,13 @@
 #!/bin/bash
-#SBATCH --job-name=Q     # Job name
-#SBATCH --error=messages.err.txt      # Standard error file
-#SBATCH --output=messages.out.txt      # Standard output file
-#SBATCH --ntasks=1             
-#SBATCH --cpus-per-task=1         # Number of CPU cores per task (adjust as needed)
-#SBATCH --time=24:00:00           # Time limit hrs:min:sec (adjust as needed)
-#SBATCH --partition=normal1,normal2,normal3,normal4,normal5,highmem,gpu
 
-#Loop through each directory from replicamousecys000 to replicamousecys009
-for i in {000..099}; do
-  dir="replica$i"
-  echo "Processing directory: $dir"
-  # Change to the replica directory
-  cd "$dir" || { echo "Failed to enter directory $dir"; continue; }
-  # Submit the run_qdyn_5.sh script to SLURM
-  sbatch run_qdyn_5.sh
-  # Change back to the base directory
-  cd ..
+# Iterate over replicas from replica000 to replica015
+for i in $(seq -f "replica%03g" 0 15); do
+    if [[ -d "$i" && -f "$i/run_qdyn_5.sh" ]]; then
+        echo "Submitting job in $i..."
+        (cd "$i" && sbatch run_qdyn_5.sh)
+    else
+        echo "Skipping $i (not found or missing run_qdyn_5.sh)"
+    fi
 done
+
 
