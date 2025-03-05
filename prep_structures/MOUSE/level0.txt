@@ -1,7 +1,6 @@
 4 S R
 47 S A
 48 F Y
-49 C U
 60 T A
 24 I L
 52 T A
