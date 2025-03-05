@@ -33,17 +33,22 @@ def mutate_residues(pdb_file, mutations, output_dir):
     :param mutations: List of mutation tuples, e.g., [(49, "C", "U")].
     :param output_dir: Directory to save mutated PDB files.
     """
-    # Ensure "level0" directory exists
+    # Ensure output directory exists
     if not os.path.exists(output_dir):
+        print(f"Directory {output_dir} does not exist. Creating it.")
         os.makedirs(output_dir)
+    else:
+        print(f"Directory {output_dir} already exists.")
 
     # Load the PDB file
+    print(f"Loading PDB file from: {pdb_file}")
     cmd.load(pdb_file, "structure")
+    print(f"Structure names: {cmd.get_names()}")  # Check if structure loaded correctly
 
     for resi, mouse_residue, human_residue in mutations:
         selection = f"resi {resi}"
-        
-        # Apply mutation
+        print(f"Applying mutation at residue {resi}: {mouse_residue} -> {human_residue}")
+
         cmd.wizard("mutagenesis")
         cmd.do(f"select {selection}")
         cmd.get_wizard().do_select(selection)
@@ -56,20 +61,29 @@ def mutate_residues(pdb_file, mutations, output_dir):
         cmd.set_wizard()
         cmd.remove("hydro")
 
-        # Save the mutated structure inside "level0"
+        # Remove water molecules (solvent)
+        cmd.remove("solvent")
+
+        # Construct output file path
         output_file = os.path.join(output_dir, f"{mouse_residue}{resi}{human_residue}.pdb")
-        cmd.save(output_file, "structure", format="pdb")
-        print(f"Mutation applied at residue {resi}: {mouse_residue} -> {human_residue}. Saved to {output_file}.")
+        print(f"Saving to {output_file}")
+        
+        # Save the PDB file
+        try:
+            cmd.save(output_file, "structure")
+            print(f"Successfully saved: {output_file}")
+        except Exception as e:
+            print(f"Error saving PDB file: {e}")
 
     cmd.delete("all")
 
 if __name__ == "__main__":
-    # Define input files using relative paths
-    pdb_file_path = "../../GPX6/mouseWT/mouseWT.pdb"  # Relative path to PDB file
-    mutations_file = "../../GPX6/prep_structures/MOUSE/level0.txt"  # Relative path to mutation list file
+    # Define input files using absolute paths
+    pdb_file_path = "/home/hp/nayanika/github/GPX6/humanWT/humanWT.pdb"  # Absolute path to PDB file
+    mutations_file = "/home/hp/nayanika/github/GPX6/prep_structures/HUMAN/level0.txt"  # Absolute path to mutation list file
 
-    # Ensure level0 directory exists using a relative path
-    output_dir = "../GPX6/prep_structures/MOUSE/level0"
+    # Ensure output directory exists using an absolute path
+    output_dir = "/home/hp/nayanika/github/GPX6/prep_structures/HUMAN/level0"
 
     # Read mutations from file
     mutations_list = read_mutations_from_file(mutations_file)

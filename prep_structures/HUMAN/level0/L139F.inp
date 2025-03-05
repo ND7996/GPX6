@@ -1,0 +1,15 @@
+readlib ../../GPX6/parameters/qoplsaa.lib
+readlib ../../GPX6/parameters/GPX.lib
+readprm ../../GPX6/parameters/qoplsaa_all2.prm
+
+readpdb "../../GPX6/prep_structures/HUMAN/level0/L139F.pdb"
+
+set solvent_pack 2.7
+boundary sphere 49:SE 25.
+solvate 49:SE 25. grid HOH
+
+maketop "../../GPX6/prep_structures/HUMAN/level0/L139F_solvated.top"
+writetop "../../GPX6/prep_structures/HUMAN/level0/L139F_solvated.top"
+writepdb "../../GPX6/prep_structures/HUMAN/level0/L139F_solvated.pdb" y
+
+quit
