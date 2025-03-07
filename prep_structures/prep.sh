@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Directory containing PDB files
-pdb_dir="../../GPX6/prep_structures/HUMAN/level0"
+pdb_dir="../../GPX6/prep_structures/MOUSE/level1"
 
 # Loop through each PDB file
 for pdb_file in "$pdb_dir"/*.pdb; do
