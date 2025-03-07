@@ -1,7 +1,7 @@
 import os
 
 # Define the base directory containing all PDB subdirectories with minim.pdb files
-base_directory = '/home/hp/nayanika/github/GPX6/prep_structures/HUMAN/level0'
+base_directory = '/home/hp/nayanika/github/GPX6/prep_structures/MOUSE/level1'
 
 # Define atom name replacements for residue SEC 49
 atom_replacements = {
