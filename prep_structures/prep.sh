@@ -16,8 +16,8 @@ readprm ../../GPX6/parameters/qoplsaa_all2.prm
 readpdb "$pdb_file"
 
 set solvent_pack 2.7
-boundary sphere 49:SE 25.
-solvate 49:SE 25. grid HOH
+boundary sphere 49:SG 25.
+solvate 49:SG 25. grid HOH
 
 maketop "$pdb_dir/${base_name}_solvated.top"
 writetop "$pdb_dir/${base_name}_solvated.top"

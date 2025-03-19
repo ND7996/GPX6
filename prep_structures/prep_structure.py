@@ -79,7 +79,7 @@ def mutate_residues(pdb_file, mutations, output_dir):
 
 if __name__ == "__main__":
     # Define input files using absolute paths
-    pdb_file_path = "/home/hp/nayanika/github/GPX6/C49U/GPX6sec_mouse.pdb"  # Absolute path to PDB file
+    pdb_file_path = "/home/hp/nayanika/github/GPX6/prep_structures/MOUSE/level1/T54Q.pdb"  # Absolute path to PDB file
     mutations_file = "/home/hp/nayanika/github/GPX6/prep_structures/MOUSE/level1.txt"  # Absolute path to mutation list file
 
     # Ensure output directory exists using an absolute path

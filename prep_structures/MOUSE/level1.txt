@@ -4,7 +4,6 @@
 60 T A
 24 I L
 52 T A
-54 T Q
 87 K T
 99 R C
 102 G S
