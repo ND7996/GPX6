@@ -1,0 +1,202 @@
+[
+  {
+    "mutation": "C49U",
+    "residue_number": "49",
+    "chain": "X",
+    "residue_name": "CYS",
+    "com_distance": 4.99,
+    "ca_distance": "5.47",
+    "dg_star": 14.84,
+    "dg0": -62.6
+  },
+  {
+    "mutation": "F48Y",
+    "residue_number": "48",
+    "chain": "X",
+    "residue_name": "PHE",
+    "com_distance": 6.16,
+    "ca_distance": "4.60",
+    "dg_star": 17.38,
+    "dg0": -55.26
+  },
+  {
+    "mutation": "S47A",
+    "residue_number": "47",
+    "chain": "X",
+    "residue_name": "SER",
+    "com_distance": 6.73,
+    "ca_distance": "6.24",
+    "dg_star": 21.57,
+    "dg0": -56.18
+  },
+  {
+    "mutation": "T52A",
+    "residue_number": "52",
+    "chain": "X",
+    "residue_name": "THR",
+    "com_distance": 8.86,
+    "ca_distance": "9.62",
+    "dg_star": 16.16,
+    "dg0": -61.77
+  },
+  {
+    "mutation": "R99C",
+    "residue_number": "99",
+    "chain": "X",
+    "residue_name": "ARG",
+    "com_distance": 10.02,
+    "ca_distance": "10.99",
+    "dg_star": 24.29,
+    "dg0": -55.41
+  },
+  {
+    "mutation": "T54Q",
+    "residue_number": "54",
+    "chain": "X",
+    "residue_name": "THR",
+    "com_distance": 13.32,
+    "ca_distance": "14.50",
+    "dg_star": 14.62,
+    "dg0": -55.68
+  },
+  {
+    "mutation": "H144Q",
+    "residue_number": "144",
+    "chain": "X",
+    "residue_name": "HID",
+    "com_distance": 8.85,
+    "ca_distance": "9.46",
+    "dg_star": 17.66,
+    "dg0": -53.4
+  },
+  {
+    "mutation": "H177Q",
+    "residue_number": "177",
+    "chain": "X",
+    "residue_name": "HID",
+    "com_distance": 13.35,
+    "ca_distance": "15.71",
+    "dg_star": 18.66,
+    "dg0": -55.4
+  },
+  {
+    "mutation": "T178A",
+    "residue_number": "178",
+    "chain": "X",
+    "residue_name": "THR",
+    "com_distance": 17.54,
+    "ca_distance": "18.99",
+    "dg_star": 14.77,
+    "dg0": -61.57
+  },
+  {
+    "mutation": "E143S",
+    "residue_number": "143",
+    "chain": "X",
+    "residue_name": "GLU",
+    "com_distance": 12.66,
+    "ca_distance": "12.97",
+    "dg_star": 19.04,
+    "dg0": -57.1
+  },
+  {
+    "mutation": "P142S",
+    "residue_number": "142",
+    "chain": "X",
+    "residue_name": "PRO",
+    "com_distance": 14.47,
+    "ca_distance": "14.77",
+    "dg_star": 16.3,
+    "dg0": -59.56
+  },
+  {
+    "mutation": "F139L",
+    "residue_number": "139",
+    "chain": "X",
+    "residue_name": "PHE",
+    "com_distance": 15.93,
+    "ca_distance": "16.37",
+    "dg_star": 15.72,
+    "dg0": -54.0
+  },
+  {
+    "mutation": "Y104F",
+    "residue_number": "104",
+    "chain": "X",
+    "residue_name": "TYR",
+    "com_distance": 16.83,
+    "ca_distance": "18.27",
+    "dg_star": 16.94,
+    "dg0": -58.41
+  },
+  {
+    "mutation": "K87T",
+    "residue_number": "87",
+    "chain": "X",
+    "residue_name": "LYS",
+    "com_distance": 15.19,
+    "ca_distance": "12.51",
+    "dg_star": 18.21,
+    "dg0": -53.05
+  },
+  {
+    "mutation": "G102S",
+    "residue_number": "102",
+    "chain": "X",
+    "residue_name": "GLY",
+    "com_distance": 19.73,
+    "ca_distance": "19.14",
+    "dg_star": 15.83,
+    "dg0": -59.61
+  },
+  {
+    "mutation": "T60A",
+    "residue_number": "60",
+    "chain": "X",
+    "residue_name": "THR",
+    "com_distance": 22.25,
+    "ca_distance": "22.80",
+    "dg_star": 18.09,
+    "dg0": -58.09
+  },
+  {
+    "mutation": "R181S",
+    "residue_number": "181",
+    "chain": "X",
+    "residue_name": "ARG",
+    "com_distance": 23.67,
+    "ca_distance": "23.95",
+    "dg_star": 16.38,
+    "dg0": -60.55
+  },
+  {
+    "mutation": "S4R",
+    "residue_number": "4",
+    "chain": "X",
+    "residue_name": "SER",
+    "com_distance": 21.39,
+    "ca_distance": "22.97",
+    "dg_star": 17.37,
+    "dg0": -56.97
+  },
+  {
+    "mutation": "N107S",
+    "residue_number": "107",
+    "chain": "X",
+    "residue_name": "ASN",
+    "com_distance": 21.44,
+    "ca_distance": "21.53",
+    "dg_star": 20.05,
+    "dg0": -56.09
+  },
+  {
+    "mutation": "D148E",
+    "residue_number": "148",
+    "chain": "X",
+    "residue_name": "ASP",
+    "com_distance": 17.73,
+    "ca_distance": "17.36",
+    "dg_star": 15.68,
+    "dg0": -60.3
+  }
+]
