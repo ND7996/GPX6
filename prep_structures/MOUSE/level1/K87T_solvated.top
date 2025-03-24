@@ -1,6 +1,6 @@
 Q topology file
 TITLE      ../../GPX6/prep_structures/MOUSE/level1/K87T_solvated.top"
-DATE       20250318
+DATE       20250324
 VERSION     5.06
 LIB_FILES  ../../GPX6/parameters/qoplsaa.lib;../../GPX6/parameters/GPX.lib
 FORCEFIELD OPLS-AA
