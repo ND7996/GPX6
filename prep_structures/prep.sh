@@ -1,6 +1,6 @@
 #!/bin/bash
 # Directory containing PDB files
-pdb_dir="../../GPX6/prep_structures/HUMAN/level1"
+pdb_dir="../../GPX6/prep_structures/MOUSE/level2"
 # Create a log file
 log_file="$pdb_dir/solvation_log.txt"
 echo "Starting solvation process at $(date)" > "$log_file"
