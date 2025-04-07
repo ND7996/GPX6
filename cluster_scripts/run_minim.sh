@@ -1,54 +1,36 @@
 #!/bin/bash
 
-# Base directory where the folders are located
-base_dir="/home/nsekhar/stepwise/MUT/step1/mousecys"
+# Base directory
+BASE_DIR="/home/nsekhar/stepwise/MUT/step1/HUMAN/level3"
 
-# List of directories to process
-directories=(
-    "D119E" "E137D" "I182T" "K3N" "N107S" "N192K" "N31Q" "P67N" 
-    "Q33K" "R181S" "S195N" "T194F" "T71I" "V30I" "F29Y" "I24L" 
-    "M188L" "N120K" "N22L" "N69G" "Q184K" "R173H" "S126T" "S4R" 
-    "T60A" "V16I"
-)
+# Updated mutation folders
+MUTATIONS=("A178T" "A47S" "A52T" "A60T" "C99R" "A74G" "F104Y" "L139F"
+           "L24I" "Q144H" "Q177H" "Q54T" "N3K" "S102G" "H173R" "S142P"
+           "S143E" "S181R" "Y48F")
 
-# Loop through each specified directory
-for dir_name in "${directories[@]}"; do
-    dir_path="$base_dir/$dir_name"
-    
-    # Check if the directory exists
-    if [[ -d "$dir_path" ]]; then
-        minim_dir="$dir_path/minim"
-        run_qdyn_script="$minim_dir/run_qdyn_5.sh"
+# Loop through each mutation folder
+for MUT in "${MUTATIONS[@]}"; do
+    MINIM_DIR="$BASE_DIR/$MUT/minim"
+    RUN_SCRIPT="$MINIM_DIR/run_qdyn_5.sh"
 
-        # Check for the minim subdirectory and script
-        if [[ -d "$minim_dir" && -f "$run_qdyn_script" ]]; then
-            # Submit a job for this directory
-            sbatch <<EOF
-#!/bin/bash
-#SBATCH --job-name=$dir_name     # Job name for the directory
-#SBATCH --error=${dir_name}_err.txt      # Standard error file
-#SBATCH --output=${dir_name}_out.txt      # Standard output file
-#SBATCH --ntasks=1             
-#SBATCH --cpus-per-task=1          # Number of CPU cores per task (adjust as needed)
-#SBATCH --mem=16G              # Memory per node (adjust as needed)
-#SBATCH --time=24:00:00           # Time limit hrs:min:sec (adjust as needed)
-#SBATCH --partition=normal1,normal2,normal3,normal4,normal5,highmem,gpu
+    echo "Checking directory: $MINIM_DIR"
 
-# Change to the minim directory
-cd "$minim_dir"
+    # Check if the minim directory exists
+    if [ -d "$MINIM_DIR" ]; then
+        echo "Entering $MINIM_DIR"
 
-# Add execute permission and run the script
-chmod +x "$run_qdyn_script"
-./run_qdyn_5.sh
-
-EOF
+        # Check if the script exists and is executable
+        if [ -f "$RUN_SCRIPT" ]; then
+            chmod +x "$RUN_SCRIPT"  # Ensure script is executable
+            echo "Submitting job for $MUT"
+            (cd "$MINIM_DIR" && sbatch run_qdyn_5.sh)  # Submit job via sbatch
         else
-            echo "minim directory or run_qdyn_5.sh not found in $dir_path"
+            echo "Error: run_qdyn_5.sh not found in $MINIM_DIR"
         fi
     else
-        echo "Directory $dir_path does not exist"
+        echo "Skipping $MUT: minim directory not found."
     fi
 done
 
-echo "Completed submitting jobs for all directories."
+echo "All jobs submitted."
 

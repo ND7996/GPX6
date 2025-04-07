@@ -1,30 +1,54 @@
 #!/bin/bash
+# Define the main directory containing mutation folders
+BASE_DIR="/home/nsekhar/stepwise/MUT/step1/HUMAN/level2"
+# List of mutation folders
+MUTATIONS=(A178T A47S A52T A60T C99R E148D F104Y L139F L24I Q144H Q177H Q54T R4S S102G S107N S142P S143E S181R Y48F)
+# Log file for missing .en files
+LOG_FILE="missing_en_files.log"
+# Output directory for saving .en files
+OUTPUT_DIR="/home/nsekhar/stepwise/MUT/collected_en_files"
 
-# Define the main directory containing replica folders
-BASE_DIR="/home/nsekhar/stepwise/MUT/step1/MOUSE_OLD/level0/R181S"
+# Create output directory if it doesn't exist
+mkdir -p "$OUTPUT_DIR"
 
-# Navigate to the base directory
-cd "$BASE_DIR" || { echo "Failed to enter $BASE_DIR"; exit 1; }
+# Clear the log file before starting
+> "$LOG_FILE"
 
-# Loop through all replicaXXX folders
-for replica_folder in replica[0-9][0-9][0-9]; do
-    # Check if the replica folder exists before processing
-    if [ -d "$replica_folder" ]; then
-        # Extract numeric part and format as repXX
-        replica_number=${replica_folder#replica}
-        destination_folder=$(printf "rep%02d" "$replica_number")
+echo "Checking for missing .en files..." > "$LOG_FILE"
 
-        # Create destination folder if it doesn't exist
-        mkdir -p "$destination_folder"
-
-        # Copy only .en files to the destination folder
-        cp "$replica_folder"/*.en "$destination_folder"/ 2>/dev/null
+# Loop through each mutation folder
+for MUT in "${MUTATIONS[@]}"; do
+    MUT_DIR="$BASE_DIR/$MUT"
+    
+    # Check if the mutation directory exists
+    if [ -d "$MUT_DIR" ]; then
+        # Create mutation-specific output directory
+        mkdir -p "$OUTPUT_DIR/$MUT"
+        
+        # Loop through all repXX and replicaXXX folders
+        for replica_folder in "$MUT_DIR"/rep[0-9][0-9] "$MUT_DIR"/replica[0-9][0-9][0-9]; do
+            if [ -d "$replica_folder" ]; then
+                replica_name=$(basename "$replica_folder")
+                en_files=("$replica_folder"/*.en)
+                
+                # Check if any .en files exist in this replica folder
+                if [ -e "${en_files[0]}" ]; then
+                    # Create replica-specific directory in output
+                    mkdir -p "$OUTPUT_DIR/$MUT/$replica_name"
+                    
+                    # Copy all .en files to the output directory
+                    cp "$replica_folder"/*.en "$OUTPUT_DIR/$MUT/$replica_name/"
+                else
+                    # Log only missing .en files for this replica
+                    echo "$MUT/$replica_name" >> "$LOG_FILE"
+                fi
+            fi
+        done
     else
-        echo "Folder $replica_folder does not exist in $BASE_DIR."
+        # Log if mutation folder does not exist
+        echo "$MUT (folder not found)" >> "$LOG_FILE"
     fi
-
 done
 
-echo "All .en files copied successfully!"
-~                                                                                                                                                                                      
-~                                                        
+echo "Process completed. Folders with missing .en files are logged in $LOG_FILE."
+
