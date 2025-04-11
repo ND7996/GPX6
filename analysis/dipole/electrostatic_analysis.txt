@@ -32,7 +32,7 @@ Active Site Dipole Vector: [-0.0414, -1.6852, -0.2025]
 Active Site Dipole Magnitude: 1.6979
 
 Electrostatic Interactions (LEU139 with Active Site):
-Dielectric D = 1: -252.93534524401638918789 kJ/mol
-Dielectric D = 4: -63.23383631100409729697 kJ/mol
-Dielectric D = 20: -12.64676726220096725228 kJ/mol
-Dielectric D = 80: -3.16169181555024181307 kJ/mol
+Dielectric D = 1: -252.93534524401638918789 kcal/mol
+Dielectric D = 4: -63.23383631100409729697 kcal/mol
+Dielectric D = 20: -12.64676726220096725228 kcal/mol
+Dielectric D = 80: -3.16169181555024181307 kcal/mol

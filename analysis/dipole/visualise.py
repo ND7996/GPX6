@@ -1,73 +1,77 @@
 import os
-import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
-from mpl_toolkits.mplot3d import Axes3D
+from pymol import cmd
+from pymol.cgo import CYLINDER
 
-# Paths to the reactant and product CSV files (change this to your actual directory paths)
-reactant_file = '/home/hp/results/MOUSE/level3/F48Y/replica000/reactant.csv'
-product_file = 'home/hp/results/MOUSE/level3/F48Y/replica000/product.csv'
+# Function to load dipole data from file
+def extract_dipole_coordinates(dipole_file):
+    """Extract dipole vector from the file."""
+    if not os.path.exists(dipole_file):
+        print(f"Warning: File {dipole_file} does not exist.")
+        return None
+    
+    with open(dipole_file, 'r') as f:
+        lines = f.readlines()
+        
+    # Check for a valid dipole vector (assuming it's the first line for simplicity)
+    for line in lines:
+        if line.startswith("dipole"):
+            try:
+                # Extract x, y, z components of the dipole vector
+                dipole_vector = list(map(float, line.split()[1:]))
+                if len(dipole_vector) == 6:  # Ensure it's a valid 3D dipole vector
+                    return dipole_vector
+            except ValueError:
+                print(f"Error reading dipole data in {dipole_file}.")
+                return None
+    return None
 
-# Constants (Adjust as necessary for your system)
-charges_used_reactant = {1: 0.1, 2: -0.1, 3: 0.2}  # Example: Atom index -> charge mapping for reactant
-charges_used_product = {1: 0.1, 2: -0.1, 3: 0.2}  # Example: Atom index -> charge mapping for product
+# Function to visualize dipole
+def visualize_dipole(dipole_vector, name="dipole"):
+    """Visualize the dipole vector in PyMOL."""
+    if dipole_vector is None:
+        return
 
-# PDB file (for loading and visualization)
+    # Create the dipole as a cylinder (start and end points)
+    dipole_obj = [
+        CYLINDER,
+        dipole_vector[0], dipole_vector[1], dipole_vector[2],  # Start coordinates
+        dipole_vector[3], dipole_vector[4], dipole_vector[5],  # End coordinates
+        0.3,  # Radius
+        1.0, 0.0, 0.0,  # Color start (red)
+        1.0, 0.0, 0.0   # Color end (red)
+    ]
+
+    # Load the dipole into PyMOL
+    cmd.load_cgo(dipole_obj, name)
+
+# Path to PDB file
 pdb_file = '/home/hp/results/MOUSE/level3/F48Y/minim/minim.pdb'
+cmd.load(pdb_file, 'minim')
 
-def load_csv_data(csv_file):
-    try:
-        data = pd.read_csv(csv_file)
-        print(f"Loaded {csv_file}, Columns: {data.columns}")
-        print(data.head())  # Print first few rows for debugging
-        return data
-    except Exception as e:
-        print(f"Error loading {csv_file}: {e}")
-        return pd.DataFrame()
+# Loop through replicas and load their dipole data
+for i in range(16):  # Assuming replica000 to replica015
+    reactant_dipole_file = f"/home/hp/results/MOUSE/level3/F48Y/replica{i:03d}/reactant_dipole.py"
+    product_dipole_file = f"/home/hp/results/MOUSE/level3/F48Y/replica{i:03d}/product_dipole.py"
 
-def calculate_com(coordinates):
-    if len(coordinates) == 0:
-        print("Warning: Empty coordinates for COM calculation.")
-        return np.array([np.nan, np.nan, np.nan])
-    return np.mean(coordinates, axis=0)
+    print(f"Processing replica {i:03d}...")
 
-def calculate_dipole(coordinates, charges, com):
-    if len(coordinates) == 0:
-        print("Warning: No coordinates for dipole calculation.")
-        return np.array([np.nan, np.nan, np.nan])
-    dipole = np.zeros(3)
-    for i in range(len(coordinates)):
-        r_i = coordinates[i] - com  # Relative position vector
-        dipole += charges.get(i + 1, 0) * r_i  # Ensure charge index matches
-    return dipole
-
-def process_replica(reactant_file, product_file):
-    reactant_data = load_csv_data(reactant_file)
-    product_data = load_csv_data(product_file)
-
-    if {'x', 'y', 'z'}.issubset(reactant_data.columns):
-        reactant_coord = reactant_data[['x', 'y', 'z']].values
+    # Load and visualize reactant dipole
+    reactant_dipole = extract_dipole_coordinates(reactant_dipole_file)
+    if reactant_dipole:
+        visualize_dipole(reactant_dipole, name=f"reactant_dipole_{i:03d}")
     else:
-        print(f"Warning: Missing coordinates in {reactant_file}")
-        reactant_coord = np.array([])
+        print(f"Warning: No dipole vector found in {reactant_dipole_file}")
 
-    if {'x', 'y', 'z'}.issubset(product_data.columns):
-        product_coord = product_data[['x', 'y', 'z']].values
+    # Load and visualize product dipole
+    product_dipole = extract_dipole_coordinates(product_dipole_file)
+    if product_dipole:
+        visualize_dipole(product_dipole, name=f"product_dipole_{i:03d}")
     else:
-        print(f"Warning: Missing coordinates in {product_file}")
-        product_coord = np.array([])
+        print(f"Warning: No dipole vector found in {product_dipole_file}")
 
-    reactant_com = calculate_com(reactant_coord)
-    product_com = calculate_com(product_coord)
+# Display the protein as cartoon and recenter
+cmd.show("cartoon", "minim")
+cmd.zoom()
+cmd.recenter()
 
-    reactant_dipole = calculate_dipole(reactant_coord, charges_used_reactant, reactant_com)
-    product_dipole = calculate_dipole(product_coord, charges_used_product, product_com)
-
-    print(f"Reactant COM: {reactant_com}")
-    print(f"Product COM: {product_com}")
-    print(f"Reactant Dipole: {reactant_dipole}")
-    print(f"Product Dipole: {product_dipole}")
-
-# Example usage
-process_replica('/home/hp/results/MOUSE/level3/F48Y/replica000/reactant.csv',
-                '/home/hp/results/MOUSE/level3/F48Y/replica000/product.csv')
+print("Visualization completed.")
