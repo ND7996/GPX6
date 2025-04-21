@@ -1,0 +1,11 @@
+readlib ../../GPX6/parameters/qoplsaa.lib
+readlib ../../GPX6/parameters/GPX.lib
+readprm ../../GPX6/parameters/qoplsaa_all2.prm
+readpdb "../../GPX6/prep_structures/MOUSE/level7/K87T.pdb"
+set solvent_pack 2.7
+boundary sphere 49:SE 25.
+solvate 49:SE 25. grid HOH
+maketop "../../GPX6/prep_structures/MOUSE/level7/K87T_solvated.top"
+writetop "../../GPX6/prep_structures/MOUSE/level7/K87T_solvated.top"
+writepdb "../../GPX6/prep_structures/MOUSE/level7/K87T_solvated.pdb" y
+quit
