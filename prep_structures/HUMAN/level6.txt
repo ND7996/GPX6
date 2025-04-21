@@ -1,0 +1,15 @@
+3    N  K
+48   Y  F  
+24   L  I  
+52   A  T  
+54   Q  T  
+102  S  G  
+142  S  P  
+144  Q  H  
+74   A  G  
+177  Q  H  
+178  A  T  
+139  L  F  
+181  S  R  
+173  H  R
+
