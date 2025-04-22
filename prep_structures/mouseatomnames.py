@@ -1,0 +1,65 @@
+import os
+import re
+
+# Define the base directory containing mutation folders
+base_directory = '/home/hp/results/MOUSE/level2'
+mutation_folders = [
+    "A74G", "E143S", "F139L", "F48Y", "G102S", "H144Q", "H177Q",
+    "I24L", "K87T", "N107S", "P142S", "R181S", "R99C", "S47A",
+    "S4R", "T178A", "T52A", "T60A", "Y104F"
+]
+
+def fix_pdb_file(pdb_file):
+    print(f"Processing file: {pdb_file}")
+    
+    with open(pdb_file, 'r') as file:
+        content = file.read()
+
+    # Fix H → HN
+    content = re.sub(
+        r'^(ATOM\s+\d+\s+)H(\s+SEC\s+49.*)$',
+        r'\1HN \2',
+        content,
+        flags=re.MULTILINE
+    )
+
+    # Fix HG1 spacing
+    content = re.sub(
+        r'^(ATOM\s+\d+\s+)HG1\s+(\s*SEC\s+49.*)$',
+        r'\1HG1 \2',
+        content,
+        flags=re.MULTILINE
+    )
+
+    # Fix HB names in proper sequence
+    hb_lines = []
+    hb_pattern = re.compile(r'^(ATOM\s+\d+\s+)(HB\d)(\s+SEC\s+49.*)$', re.MULTILINE)
+    for match in hb_pattern.finditer(content):
+        hb_lines.append((match.group(0), match.group(1), match.group(2), match.group(3)))
+    
+    hb_lines.sort(key=lambda x: int(re.search(r'ATOM\s+(\d+)', x[0]).group(1)))
+
+    for i, (original, prefix, atom, suffix) in enumerate(hb_lines):
+        new_atom = f"HB{i+1}" if i < 2 else f"HB{i+1}"
+        content = content.replace(original, f"{prefix}{new_atom}{suffix}")
+
+    # Fix HG atom name
+    content = re.sub(
+        r'^(ATOM\s+\d+\s+)HG(\s+SEC\s+49.*)$',
+        r'\1HG1\2',
+        content,
+        flags=re.MULTILINE
+    )
+
+    with open(pdb_file, 'w') as file:
+        file.write(content)
+    
+    print(f"Fixed file saved: {pdb_file}")
+
+# Iterate through the mutation folders
+for mutation in mutation_folders:
+    minim_pdb_path = os.path.join(base_directory, mutation, "minim", "minim.pdb")
+    if os.path.exists(minim_pdb_path):
+        fix_pdb_file(minim_pdb_path)
+    else:
+        print(f"File not found: {minim_pdb_path}")
