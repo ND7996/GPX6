@@ -1,0 +1,15 @@
+=== Lost H-Bonds ===
+Lost: CYS 49 N (Chain X) → THR 52 OG1 (Chain X)
+Lost: GLU 143 N (Chain X) → HID 144 N (Chain X)
+Lost: GLU 143 OE1 (Chain X) → PRO 142 N (Chain X)
+Lost: HID 177 N (Chain X) → THR 178 N (Chain X)
+Lost: GLU 143 N (Chain X) → GLU 143 OE1 (Chain X)
+Lost: ASN 107 N (Chain X) → ASN 107 OD1 (Chain X)
+Lost: ARG 99 O (Chain X) → SER 47 OG (Chain X)
+Lost: CYS 49 O (Chain X) → THR 52 N (Chain X)
+
+=== Gained H-Bonds ===
+Gained: ALA 52 N (Chain X) → SEC 49 O (Chain X)
+Gained: GLN 144 N (Chain X) → SER 143 N (Chain X)
+Gained: ALA 178 O (Chain X) → GLN 54 NE2 (Chain X)
+Gained: ALA 178 N (Chain X) → GLN 177 N (Chain X)
