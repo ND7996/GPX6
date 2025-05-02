@@ -2,7 +2,7 @@ import os
 import re
 
 # Define the base directory containing all PDB files
-base_directory = '/home/hp/nayanika/github/GPX6/prep_structures/MOUSE/level9'
+base_directory = '/home/hp/nayanika/github/GPX6/prep_structures/HUMAN/level8'
 
 def fix_pdb_file(pdb_file):
     print(f"Processing file: {pdb_file}")
