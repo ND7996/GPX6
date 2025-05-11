@@ -8,7 +8,7 @@ Built:
       on     hp-HP-Pavilion-Gaming-Laptop-15-ec0xxx
       git id 9325b9c29ad62a733df16f540968e33ee6c78260
       with   GNU Fortran Ubuntu 12.3.0-1ubuntu1~23.04 12.3.0
-Current date 2025- 3-24 and time 15:32:36
+Current date 2025- 5-10 and time 19:47:38
 
 Welcome in qprep modification date 20240701
 
@@ -97,30 +97,30 @@ Force field parameters successfully read.
 
 >>>WARNING: ignoring unrecognised line in PDB file
 END
-PDB file contains  1537 atoms.
-The number of atoms in the topology will be  3017
+PDB file contains  1558 atoms.
+The number of atoms in the topology will be  3055
 molecule    1: PRO     1 - SER   195
 molecule    2: PRX   196
 
 Successfully read PDB file with    2 molecules,
   196 residues totally (  196 in solute).
- 3017 atoms totally ( 3017 in solute).
+ 3055 atoms totally ( 3055 in solute).
 
 Sequence listing:
 
-PRO  GLN  LYS  ARG  LYS  VAL  ASP  CYX  ASN  LYS  GLY  VAL  THR  GLY  THR  VAL 
-TYR  GLU  TYR  GLY  ALA  ASN  THR  LEU  ASP  GLY  GLY  GLU  PHE  VAL  ASN  PHE 
-GLN  GLN  TYR  ALA  GLY  LYS  HID  ILE  LEU  PHE  VAL  ASN  VAL  ALA  ALA  TYR 
+PRO  GLN  LYS  SER  LYS  VAL  ASP  CYX  ASN  LYS  GLY  VAL  THR  GLY  THR  VAL 
+TYR  GLU  TYR  GLY  ALA  ASN  THR  ILE  ASP  GLY  GLY  GLU  PHE  VAL  ASN  PHE 
+GLN  GLN  TYR  ALA  GLY  LYS  HID  ILE  LEU  PHE  VAL  ASN  VAL  ALA  SER  PHE 
 STOP Qprep terminated
-CYS  GLY  LEU  ALA  ALA  GLN  TYR  PRO  GLU  LEU  ASN  ALA  LEU  GLN  GLU  GLU 
+CYS  GLY  LEU  THR  ALA  THR  TYR  PRO  GLU  LEU  ASN  THR  LEU  GLN  GLU  GLU 
 LEU  LYS  PRO  PHE  ASN  VAL  THR  VAL  LEU  GLY  PHE  PRO  CYS  ASN  GLN  PHE 
-GLY  LYS  GLN  GLU  PRO  GLY  THR  ASN  SER  GLU  ILE  LEU  LEU  GLY  LEU  LYS 
-TYR  VAL  CYS  PRO  GLY  SER  GLY  PHE  VAL  PRO  SER  PHE  GLN  LEU  PHE  GLU 
+GLY  LYS  GLN  GLU  PRO  GLY  LYS  ASN  SER  GLU  ILE  LEU  LEU  GLY  LEU  LYS 
+TYR  VAL  ARG  PRO  GLY  GLY  GLY  TYR  VAL  PRO  ASN  PHE  GLN  LEU  PHE  GLU 
 LYS  GLY  ASP  VAL  ASN  GLY  ASP  ASN  GLU  GLN  LYS  VAL  PHE  SER  PHE  LEU 
-LYS  ASN  SER  CYX  PRO  PRO  THR  SER  GLU  LEU  LEU  GLY  SER  SER  SER  GLN 
+LYS  ASN  SER  CYX  PRO  PRO  THR  SER  GLU  LEU  PHE  GLY  SER  PRO  GLU  HID 
 LEU  PHE  TRP  ASP  PRO  MET  LYS  VAL  HID  ASP  ILE  ARG  TRP  ASN  PHE  GLU 
 LYS  PHE  LEU  VAL  GLY  PRO  ASP  GLY  VAL  PRO  VAL  MET  ARG  TRP  PHE  HID 
-GLN  ALA  PRO  VAL  SER  ILE  VAL  GLN  SER  ASP  ILE  MET  GLU  TYR  LEU  ASN 
+HID  THR  PRO  VAL  ARG  ILE  VAL  GLN  SER  ASP  ILE  MET  GLU  TYR  LEU  ASN 
 GLN  THR  SER  PRX 
 
 
@@ -133,61 +133,67 @@ Radius of solvent sphere                =      25.00 A
 Grid spacing                            =       3.10 A 
 No. of solvent molecules in the sphere:  2109
 Minimum distance to solute heavy atoms:  2.70 A
-No. of solvent molecules to add to the system:  1256
-Assigned  6785 atom types.
-Assigned  6785 atomic charges.
-Made      3059 solute bonds.
+No. of solvent molecules to add to the system:  1250
+Assigned  6805 atom types.
+Assigned  6805 atomic charges.
+Made      3101 solute bonds.
 Made         0 extra bonds.
-Made      3768 solvent bonds.
-Made      5520 solute angles.
-Made      1256 solvent angles.
-Made     11197 solute torsions.
+Made      3750 solvent bonds.
+Made      5596 solute angles.
+Made      1250 solvent angles.
+Made     11365 solute torsions.
 Made         0 solvent torsions.
-Made       643 solute impropers.
+Made       658 solute impropers.
 Made         0 solvent impropers.
-Made      8053 entries in the 1-4 neighbour list.
-Made         0 entries in the long-range 1-4 neighbour list.
-Made     13603 entries in list of excluded neighbours.
+Made      8175 entries in the 1-4 neighbour list.
+Made         1 entries in the long-range 1-4 neighbour list.
+Made     13697 entries in list of excluded neighbours.
 Made         0 entries in list of long-range excluded neighbours.
->>> WARNING: Positioning of hydrogen   666 bound to atom   665 didn't converge.
-Potential is    3.175 kcal/mol.
->>> WARNING: Positioning of hydrogen  1520 bound to atom  1519 didn't converge.
-Potential is    3.481 kcal/mol.
-Made      1480 solute hydrogens.
-Made      2512 solvent hydrogens.
-Made      745 solute  charge groups comprising a total of   2428 atoms.
-Made     1256 solvent charge groups comprising a total of   3768 atoms.
+>>> WARNING: Positioning of hydrogen   737 bound to atom   736 didn't converge.
+Potential is    3.720 kcal/mol.
+>>> WARNING: Positioning of hydrogen   906 bound to atom   904 didn't converge.
+Potential is    4.288 kcal/mol.
+>>> WARNING: Positioning of hydrogen   981 bound to atom   980 didn't converge.
+Potential is    4.000 kcal/mol.
+>>> WARNING: Positioning of hydrogen  1533 bound to atom  1532 didn't converge.
+Potential is    4.016 kcal/mol.
+>>> WARNING: Positioning of hydrogen  2454 bound to atom  2453 didn't converge.
+Potential is    5.007 kcal/mol.
+Made      1497 solute hydrogens.
+Made      2500 solvent hydrogens.
+Made      748 solute  charge groups comprising a total of   2466 atoms.
+Made     1250 solvent charge groups comprising a total of   3750 atoms.
 Skipped   189excluded charge groups comprising a total of    589 atoms.
-Effective water radius                     : 23.94
+Effective water radius                     : 23.98
 Topology successfully generated.
 
 ---------------------------- Writing topology file ---------------------------
-solute atoms                :   3017
-solvent atoms               :   3768
+solute atoms                :   3055
+solvent atoms               :   3750
 solvent mol atoms           :      3
-co-ordinates                :  20355
-integer atom codes          :   6785
-solute bonds                :   3059
-solvent bonds               :   3768
+co-ordinates                :  20415
+integer atom codes          :   6805
+solute bonds                :   3101
+solvent bonds               :   3750
 bond parameters             :     34
-solute angles               :   5520
-solvent angles              :   1256
+solute angles               :   5596
+solvent angles              :   1250
 angle parameters            :     55
-torsions                    :  11197
+torsions                    :  11365
 torsion parameters          :    178
-impropers                   :    643
+impropers                   :    658
 improper parameters         :     30
-charges                     :   6785
-total charge of not excluded:  -5.00
-charge groups               :   2001
+charges                     :   6805
+total charge of not excluded:  -4.00
+charge groups               :   1998
 atom type parameters        :    147
 polar LJ pairs              :      0
-neighbour list              :   8053
-long-range neighbour list   :      0
-neighbour exclusion list    :  13603
+neighbour list              :   8175
+long-range neighbour list   :      1
+neighbour exclusion list    :  13697
 long-range exclusions       :      0
-residues                    :   1452
-molecules                   :   1258
+residues                    :   1446
+molecules                   :   1252
 Atom type names             :    147
 SYBYL type information      :    147
 excluded atom list          :    589

@@ -8,7 +8,7 @@ Built:
       on     hp-HP-Pavilion-Gaming-Laptop-15-ec0xxx
       git id 9325b9c29ad62a733df16f540968e33ee6c78260
       with   GNU Fortran Ubuntu 12.3.0-1ubuntu1~23.04 12.3.0
-Current date 2025- 3-24 and time 15:38:59
+Current date 2025- 5-10 and time 20:19:30
 
 Welcome in qprep modification date 20240701
 
@@ -98,99 +98,39 @@ Force field parameters successfully read.
 >>>WARNING: ignoring unrecognised line in PDB file
 END
 PDB file contains  1561 atoms.
-The number of atoms in the topology will be  3063
-molecule    1: PRO     1 - SER   195
-molecule    2: PRX   196
+The number of atoms in the topology will be  3051
+molecule    1: PRO     1
+>>> Atom CG   in residue no.     4 not found in library entry for SER 
 
-Successfully read PDB file with    2 molecules,
-  196 residues totally (  196 in solute).
- 3063 atoms totally ( 3063 in solute).
+Correct the PDB file and try readpdb again!
+If the problem is in the library you need to correct it and do
+clearlib and readlib before trying readpdb again.
+>>>>> ERROR: Could not find centre atom 49:SG
+>>>>> ERROR Boundary unknown
+Use <boundary> to define boundary condition
 
-Sequence listing:
-
-PRO  GLN  LYS  ARG  LYS  VAL  ASP  CYX  ASN  LYS  GLY  VAL  THR  GLY  THR  VAL 
-TYR  GLU  TYR  GLY  ALA  ASN  THR  LEU  ASP  GLY  GLY  GLU  PHE  VAL  ASN  PHE 
-GLN  GLN  TYR  ALA  GLY  LYS  HID  ILE  LEU  PHE  VAL  ASN  VAL  ALA  ALA  TYR 
+unrecognized command "49:SG" (type ? for help)
 STOP Qprep terminated
-CYS  GLY  LEU  ALA  ALA  GLN  TYR  PRO  GLU  LEU  ASN  ALA  LEU  GLN  GLU  GLU 
-LEU  LYS  PRO  PHE  ASN  VAL  THR  VAL  LEU  GLY  PHE  PRO  CYS  ASN  GLN  PHE 
-GLY  LYS  GLN  GLU  PRO  GLY  LYS  ASN  SER  GLU  ILE  LEU  LEU  GLY  LEU  LYS 
-TYR  VAL  ARG  PRO  GLY  GLY  GLY  TYR  VAL  PRO  ASN  PHE  GLN  LEU  PHE  GLU 
-LYS  GLY  ASP  VAL  ASN  GLY  ASP  ASN  GLU  GLN  LYS  VAL  PHE  SER  PHE  LEU 
-LYS  ASN  SER  CYX  PRO  PRO  THR  SER  GLU  LEU  PHE  GLY  SER  PRO  GLU  HID 
-LEU  PHE  TRP  ASP  PRO  MET  LYS  VAL  HID  ASP  ILE  ARG  TRP  ASN  PHE  GLU 
-LYS  PHE  LEU  VAL  GLY  PRO  ASP  GLY  VAL  PRO  VAL  MET  ARG  TRP  PHE  HID 
-HID  THR  PRO  VAL  ARG  ILE  VAL  GLN  SER  ASP  ILE  MET  GLU  TYR  LEU  ASN 
-GLN  THR  SER  PRX 
 
 
-Simulation sphere centre                   :     37.379  32.201  48.757
-Simulation radius                          :     25.000
-
-Solvation sphere centre                   :     37.379  32.201  48.757
-Library entry used to generate solvent  :       HOH 
-Radius of solvent sphere                =      25.00 A
-Grid spacing                            =       3.10 A 
-No. of solvent molecules in the sphere:  2109
-Minimum distance to solute heavy atoms:  2.70 A
-No. of solvent molecules to add to the system:  1227
-Assigned  6744 atom types.
-Assigned  6744 atomic charges.
-Made      3109 solute bonds.
-Made         0 extra bonds.
-Made      3681 solvent bonds.
-Made      5610 solute angles.
-Made      1227 solvent angles.
-Made     11350 solute torsions.
-Made         0 solvent torsions.
-Made       664 solute impropers.
-Made         0 solvent impropers.
-Made      8190 entries in the 1-4 neighbour list.
-Made         1 entries in the long-range 1-4 neighbour list.
-Made     13627 entries in list of excluded neighbours.
-Made         0 entries in list of long-range excluded neighbours.
->>> WARNING: Positioning of hydrogen  2786 bound to atom  2785 didn't converge.
-Potential is    4.346 kcal/mol.
-Made      1502 solute hydrogens.
-Made      2454 solvent hydrogens.
-Made      768 solute  charge groups comprising a total of   2538 atoms.
-Made     1227 solvent charge groups comprising a total of   3681 atoms.
-Skipped   170excluded charge groups comprising a total of    525 atoms.
-Effective water radius                     : 23.95
-Topology successfully generated.
-
----------------------------- Writing topology file ---------------------------
-solute atoms                :   3063
-solvent atoms               :   3681
-solvent mol atoms           :      3
-co-ordinates                :  20232
-integer atom codes          :   6744
-solute bonds                :   3109
-solvent bonds               :   3681
-bond parameters             :     34
-solute angles               :   5610
-solvent angles              :   1227
-angle parameters            :     55
-torsions                    :  11350
-torsion parameters          :    178
-impropers                   :    664
-improper parameters         :     30
-charges                     :   6744
-total charge of not excluded:  -2.00
-charge groups               :   1995
-atom type parameters        :    147
-polar LJ pairs              :      0
-neighbour list              :   8190
-long-range neighbour list   :      1
-neighbour exclusion list    :  13627
-long-range exclusions       :      0
-residues                    :   1423
-molecules                   :   1229
-Atom type names             :    147
-SYBYL type information      :    147
-excluded atom list          :    525
+unrecognized command "25." (type ? for help)
 
 
+unrecognized command "grid" (type ? for help)
 
-PDB file successfully written.
+
+unrecognized command "HOH" (type ? for help)
+
+>>>>> ERROR: Boundary has not been set.
+
+unrecognized command "../../GPX6/prep_structures/MOUSE/level1/I24L_solvated.top" (type ? for help)
+
+ WARNING: The topology is incomplete due to missing parameters!
+ Do you realLY want to write this erronenous topology?
+ Enter yes to proceed, anything else to cancel.
+-----> Write _ERRONENOUS_ topology [yes/NO] ? 
+unrecognized command "../../GPX6/prep_structures/MOUSE/level1/I24L_solvated.pdb" (type ? for help)
+
+
+unrecognized command "y" (type ? for help)
 

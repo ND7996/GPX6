@@ -8,7 +8,7 @@ Built:
       on     hp-HP-Pavilion-Gaming-Laptop-15-ec0xxx
       git id 9325b9c29ad62a733df16f540968e33ee6c78260
       with   GNU Fortran Ubuntu 12.3.0-1ubuntu1~23.04 12.3.0
-Current date 2025- 3-30 and time 15:45:35
+Current date 2025- 5-11 and time 14:35:44
 
 Welcome in qprep modification date 20240701
 
@@ -111,88 +111,3 @@ Sequence listing:
 PRO  GLN  LYS  ARG  LYS  VAL  ASP  CYX  ASN  LYS  GLY  VAL  THR  GLY  THR  VAL 
 TYR  GLU  TYR  GLY  ALA  ASN  THR  LEU  ASP  GLY  GLY  GLU  PHE  VAL  ASN  PHE 
 GLN  GLN  TYR  ALA  GLY  LYS  HID  ILE  LEU  PHE  VAL  ASN  VAL  ALA  ALA  TYR 
-STOP Qprep terminated
-SEC  GLY  LEU  ALA  ALA  THR  TYR  PRO  GLU  LEU  ASN  ALA  LEU  GLN  GLU  GLU 
-LEU  LYS  PRO  PHE  ASN  VAL  THR  VAL  LEU  GLY  PHE  PRO  CYS  ASN  GLN  PHE 
-GLY  LYS  GLN  GLU  PRO  GLY  THR  ASN  SER  GLU  ILE  LEU  LEU  GLY  LEU  LYS 
-TYR  VAL  CYS  PRO  GLY  SER  GLY  PHE  VAL  PRO  SER  PHE  GLN  LEU  PHE  GLU 
-LYS  GLY  ASP  VAL  ASN  GLY  ASP  ASN  GLU  GLN  LYS  VAL  PHE  SER  PHE  LEU 
-LYS  ASN  SER  CYX  PRO  PRO  THR  SER  GLU  LEU  LEU  GLY  SER  SER  SER  GLN 
-LEU  PHE  TRP  ASP  PRO  MET  LYS  VAL  HID  ASP  ILE  ARG  TRP  ASN  PHE  GLU 
-LYS  PHE  LEU  VAL  GLY  PRO  ASP  GLY  VAL  PRO  VAL  MET  ARG  TRP  PHE  HID 
-GLN  ALA  PRO  VAL  SER  ILE  VAL  GLN  SER  ASP  ILE  MET  GLU  TYR  LEU  ASN 
-GLN  THR  SER  PRX 
-
-
-Simulation sphere centre                   :     38.324  31.964  48.836
-Simulation radius                          :     25.000
-
-Solvation sphere centre                   :     38.324  31.964  48.836
-Library entry used to generate solvent  :       HOH 
-Radius of solvent sphere                =      25.00 A
-Grid spacing                            =       3.10 A 
-No. of solvent molecules in the sphere:  2109
-Minimum distance to solute heavy atoms:  2.70 A
-No. of solvent molecules to add to the system:  1274
-Assigned  6836 atom types.
-Assigned  6836 atomic charges.
-Made      3056 solute bonds.
-Made         0 extra bonds.
-Made      3822 solvent bonds.
-Made      5515 solute angles.
-Made      1274 solvent angles.
-Made     11190 solute torsions.
-Made         0 solvent torsions.
-Made       641 solute impropers.
-Made         0 solvent impropers.
-Made      8046 entries in the 1-4 neighbour list.
-Made         0 entries in the long-range 1-4 neighbour list.
-Made     13667 entries in list of excluded neighbours.
-Made         0 entries in list of long-range excluded neighbours.
->>> WARNING: Positioning of hydrogen  1214 bound to atom  1213 didn't converge.
-Potential is    5.989 kcal/mol.
->>> WARNING: Positioning of hydrogen  2006 bound to atom  2005 didn't converge.
-Potential is    6.040 kcal/mol.
-Made      1479 solute hydrogens.
-Made      2548 solvent hydrogens.
-Made      743 solute  charge groups comprising a total of   2425 atoms.
-Made     1274 solvent charge groups comprising a total of   3822 atoms.
-Skipped   189excluded charge groups comprising a total of    589 atoms.
-Effective water radius                     : 24.04
-Topology successfully generated.
-
----------------------------- Writing topology file ---------------------------
-solute atoms                :   3014
-solvent atoms               :   3822
-solvent mol atoms           :      3
-co-ordinates                :  20508
-integer atom codes          :   6836
-solute bonds                :   3056
-solvent bonds               :   3822
-bond parameters             :     36
-solute angles               :   5515
-solvent angles              :   1274
-angle parameters            :     57
-torsions                    :  11190
-torsion parameters          :    194
-impropers                   :    641
-improper parameters         :     34
-charges                     :   6836
-total charge of not excluded:  -5.00
-charge groups               :   2017
-atom type parameters        :    147
-polar LJ pairs              :      0
-neighbour list              :   8046
-long-range neighbour list   :      0
-neighbour exclusion list    :  13667
-long-range exclusions       :      0
-residues                    :   1470
-molecules                   :   1276
-Atom type names             :    147
-SYBYL type information      :    147
-excluded atom list          :    589
-
-
-
-PDB file successfully written.
-

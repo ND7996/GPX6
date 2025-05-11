@@ -1,4 +1,4 @@
-Starting solvation process at Mon Mar 24 03:32:36 PM CET 2025
+Starting solvation process at Sat May 10 07:47:38 PM CEST 2025
 Processing A74G...
 Successfully created solvated structure for A74G
 Processing E143S...
@@ -39,7 +39,7 @@ Processing T60A...
 Successfully created solvated structure for T60A
 Processing Y104F...
 Successfully created solvated structure for Y104F
-Solvation process completed at Mon Mar 24 03:33:56 PM CET 2025
+Solvation process completed at Sat May 10 07:48:58 PM CEST 2025
 Summary:
 Total PDB files: 20
 Successfully solvated: 20

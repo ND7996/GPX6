@@ -8,14 +8,14 @@ Built:
       on     hp-HP-Pavilion-Gaming-Laptop-15-ec0xxx
       git id 9325b9c29ad62a733df16f540968e33ee6c78260
       with   GNU Fortran Ubuntu 12.3.0-1ubuntu1~23.04 12.3.0
-Current date 2025- 5- 6 and time 16:51:52
+Current date 2025- 5-11 and time 15:49:59
 
 Welcome in qprep modification date 20240701
 
 
------ Reading input from ../../GPX6/prep_structures/MOUSE/level11/F48Y.inp ----
+ Reading input from /home/hp/nayanika/github/GPX6/prep_structures/MOUSE/level11/F48Y.inp 
 
-Reading molecular library ../../GPX6/parameters/qoplsaa.lib
+Reading molecular library /home/hp/nayanika/github/GPX6/parameters/qoplsaa.lib
 
 name  atoms  net Q  bonds  rules   imps Q-grps
 ALA      10   0.00      9      0      2      3
@@ -58,7 +58,7 @@ ACE       6   0.00      5      0      1      2
 Accumulated no. of library entries loaded =  36
 
 
-Reading molecular library ../../GPX6/parameters/GPX.lib
+Reading molecular library /home/hp/nayanika/github/GPX6/parameters/GPX.lib
 
 name  atoms  net Q  bonds  rules   imps Q-grps
 PRX       4   0.00      3      0      0      1
@@ -110,8 +110,8 @@ Sequence listing:
 
 PRO  GLN  LYS  ARG  LYS  VAL  ASP  CYX  ASN  LYS  GLY  VAL  THR  GLY  THR  VAL 
 TYR  GLU  TYR  GLY  ALA  ASN  THR  LEU  ASP  GLY  GLY  GLU  PHE  VAL  ASN  PHE 
-GLN  GLN  TYR  ALA  GLY  LYS  HID  ILE  LEU  PHE  VAL  ASN  VAL  ALA  ALA  TYR 
 STOP Qprep terminated
+GLN  GLN  TYR  ALA  GLY  LYS  HID  ILE  LEU  PHE  VAL  ASN  VAL  ALA  ALA  TYR 
 SEC  GLY  LEU  ALA  ALA  THR  TYR  PRO  GLU  LEU  ASN  ALA  LEU  GLN  GLU  GLU 
 LEU  LYS  PRO  PHE  ASN  VAL  THR  VAL  LEU  GLY  PHE  PRO  CYS  ASN  GLN  PHE 
 GLY  LYS  GLN  GLU  PRO  GLY  THR  ASN  SER  GLU  ILE  LEU  LEU  GLY  LEU  LYS 
