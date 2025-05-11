@@ -1,6 +1,6 @@
 #!/bin/bash
 # Directory containing PDB files
-pdb_dir="../../GPX6/prep_structures/HUMAN/level9"
+pdb_dir="/home/hp/nayanika/github/GPX6/prep_structures/HUMAN/level10"
 # Create a log file
 log_file="$pdb_dir/solvation_log.txt"
 echo "Starting solvation process at $(date)" > "$log_file"
@@ -17,9 +17,9 @@ for pdb_file in "$pdb_dir"/*.pdb; do
     
     # Create input file for qprep5 in the target directory
     cat <<EOF > "$pdb_dir/${base_name}.inp"
-readlib ../../GPX6/parameters/qoplsaa.lib
-readlib ../../GPX6/parameters/GPX.lib
-readprm ../../GPX6/parameters/qoplsaa_all2.prm
+readlib /home/hp/nayanika/github/GPX6/parameters/qoplsaa.lib
+readlib /home/hp/nayanika/github/GPX6/parameters/GPX.lib
+readprm /home/hp/nayanika/github/GPX6/parameters/qoplsaa_all2.prm
 readpdb "$pdb_file"
 set solvent_pack 2.7
 boundary sphere 49:SE 25.

@@ -1,11 +1,11 @@
 Q topology file
-TITLE      ../../GPX6/prep_structures/MOUSE/level11/Y104F_solvated.top"
-DATE       20250506
+TITLE      /home/hp/nayanika/github/GPX6/prep_structures/MOUSE/level11/Y104F_solvated.top"
+DATE       20250511
 VERSION     5.06
-LIB_FILES  ../../GPX6/parameters/qoplsaa.lib;../../GPX6/parameters/GPX.lib
+LIB_FILES  /home/hp/nayanika/github/GPX6/parameters/qoplsaa.lib;/home/hp/nayanika/github/GPX6/parameters/GPX.lib
 FORCEFIELD OPLS-AA
 FF_TYPE    2
-PRM_FILE   ../../GPX6/parameters/qoplsaa_all2.prm
+PRM_FILE   /home/hp/nayanika/github/GPX6/parameters/qoplsaa_all2.prm
 END        of header
     6806    3014       3 = Total no. of atoms, no. of solute atoms, atoms per solvent molecule. Coordinates: (2*3 per line)
    48.523    19.219    35.474     48.834    17.899    35.991
