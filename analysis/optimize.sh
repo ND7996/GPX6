@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Input file
-input_file="/home/hp/results/MOUSE/level11/combined_latex_table.tex"
+input_file="/home/hp/results/HUMAN/level9/combined_latex_table.tex"
 
 # Initialize variables
 lowest_value=99999
