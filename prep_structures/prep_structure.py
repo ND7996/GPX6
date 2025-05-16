@@ -257,11 +257,11 @@ def create_pymol_batch_file(pdb_file, mutations, output_dir):
 
 if __name__ == "__main__":
     # Define input files using absolute paths
-    pdb_file_path = "/home/hp/results/HUMAN/level9/A52T/minim/minim.pdb"  # Absolute path to PDB file
-    mutations_file = "/home/hp/nayanika/github/GPX6/prep_structures/HUMAN/level10.txt"   # Absolute path to mutation list file
+    pdb_file_path = "/home/hp/results/MOUSE/level12/S4R/minim/minim.pdb"  # Absolute path to PDB file
+    mutations_file = "/home/hp/nayanika/github/GPX6/prep_structures/MOUSE/level13.txt"   # Absolute path to mutation list file
     
     # Ensure output directory exists using an absolute path
-    output_dir = "/home/hp/nayanika/github/GPX6/prep_structures/HUMAN/level10"
+    output_dir = "/home/hp/nayanika/github/GPX6/prep_structures/MOUSE/level13"
     
     # First, create a version of the input PDB with HIS fixed to HID
     print("Converting input PDB file histidines from HIS to HID")
