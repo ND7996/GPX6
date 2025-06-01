@@ -51,3 +51,7 @@ Generates a Latex table and csv file
 mean dG* value ± standard error 
 mean dG0 value ± standard error
 
+
+![Detailed Workflow](https://raw.githubusercontent.com/ND7996/GPX6/main/figures/detailed_workflow.drawio.png)
+
+
