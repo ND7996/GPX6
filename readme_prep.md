@@ -110,40 +110,4 @@ project_directory/
 └── README.md
 ```
 
-## Important Notes
 
-1. **Force Field Version**: This workflow uses OPLS3e (version 14). Adjust the version parameter if using different force fields.
-
-2. **File Naming**: Maintain consistent naming conventions throughout the workflow to avoid confusion.
-
-3. **Quality Control**: Always visually inspect the prepared structure in Maestro before proceeding to parameter generation.
-
-4. **Path Dependencies**: Ensure Schrödinger installation path is correct (`/opt/schrodinger2022-1/` in this example).
-
-## Troubleshooting
-
-### Common Issues
-
-- **Missing hydrogens**: Use the manual hydrogen addition in Maestro's EDIT menu
-- **Protonation states**: Check PROPKA results and manually adjust if necessary
-- **File path errors**: Verify Schrödinger installation directory
-- **Parameter generation fails**: Ensure input PDB and ffld_output correspond to the same structure
-
-### Validation Steps
-
-1. Check that all atoms have proper connectivity
-2. Verify reasonable bond lengths and angles
-3. Ensure proper protonation states for biological pH
-4. Validate that generated parameters are complete
-
-## Additional Resources
-
-- Schrödinger Documentation: Protein Preparation Wizard
-- OPLS Force Field Documentation
-- Q-Chem Parameter Generation Guidelines
-
-## Version Information
-
-- Schrödinger Suite: 2022-1
-- Force Field: OPLS3e (version 14)
-- Last Updated: [Current Date]
