@@ -92,22 +92,4 @@ q_ffld2q.py h2o2_param.ffld11 h2o2.pdb
 - `.lib` file: Library file
 - `.prm.chk` file: Checkpoint file
 
-## File Organization
-
-```
-project_directory/
-├── input/
-│   ├── raw_protein.pdb
-│   └── small_molecule.pdb
-├── maestro_output/
-│   └── maestroGPX6_wt.mae
-├── parameters/
-│   ├── GPX_PARAM.log
-│   ├── h2o2_param.ffld11
-│   ├── output.prm
-│   ├── output.lib
-│   └── output.prm.chk
-└── README.md
-```
-
 
