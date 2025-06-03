@@ -1,20 +1,36 @@
-Open in maestro
-Click Protein Preparation - Preparation workflow
-- **Preprocess** - Cap termini and fill the missing side chains
-- **check structures** - add hydrogens if required from EDIT - ADD HYDROGENS
-- **3D builder** - Adds carbon, oxygen, charges etc
-- **optimize** - this step checks the propka and adds flips whereever required
-- export the structure as .mae (maestroGPX6_wt.mae) file from maestro
-4. Convert the .mae file into parameter from maestro using ffld_server.
+# Protein Preparation and Parameter Generation Workflow
 
- Command - /opt/schrodinger2022-1/utilities/ffld_server -imae maestroGPX6_wt.mae -version 14 -print_parameters -out_file GPX_PARAM.log
+## 1. Open Maestro
+Launch Maestro and follow the steps below to prepare your protein structure.
 
- /opt/schrodinger2022-1/utilities/ffld_server -ipdb h2o2.pdb -print_parameters -version 14 > h2o2_param.ffld11
+## 2. Protein Preparation Workflow
 
-5. Creating the .prm , .lib , .prm.chk using the q_ffld2q.py
+Navigate to **Protein Preparation** → **Preparation Workflow** and perform the following:
 
- Required:
-  ffld_output  ffld_server output  ,   pdb  PDB structure file WHICH WAS USED TO CREATE THE FFLD_OUTPUT
+- **Preprocess**  
+  - Cap termini  
+  - Fill missing side chains  
 
-**Command : q_ffld2q.py  h2o2_param.ffld11 h2o2.pdb**
+- **Check Structures**  
+  - Add hydrogens if needed:  
+    `Edit` → `Add Hydrogens`
 
+- **3D Builder**  
+  - Add missing atoms (C, O), charges, etc.
+
+- **Optimize**  
+  - Run **PROPKA**  
+  - Apply flips (e.g., HIS, ASN, GLN) where necessary
+
+> 💾 **Export the structure** as:  
+> `maestroGPX6_wt.mae`
+
+---
+
+## 3. Generate Force Field Parameters
+
+Use `ffld_server` to convert the `.mae` or `.pdb` file into a parameter log.
+
+### For the Maestro structure:
+```bash
+/opt/schrodinger2022-1/utilities/ffld_server -imae maestroGPX6_wt.mae -version 14 -print_parameters -out_file GPX_PARAM.log
