@@ -162,22 +162,6 @@ Runs q_genfeps.py to generate comprehensive FEP calculation input files with mul
 
 - **`--rs run_qdyn_5.sh`**: Generates qdyn execution scripts inside each replica folder
 
-### Output Structure
-```
-system_directory/
-├── replica1/
-│   ├── equil.inp*
-│   ├── fep.inp*
-│   └── run_qdyn_5.sh
-├── replica2/
-│   ├── equil.inp*
-│   ├── fep.inp*
-│   └── run_qdyn_5.sh
-└── ...
-```
-
----
-
 ## STEP 7 - Running Qtools for Analysis
 
 ### Purpose
@@ -211,51 +195,3 @@ Comprehensive analysis of FEP calculations using Q software analysis tools.
   - Mean ΔG* value ± standard error
   - Mean ΔG₀ value ± standard error
 
-### Statistical Output Format
-```
-Statistics Summary:
-- Mean ΔG* = X.XX ± Y.YY kcal/mol
-- Mean ΔG₀ = X.XX ± Y.YY kcal/mol
-- Number of replicas: N
-- Convergence: [Status]
-- Confidence interval: [Range]
-```
-
----
-
-## File Organization Structure
-
-```
-project_root/
-├── input_structures/
-│   ├── original.pdb
-│   └── mutated_variants/
-├── solvated_systems/
-│   ├── system1_solvated.pdb
-│   ├── system1_solvated.top
-│   └── ...
-├── fep_files/
-│   ├── fepmousecys.qmap
-│   └── fephumansec.qmap
-├── minimization/
-│   └── system*/
-│       └── minim/
-│           ├── minim.pdb
-│           └── relax_files/
-├── fep_calculations/
-│   └── system*/
-│       ├── replica1/
-│       ├── replica2/
-│       └── ...
-├── analysis/
-│   ├── test.out
-│   ├── stats_output.txt
-│   ├── results.json
-│   ├── results_table.tex
-│   └── results_data.csv
-└── scripts/
-    ├── makeFEP.py
-    ├── q_genrelax.py
-    ├── q_genfeps.py
-    └── analysis_scripts/
-```
