@@ -1,0 +1,14 @@
+Starting solvation process at Wed Jun  4 02:03:31 PM CEST 2025
+Processing A178T...
+Successfully created solvated structure for A178T
+Processing A74G...
+Successfully created solvated structure for A74G
+Processing H173R...
+Successfully created solvated structure for H173R
+Processing N3K...
+Successfully created solvated structure for N3K
+Solvation process completed at Wed Jun  4 02:03:50 PM CEST 2025
+Summary:
+Total PDB files: 4
+Successfully solvated: 4
+Failed: 0
