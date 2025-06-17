@@ -3,17 +3,80 @@
 <head>
     <title>MSA Highlighted</title>
     <style>
-        body { font-family: monospace; background: #f5f5f5; padding: 20px; }
-        pre { margin: 0; white-space: pre-wrap; word-break: break-all; }
+        body { 
+            font-family: 'Courier New', monospace; 
+            background: #f5f5f5; 
+            padding: 20px; 
+            font-size: 12px;
+        }
+        pre { 
+            margin: 5px 0; 
+            white-space: pre; 
+            overflow-x: auto;
+            line-height: 1.2;
+        }
+        .seq-name {
+            display: inline-block;
+            width: 200px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        .legend {
+            margin-bottom: 20px;
+            padding: 10px;
+            background: white;
+            border-radius: 5px;
+        }
+        .legend-item {
+            display: inline-block;
+            margin: 2px 5px;
+            padding: 2px 5px;
+            color: white;
+            font-weight: bold;
+            border-radius: 3px;
+        }
     </style>
 </head>
 <body>
 <h2>MSA Highlighted Mutant Positions</h2>
+
+<div class="legend">
+    <h3>Legend - Highlighted Positions:</h3>    <span class="legend-item" style="background-color:#E41A1C">Position 3</span>
+    <span class="legend-item" style="background-color:#377EB8">Position 4</span>
+    <span class="legend-item" style="background-color:#A65628">Position 24</span>
+    <span class="legend-item" style="background-color:#FF7F00">Position 47</span>
+    <span class="legend-item" style="background-color:#4DAF4A">Position 48</span>
+    <span class="legend-item" style="background-color:#984EA3">Position 52</span>
+    <span class="legend-item" style="background-color:#A65628">Position 54</span>
+    <span class="legend-item" style="background-color:#F781BF">Position 60</span>
+    <span class="legend-item" style="background-color:#7570B3">Position 74</span>
+    <span class="legend-item" style="background-color:#377EB8">Position 87</span>
+    <span class="legend-item" style="background-color:#FFFF33">Position 99</span>
+    <span class="legend-item" style="background-color:#984EA3">Position 102</span>
+    <span class="legend-item" style="background-color:#FF7F00">Position 104</span>
+    <span class="legend-item" style="background-color:#FFFF33">Position 107</span>
+    <span class="legend-item" style="background-color:#E41A1C">Position 139</span>
+    <span class="legend-item" style="background-color:#4DAF4A">Position 142</span>
+    <span class="legend-item" style="background-color:#66A61E">Position 143</span>
+    <span class="legend-item" style="background-color:#1B9E77">Position 144</span>
+    <span class="legend-item" style="background-color:#D95F02">Position 173</span>
+    <span class="legend-item" style="background-color:#F781BF">Position 177</span>
+    <span class="legend-item" style="background-color:#D95F02">Position 178</span>
+    <span class="legend-item" style="background-color:#1B9E77">Position 181</span>
+</div>
+
 <div class="msa">
-<pre>PQ<span style='background-color:#E41A1C; color:white; font-weight:bold'>K</span><span style='background-color:#377EB8; color:white; font-weight:bold'>S</span>KVDXNKGVTGTVYEYGANT<span style='background-color:#A65628; color:white; font-weight:bold'>I</span>DGGEFVNFQQYAGKXILFVNVA<span style='background-color:#FF7F00; color:white; font-weight:bold'>S</span><span style='background-color:#4DAF4A; color:white; font-weight:bold'>F</span>CGL<span style='background-color:#984EA3; color:white; font-weight:bold'>T</span>A<span style='background-color:#A65628; color:white; font-weight:bold'>T</span>YPELN<span style='background-color:#F781BF; color:white; font-weight:bold'>T</span>LQEELKPFNVTVL<span style='background-color:#7570B3; color:white; font-weight:bold'>G</span>FPCNQFGKQEPG<span style='background-color:#377EB8; color:white; font-weight:bold'>K</span>NSEILLGLKYV<span style='background-color:#FFFF33; color:white; font-weight:bold'>R</span>PG<span style='background-color:#984EA3; color:white; font-weight:bold'>G</span>G<span style='background-color:#FF7F00; color:white; font-weight:bold'>Y</span>VP<span style='background-color:#FFFF33; color:white; font-weight:bold'>N</span>FQLFEKGDVNGDNEQKVFSFLKNSXPPTSEL<span style='background-color:#E41A1C; color:white; font-weight:bold'>F</span>GS<span style='background-color:#4DAF4A; color:white; font-weight:bold'>P</span><span style='background-color:#66A61E; color:white; font-weight:bold'>E</span><span style='background-color:#1B9E77; color:white; font-weight:bold'>X</span>LFWDPMKVXDIRWNFEKFLVGPDGVPVM<span style='background-color:#D95F02; color:white; font-weight:bold'>R</span>WFX<span style='background-color:#F781BF; color:white; font-weight:bold'>X</span><span style='background-color:#D95F02; color:white; font-weight:bold'>T</span>PV<span style='background-color:#1B9E77; color:white; font-weight:bold'>R</span>IVQSDIMEYLNQTS--</pre>
-<pre>SQ<span style='background-color:#E41A1C; color:white; font-weight:bold'>K</span><span style='background-color:#377EB8; color:white; font-weight:bold'>M</span>KMDCYKGVTGTIYEYGALT<span style='background-color:#A65628; color:white; font-weight:bold'>L</span>NGEEYIQFKQYAGKHVLFINVA<span style='background-color:#FF7F00; color:white; font-weight:bold'>T</span><span style='background-color:#4DAF4A; color:white; font-weight:bold'>Y</span><span style='background-color:#4DAF4A; color:white; font-weight:bold'>-</span>GLT<span style='background-color:#984EA3; color:white; font-weight:bold'>A</span>Q<span style='background-color:#A65628; color:white; font-weight:bold'>Y</span>PELNA<span style='background-color:#F781BF; color:white; font-weight:bold'>L</span>QEELKPFGVVLLG<span style='background-color:#7570B3; color:white; font-weight:bold'>F</span>PCNQFGKQEPGK<span style='background-color:#377EB8; color:white; font-weight:bold'>N</span>SEILSGLKYVR<span style='background-color:#FFFF33; color:white; font-weight:bold'>P</span>GG<span style='background-color:#984EA3; color:white; font-weight:bold'>G</span>F<span style='background-color:#FF7F00; color:white; font-weight:bold'>V</span>PN<span style='background-color:#FFFF33; color:white; font-weight:bold'>F</span>QLFEKGDVNGEKEQKVFTFLKNSCPPTSDLL<span style='background-color:#E41A1C; color:white; font-weight:bold'>G</span>SP<span style='background-color:#4DAF4A; color:white; font-weight:bold'>K</span><span style='background-color:#66A61E; color:white; font-weight:bold'>Q</span><span style='background-color:#1B9E77; color:white; font-weight:bold'>L</span>FWEPMKVHDIRWNFEKFLVGPDGVPVMR<span style='background-color:#D95F02; color:white; font-weight:bold'>W</span>FHR<span style='background-color:#F781BF; color:white; font-weight:bold'>A</span><span style='background-color:#D95F02; color:white; font-weight:bold'>S</span>VS<span style='background-color:#1B9E77; color:white; font-weight:bold'>T</span>VKSDILEYLKQFTPE</pre>
-<pre>PQ<span style='background-color:#E41A1C; color:white; font-weight:bold'>N</span><span style='background-color:#377EB8; color:white; font-weight:bold'>R</span>KVDXNKGVTGTIYEYGALT<span style='background-color:#A65628; color:white; font-weight:bold'>L</span>NGEEYIQFKQFAGKXVLFVNVA<span style='background-color:#FF7F00; color:white; font-weight:bold'>A</span><span style='background-color:#4DAF4A; color:white; font-weight:bold'>Y</span>UGL<span style='background-color:#984EA3; color:white; font-weight:bold'>A</span>A<span style='background-color:#A65628; color:white; font-weight:bold'>Q</span>YPELN<span style='background-color:#F781BF; color:white; font-weight:bold'>A</span>LQEELKNFGVIVL<span style='background-color:#7570B3; color:white; font-weight:bold'>A</span>FPCNQFGKQEPG<span style='background-color:#377EB8; color:white; font-weight:bold'>T</span>NSEILLGLKYV<span style='background-color:#FFFF33; color:white; font-weight:bold'>C</span>PG<span style='background-color:#984EA3; color:white; font-weight:bold'>S</span>G<span style='background-color:#FF7F00; color:white; font-weight:bold'>F</span>VP<span style='background-color:#FFFF33; color:white; font-weight:bold'>S</span>FQLFEKGDVNGEKEQKVFTFLKNSXPPTSDL<span style='background-color:#E41A1C; color:white; font-weight:bold'>L</span>GS<span style='background-color:#4DAF4A; color:white; font-weight:bold'>S</span><span style='background-color:#66A61E; color:white; font-weight:bold'>S</span><span style='background-color:#1B9E77; color:white; font-weight:bold'>Q</span>LFWEPMKVXDIRWNFEKFLVGPDGVPVM<span style='background-color:#D95F02; color:white; font-weight:bold'>X</span>WFX<span style='background-color:#F781BF; color:white; font-weight:bold'>Q</span><span style='background-color:#D95F02; color:white; font-weight:bold'>A</span>PV<span style='background-color:#1B9E77; color:white; font-weight:bold'>S</span>TVKSDILEYLKQFNTX</pre>
+<pre><span class="seq-name">protein_chainX</span>PQ<span style='background-color:#E41A1C; color:white; font-weight:bold'>K</span><span style='background-color:#377EB8; color:white; font-weight:bold'>S</span>KVDXNKGVTGTVYEYGANT<span style='background-color:#A65628; color:white; font-weight:bold'>I</span>DGGEFVNFQQYAGKXILFVNVA<span style='background-color:#FF7F00; color:white; font-weight:bold'>S</span><span style='background-color:#4DAF4A; color:white; font-weight:bold'>F</span>CGL<span style='background-color:#984EA3; color:white; font-weight:bold'>T</span>A<span style='background-color:#A65628; color:white; font-weight:bold'>T</span>YPELN<span style='background-color:#F781BF; color:white; font-weight:bold'>T</span>LQEELKPFNVTVL<span style='background-color:#7570B3; color:white; font-weight:bold'>G</span>FPCNQFGKQEPG<span style='background-color:#377EB8; color:white; font-weight:bold'>K</span>NSEILLGLKYV<span style='background-color:#FFFF33; color:white; font-weight:bold'>R</span>PG<span style='background-color:#984EA3; color:white; font-weight:bold'>G</span>G<span style='background-color:#FF7F00; color:white; font-weight:bold'>Y</span>VP<span style='background-color:#FFFF33; color:white; font-weight:bold'>N</span>FQLFEKGDVNGDNEQKVFSFLKNSXPPTSEL<span style='background-color:#E41A1C; color:white; font-weight:bold'>F</span>GS<span style='background-color:#4DAF4A; color:white; font-weight:bold'>P</span><span style='background-color:#66A61E; color:white; font-weight:bold'>E</span><span style='background-color:#1B9E77; color:white; font-weight:bold'>X</span>LFWDPMKVXDIRWNFEKFLVGPDGVPVM<span style='background-color:#D95F02; color:white; font-weight:bold'>R</span>WFX<span style='background-color:#F781BF; color:white; font-weight:bold'>X</span><span style='background-color:#D95F02; color:white; font-weight:bold'>T</span>PV<span style='background-color:#1B9E77; color:white; font-weight:bold'>R</span>IVQSDIMEYLNQTS--</pre>
+<pre><span class="seq-name">protein_chainA</span>SQ<span style='background-color:#E41A1C; color:white; font-weight:bold'>K</span><span style='background-color:#377EB8; color:white; font-weight:bold'>M</span>KMDCYKGVTGTIYEYGALT<span style='background-color:#A65628; color:white; font-weight:bold'>L</span>NGEEYIQFKQYAGKHVLFINVA<span style='background-color:#FF7F00; color:white; font-weight:bold'>T</span><span style='background-color:#4DAF4A; color:white; font-weight:bold'>Y</span>-GLT<span style='background-color:#984EA3; color:white; font-weight:bold'>A</span>Q<span style='background-color:#A65628; color:white; font-weight:bold'>Y</span>PELNA<span style='background-color:#F781BF; color:white; font-weight:bold'>L</span>QEELKPFGVVLLG<span style='background-color:#7570B3; color:white; font-weight:bold'>F</span>PCNQFGKQEPGK<span style='background-color:#377EB8; color:white; font-weight:bold'>N</span>SEILSGLKYVR<span style='background-color:#FFFF33; color:white; font-weight:bold'>P</span>GG<span style='background-color:#984EA3; color:white; font-weight:bold'>G</span>F<span style='background-color:#FF7F00; color:white; font-weight:bold'>V</span>PN<span style='background-color:#FFFF33; color:white; font-weight:bold'>F</span>QLFEKGDVNGEKEQKVFTFLKNSCPPTSDLL<span style='background-color:#E41A1C; color:white; font-weight:bold'>G</span>SP<span style='background-color:#4DAF4A; color:white; font-weight:bold'>K</span><span style='background-color:#66A61E; color:white; font-weight:bold'>Q</span><span style='background-color:#1B9E77; color:white; font-weight:bold'>L</span>FWEPMKVHDIRWNFEKFLVGPDGVPVMR<span style='background-color:#D95F02; color:white; font-weight:bold'>W</span>FHR<span style='background-color:#F781BF; color:white; font-weight:bold'>A</span><span style='background-color:#D95F02; color:white; font-weight:bold'>S</span>VS<span style='background-color:#1B9E77; color:white; font-weight:bold'>T</span>VKSDILEYLKQFTPE</pre>
+<pre><span class="seq-name">protein_chainY</span>PQ<span style='background-color:#E41A1C; color:white; font-weight:bold'>N</span><span style='background-color:#377EB8; color:white; font-weight:bold'>R</span>KVDXNKGVTGTIYEYGALT<span style='background-color:#A65628; color:white; font-weight:bold'>L</span>NGEEYIQFKQFAGKXVLFVNVA<span style='background-color:#FF7F00; color:white; font-weight:bold'>A</span><span style='background-color:#4DAF4A; color:white; font-weight:bold'>Y</span>UGL<span style='background-color:#984EA3; color:white; font-weight:bold'>A</span>A<span style='background-color:#A65628; color:white; font-weight:bold'>Q</span>YPELN<span style='background-color:#F781BF; color:white; font-weight:bold'>A</span>LQEELKNFGVIVL<span style='background-color:#7570B3; color:white; font-weight:bold'>A</span>FPCNQFGKQEPG<span style='background-color:#377EB8; color:white; font-weight:bold'>T</span>NSEILLGLKYV<span style='background-color:#FFFF33; color:white; font-weight:bold'>C</span>PG<span style='background-color:#984EA3; color:white; font-weight:bold'>S</span>G<span style='background-color:#FF7F00; color:white; font-weight:bold'>F</span>VP<span style='background-color:#FFFF33; color:white; font-weight:bold'>S</span>FQLFEKGDVNGEKEQKVFTFLKNSXPPTSDL<span style='background-color:#E41A1C; color:white; font-weight:bold'>L</span>GS<span style='background-color:#4DAF4A; color:white; font-weight:bold'>S</span><span style='background-color:#66A61E; color:white; font-weight:bold'>S</span><span style='background-color:#1B9E77; color:white; font-weight:bold'>Q</span>LFWEPMKVXDIRWNFEKFLVGPDGVPVM<span style='background-color:#D95F02; color:white; font-weight:bold'>X</span>WFX<span style='background-color:#F781BF; color:white; font-weight:bold'>Q</span><span style='background-color:#D95F02; color:white; font-weight:bold'>A</span>PV<span style='background-color:#1B9E77; color:white; font-weight:bold'>S</span>TVKSDILEYLKQFNTX</pre>
 
 </div>
+
+<div class="legend">
+    <h3>Summary:</h3>
+    <p>Total positions highlighted: 22</p>
+    <p>Positions: 3, 4, 24, 47, 48, 52, 54, 60, 74, 87, 99, 102, 104, 107, 139, 142, 143, 144, 173, 177, 178, 181</p>
+</div>
+
 </body>
 </html>

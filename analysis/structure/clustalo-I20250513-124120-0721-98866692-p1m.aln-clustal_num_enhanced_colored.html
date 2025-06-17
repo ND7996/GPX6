@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MSA Highlighted Positions</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body { 
+            font-family: 'Courier New', monospace; 
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            margin: 0;
+            padding: 20px; 
+            font-size: 12px;
+            line-height: 1.4;
+        }
+
+        .container {
+            max-width: 100%;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .header h1 {
+            margin: 0 0 10px 0;
+            font-size: 24px;
+        }
+
+        .stats {
+            background: #f8f9fa;
+            padding: 15px;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+        }
+
+        .stat-item {
+            background: white;
+            padding: 10px;
+            border-radius: 5px;
+            border-left: 4px solid #667eea;
+        }
+
+        .legend {
+            margin: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border: 1px solid #dee2e6;
+        }
+
+        .legend h3 {
+            margin-top: 0;
+            color: #495057;
+        }
+
+        .legend-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .legend-item {
+            padding: 5px 10px;
+            color: white;
+            font-weight: bold;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 11px;
+        }
+
+        .msa-container {
+            padding: 20px;
+            overflow-x: auto;
+        }
+
+        .sequence-row {
+            margin: 2px 0;
+            white-space: nowrap;
+            font-family: 'Courier New', monospace;
+        }
+
+        .seq-name {
+            display: inline-block;
+            width: 250px;
+            font-weight: bold;
+            margin-right: 15px;
+            padding: 2px 5px;
+            background: #e9ecef;
+            color: #495057;
+            border-radius: 3px;
+            vertical-align: top;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .sequence {
+            font-family: 'Courier New', monospace;
+            letter-spacing: 0.5px;
+        }
+
+        .highlight {
+            font-weight: bold;
+            padding: 1px 2px;
+            border-radius: 2px;
+            margin: 0 1px;
+        }
+
+        .gap {
+            color: #6c757d;
+            opacity: 0.7;
+        }
+
+        .ruler {
+            margin: 10px 0;
+            border-bottom: 2px solid #dee2e6;
+            padding-bottom: 5px;
+        }
+
+        .ruler-tick {
+            color: #495057;
+            font-weight: bold;
+        }
+
+        .ruler-marked {
+            color: white;
+            font-weight: bold;
+            padding: 0 1px;
+            border-radius: 2px;
+        }
+
+        .ruler-space {
+            color: transparent;
+        }
+
+        .footer {
+            background: #f8f9fa;
+            padding: 15px 20px;
+            border-top: 1px solid #dee2e6;
+            font-size: 11px;
+            color: #6c757d;
+        }
+
+        @media (max-width: 768px) {
+            .seq-name {
+                width: 150px;
+                font-size: 10px;
+            }
+
+            body {
+                font-size: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Multiple Sequence Alignment</h1>
+            <p>Highlighted Mutant Positions Analysis</p>
+        </div>
+
+        <div class="stats">
+            <h3>Alignment Statistics</h3>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <strong>Sequences:</strong> 3
+                </div>
+                <div class="stat-item">
+                    <strong>Alignment Length:</strong> 197
+                </div>
+                <div class="stat-item">
+                    <strong>Positions Highlighted:</strong> 22
+                </div>
+                <div class="stat-item">
+                    <strong>Avg. Sequence Length:</strong> 196.0
+                </div>
+            </div>
+        </div>
+
+        <div class="legend">
+            <h3>Highlighted Positions Legend</h3>
+            <div class="legend-grid">                <div class="legend-item" style="background-color:#E41A1C; color:white;">Position 3</div>
+                <div class="legend-item" style="background-color:#377EB8; color:white;">Position 4</div>
+                <div class="legend-item" style="background-color:#E41A1C; color:white;">Position 24</div>
+                <div class="legend-item" style="background-color:#FF7F00; color:white;">Position 47</div>
+                <div class="legend-item" style="background-color:#4DAF4A; color:white;">Position 48</div>
+                <div class="legend-item" style="background-color:#984EA3; color:white;">Position 52</div>
+                <div class="legend-item" style="background-color:#A65628; color:white;">Position 54</div>
+                <div class="legend-item" style="background-color:#377EB8; color:white;">Position 60</div>
+                <div class="legend-item" style="background-color:#7570B3; color:white;">Position 74</div>
+                <div class="legend-item" style="background-color:#1F78B4; color:white;">Position 87</div>
+                <div class="legend-item" style="background-color:#FFFF33; color:black;">Position 99</div>
+                <div class="legend-item" style="background-color:#FB9A99; color:white;">Position 102</div>
+                <div class="legend-item" style="background-color:#CAB2D6; color:white;">Position 104</div>
+                <div class="legend-item" style="background-color:#FDBF6F; color:white;">Position 107</div>
+                <div class="legend-item" style="background-color:#E31A1C; color:white;">Position 139</div>
+                <div class="legend-item" style="background-color:#33A02C; color:white;">Position 142</div>
+                <div class="legend-item" style="background-color:#66A61E; color:white;">Position 143</div>
+                <div class="legend-item" style="background-color:#1B9E77; color:white;">Position 144</div>
+                <div class="legend-item" style="background-color:#984EA3; color:white;">Position 173</div>
+                <div class="legend-item" style="background-color:#F781BF; color:white;">Position 177</div>
+                <div class="legend-item" style="background-color:#D95F02; color:white;">Position 178</div>
+                <div class="legend-item" style="background-color:#4DAF4A; color:white;">Position 181</div>
+            </div>
+        </div>
+
+        <div class="msa-container">
+            <div class="msa">                <div class="sequence-row">
+                    <span class="seq-name" title="protein_chainX">protein_chainX</span>
+                    <span class="sequence">PQ<span class='highlight' style='background-color:#E41A1C; color:white;'>K</span><span class='highlight' style='background-color:#377EB8; color:white;'>S</span>KVDXNKGVTGTVYEYGANT<span class='highlight' style='background-color:#E41A1C; color:white;'>I</span>DGGEFVNFQQYAGKXILFVNVA<span class='highlight' style='background-color:#FF7F00; color:white;'>S</span><span class='highlight' style='background-color:#4DAF4A; color:white;'>F</span>CGL<span class='highlight' style='background-color:#984EA3; color:white;'>T</span>A<span class='highlight' style='background-color:#A65628; color:white;'>T</span>YPELN<span class='highlight' style='background-color:#377EB8; color:white;'>T</span>LQEELKPFNVTVL<span class='highlight' style='background-color:#7570B3; color:white;'>G</span>FPCNQFGKQEPG<span class='highlight' style='background-color:#1F78B4; color:white;'>K</span>NSEILLGLKYV<span class='highlight' style='background-color:#FFFF33; color:black;'>R</span>PG<span class='highlight' style='background-color:#FB9A99; color:white;'>G</span>G<span class='highlight' style='background-color:#CAB2D6; color:white;'>Y</span>VP<span class='highlight' style='background-color:#FDBF6F; color:white;'>N</span>FQLFEKGDVNGDNEQKVFSFLKNSXPPTSEL<span class='highlight' style='background-color:#E31A1C; color:white;'>F</span>GS<span class='highlight' style='background-color:#33A02C; color:white;'>P</span><span class='highlight' style='background-color:#66A61E; color:white;'>E</span><span class='highlight' style='background-color:#1B9E77; color:white;'>X</span>LFWDPMKVXDIRWNFEKFLVGPDGVPVM<span class='highlight' style='background-color:#984EA3; color:white;'>R</span>WFX<span class='highlight' style='background-color:#F781BF; color:white;'>X</span><span class='highlight' style='background-color:#D95F02; color:white;'>T</span>PV<span class='highlight' style='background-color:#4DAF4A; color:white;'>R</span>IVQSDIMEYLNQTS<span class='gap'>-</span><span class='gap'>-</span></span>
+                </div>
+                <div class="sequence-row">
+                    <span class="seq-name" title="protein_chainA">protein_chainA</span>
+                    <span class="sequence">SQ<span class='highlight' style='background-color:#E41A1C; color:white;'>K</span><span class='highlight' style='background-color:#377EB8; color:white;'>M</span>KMDCYKGVTGTIYEYGALT<span class='highlight' style='background-color:#E41A1C; color:white;'>L</span>NGEEYIQFKQYAGKHVLFINVA<span class='highlight' style='background-color:#FF7F00; color:white;'>T</span><span class='highlight' style='background-color:#4DAF4A; color:white;'>Y</span><span class='gap'>-</span>GLT<span class='highlight' style='background-color:#984EA3; color:white;'>A</span>Q<span class='highlight' style='background-color:#A65628; color:white;'>Y</span>PELNA<span class='highlight' style='background-color:#377EB8; color:white;'>L</span>QEELKPFGVVLLG<span class='highlight' style='background-color:#7570B3; color:white;'>F</span>PCNQFGKQEPGK<span class='highlight' style='background-color:#1F78B4; color:white;'>N</span>SEILSGLKYVR<span class='highlight' style='background-color:#FFFF33; color:black;'>P</span>GG<span class='highlight' style='background-color:#FB9A99; color:white;'>G</span>F<span class='highlight' style='background-color:#CAB2D6; color:white;'>V</span>PN<span class='highlight' style='background-color:#FDBF6F; color:white;'>F</span>QLFEKGDVNGEKEQKVFTFLKNSCPPTSDLL<span class='highlight' style='background-color:#E31A1C; color:white;'>G</span>SP<span class='highlight' style='background-color:#33A02C; color:white;'>K</span><span class='highlight' style='background-color:#66A61E; color:white;'>Q</span><span class='highlight' style='background-color:#1B9E77; color:white;'>L</span>FWEPMKVHDIRWNFEKFLVGPDGVPVMR<span class='highlight' style='background-color:#984EA3; color:white;'>W</span>FHR<span class='highlight' style='background-color:#F781BF; color:white;'>A</span><span class='highlight' style='background-color:#D95F02; color:white;'>S</span>VS<span class='highlight' style='background-color:#4DAF4A; color:white;'>T</span>VKSDILEYLKQFTPE</span>
+                </div>
+                <div class="sequence-row">
+                    <span class="seq-name" title="protein_chainY">protein_chainY</span>
+                    <span class="sequence">PQ<span class='highlight' style='background-color:#E41A1C; color:white;'>N</span><span class='highlight' style='background-color:#377EB8; color:white;'>R</span>KVDXNKGVTGTIYEYGALT<span class='highlight' style='background-color:#E41A1C; color:white;'>L</span>NGEEYIQFKQFAGKXVLFVNVA<span class='highlight' style='background-color:#FF7F00; color:white;'>A</span><span class='highlight' style='background-color:#4DAF4A; color:white;'>Y</span>UGL<span class='highlight' style='background-color:#984EA3; color:white;'>A</span>A<span class='highlight' style='background-color:#A65628; color:white;'>Q</span>YPELN<span class='highlight' style='background-color:#377EB8; color:white;'>A</span>LQEELKNFGVIVL<span class='highlight' style='background-color:#7570B3; color:white;'>A</span>FPCNQFGKQEPG<span class='highlight' style='background-color:#1F78B4; color:white;'>T</span>NSEILLGLKYV<span class='highlight' style='background-color:#FFFF33; color:black;'>C</span>PG<span class='highlight' style='background-color:#FB9A99; color:white;'>S</span>G<span class='highlight' style='background-color:#CAB2D6; color:white;'>F</span>VP<span class='highlight' style='background-color:#FDBF6F; color:white;'>S</span>FQLFEKGDVNGEKEQKVFTFLKNSXPPTSDL<span class='highlight' style='background-color:#E31A1C; color:white;'>L</span>GS<span class='highlight' style='background-color:#33A02C; color:white;'>S</span><span class='highlight' style='background-color:#66A61E; color:white;'>S</span><span class='highlight' style='background-color:#1B9E77; color:white;'>Q</span>LFWEPMKVXDIRWNFEKFLVGPDGVPVM<span class='highlight' style='background-color:#984EA3; color:white;'>X</span>WFX<span class='highlight' style='background-color:#F781BF; color:white;'>Q</span><span class='highlight' style='background-color:#D95F02; color:white;'>A</span>PV<span class='highlight' style='background-color:#4DAF4A; color:white;'>S</span>TVKSDILEYLKQFNTX</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <strong>Summary:</strong> 
+            22 positions highlighted: 3, 4, 24, 47, 48, 52, 54, 60, 74, 87, 99, 102, 104, 107, 139, 142, 143, 144, 173, 177, 178, 181
+            <br>
+            <strong>File:</strong> clustalo-I20250513-124120-0721-98866692-p1m.aln-clustal_num
+            <br>
+            <strong>Generated:</strong> clustalo-I20250513-124120-0721-98866692-p1m.aln-clustal_num_enhanced_colored.html
+        </div>
+    </div>
+</body>
+</html>
