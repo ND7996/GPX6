@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MSA Clean Alignment with Position Highlighting</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body { 
+            font-family: 'Courier New', monospace; 
+            background: #f8f9fa;
+            margin: 0;
+            padding: 20px; 
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 100%;
+            margin: 0 auto;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .header h1 {
+            margin: 0 0 10px 0;
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        .stats {
+            background: #f8f9fa;
+            padding: 15px 20px;
+            border-bottom: 1px solid #dee2e6;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+            margin: 5px;
+        }
+
+        .stat-value {
+            font-size: 20px;
+            font-weight: bold;
+            color: #4a90e2;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: #6c757d;
+            text-transform: uppercase;
+        }
+
+        .legend {
+            background: #f8f9fa;
+            padding: 20px;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        .legend h3 {
+            margin: 0 0 15px 0;
+            color: #495057;
+            font-size: 16px;
+        }
+
+        .legend-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin: 2px 8px;
+        }
+
+        .legend-color {
+            width: 16px;
+            height: 16px;
+            border-radius: 3px;
+            margin-right: 6px;
+            border: 1px solid #ccc;
+        }
+
+        .legend-label {
+            font-size: 12px;
+            color: #495057;
+            font-weight: 500;
+        }
+
+        .msa-container {
+            padding: 20px;
+            overflow-x: auto;
+            background: #ffffff;
+        }
+
+        .sequence-row {
+            margin: 8px 0;
+            white-space: nowrap;
+            font-family: 'Courier New', monospace;
+            display: flex;
+            align-items: center;
+        }
+
+        .seq-name {
+            display: inline-block;
+            width: 300px;
+            font-weight: bold;
+            margin-right: 20px;
+            padding: 8px 12px;
+            background: linear-gradient(135deg, #e9ecef 0%, #dee2e6 100%);
+            color: #495057;
+            border-radius: 4px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            font-size: 13px;
+            flex-shrink: 0;
+        }
+
+        .sequence {
+            font-family: 'Courier New', monospace;
+            letter-spacing: 1px;
+            font-size: 14px;
+            flex-grow: 1;
+        }
+
+        .aa {
+            color: #2c3e50;
+            font-weight: 600;
+            padding: 2px 1px;
+            border-radius: 2px;
+        }
+
+        .gap {
+            color: #95a5a6;
+            opacity: 0.6;
+            font-weight: 300;
+            padding: 2px 1px;
+            border-radius: 2px;
+        }
+
+        .highlighted {
+            border-radius: 3px;
+            padding: 2px 3px;
+            margin: 0 1px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .ruler {
+            margin: 15px 0;
+            border-bottom: 2px solid #dee2e6;
+            padding-bottom: 8px;
+            font-size: 11px;
+            display: flex;
+            align-items: center;
+        }
+
+        .ruler-tick {
+            color: #495057;
+            font-weight: bold;
+            font-size: 10px;
+            width: 15px;
+            text-align: center;
+            padding: 1px;
+            border-radius: 2px;
+        }
+
+        .ruler-minor {
+            color: #6c757d;
+            font-weight: normal;
+            width: 15px;
+            text-align: center;
+        }
+
+        .ruler-space {
+            width: 15px;
+            text-align: center;
+        }
+
+        .ruler-highlight {
+            width: 15px;
+            text-align: center;
+            font-size: 8px;
+            color: white;
+            font-weight: bold;
+        }
+
+        .footer {
+            background: #f8f9fa;
+            padding: 15px 20px;
+            border-top: 1px solid #dee2e6;
+            font-size: 12px;
+            color: #6c757d;
+            text-align: center;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .seq-name {
+                width: 200px;
+                font-size: 11px;
+            }
+
+            .sequence {
+                font-size: 12px;
+                letter-spacing: 0.5px;
+            }
+
+            body {
+                font-size: 12px;
+                padding: 10px;
+            }
+
+            .legend-items {
+                gap: 5px;
+            }
+
+            .legend-item {
+                margin: 1px 4px;
+            }
+        }
+
+        /* Improved alignment with monospace consistency */
+        .msa {
+            font-family: 'Courier New', 'Lucida Console', monospace;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        /* Enhanced visual hierarchy */
+        .sequence-row:nth-child(even) {
+            background: rgba(74, 144, 226, 0.02);
+        }
+
+        .sequence-row:hover {
+            background: rgba(74, 144, 226, 0.05);
+        }
+
+        /* Highlight effects */
+        .highlighted:hover {
+            transform: scale(1.05);
+            transition: transform 0.1s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Multiple Sequence Alignment</h1>
+            <p>Clean Alignment View with Position Highlighting - Top 3 Sequences</p>
+        </div>
+
+        <div class="stats">
+            <div class="stat-item">
+                <div class="stat-value">3</div>
+                <div class="stat-label">Sequences Shown</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">197</div>
+                <div class="stat-label">Alignment Length</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">196</div>
+                <div class="stat-label">Avg. Seq Length</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">22</div>
+                <div class="stat-label">Highlighted Positions</div>
+            </div>
+        </div><div class="legend">
+<h3>Highlighted Positions</h3>
+<div class="legend-items">
+<div class="legend-item">
+<span class="legend-color" style="background-color: #E41A1C;"></span>
+<span class="legend-label">Position 3</span>
+</div>
+<div class="legend-item">
+<span class="legend-color" style="background-color: #377EB8;"></span>
+<span class="legend-label">Position 4</span>
+</div>
+<div class="legend-item">
+<span class="legend-color" style="background-color: #E41A1C;"></span>
+<span class="legend-label">Position 24</span>
+</div>
+<div class="legend-item">
+<span class="legend-color" style="background-color: #FF7F00;"></span>
+<span class="legend-label">Position 47</span>
+</div>
+<div class="legend-item">
+<span class="legend-color" style="background-color: #4DAF4A;"></span>
+<span class="legend-label">Position 48</span>
+</div>
+<div class="legend-item">
+<span class="legend-color" style="background-color: #984EA3;"></span>
+<span class="legend-label">Position 52</span>
+</div>
+<div class="legend-item">
+<span class="legend-color" style="background-color: #A65628;"></span>
+<span class="legend-label">Position 54</span>
+</div>
+<div class="legend-item">
+<span class="legend-color" style="background-color: #377EB8;"></span>
+<span class="legend-label">Position 60</span>
+</div>
+<div class="legend-item">
+<span class="legend-color" style="background-color: #7570B3;"></span>
+<span class="legend-label">Position 74</span>
+</div>
+<div class="legend-item">
+<span class="legend-color" style="background-color: #1F78B4;"></span>
+<span class="legend-label">Position 87</span>
+</div>
+<div class="legend-item">
+<span class="legend-color" style="background-color: #FFFF33;"></span>
+<span class="legend-label">Position 99</span>
+</div>
+<div class="legend-item">
+<span class="legend-color" style="background-color: #FB9A99;"></span>
+<span class="legend-label">Position 102</span>
+</div>
+<div class="legend-item">
+<span class="legend-color" style="background-color: #CAB2D6;"></span>
+<span class="legend-label">Position 104</span>
+</div>
+<div class="legend-item">
+<span class="legend-color" style="background-color: #FDBF6F;"></span>
+<span class="legend-label">Position 107</span>
+</div>
+<div class="legend-item">
+<span class="legend-color" style="background-color: #E31A1C;"></span>
+<span class="legend-label">Position 139</span>
+</div>
+<div class="legend-item">
+<span class="legend-color" style="background-color: #33A02C;"></span>
+<span class="legend-label">Position 142</span>
+</div>
+<div class="legend-item">
+<span class="legend-color" style="background-color: #66A61E;"></span>
+<span class="legend-label">Position 143</span>
+</div>
+<div class="legend-item">
+<span class="legend-color" style="background-color: #1B9E77;"></span>
+<span class="legend-label">Position 144</span>
+</div>
+<div class="legend-item">
+<span class="legend-color" style="background-color: #984EA3;"></span>
+<span class="legend-label">Position 173</span>
+</div>
+<div class="legend-item">
+<span class="legend-color" style="background-color: #F781BF;"></span>
+<span class="legend-label">Position 177</span>
+</div>
+<div class="legend-item">
+<span class="legend-color" style="background-color: #D95F02;"></span>
+<span class="legend-label">Position 178</span>
+</div>
+<div class="legend-item">
+<span class="legend-color" style="background-color: #4DAF4A;"></span>
+<span class="legend-label">Position 181</span>
+</div>
+</div>
+</div>
+
+        <div class="msa-container">
+            <div class="msa"><div class="ruler">
+<span class="seq-name">Position</span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-highlight" style="background-color: #E41A1C;">▲</span><span class="ruler-highlight" style="background-color: #377EB8;">▲</span><span class="ruler-minor">·</span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-tick">10</span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-minor">·</span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-tick">20</span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-highlight" style="background-color: #E41A1C;">▲</span><span class="ruler-minor">·</span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-tick">30</span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-minor">·</span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-tick">40</span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-minor">·</span><span class="ruler-space"> </span><span class="ruler-highlight" style="background-color: #FF7F00;">▲</span><span class="ruler-highlight" style="background-color: #4DAF4A;">▲</span><span class="ruler-space"> </span><span class="ruler-tick">50</span><span class="ruler-space"> </span><span class="ruler-highlight" style="background-color: #984EA3;">▲</span><span class="ruler-space"> </span><span class="ruler-highlight" style="background-color: #A65628;">▲</span><span class="ruler-minor">·</span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-tick highlighted" style="background-color: #377EB8; color: white; font-weight: bold;">60</span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-minor">·</span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-tick">70</span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-highlight" style="background-color: #7570B3;">▲</span><span class="ruler-minor">·</span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-tick">80</span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-minor">·</span><span class="ruler-space"> </span><span class="ruler-highlight" style="background-color: #1F78B4;">▲</span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-tick">90</span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-minor">·</span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-highlight" style="background-color: #FFFF33;">▲</span><span class="ruler-tick">0</span><span class="ruler-space"> </span><span class="ruler-highlight" style="background-color: #FB9A99;">▲</span><span class="ruler-space"> </span><span class="ruler-highlight" style="background-color: #CAB2D6;">▲</span><span class="ruler-minor">·</span><span class="ruler-space"> </span><span class="ruler-highlight" style="background-color: #FDBF6F;">▲</span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-tick">10</span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-minor">·</span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-tick">20</span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-minor">·</span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-tick">30</span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-minor">·</span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-highlight" style="background-color: #E31A1C;">▲</span><span class="ruler-tick">40</span><span class="ruler-space"> </span><span class="ruler-highlight" style="background-color: #33A02C;">▲</span><span class="ruler-highlight" style="background-color: #66A61E;">▲</span><span class="ruler-highlight" style="background-color: #1B9E77;">▲</span><span class="ruler-minor">·</span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-tick">50</span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-minor">·</span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-tick">60</span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-minor">·</span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-tick">70</span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-highlight" style="background-color: #984EA3;">▲</span><span class="ruler-space"> </span><span class="ruler-minor">·</span><span class="ruler-space"> </span><span class="ruler-highlight" style="background-color: #F781BF;">▲</span><span class="ruler-highlight" style="background-color: #D95F02;">▲</span><span class="ruler-space"> </span><span class="ruler-tick">80</span><span class="ruler-highlight" style="background-color: #4DAF4A;">▲</span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-minor">·</span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-tick">90</span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-minor">·</span><span class="ruler-space"> </span><span class="ruler-space"> </span>
+</div>
+                <div class="sequence-row">
+                    <span class="seq-name" title="protein_chainX">protein_chainX</span>
+                    <span class="sequence"><span class='aa'>P</span><span class='aa'>Q</span><span class="aa highlighted" style="background-color: #E41A1C; color: white; font-weight: bold;">K</span><span class="aa highlighted" style="background-color: #377EB8; color: white; font-weight: bold;">S</span><span class='aa'>K</span><span class='aa'>V</span><span class='aa'>D</span><span class='aa'>X</span><span class='aa'>N</span><span class='aa'>K</span><span class='aa'>G</span><span class='aa'>V</span><span class='aa'>T</span><span class='aa'>G</span><span class='aa'>T</span><span class='aa'>V</span><span class='aa'>Y</span><span class='aa'>E</span><span class='aa'>Y</span><span class='aa'>G</span><span class='aa'>A</span><span class='aa'>N</span><span class='aa'>T</span><span class="aa highlighted" style="background-color: #E41A1C; color: white; font-weight: bold;">I</span><span class='aa'>D</span><span class='aa'>G</span><span class='aa'>G</span><span class='aa'>E</span><span class='aa'>F</span><span class='aa'>V</span><span class='aa'>N</span><span class='aa'>F</span><span class='aa'>Q</span><span class='aa'>Q</span><span class='aa'>Y</span><span class='aa'>A</span><span class='aa'>G</span><span class='aa'>K</span><span class='aa'>X</span><span class='aa'>I</span><span class='aa'>L</span><span class='aa'>F</span><span class='aa'>V</span><span class='aa'>N</span><span class='aa'>V</span><span class='aa'>A</span><span class="aa highlighted" style="background-color: #FF7F00; color: white; font-weight: bold;">S</span><span class="aa highlighted" style="background-color: #4DAF4A; color: white; font-weight: bold;">F</span><span class='aa'>C</span><span class='aa'>G</span><span class='aa'>L</span><span class="aa highlighted" style="background-color: #984EA3; color: white; font-weight: bold;">T</span><span class='aa'>A</span><span class="aa highlighted" style="background-color: #A65628; color: white; font-weight: bold;">T</span><span class='aa'>Y</span><span class='aa'>P</span><span class='aa'>E</span><span class='aa'>L</span><span class='aa'>N</span><span class="aa highlighted" style="background-color: #377EB8; color: white; font-weight: bold;">T</span><span class='aa'>L</span><span class='aa'>Q</span><span class='aa'>E</span><span class='aa'>E</span><span class='aa'>L</span><span class='aa'>K</span><span class='aa'>P</span><span class='aa'>F</span><span class='aa'>N</span><span class='aa'>V</span><span class='aa'>T</span><span class='aa'>V</span><span class='aa'>L</span><span class="aa highlighted" style="background-color: #7570B3; color: white; font-weight: bold;">G</span><span class='aa'>F</span><span class='aa'>P</span><span class='aa'>C</span><span class='aa'>N</span><span class='aa'>Q</span><span class='aa'>F</span><span class='aa'>G</span><span class='aa'>K</span><span class='aa'>Q</span><span class='aa'>E</span><span class='aa'>P</span><span class='aa'>G</span><span class="aa highlighted" style="background-color: #1F78B4; color: white; font-weight: bold;">K</span><span class='aa'>N</span><span class='aa'>S</span><span class='aa'>E</span><span class='aa'>I</span><span class='aa'>L</span><span class='aa'>L</span><span class='aa'>G</span><span class='aa'>L</span><span class='aa'>K</span><span class='aa'>Y</span><span class='aa'>V</span><span class="aa highlighted" style="background-color: #FFFF33; color: white; font-weight: bold;">R</span><span class='aa'>P</span><span class='aa'>G</span><span class="aa highlighted" style="background-color: #FB9A99; color: white; font-weight: bold;">G</span><span class='aa'>G</span><span class="aa highlighted" style="background-color: #CAB2D6; color: white; font-weight: bold;">Y</span><span class='aa'>V</span><span class='aa'>P</span><span class="aa highlighted" style="background-color: #FDBF6F; color: white; font-weight: bold;">N</span><span class='aa'>F</span><span class='aa'>Q</span><span class='aa'>L</span><span class='aa'>F</span><span class='aa'>E</span><span class='aa'>K</span><span class='aa'>G</span><span class='aa'>D</span><span class='aa'>V</span><span class='aa'>N</span><span class='aa'>G</span><span class='aa'>D</span><span class='aa'>N</span><span class='aa'>E</span><span class='aa'>Q</span><span class='aa'>K</span><span class='aa'>V</span><span class='aa'>F</span><span class='aa'>S</span><span class='aa'>F</span><span class='aa'>L</span><span class='aa'>K</span><span class='aa'>N</span><span class='aa'>S</span><span class='aa'>X</span><span class='aa'>P</span><span class='aa'>P</span><span class='aa'>T</span><span class='aa'>S</span><span class='aa'>E</span><span class='aa'>L</span><span class="aa highlighted" style="background-color: #E31A1C; color: white; font-weight: bold;">F</span><span class='aa'>G</span><span class='aa'>S</span><span class="aa highlighted" style="background-color: #33A02C; color: white; font-weight: bold;">P</span><span class="aa highlighted" style="background-color: #66A61E; color: white; font-weight: bold;">E</span><span class="aa highlighted" style="background-color: #1B9E77; color: white; font-weight: bold;">X</span><span class='aa'>L</span><span class='aa'>F</span><span class='aa'>W</span><span class='aa'>D</span><span class='aa'>P</span><span class='aa'>M</span><span class='aa'>K</span><span class='aa'>V</span><span class='aa'>X</span><span class='aa'>D</span><span class='aa'>I</span><span class='aa'>R</span><span class='aa'>W</span><span class='aa'>N</span><span class='aa'>F</span><span class='aa'>E</span><span class='aa'>K</span><span class='aa'>F</span><span class='aa'>L</span><span class='aa'>V</span><span class='aa'>G</span><span class='aa'>P</span><span class='aa'>D</span><span class='aa'>G</span><span class='aa'>V</span><span class='aa'>P</span><span class='aa'>V</span><span class='aa'>M</span><span class="aa highlighted" style="background-color: #984EA3; color: white; font-weight: bold;">R</span><span class='aa'>W</span><span class='aa'>F</span><span class='aa'>X</span><span class="aa highlighted" style="background-color: #F781BF; color: white; font-weight: bold;">X</span><span class="aa highlighted" style="background-color: #D95F02; color: white; font-weight: bold;">T</span><span class='aa'>P</span><span class='aa'>V</span><span class="aa highlighted" style="background-color: #4DAF4A; color: white; font-weight: bold;">R</span><span class='aa'>I</span><span class='aa'>V</span><span class='aa'>Q</span><span class='aa'>S</span><span class='aa'>D</span><span class='aa'>I</span><span class='aa'>M</span><span class='aa'>E</span><span class='aa'>Y</span><span class='aa'>L</span><span class='aa'>N</span><span class='aa'>Q</span><span class='aa'>T</span><span class='aa'>S</span><span class='gap'>-</span><span class='gap'>-</span></span>
+                </div>
+                <div class="sequence-row">
+                    <span class="seq-name" title="protein_chainA">protein_chainA</span>
+                    <span class="sequence"><span class='aa'>S</span><span class='aa'>Q</span><span class="aa highlighted" style="background-color: #E41A1C; color: white; font-weight: bold;">K</span><span class="aa highlighted" style="background-color: #377EB8; color: white; font-weight: bold;">M</span><span class='aa'>K</span><span class='aa'>M</span><span class='aa'>D</span><span class='aa'>C</span><span class='aa'>Y</span><span class='aa'>K</span><span class='aa'>G</span><span class='aa'>V</span><span class='aa'>T</span><span class='aa'>G</span><span class='aa'>T</span><span class='aa'>I</span><span class='aa'>Y</span><span class='aa'>E</span><span class='aa'>Y</span><span class='aa'>G</span><span class='aa'>A</span><span class='aa'>L</span><span class='aa'>T</span><span class="aa highlighted" style="background-color: #E41A1C; color: white; font-weight: bold;">L</span><span class='aa'>N</span><span class='aa'>G</span><span class='aa'>E</span><span class='aa'>E</span><span class='aa'>Y</span><span class='aa'>I</span><span class='aa'>Q</span><span class='aa'>F</span><span class='aa'>K</span><span class='aa'>Q</span><span class='aa'>Y</span><span class='aa'>A</span><span class='aa'>G</span><span class='aa'>K</span><span class='aa'>H</span><span class='aa'>V</span><span class='aa'>L</span><span class='aa'>F</span><span class='aa'>I</span><span class='aa'>N</span><span class='aa'>V</span><span class='aa'>A</span><span class="aa highlighted" style="background-color: #FF7F00; color: white; font-weight: bold;">T</span><span class="aa highlighted" style="background-color: #4DAF4A; color: white; font-weight: bold;">Y</span><span class='gap'>-</span><span class='aa'>G</span><span class='aa'>L</span><span class="aa highlighted" style="background-color: #984EA3; color: white; font-weight: bold;">T</span><span class='aa'>A</span><span class="aa highlighted" style="background-color: #A65628; color: white; font-weight: bold;">Q</span><span class='aa'>Y</span><span class='aa'>P</span><span class='aa'>E</span><span class='aa'>L</span><span class='aa'>N</span><span class="aa highlighted" style="background-color: #377EB8; color: white; font-weight: bold;">A</span><span class='aa'>L</span><span class='aa'>Q</span><span class='aa'>E</span><span class='aa'>E</span><span class='aa'>L</span><span class='aa'>K</span><span class='aa'>P</span><span class='aa'>F</span><span class='aa'>G</span><span class='aa'>V</span><span class='aa'>V</span><span class='aa'>L</span><span class='aa'>L</span><span class="aa highlighted" style="background-color: #7570B3; color: white; font-weight: bold;">G</span><span class='aa'>F</span><span class='aa'>P</span><span class='aa'>C</span><span class='aa'>N</span><span class='aa'>Q</span><span class='aa'>F</span><span class='aa'>G</span><span class='aa'>K</span><span class='aa'>Q</span><span class='aa'>E</span><span class='aa'>P</span><span class='aa'>G</span><span class="aa highlighted" style="background-color: #1F78B4; color: white; font-weight: bold;">K</span><span class='aa'>N</span><span class='aa'>S</span><span class='aa'>E</span><span class='aa'>I</span><span class='aa'>L</span><span class='aa'>S</span><span class='aa'>G</span><span class='aa'>L</span><span class='aa'>K</span><span class='aa'>Y</span><span class='aa'>V</span><span class="aa highlighted" style="background-color: #FFFF33; color: white; font-weight: bold;">R</span><span class='aa'>P</span><span class='aa'>G</span><span class="aa highlighted" style="background-color: #FB9A99; color: white; font-weight: bold;">G</span><span class='aa'>G</span><span class="aa highlighted" style="background-color: #CAB2D6; color: white; font-weight: bold;">F</span><span class='aa'>V</span><span class='aa'>P</span><span class="aa highlighted" style="background-color: #FDBF6F; color: white; font-weight: bold;">N</span><span class='aa'>F</span><span class='aa'>Q</span><span class='aa'>L</span><span class='aa'>F</span><span class='aa'>E</span><span class='aa'>K</span><span class='aa'>G</span><span class='aa'>D</span><span class='aa'>V</span><span class='aa'>N</span><span class='aa'>G</span><span class='aa'>E</span><span class='aa'>K</span><span class='aa'>E</span><span class='aa'>Q</span><span class='aa'>K</span><span class='aa'>V</span><span class='aa'>F</span><span class='aa'>T</span><span class='aa'>F</span><span class='aa'>L</span><span class='aa'>K</span><span class='aa'>N</span><span class='aa'>S</span><span class='aa'>C</span><span class='aa'>P</span><span class='aa'>P</span><span class='aa'>T</span><span class='aa'>S</span><span class='aa'>D</span><span class='aa'>L</span><span class="aa highlighted" style="background-color: #E31A1C; color: white; font-weight: bold;">L</span><span class='aa'>G</span><span class='aa'>S</span><span class="aa highlighted" style="background-color: #33A02C; color: white; font-weight: bold;">P</span><span class="aa highlighted" style="background-color: #66A61E; color: white; font-weight: bold;">K</span><span class="aa highlighted" style="background-color: #1B9E77; color: white; font-weight: bold;">Q</span><span class='aa'>L</span><span class='aa'>F</span><span class='aa'>W</span><span class='aa'>E</span><span class='aa'>P</span><span class='aa'>M</span><span class='aa'>K</span><span class='aa'>V</span><span class='aa'>H</span><span class='aa'>D</span><span class='aa'>I</span><span class='aa'>R</span><span class='aa'>W</span><span class='aa'>N</span><span class='aa'>F</span><span class='aa'>E</span><span class='aa'>K</span><span class='aa'>F</span><span class='aa'>L</span><span class='aa'>V</span><span class='aa'>G</span><span class='aa'>P</span><span class='aa'>D</span><span class='aa'>G</span><span class='aa'>V</span><span class='aa'>P</span><span class='aa'>V</span><span class='aa'>M</span><span class="aa highlighted" style="background-color: #984EA3; color: white; font-weight: bold;">R</span><span class='aa'>W</span><span class='aa'>F</span><span class='aa'>H</span><span class="aa highlighted" style="background-color: #F781BF; color: white; font-weight: bold;">R</span><span class="aa highlighted" style="background-color: #D95F02; color: white; font-weight: bold;">A</span><span class='aa'>S</span><span class='aa'>V</span><span class="aa highlighted" style="background-color: #4DAF4A; color: white; font-weight: bold;">S</span><span class='aa'>T</span><span class='aa'>V</span><span class='aa'>K</span><span class='aa'>S</span><span class='aa'>D</span><span class='aa'>I</span><span class='aa'>L</span><span class='aa'>E</span><span class='aa'>Y</span><span class='aa'>L</span><span class='aa'>K</span><span class='aa'>Q</span><span class='aa'>F</span><span class='aa'>T</span><span class='aa'>P</span><span class='aa'>E</span></span>
+                </div>
+                <div class="sequence-row">
+                    <span class="seq-name" title="protein_chainY">protein_chainY</span>
+                    <span class="sequence"><span class='aa'>P</span><span class='aa'>Q</span><span class="aa highlighted" style="background-color: #E41A1C; color: white; font-weight: bold;">N</span><span class="aa highlighted" style="background-color: #377EB8; color: white; font-weight: bold;">R</span><span class='aa'>K</span><span class='aa'>V</span><span class='aa'>D</span><span class='aa'>X</span><span class='aa'>N</span><span class='aa'>K</span><span class='aa'>G</span><span class='aa'>V</span><span class='aa'>T</span><span class='aa'>G</span><span class='aa'>T</span><span class='aa'>I</span><span class='aa'>Y</span><span class='aa'>E</span><span class='aa'>Y</span><span class='aa'>G</span><span class='aa'>A</span><span class='aa'>L</span><span class='aa'>T</span><span class="aa highlighted" style="background-color: #E41A1C; color: white; font-weight: bold;">L</span><span class='aa'>N</span><span class='aa'>G</span><span class='aa'>E</span><span class='aa'>E</span><span class='aa'>Y</span><span class='aa'>I</span><span class='aa'>Q</span><span class='aa'>F</span><span class='aa'>K</span><span class='aa'>Q</span><span class='aa'>F</span><span class='aa'>A</span><span class='aa'>G</span><span class='aa'>K</span><span class='aa'>X</span><span class='aa'>V</span><span class='aa'>L</span><span class='aa'>F</span><span class='aa'>V</span><span class='aa'>N</span><span class='aa'>V</span><span class='aa'>A</span><span class="aa highlighted" style="background-color: #FF7F00; color: white; font-weight: bold;">A</span><span class="aa highlighted" style="background-color: #4DAF4A; color: white; font-weight: bold;">Y</span><span class='aa'>U</span><span class='aa'>G</span><span class='aa'>L</span><span class="aa highlighted" style="background-color: #984EA3; color: white; font-weight: bold;">A</span><span class='aa'>A</span><span class="aa highlighted" style="background-color: #A65628; color: white; font-weight: bold;">Q</span><span class='aa'>Y</span><span class='aa'>P</span><span class='aa'>E</span><span class='aa'>L</span><span class='aa'>N</span><span class="aa highlighted" style="background-color: #377EB8; color: white; font-weight: bold;">A</span><span class='aa'>L</span><span class='aa'>Q</span><span class='aa'>E</span><span class='aa'>E</span><span class='aa'>L</span><span class='aa'>K</span><span class='aa'>N</span><span class='aa'>F</span><span class='aa'>G</span><span class='aa'>V</span><span class='aa'>I</span><span class='aa'>V</span><span class='aa'>L</span><span class="aa highlighted" style="background-color: #7570B3; color: white; font-weight: bold;">A</span><span class='aa'>F</span><span class='aa'>P</span><span class='aa'>C</span><span class='aa'>N</span><span class='aa'>Q</span><span class='aa'>F</span><span class='aa'>G</span><span class='aa'>K</span><span class='aa'>Q</span><span class='aa'>E</span><span class='aa'>P</span><span class='aa'>G</span><span class="aa highlighted" style="background-color: #1F78B4; color: white; font-weight: bold;">T</span><span class='aa'>N</span><span class='aa'>S</span><span class='aa'>E</span><span class='aa'>I</span><span class='aa'>L</span><span class='aa'>L</span><span class='aa'>G</span><span class='aa'>L</span><span class='aa'>K</span><span class='aa'>Y</span><span class='aa'>V</span><span class="aa highlighted" style="background-color: #FFFF33; color: white; font-weight: bold;">C</span><span class='aa'>P</span><span class='aa'>G</span><span class="aa highlighted" style="background-color: #FB9A99; color: white; font-weight: bold;">S</span><span class='aa'>G</span><span class="aa highlighted" style="background-color: #CAB2D6; color: white; font-weight: bold;">F</span><span class='aa'>V</span><span class='aa'>P</span><span class="aa highlighted" style="background-color: #FDBF6F; color: white; font-weight: bold;">S</span><span class='aa'>F</span><span class='aa'>Q</span><span class='aa'>L</span><span class='aa'>F</span><span class='aa'>E</span><span class='aa'>K</span><span class='aa'>G</span><span class='aa'>D</span><span class='aa'>V</span><span class='aa'>N</span><span class='aa'>G</span><span class='aa'>E</span><span class='aa'>K</span><span class='aa'>E</span><span class='aa'>Q</span><span class='aa'>K</span><span class='aa'>V</span><span class='aa'>F</span><span class='aa'>T</span><span class='aa'>F</span><span class='aa'>L</span><span class='aa'>K</span><span class='aa'>N</span><span class='aa'>S</span><span class='aa'>X</span><span class='aa'>P</span><span class='aa'>P</span><span class='aa'>T</span><span class='aa'>S</span><span class='aa'>D</span><span class='aa'>L</span><span class="aa highlighted" style="background-color: #E31A1C; color: white; font-weight: bold;">L</span><span class='aa'>G</span><span class='aa'>S</span><span class="aa highlighted" style="background-color: #33A02C; color: white; font-weight: bold;">S</span><span class="aa highlighted" style="background-color: #66A61E; color: white; font-weight: bold;">S</span><span class="aa highlighted" style="background-color: #1B9E77; color: white; font-weight: bold;">Q</span><span class='aa'>L</span><span class='aa'>F</span><span class='aa'>W</span><span class='aa'>E</span><span class='aa'>P</span><span class='aa'>M</span><span class='aa'>K</span><span class='aa'>V</span><span class='aa'>X</span><span class='aa'>D</span><span class='aa'>I</span><span class='aa'>R</span><span class='aa'>W</span><span class='aa'>N</span><span class='aa'>F</span><span class='aa'>E</span><span class='aa'>K</span><span class='aa'>F</span><span class='aa'>L</span><span class='aa'>V</span><span class='aa'>G</span><span class='aa'>P</span><span class='aa'>D</span><span class='aa'>G</span><span class='aa'>V</span><span class='aa'>P</span><span class='aa'>V</span><span class='aa'>M</span><span class="aa highlighted" style="background-color: #984EA3; color: white; font-weight: bold;">X</span><span class='aa'>W</span><span class='aa'>F</span><span class='aa'>X</span><span class="aa highlighted" style="background-color: #F781BF; color: white; font-weight: bold;">Q</span><span class="aa highlighted" style="background-color: #D95F02; color: white; font-weight: bold;">A</span><span class='aa'>P</span><span class='aa'>V</span><span class="aa highlighted" style="background-color: #4DAF4A; color: white; font-weight: bold;">S</span><span class='aa'>T</span><span class='aa'>V</span><span class='aa'>K</span><span class='aa'>S</span><span class='aa'>D</span><span class='aa'>I</span><span class='aa'>L</span><span class='aa'>E</span><span class='aa'>Y</span><span class='aa'>L</span><span class='aa'>K</span><span class='aa'>Q</span><span class='aa'>F</span><span class='aa'>N</span><span class='aa'>T</span><span class='aa'>X</span></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <strong>File:</strong> clustalo-I20250513-124120-0721-98866692-p1m.aln-clustal_num
+            <br>
+            <strong>Showing:</strong> 3 of 3 sequences
+            <br>
+            <strong>Highlighted Positions:</strong> 3, 4, 24, 47, 48, 52, 54, 60, 74, 87, 99, 102, 104, 107, 139, 142, 143, 144, 173, 177, 178, 181
+            <br>
+            <strong>Generated:</strong> clustalo-I20250513-124120-0721-98866692-p1m.aln-clustal_num_clean_aligned.html
+        </div>
+    </div>
+</body>
+</html>
