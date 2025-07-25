@@ -20,7 +20,8 @@ This script automates residue mutations in a given PDB file using PyMOL, applyin
 - **Function**: Systematic mutation of specific residues
 - **Mutations Applied**:
   - Mouse-to-Human amino acid substitutions
-  - Selenocysteine (SEC) incorporation at target positions
+  - Human-to-Mouse amino acid substitutions
+
 - **Output**: Individual PDB files for each mutated variant
 
 ### Key Features
