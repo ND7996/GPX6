@@ -1,6 +1,6 @@
 # Free Energy Perturbation (FEP) Workflow Guide
 
-This comprehensive guide outlines the complete automated workflow for performing Free Energy Perturbation calculations using Q software suite, from initial structure preparation through final statistical analysis.
+This comprehensive guide outlines the complete automated workflow for performing Free Energy Perturbation calculations using Q software suite, from initial structure preparation through final statistical analysis of GPX6 protein as an example
 
 ![Detailed Workflow](https://raw.githubusercontent.com/ND7996/GPX6/main/analysis/figures/detailed_workflow.drawio.png)
 
