@@ -2,7 +2,7 @@
 
 This comprehensive guide outlines the complete automated workflow for performing Free Energy Perturbation calculations using Q software suite, from initial structure preparation through final statistical analysis.
 
-![Detailed Workflow](https://raw.githubusercontent.com/ND7996/GPX6/main/figures/detailed_workflow.drawio.png)
+![Detailed Workflow](https://raw.githubusercontent.com/ND7996/GPX6/main/analysis/figures/detailed_workflow.drawio.png)
 
 ## Workflow Overview
 
