@@ -1,12 +1,4 @@
-<<<<<<< HEAD
 ![Detailed Workflow](https://raw.githubusercontent.com/ND7996/GPX6/main/figures/detailed_workflow.drawio.png)
-=======
-# Free Energy Perturbation (FEP) Workflow Guide
-
-This comprehensive guide outlines the complete automated workflow for performing Free Energy Perturbation calculations using Q software suite, from initial structure preparation through final statistical analysis of GPX6 protein as an example
-
-![Detailed Workflow](https://raw.githubusercontent.com/ND7996/GPX6/main/analysis/figures/detailed_workflow.drawio.png)
->>>>>>> 2b4935a0e38310749e891fd62c675340d73920c2
 
 
 # Free Energy Perturbation (FEP) Workflow Guide
@@ -36,17 +28,8 @@ Automates point mutations in a PDB structure using PyMOL.
 
 ### ⚙️ Details
 - **Tool**: PyMOL automation script
-<<<<<<< HEAD
 - **Function**: Introduces predefined mutations (e.g., mouse-to-human substitutions or SEC incorporation)
 - **Output**: Individual PDB files for each variant
-=======
-- **Function**: Systematic mutation of specific residues
-- **Mutations Applied**:
-  - Mouse-to-Human amino acid substitutions
-  - Human-to-Mouse amino acid substitutions
-
-- **Output**: Individual PDB files for each mutated variant
->>>>>>> 2b4935a0e38310749e891fd62c675340d73920c2
 
 ### 🔑 Features
 - Automated mutation mapping
