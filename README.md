@@ -1,197 +1,172 @@
-# Free Energy Perturbation (FEP) Workflow Guide
-
-This comprehensive guide outlines the complete automated workflow for performing Free Energy Perturbation calculations using Q software suite, from initial structure preparation through final statistical analysis.
-
 ![Detailed Workflow](https://raw.githubusercontent.com/ND7996/GPX6/main/figures/detailed_workflow.drawio.png)
 
-## Workflow Overview
 
-This pipeline automates the calculation of binding free energy differences between protein variants through a systematic 7-step process involving structure preparation, solvation, FEP setup, molecular dynamics relaxation, and statistical analysis.
+# Free Energy Perturbation (FEP) Workflow Guide
+
+This guide presents a complete, automated workflow for conducting **Free Energy Perturbation (FEP)** calculations using the **Q software suite**. It covers all steps from initial structure preparation through final statistical analysis of free energy differences between protein variants.
 
 ---
 
-## STEP 1 - Prepare the Structures
+## 🧭 Workflow Overview
 
-### Purpose
-This script automates residue mutations in a given PDB file using PyMOL, applying predefined Mouse-to-Human substitutions (including SEC incorporation) and saving each mutated structure separately.
+This pipeline automates the calculation of binding free energy differences through a structured 7-step process involving:
 
-### Process Details
+1. Structure Preparation
+2. System Solvation
+3. FEP Setup
+4. Molecular Dynamics (MD) Relaxation
+5. Structure Minimization
+6. FEP Input Generation
+7. Statistical Analysis
+
+---
+
+## 🧱 STEP 1 - Structure Preparation
+
+### 🧪 Purpose
+Automates point mutations in a PDB structure using PyMOL.
+
+### ⚙️ Details
 - **Tool**: PyMOL automation script
-- **Function**: Systematic mutation of specific residues
-- **Mutations Applied**:
-  - Mouse-to-Human amino acid substitutions
-  - Selenocysteine (SEC) incorporation at target positions
-- **Output**: Individual PDB files for each mutated variant
+- **Function**: Introduces predefined mutations (e.g., mouse-to-human substitutions or SEC incorporation)
+- **Output**: Individual PDB files for each variant
 
-### Key Features
-- Automated residue substitution based on predefined mapping
-- Preservation of protein backbone structure
-- Quality control for mutation compatibility
-- Standardized naming convention for output files
+### 🔑 Features
+- Automated mutation mapping
+- Preserves backbone integrity
+- Ensures mutation compatibility
+- Consistent output naming
 
 ---
 
-## STEP 2 - Running Qprep
+## 💧 STEP 2 - Solvation with Qprep
 
-### Purpose
-Runs qprep5 and automates the preparation of PDB solvated structures for relaxation by applying solvation and boundary conditions.
+### 🧪 Purpose
+Prepares solvated systems and topologies for MD relaxation.
 
-### Process Details
-1. **File Processing**:
-   - Extracts the base name (without the .pdb extension) from each PDB file generated in the previous step
-   - Uses this base_name to create a corresponding .inp file for qprep5
+### ⚙️ Process
+1. Extracts base name from each PDB file
+2. Generates `.inp` file and runs `qprep5`
+3. Applies solvation and boundary conditions
 
-2. **Qprep5 Execution**:
-   - Runs qprep5 with the generated .inp file
-   - Applies solvation parameters and boundary conditions
-   - Configures system for molecular dynamics simulation
+### 🧾 Output
+- `${base_name}_solvated.pdb`
+- `${base_name}_solvated.top`
 
-3. **Output Generation**:
-   - Saves the final solvated structures as `${base_name}_solvated.pdb`
-   - Generates topology files as `${base_name}_solvated.top`
-   - All files stored in the same directory for organization
-
-### Technical Specifications
-- **Solvation**: Explicit water model implementation
-- **Boundary Conditions**: Periodic boundary conditions applied
-- **Force Field**: Q-compatible parameter set
+### ⚙️ Specifications
+- **Solvation**: Explicit water model
+- **Boundary Conditions**: Periodic
+- **Force Field**: Q-compatible
 
 ---
 
-## STEP 3 - Making FEP File
+## 📁 STEP 3 - FEP File Generation
 
-### Purpose
-This step executes the makeFEP.py script within the directory to generate the required Free Energy Perturbation file.
+### 🧪 Purpose
+Uses `makeFEP.py` to create lambda-dependent FEP input files.
 
-### Process Details
-- **Script**: makeFEP.py execution
-- **Function**: The script utilizes the qmap file and the solvated PDB structure to generate the required FEP file
-- **Integration**: Seamless connection between solvated structures and FEP calculations
+### 📥 Inputs
+| File | Role |
+|------|------|
+| `fepmousecys.qmap` | Mapping for mouse WT |
+| `fephumansec.qmap` | Mapping for human WT |
 
-### Input Requirements
-| Input File | Purpose | Application |
-|------------|---------|-------------|
-| `fepmousecys.qmap` | Mouse WT mapping | For Mouse wild-type calculations |
-| `fephumansec.qmap` | Human WT mapping | For Human wild-type calculations |
-
-### Output
-- FEP file containing lambda-dependent parameters
-- Mapping between initial and final states
-- Perturbation pathway definition
+### 📤 Output
+- FEP files with initial/final state mappings and perturbation parameters
 
 ---
 
-## STEP 4 - Make Inputs for Relaxation
+## 🔧 STEP 4 - Relaxation Input Setup
 
-### Purpose
-Runs q_genrelax.py to generate comprehensive input files for molecular dynamics relaxation.
+### 🧪 Purpose
+Generates input files for energy minimization and equilibration.
 
-### Required Inputs
-- **`--genrelax.proc`**: Input parameters for relaxation including:
-  - Number of steps
-  - Temperature settings
-  - Bath coupling parameters
-  - Restraint definitions
+### 📥 Required Inputs
+- `--genrelax.proc`: Relaxation parameters
+- `--top`: Topology file
+- `--pdb`: Solvated structure
+- `--fep`: FEP file
+- `--outdir minim`: Output folder
+- `--rs run_qdyn_5.sh`: Qdyn execution script
 
-- **`--top`**: Specifies the topology file `${base_name}_solvated.top`
-
-- **`--pdb`**: Provides the structure file `${base_name}_solvated.pdb`
-
-- **`--fep`**: Supplies the Free Energy Perturbation (FEP) file from Step 3
-
-- **`--outdir minim`**: Defines the output directory for minimized structures
-
-- **`--rs run_qdyn_5.sh`**: Generates the qdyn execution script inside the minim folder
-
-### Process Flow
-1. Parameter validation and input file verification
-2. Generation of relaxation input files (`relax.inp*`)
-3. Creation of execution scripts for automated processing
-4. Directory structure setup for organized output management
+### 🔁 Steps
+- Validates inputs
+- Generates `.inp` files
+- Creates run scripts
+- Organizes output structure
 
 ---
 
-## STEP 5 - Make Minimized PDB for FEP Calculations
+## 🧬 STEP 5 - Minimized PDB for FEP
 
-### Purpose
-The script iterates over system directories to generate minimized PDB structures suitable for FEP calculations.
+### 🧪 Purpose
+Performs energy minimization and prepares PDBs for FEP simulations.
 
-### Process Details
-1. **Directory Scanning**:
-   - Iterates over System Directories
-   - Checks if each subdirectory contains a minim folder
-   - Searches for topology (.top) files in corresponding minim folders
+### ⚙️ Process
+1. Scans system directories
+2. Locates `relax_012.re` restart files
+3. Runs relaxation and prepares minimized structures
 
-2. **Relaxation Processing**:
-   - Identifies the last restart file `relax_012.re`
-   - Executes relaxation using the command: `rx $relax_file`
+### 📤 Output
+- `minim.pdb` saved in each system folder
 
-3. **Structure Generation**:
-   - Runs qprep5 specifying the .prm, .lib and relax file
-   - Writes the output minimized structure as `minim.pdb`
-   - Saves in the respective system folder
-
-### Quality Control
-- Verification of convergence criteria
-- Energy minimization validation
-- Structural integrity checks
+### ✅ Quality Checks
+- Convergence validation
+- Energy profile checks
+- Structural integrity
 
 ---
 
-## STEP 6 - Make Inputs for FEP
+## 🔂 STEP 6 - FEP Input Generation
 
-### Purpose
-Runs q_genfeps.py to generate comprehensive FEP calculation input files with multiple replica support.
+### 🧪 Purpose
+Generates complete FEP simulation input sets with replica support.
 
-### Required Inputs
-- **`--genfeps.proc`**: Input parameters for equilibration and FEP including:
-  - Number of steps
-  - Temperature control
-  - Bath coupling parameters
-  - Restraint specifications
+### 📥 Required Inputs
+- `--genfeps.proc`: Parameters for FEP and equilibration
+- `--pdb`: `minim.pdb`
+- `--repeats`: Number of replicas
+- `--frames`: e.g., `51`
+- `--fromlambda`: e.g., `1.0`
+- `--prefix`: e.g., `replica`
+- `--rs`: Execution script
 
-- **`--pdb`**: Uses the `minim.pdb` input file from each minim/ directory
+### 📁 Output
+FEP-ready folders per replica inside each system directory.
 
-- **`--repeats`**: Generates specified number of independent replicas for statistical robustness
+---
 
-- **`--frames 51`**: Configures 51 frames FEP calculation per replica
+## 📊 STEP 7 - Analysis with Qtools
 
-- **`--fromlambda 1.0`**: Sets the starting lambda value for FEP calculations
+### 🧪 Purpose
+Performs statistical evaluation of FEP results.
 
-- **`--prefix replica`**: Saves results in replica folders inside system directories
-
-- **`--rs run_qdyn_5.sh`**: Generates qdyn execution scripts inside each replica folder
-
-## STEP 7 - Running Qtools for Analysis
-
-### Purpose
-Comprehensive analysis of FEP calculations using Q software analysis tools.
-
-### Analysis Pipeline
+### 🧬 Pipeline
 
 #### 7.1 Data Mapping
-- **Tool**: q_mapper.py
-- **Scope**: Processes all replica directories (rep*)
-- **Function**: Maps FEP data for analysis compatibility
+- **Tool**: `q_mapper.py`
+- **Function**: Aggregates lambda data across replicas
 
 #### 7.2 FEP Analysis
-- **Tool**: q_analysefeps.py
-- **Scope**: Analyzes all replica directories (rep*)
-- **Output**: 
-  - Primary results saved in `test.out`
-  - Structured data in JSON format
+- **Tool**: `q_analysefeps.py`
+- **Output**: `test.out` + JSON structured data
 
-#### 7.3 Statistical Extraction
-- **Process**: Extract Key Statistics
-- **Method**: 
-  - Finds the line containing "Statistics" in `test.out`
-  - Extracts the next 5 lines of statistical data
-  - Saves processed statistics in `stats_output.txt`
+#### 7.3 Statistical Summary
+- Extracts block-averaged statistics
+- Stores results in `stats_output.txt`
 
 #### 7.4 Report Generation
-- **LaTeX Table**: Professional formatting for publication
-- **CSV File**: Data export for further processing
-- **Key Metrics**:
-  - Mean ΔG* value ± standard error
-  - Mean ΔG₀ value ± standard error
+- Exports:
+  - CSV tables for data science workflows
+  - LaTeX tables for publications
+
+### 📈 Key Metrics
+- Mean ΔG* ± SE
+- Mean ΔG₀ ± SE
+
+---
+
+## 📚 Acknowledgments
+
+This pipeline was built to support automated, reproducible FEP calculations in protein mutagenesis projects using the Q software suite.
 
