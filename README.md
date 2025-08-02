@@ -4,6 +4,7 @@ This guide presents a complete, automated workflow for conducting **Free Energy 
 
 ![Detailed Workflow](https://raw.githubusercontent.com/ND7996/GPX6/main/analysis/figures/detailed_workflow.drawio.png)
 
+# This workflow is generated using GPX6 protein as a model 
 ---
 
 ##  Workflow Overview
