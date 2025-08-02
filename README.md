@@ -6,7 +6,7 @@ This guide presents a complete, automated workflow for conducting **Free Energy 
 
 ---
 
-## 🧭 Workflow Overview
+##  Workflow Overview
 
 This pipeline automates the calculation of binding free energy differences through a structured 7-step process involving:
 
@@ -20,9 +20,9 @@ This pipeline automates the calculation of binding free energy differences throu
 
 ---
 
-## 🧱 STEP 1 - Structure Preparation
+##  STEP 1 - Structure Preparation
 
-### 🧪 Purpose
+### Purpose
 Automates point mutations in a PDB structure using PyMOL.
 
 ### ⚙️ Details
@@ -30,7 +30,7 @@ Automates point mutations in a PDB structure using PyMOL.
 - **Function**: Introduces predefined mutations (e.g., mouse-to-human substitutions or SEC incorporation)
 - **Output**: Individual PDB files for each variant
 
-### 🔑 Features
+###  Features
 - Automated mutation mapping
 - Preserves backbone integrity
 - Ensures mutation compatibility
@@ -38,49 +38,49 @@ Automates point mutations in a PDB structure using PyMOL.
 
 ---
 
-## 💧 STEP 2 - Solvation with Qprep
+##  STEP 2 - Solvation with Qprep
 
-### 🧪 Purpose
+###  Purpose
 Prepares solvated systems and topologies for MD relaxation.
 
-### ⚙️ Process
+###  Process
 1. Extracts base name from each PDB file
 2. Generates `.inp` file and runs `qprep5`
 3. Applies solvation and boundary conditions
 
-### 🧾 Output
+###  Output
 - `${base_name}_solvated.pdb`
 - `${base_name}_solvated.top`
 
-### ⚙️ Specifications
+###  Specifications
 - **Solvation**: Explicit water model
 - **Boundary Conditions**: Periodic
 - **Force Field**: Q-compatible
 
 ---
 
-## 📁 STEP 3 - FEP File Generation
+##  STEP 3 - FEP File Generation
 
-### 🧪 Purpose
+###  Purpose
 Uses `makeFEP.py` to create lambda-dependent FEP input files.
 
-### 📥 Inputs
+###  Inputs
 | File | Role |
 |------|------|
 | `fepmousecys.qmap` | Mapping for mouse WT |
 | `fephumansec.qmap` | Mapping for human WT |
 
-### 📤 Output
+###  Output
 - FEP files with initial/final state mappings and perturbation parameters
 
 ---
 
-## 🔧 STEP 4 - Relaxation Input Setup
+##  STEP 4 - Relaxation Input Setup
 
-### 🧪 Purpose
+###  Purpose
 Generates input files for energy minimization and equilibration.
 
-### 📥 Required Inputs
+###  Required Inputs
 - `--genrelax.proc`: Relaxation parameters
 - `--top`: Topology file
 - `--pdb`: Solvated structure
@@ -88,7 +88,7 @@ Generates input files for energy minimization and equilibration.
 - `--outdir minim`: Output folder
 - `--rs run_qdyn_5.sh`: Qdyn execution script
 
-### 🔁 Steps
+###  Steps
 - Validates inputs
 - Generates `.inp` files
 - Creates run scripts
@@ -96,32 +96,32 @@ Generates input files for energy minimization and equilibration.
 
 ---
 
-## 🧬 STEP 5 - Minimized PDB for FEP
+##  STEP 5 - Minimized PDB for FEP
 
-### 🧪 Purpose
+###  Purpose
 Performs energy minimization and prepares PDBs for FEP simulations.
 
-### ⚙️ Process
+### Process
 1. Scans system directories
 2. Locates `relax_012.re` restart files
 3. Runs relaxation and prepares minimized structures
 
-### 📤 Output
+###  Output
 - `minim.pdb` saved in each system folder
 
-### ✅ Quality Checks
+###  Quality Checks
 - Convergence validation
 - Energy profile checks
 - Structural integrity
 
 ---
 
-## 🔂 STEP 6 - FEP Input Generation
+## STEP 6 - FEP Input Generation
 
-### 🧪 Purpose
+### Purpose
 Generates complete FEP simulation input sets with replica support.
 
-### 📥 Required Inputs
+### Required Inputs
 - `--genfeps.proc`: Parameters for FEP and equilibration
 - `--pdb`: `minim.pdb`
 - `--repeats`: Number of replicas
@@ -130,17 +130,17 @@ Generates complete FEP simulation input sets with replica support.
 - `--prefix`: e.g., `replica`
 - `--rs`: Execution script
 
-### 📁 Output
+### Output
 FEP-ready folders per replica inside each system directory.
 
 ---
 
-## 📊 STEP 7 - Analysis with Qtools
+## STEP 7 - Analysis with Qtools
 
-### 🧪 Purpose
+### Purpose
 Performs statistical evaluation of FEP results.
 
-### 🧬 Pipeline
+### Pipeline
 
 #### 7.1 Data Mapping
 - **Tool**: `q_mapper.py`
@@ -165,7 +165,5 @@ Performs statistical evaluation of FEP results.
 
 ---
 
-## 📚 Acknowledgments
-
-This pipeline was built to support automated, reproducible FEP calculations in protein mutagenesis projects using the Q software suite.
+This pipeline is built to support automated FEP calculations in protein mutagenesis projects using the Q software suite.
 
