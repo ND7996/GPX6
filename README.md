@@ -25,7 +25,7 @@ This pipeline automates the calculation of binding free energy differences throu
 ### Purpose
 Automates point mutations in a PDB structure using PyMOL.
 
-### ⚙️ Details
+### Details
 - **Tool**: PyMOL automation script
 - **Function**: Introduces predefined mutations (e.g., mouse-to-human substitutions or SEC incorporation)
 - **Output**: Individual PDB files for each variant
