@@ -1,4 +1,4 @@
-![Detailed Workflow](https://raw.githubusercontent.com/ND7996/GPX6/main/figures/detailed_workflow.drawio.png)
+![Detailed Workflow](https://analysis/figures/detailed_workflow.drawio.png)
 
 
 # Free Energy Perturbation (FEP) Workflow Guide
