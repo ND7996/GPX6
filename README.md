@@ -1,8 +1,8 @@
-![Detailed Workflow](https://raw.githubusercontent.com/ND7996/GPX6/main/analysis/figures/detailed_workflow.drawio.png)
-
 # Free Energy Perturbation (FEP) Workflow Guide
 
 This guide presents a complete, automated workflow for conducting **Free Energy Perturbation (FEP)** calculations using the **Q software suite**. It covers all steps from initial structure preparation through final statistical analysis of free energy differences between protein variants.
+
+![Detailed Workflow](https://raw.githubusercontent.com/ND7996/GPX6/main/analysis/figures/detailed_workflow.drawio.png)
 
 ---
 
@@ -149,19 +149,6 @@ Performs statistical evaluation of FEP results.
 #### 7.2 FEP Analysis
 - **Tool**: `q_analysefeps.py`
 - **Output**: `test.out` + JSON structured data
-
-#### 7.3 Statistical Summary
-- Extracts block-averaged statistics
-- Stores results in `stats_output.txt`
-
-#### 7.4 Report Generation
-- Exports:
-  - CSV tables for data science workflows
-  - LaTeX tables for publications
-
-### 📈 Key Metrics
-- Mean ΔG* ± SE
-- Mean ΔG₀ ± SE
 
 ---
 
