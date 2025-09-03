@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MSA Large Alignment</title>
+    <style>
+        body {
+            font-family: 'Courier New', monospace;
+            background: white;
+            margin: 0;
+            padding: 30px;
+            font-size: 20px; /* Bigger font for larger alignment */
+            line-height: 1.8;
+        }
+        .msa-container {
+            width: 100%;
+            overflow-x: auto;
+        }
+        .sequence-row {
+            margin: 10px 0;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+        }
+        .seq-name {
+            display: inline-block;
+            width: 350px;
+            font-weight: bold;
+            margin-right: 30px;
+            padding: 8px 12px;
+            background: #f8f9fa;
+            color: #2c3e50;
+            border-radius: 4px;
+            font-size: 18px; /* Larger names */
+        }
+        .sequence {
+            font-family: 'Courier New', monospace;
+            letter-spacing: 2px; /* More space between residues */
+            font-size: 20px; /* Bigger residues */
+        }
+        .aa {
+            color: #2c3e50;
+            font-weight: 600;
+            padding: 3px 2px;
+            border-radius: 3px;
+        }
+        .gap {
+            color: #95a5a6;
+            opacity: 0.6;
+            padding: 3px 2px;
+            border-radius: 3px;
+        }
+        .highlighted {
+            border-radius: 4px;
+            padding: 3px 4px;
+            margin: 0 1px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+        }
+        .sequence-row:nth-child(even) {
+            background: rgba(248, 249, 250, 0.6);
+        }
+        h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 40px;
+            color: #2c3e50;
+        }
+    </style>
+</head>
+<body>
+    <div class="msa-container">
+        <h2>Multiple Sequence Alignment</h2>
+        <div class="sequence-row">
+            <span class="seq-name" title="original_humansec">original_humansec</span>
+            <span class="sequence"><span class='aa'>P</span><span class='aa'>Q</span><span class="aa highlighted" style="background-color: #E41A1C; color: white; font-weight: bold;">N</span><span class="aa highlighted" style="background-color: #377EB8; color: white; font-weight: bold;">R</span><span class='aa'>K</span><span class='aa'>V</span><span class='aa'>D</span><span class='aa'>C</span><span class='aa'>N</span><span class='aa'>K</span><span class='aa'>G</span><span class='aa'>V</span><span class='aa'>T</span><span class='aa'>G</span><span class='aa'>T</span><span class='aa'>I</span><span class='aa'>Y</span><span class='aa'>E</span><span class='aa'>Y</span><span class='aa'>G</span><span class='aa'>A</span><span class='aa'>L</span><span class='aa'>T</span><span class="aa highlighted" style="background-color: #E41A1C; color: white; font-weight: bold;">L</span><span class='aa'>N</span><span class='aa'>G</span><span class='aa'>E</span><span class='aa'>E</span><span class='aa'>Y</span><span class='aa'>I</span><span class='aa'>Q</span><span class='aa'>F</span><span class='aa'>K</span><span class='aa'>Q</span><span class='aa'>F</span><span class='aa'>A</span><span class='aa'>G</span><span class='aa'>K</span><span class='aa'>H</span><span class='aa'>V</span><span class='aa'>L</span><span class='aa'>F</span><span class='aa'>V</span><span class='aa'>N</span><span class='aa'>V</span><span class='aa'>A</span><span class="aa highlighted" style="background-color: #FF7F00; color: white; font-weight: bold;">A</span><span class="aa highlighted" style="background-color: #4DAF4A; color: white; font-weight: bold;">Y</span><span class='aa'>U</span><span class='aa'>G</span><span class='aa'>L</span><span class="aa highlighted" style="background-color: #984EA3; color: white; font-weight: bold;">A</span><span class='aa'>A</span><span class="aa highlighted" style="background-color: #A65628; color: white; font-weight: bold;">Q</span><span class='aa'>Y</span><span class='aa'>P</span><span class='aa'>E</span><span class='aa'>L</span><span class='aa'>N</span><span class="aa highlighted" style="background-color: #377EB8; color: white; font-weight: bold;">A</span><span class='aa'>L</span><span class='aa'>Q</span><span class='aa'>E</span><span class='aa'>E</span><span class='aa'>L</span><span class='aa'>K</span><span class='aa'>N</span><span class='aa'>F</span><span class='aa'>G</span><span class='aa'>V</span><span class='aa'>I</span><span class='aa'>V</span><span class='aa'>L</span><span class="aa highlighted" style="background-color: #7570B3; color: white; font-weight: bold;">A</span><span class='aa'>F</span><span class='aa'>P</span><span class='aa'>C</span><span class='aa'>N</span><span class='aa'>Q</span><span class='aa'>F</span><span class='aa'>G</span><span class='aa'>K</span><span class='aa'>Q</span><span class='aa'>E</span><span class='aa'>P</span><span class='aa'>G</span><span class="aa highlighted" style="background-color: #1F78B4; color: white; font-weight: bold;">T</span><span class='aa'>N</span><span class='aa'>S</span><span class='aa'>E</span><span class='aa'>I</span><span class='aa'>L</span><span class='aa'>L</span><span class='aa'>G</span><span class='aa'>L</span><span class='aa'>K</span><span class='aa'>Y</span><span class='aa'>V</span><span class="aa highlighted" style="background-color: #FFFF33; color: white; font-weight: bold;">C</span><span class='aa'>P</span><span class='aa'>G</span><span class="aa highlighted" style="background-color: #FB9A99; color: white; font-weight: bold;">S</span><span class='aa'>G</span><span class="aa highlighted" style="background-color: #CAB2D6; color: white; font-weight: bold;">F</span><span class='aa'>V</span><span class='aa'>P</span><span class="aa highlighted" style="background-color: #FDBF6F; color: white; font-weight: bold;">S</span><span class='aa'>F</span><span class='aa'>Q</span><span class='aa'>L</span><span class='aa'>F</span><span class='aa'>E</span><span class='aa'>K</span><span class='aa'>G</span><span class='aa'>D</span><span class='aa'>V</span><span class='aa'>N</span><span class='aa'>G</span><span class='aa'>E</span><span class='aa'>K</span><span class='aa'>E</span><span class='aa'>Q</span><span class='aa'>K</span><span class='aa'>V</span><span class='aa'>F</span><span class='aa'>T</span><span class='aa'>F</span><span class='aa'>L</span><span class='aa'>K</span><span class='aa'>N</span><span class='aa'>S</span><span class='aa'>C</span><span class='aa'>P</span><span class='aa'>P</span><span class='aa'>T</span><span class='aa'>S</span><span class='aa'>D</span><span class='aa'>L</span><span class="aa highlighted" style="background-color: #E31A1C; color: white; font-weight: bold;">L</span><span class='aa'>G</span><span class='aa'>S</span><span class="aa highlighted" style="background-color: #33A02C; color: white; font-weight: bold;">S</span><span class="aa highlighted" style="background-color: #66A61E; color: white; font-weight: bold;">S</span><span class="aa highlighted" style="background-color: #1B9E77; color: white; font-weight: bold;">Q</span><span class='aa'>L</span><span class='aa'>F</span><span class='aa'>W</span><span class='aa'>E</span><span class='aa'>P</span><span class='aa'>M</span><span class='aa'>K</span><span class='aa'>V</span><span class='aa'>H</span><span class='aa'>D</span><span class='aa'>I</span><span class='aa'>R</span><span class='aa'>W</span><span class='aa'>N</span><span class='aa'>F</span><span class='aa'>E</span><span class='aa'>K</span><span class='aa'>F</span><span class='aa'>L</span><span class='aa'>V</span><span class='aa'>G</span><span class='aa'>P</span><span class='aa'>D</span><span class='aa'>G</span><span class='aa'>V</span><span class='aa'>P</span><span class='aa'>V</span><span class='aa'>M</span><span class="aa highlighted" style="background-color: #984EA3; color: white; font-weight: bold;">H</span><span class='aa'>W</span><span class='aa'>F</span><span class='aa'>H</span><span class="aa highlighted" style="background-color: #F781BF; color: white; font-weight: bold;">Q</span><span class="aa highlighted" style="background-color: #D95F02; color: white; font-weight: bold;">A</span><span class='aa'>P</span><span class='aa'>V</span><span class="aa highlighted" style="background-color: #4DAF4A; color: white; font-weight: bold;">S</span><span class='aa'>T</span><span class='aa'>V</span><span class='aa'>K</span><span class='aa'>S</span><span class='aa'>D</span><span class='aa'>I</span><span class='aa'>L</span><span class='aa'>E</span><span class='aa'>Y</span><span class='aa'>L</span><span class='aa'>K</span><span class='aa'>Q</span><span class='aa'>F</span><span class='aa'>N</span><span class='aa'>T</span><span class='aa'>H</span></span>
+        </div>
+        <div class="sequence-row">
+            <span class="seq-name" title="original_mousecys">original_mousecys</span>
+            <span class="sequence"><span class='aa'>P</span><span class='aa'>Q</span><span class="aa highlighted" style="background-color: #E41A1C; color: white; font-weight: bold;">K</span><span class="aa highlighted" style="background-color: #377EB8; color: white; font-weight: bold;">S</span><span class='aa'>K</span><span class='aa'>V</span><span class='aa'>D</span><span class='aa'>C</span><span class='aa'>N</span><span class='aa'>K</span><span class='aa'>G</span><span class='aa'>V</span><span class='aa'>T</span><span class='aa'>G</span><span class='aa'>T</span><span class='aa'>V</span><span class='aa'>Y</span><span class='aa'>E</span><span class='aa'>Y</span><span class='aa'>G</span><span class='aa'>A</span><span class='aa'>N</span><span class='aa'>T</span><span class="aa highlighted" style="background-color: #E41A1C; color: white; font-weight: bold;">I</span><span class='aa'>D</span><span class='aa'>G</span><span class='aa'>G</span><span class='aa'>E</span><span class='aa'>F</span><span class='aa'>V</span><span class='aa'>N</span><span class='aa'>F</span><span class='aa'>Q</span><span class='aa'>Q</span><span class='aa'>Y</span><span class='aa'>A</span><span class='aa'>G</span><span class='aa'>K</span><span class='aa'>H</span><span class='aa'>I</span><span class='aa'>L</span><span class='aa'>F</span><span class='aa'>V</span><span class='aa'>N</span><span class='aa'>V</span><span class='aa'>A</span><span class="aa highlighted" style="background-color: #FF7F00; color: white; font-weight: bold;">S</span><span class="aa highlighted" style="background-color: #4DAF4A; color: white; font-weight: bold;">F</span><span class='aa'>C</span><span class='aa'>G</span><span class='aa'>L</span><span class="aa highlighted" style="background-color: #984EA3; color: white; font-weight: bold;">T</span><span class='aa'>A</span><span class="aa highlighted" style="background-color: #A65628; color: white; font-weight: bold;">T</span><span class='aa'>Y</span><span class='aa'>P</span><span class='aa'>E</span><span class='aa'>L</span><span class='aa'>N</span><span class="aa highlighted" style="background-color: #377EB8; color: white; font-weight: bold;">T</span><span class='aa'>L</span><span class='aa'>Q</span><span class='aa'>E</span><span class='aa'>E</span><span class='aa'>L</span><span class='aa'>K</span><span class='aa'>P</span><span class='aa'>F</span><span class='aa'>N</span><span class='aa'>V</span><span class='aa'>T</span><span class='aa'>V</span><span class='aa'>L</span><span class="aa highlighted" style="background-color: #7570B3; color: white; font-weight: bold;">G</span><span class='aa'>F</span><span class='aa'>P</span><span class='aa'>C</span><span class='aa'>N</span><span class='aa'>Q</span><span class='aa'>F</span><span class='aa'>G</span><span class='aa'>K</span><span class='aa'>Q</span><span class='aa'>E</span><span class='aa'>P</span><span class='aa'>G</span><span class="aa highlighted" style="background-color: #1F78B4; color: white; font-weight: bold;">K</span><span class='aa'>N</span><span class='aa'>S</span><span class='aa'>E</span><span class='aa'>I</span><span class='aa'>L</span><span class='aa'>L</span><span class='aa'>G</span><span class='aa'>L</span><span class='aa'>K</span><span class='aa'>Y</span><span class='aa'>V</span><span class="aa highlighted" style="background-color: #FFFF33; color: white; font-weight: bold;">R</span><span class='aa'>P</span><span class='aa'>G</span><span class="aa highlighted" style="background-color: #FB9A99; color: white; font-weight: bold;">G</span><span class='aa'>G</span><span class="aa highlighted" style="background-color: #CAB2D6; color: white; font-weight: bold;">Y</span><span class='aa'>V</span><span class='aa'>P</span><span class="aa highlighted" style="background-color: #FDBF6F; color: white; font-weight: bold;">N</span><span class='aa'>F</span><span class='aa'>Q</span><span class='aa'>L</span><span class='aa'>F</span><span class='aa'>E</span><span class='aa'>K</span><span class='aa'>G</span><span class='aa'>D</span><span class='aa'>V</span><span class='aa'>N</span><span class='aa'>G</span><span class='aa'>D</span><span class='aa'>N</span><span class='aa'>E</span><span class='aa'>Q</span><span class='aa'>K</span><span class='aa'>V</span><span class='aa'>F</span><span class='aa'>S</span><span class='aa'>F</span><span class='aa'>L</span><span class='aa'>K</span><span class='aa'>N</span><span class='aa'>S</span><span class='aa'>C</span><span class='aa'>P</span><span class='aa'>P</span><span class='aa'>T</span><span class='aa'>S</span><span class='aa'>E</span><span class='aa'>L</span><span class="aa highlighted" style="background-color: #E31A1C; color: white; font-weight: bold;">F</span><span class='aa'>G</span><span class='aa'>S</span><span class="aa highlighted" style="background-color: #33A02C; color: white; font-weight: bold;">P</span><span class="aa highlighted" style="background-color: #66A61E; color: white; font-weight: bold;">E</span><span class="aa highlighted" style="background-color: #1B9E77; color: white; font-weight: bold;">H</span><span class='aa'>L</span><span class='aa'>F</span><span class='aa'>W</span><span class='aa'>D</span><span class='aa'>P</span><span class='aa'>M</span><span class='aa'>K</span><span class='aa'>V</span><span class='aa'>H</span><span class='aa'>D</span><span class='aa'>I</span><span class='aa'>R</span><span class='aa'>W</span><span class='aa'>N</span><span class='aa'>F</span><span class='aa'>E</span><span class='aa'>K</span><span class='aa'>F</span><span class='aa'>L</span><span class='aa'>V</span><span class='aa'>G</span><span class='aa'>P</span><span class='aa'>D</span><span class='aa'>G</span><span class='aa'>V</span><span class='aa'>P</span><span class='aa'>V</span><span class='aa'>M</span><span class="aa highlighted" style="background-color: #984EA3; color: white; font-weight: bold;">R</span><span class='aa'>W</span><span class='aa'>F</span><span class='aa'>H</span><span class="aa highlighted" style="background-color: #F781BF; color: white; font-weight: bold;">H</span><span class="aa highlighted" style="background-color: #D95F02; color: white; font-weight: bold;">T</span><span class='aa'>P</span><span class='aa'>V</span><span class="aa highlighted" style="background-color: #4DAF4A; color: white; font-weight: bold;">R</span><span class='aa'>I</span><span class='aa'>V</span><span class='aa'>Q</span><span class='aa'>S</span><span class='aa'>D</span><span class='aa'>I</span><span class='aa'>M</span><span class='aa'>E</span><span class='aa'>Y</span><span class='aa'>L</span><span class='aa'>N</span><span class='aa'>Q</span><span class='aa'>T</span><span class='aa'>S</span><span class='gap'>-</span><span class='gap'>-</span></span>
+        </div>
+
+    </div>
+</body>
+</html>
