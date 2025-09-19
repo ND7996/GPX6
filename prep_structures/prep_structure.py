@@ -3,25 +3,32 @@ import subprocess
 import tempfile
 import shutil
 
+# ================================
+# HARDCODED PATHS - CHANGE THESE!
+# ================================
+BASE_PDB_FILE = "/home/hp/nayanika/github/GPX6/prep_structures/MOUSE/mutant_pdbs/GPX6_level20.pdb"
+MUTATIONS_FILE = "/home/hp/nayanika/github/GPX6/prep_structures/MOUSE/level20.txt"
+OUTPUT_DIR = "/home/hp/nayanika/github/GPX6/prep_structures/MOUSE/level20"
+LEVEL_NUMBER = 3
+# ================================
+
 # Mapping of one-letter to three-letter amino acid codes
 amino_acid_map = {
     'A': 'ALA', 'R': 'ARG', 'N': 'ASN', 'D': 'ASP', 'C': 'CYS', 'E': 'GLU', 
-    'Q': 'GLN', 'G': 'GLY', 'H': 'HID', 'I': 'ILE', 'L': 'LEU', 'K': 'LYS',  # Changed 'H': 'HIS' to 'H': 'HID'
+    'Q': 'GLN', 'G': 'GLY', 'H': 'HID', 'I': 'ILE', 'L': 'LEU', 'K': 'LYS',
     'M': 'MET', 'F': 'PHE', 'P': 'PRO', 'S': 'SER', 'T': 'THR', 'W': 'TRP', 
-    'Y': 'TYR', 'V': 'VAL', 'U': 'SEC'  # Adding SEC for selenocysteine
+    'Y': 'TYR', 'V': 'VAL', 'U': 'SEC'
 }
 
 def read_mutations_from_file(file_path):
     """
     Reads mutation data from a text file.
-    :param file_path: Path to the mutations.txt file
-    :return: List of mutations in the format [(ResidueNumber, OriginalAA, MutatedAA), ...]
     """
     mutations = []
     with open(file_path, 'r') as f:
         for line in f:
             line = line.strip()
-            if line:  # Skip empty lines
+            if line:
                 parts = line.split()
                 if len(parts) == 3:
                     res_num, original_aa, mutated_aa = parts
@@ -44,236 +51,151 @@ def fix_histidine_naming(pdb_file, output_file):
     with open(output_file, 'w') as f:
         f.writelines(modified_lines)
 
-def run_pymol_mutation(pdb_file, resi, original_aa, mutated_aa, output_dir):
+def create_isolated_mutation_script(base_pdb, resi, original_aa, mutated_aa, output_file):
     """
-    Run PyMOL directly to perform a mutation and save the result
+    Create a completely isolated PyMOL script for a single mutation
     """
-    # Ensure output directory exists
-    if not os.path.exists(output_dir):
-        os.makedirs(output_dir)
+    three_letter_mutated = amino_acid_map.get(mutated_aa, "UNK")
     
-    # First, create a temporary PDB with HIS→HID conversion
-    temp_input_file = tempfile.mktemp(suffix='.pdb')
-    fix_histidine_naming(pdb_file, temp_input_file)
+    script_content = f"""# Isolated mutation script for {original_aa}{resi}{mutated_aa}
+# Load the original structure
+load {base_pdb}, original
+
+# Create a fresh copy for mutation (ensures no accumulation)
+create mutant, original
+
+# Select only the mutant structure and perform single mutation
+wizard mutagenesis
+select target, mutant and resi {resi}
+cmd.get_wizard().do_select("target")
+cmd.get_wizard().set_mode("{three_letter_mutated}")
+cmd.get_wizard().apply()
+cmd.set_wizard()
+
+# Clean up
+remove hydro
+remove solvent
+
+# Save only the mutant structure
+save {output_file}, mutant
+
+# Quit completely to ensure no state is preserved
+quit
+"""
+    return script_content
+
+def process_single_mutation_isolated(base_pdb, resi, original_aa, mutated_aa, output_file):
+    """
+    Process a single mutation in complete isolation
+    """
+    # Create temporary script file
+    script_file = tempfile.mktemp(suffix='.pml')
+    script_content = create_isolated_mutation_script(base_pdb, resi, original_aa, mutated_aa, output_file)
     
-    output_file = os.path.join(output_dir, f"{original_aa}{resi}{mutated_aa}.pdb")
-    three_letter_residue = amino_acid_map.get(mutated_aa, "UNK")
-    
-    # Create a one-line PyMOL command to execute
-    cmd_line = (
-        f'reinitialize; load {temp_input_file}, struct; '
-        f'wizard mutagenesis; '
-        f'select target, resi {resi}; '
-        f'cmd.get_wizard().do_select("target"); '
-        f'cmd.get_wizard().set_mode("{three_letter_residue}"); '
-        f'cmd.get_wizard().apply(); '
-        f'cmd.set_wizard(); '
-        f'remove hydro; remove solvent; '
-        f'save {output_file}, struct'
-    )
+    with open(script_file, 'w') as f:
+        f.write(script_content)
     
     try:
-        print(f"Running PyMOL for mutation {original_aa}{resi}{mutated_aa}")
-        # Run PyMOL in command mode with the command line passed via -x
-        result = subprocess.run(
-            ['pymol', '-cq', '-d', 'python', '-x', cmd_line],
-            capture_output=True, 
-            text=True,
-            check=False
-        )
+        print(f"  Processing {original_aa}{resi}{mutated_aa}...")
         
-        # Print output for debugging
-        print(f"PyMOL stdout: {result.stdout}")
-        print(f"PyMOL stderr: {result.stderr}")
+        # Run PyMOL with the script - this starts a completely fresh instance
+        result = subprocess.run([
+            'pymol', '-cq', script_file
+        ], capture_output=True, text=True, timeout=120)  # 2 minute timeout
         
-        # Check if output file was created
+        # Check if output was created
         if os.path.exists(output_file):
-            print(f"Success: Created {output_file}")
-            
-            # Always fix histidine naming
-            print(f"Fixing histidine naming for mutation {original_aa}{resi}{mutated_aa}")
+            # Fix histidine naming
             temp_file = output_file + ".temp"
             shutil.move(output_file, temp_file)
             fix_histidine_naming(temp_file, output_file)
             os.remove(temp_file)
-            
-            os.remove(temp_input_file)  # Cleanup temp input file
+            print(f"  ✅ Success: {original_aa}{resi}{mutated_aa}.pdb")
             return True
         else:
-            print(f"Error: Failed to create output file {output_file}")
-            os.remove(temp_input_file)  # Cleanup temp input file
+            print(f"  ❌ Failed: {original_aa}{resi}{mutated_aa} - No output file created")
+            if result.stderr:
+                print(f"    Error: {result.stderr[:200]}...")  # Show first 200 chars of error
             return False
             
-    except Exception as e:
-        print(f"Error running PyMOL: {e}")
-        if os.path.exists(temp_input_file):
-            os.remove(temp_input_file)  # Cleanup temp input file
+    except subprocess.TimeoutExpired:
+        print(f"  ❌ Failed: {original_aa}{resi}{mutated_aa} - Timeout")
         return False
-
-def create_direct_pymol_script(pdb_file, mutations, output_dir):
-    """
-    Create a direct PyMOL script approach as alternative
-    """
-    # Create the output directory if needed
-    if not os.path.exists(output_dir):
-        os.makedirs(output_dir)
-    
-    # First, create a temporary PDB with HIS→HID conversion
-    temp_input_file = tempfile.mktemp(suffix='.pdb')
-    fix_histidine_naming(pdb_file, temp_input_file)
-        
-    # Create a temporary script file
-    with tempfile.NamedTemporaryFile(suffix='.pml', delete=False, mode='w') as f:
-        script_path = f.name
-        
-        # Write header
-        f.write("# PyMOL script to perform mutations\n\n")
-        
-        # Process each mutation
-        for resi, original_aa, mutated_aa in mutations:
-            output_file = os.path.join(output_dir, f"{original_aa}{resi}{mutated_aa}.pdb")
-            three_letter_residue = amino_acid_map.get(mutated_aa, "UNK")
-            
-            f.write(f"# Processing mutation {original_aa}{resi}{mutated_aa}\n")
-            f.write("reinitialize\n")
-            f.write(f"load {temp_input_file}, structure\n")
-            f.write("wizard mutagenesis\n")
-            f.write(f"select target, resi {resi}\n")
-            f.write("cmd.get_wizard().do_select('target')\n")
-            f.write(f"cmd.get_wizard().set_mode('{three_letter_residue}')\n")
-            f.write("cmd.get_wizard().apply()\n")
-            f.write("cmd.set_wizard()\n")
-            f.write("remove hydro\n")
-            f.write("remove solvent\n")
-            f.write(f"save {output_file}, structure\n\n")
-    
-    # Run the script
-    try:
-        print(f"Running PyMOL script for all mutations")
-        result = subprocess.run(
-            ['pymol', '-cq', '-d', 'python', script_path],
-            capture_output=True, 
-            text=True,
-            check=False
-        )
-        
-        print(f"PyMOL stdout: {result.stdout}")
-        print(f"PyMOL stderr: {result.stderr}")
-        
-        # Check for output files
-        success = True
-        for resi, original_aa, mutated_aa in mutations:
-            output_file = os.path.join(output_dir, f"{original_aa}{resi}{mutated_aa}.pdb")
-            if not os.path.exists(output_file):
-                print(f"Failed to create: {output_file}")
-                success = False
-            else:
-                print(f"Successfully created: {output_file}")
-                
-                # Always fix histidine naming for all output files
-                print(f"Fixing histidine naming for mutation {original_aa}{resi}{mutated_aa}")
-                temp_file = output_file + ".temp"
-                shutil.move(output_file, temp_file)
-                fix_histidine_naming(temp_file, output_file)
-                os.remove(temp_file)
-        
-        # Clean up script file and temp input file
-        os.remove(script_path)
-        os.remove(temp_input_file)
-        return success
-        
     except Exception as e:
-        print(f"Error running PyMOL script: {e}")
-        # Clean up script file and temp input file
-        if os.path.exists(script_path):
-            os.remove(script_path)
-        if os.path.exists(temp_input_file):
-            os.remove(temp_input_file)
+        print(f"  ❌ Failed: {original_aa}{resi}{mutated_aa} - {e}")
         return False
+    finally:
+        # Clean up script file
+        if os.path.exists(script_file):
+            os.remove(script_file)
 
-def create_pymol_batch_file(pdb_file, mutations, output_dir):
+def process_single_level():
     """
-    Create a batch file approach for running each mutation individually
+    Process a single level with hardcoded paths
     """
-    # Create temporary directory for batch processing
-    temp_dir = tempfile.mkdtemp()
+    # Check if files exist
+    if not os.path.exists(BASE_PDB_FILE):
+        print(f"Error: Base PDB file not found: {BASE_PDB_FILE}")
+        return False
     
-    # First, create a temporary PDB with HIS→HID conversion
-    temp_input_file = tempfile.mktemp(suffix='.pdb')
-    fix_histidine_naming(pdb_file, temp_input_file)
+    if not os.path.exists(MUTATIONS_FILE):
+        print(f"Error: Mutations file not found: {MUTATIONS_FILE}")
+        return False
     
-    # Create individual script files for each mutation
-    script_files = []
-    for resi, original_aa, mutated_aa in mutations:
-        output_file = os.path.join(output_dir, f"{original_aa}{resi}{mutated_aa}.pdb")
-        three_letter_residue = amino_acid_map.get(mutated_aa, "UNK")
+    print(f"\n{'='*60}")
+    print(f"PROCESSING LEVEL {LEVEL_NUMBER}")
+    print(f"{'='*60}")
+    print(f"Base PDB: {BASE_PDB_FILE}")
+    print(f"Mutations file: {MUTATIONS_FILE}")
+    print(f"Output directory: {OUTPUT_DIR}")
+    
+    # Read mutations
+    mutations_list = read_mutations_from_file(MUTATIONS_FILE)
+    print(f"Found {len(mutations_list)} mutations")
+    
+    # Create output directory
+    if not os.path.exists(OUTPUT_DIR):
+        os.makedirs(OUTPUT_DIR)
+        print(f"Created output directory: {OUTPUT_DIR}")
+    
+    # Create fixed version of input PDB (HIS -> HID)
+    print("Creating fixed base PDB (HIS -> HID)...")
+    fixed_base_pdb = tempfile.mktemp(suffix='.pdb')
+    fix_histidine_naming(BASE_PDB_FILE, fixed_base_pdb)
+    
+    # Process each mutation in complete isolation
+    success_count = 0
+    total_mutations = len(mutations_list)
+    
+    for i, (resi, original_aa, mutated_aa) in enumerate(mutations_list, 1):
+        output_file = os.path.join(OUTPUT_DIR, f"{original_aa}{resi}{mutated_aa}.pdb")
         
-        script_file = os.path.join(temp_dir, f"mutation_{original_aa}{resi}{mutated_aa}.pml")
-        with open(script_file, 'w') as f:
-            f.write("reinitialize\n")
-            f.write(f"load {temp_input_file}, structure\n")
-            f.write("wizard mutagenesis\n")
-            f.write(f"select target, resi {resi}\n")
-            f.write("cmd.get_wizard().do_select('target')\n")
-            f.write(f"cmd.get_wizard().set_mode('{three_letter_residue}')\n")
-            f.write("cmd.get_wizard().apply()\n")
-            f.write("cmd.set_wizard()\n")
-            f.write("remove hydro\n")
-            f.write("remove solvent\n")
-            f.write(f"save {output_file}, structure\n")
-            f.write("quit\n")
+        print(f"\n[{i}/{total_mutations}] Creating {original_aa}{resi}{mutated_aa}.pdb")
         
-        script_files.append((script_file, original_aa, resi, mutated_aa))
+        if process_single_mutation_isolated(fixed_base_pdb, resi, original_aa, mutated_aa, output_file):
+            success_count += 1
     
-    # Create the output directory if needed
-    if not os.path.exists(output_dir):
-        os.makedirs(output_dir)
+    # Clean up
+    if os.path.exists(fixed_base_pdb):
+        os.remove(fixed_base_pdb)
     
-    # Process each script file
-    for script_file, original_aa, resi, mutated_aa in script_files:
-        try:
-            print(f"Processing mutation {original_aa}{resi}{mutated_aa}")
-            subprocess.run(['pymol', '-qc', script_file], check=False)
-            
-            output_file = os.path.join(output_dir, f"{original_aa}{resi}{mutated_aa}.pdb")
-            if os.path.exists(output_file):
-                print(f"Successfully created: {output_file}")
-                
-                # Always fix histidine naming for all output files
-                print(f"Fixing histidine naming for output file")
-                temp_file = output_file + ".temp"
-                shutil.move(output_file, temp_file)
-                fix_histidine_naming(temp_file, output_file)
-                os.remove(temp_file)
-            else:
-                print(f"Failed to create: {output_file}")
-                
-        except Exception as e:
-            print(f"Error processing {script_file}: {e}")
+    print(f"\nLevel {LEVEL_NUMBER} Summary:")
+    print(f"Successful mutations: {success_count}/{total_mutations}")
+    print(f"Output directory: {OUTPUT_DIR}")
+    print(f"{'='*60}")
     
-    # Clean up temporary directory and input file
-    shutil.rmtree(temp_dir)
-    os.remove(temp_input_file)
+    return success_count == total_mutations
+
+def main():
+    """
+    Main function
+    """
+    success = process_single_level()
+    
+    if success:
+        print("🎉 All mutations processed successfully!")
+    else:
+        print("⚠️  Some mutations failed. Check the output above.")
 
 if __name__ == "__main__":
-    # Define input files using absolute paths
-    pdb_file_path = "/home/hp/results/HUMAN/level18/A178T/minim/minim.pdb"  # Absolute path to PDB file
-    mutations_file = "/home/hp/nayanika/github/GPX6/prep_structures/HUMAN/level19.txt"   # Absolute path to mutation list file
-    
-    # Ensure output directory exists using an absolute path
-    output_dir = "/home/hp/nayanika/github/GPX6/prep_structures/HUMAN/level19"
-    
-    # First, create a version of the input PDB with HIS fixed to HID
-    print("Converting input PDB file histidines from HIS to HID")
-    fixed_input_pdb = pdb_file_path + ".fixed.pdb"
-    fix_histidine_naming(pdb_file_path, fixed_input_pdb)
-    
-    # Read mutations from file
-    mutations_list = read_mutations_from_file(mutations_file)
-    
-    # Method selection - try different approaches
-    print("Using batch file approach for mutations")
-    create_pymol_batch_file(fixed_input_pdb, mutations_list, output_dir)
-    
-    # Clean up the fixed input PDB
-    os.remove(fixed_input_pdb)
+    main()
