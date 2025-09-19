@@ -6,9 +6,9 @@ import shutil
 # ================================
 # HARDCODED PATHS - CHANGE THESE!
 # ================================
-BASE_PDB_FILE = "/home/hp/nayanika/github/GPX6/prep_structures/MOUSE/mutant_pdbs/GPX6_level20.pdb"
-MUTATIONS_FILE = "/home/hp/nayanika/github/GPX6/prep_structures/MOUSE/level20.txt"
-OUTPUT_DIR = "/home/hp/nayanika/github/GPX6/prep_structures/MOUSE/level20"
+BASE_PDB_FILE = "/home/hp/nayanika/github/GPX6/prep_structures/HUMAN/mutant_pdbs/GPX6_level19.pdb"
+MUTATIONS_FILE = "/home/hp/nayanika/github/GPX6/prep_structures/HUMAN/level19.txt"
+OUTPUT_DIR = "/home/hp/nayanika/github/GPX6/prep_structures/HUMAN/level19"
 LEVEL_NUMBER = 3
 # ================================
 
