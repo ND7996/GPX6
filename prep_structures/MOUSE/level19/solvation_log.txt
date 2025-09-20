@@ -1,0 +1,10 @@
+Starting solvation process at Sat Sep 20 09:06:27 PM CEST 2025
+Processing E143S...
+Successfully created solvated structure for E143S
+Processing F48Y...
+Successfully created solvated structure for F48Y
+Solvation process completed at Sat Sep 20 09:06:35 PM CEST 2025
+Summary:
+Total PDB files: 2
+Successfully solvated: 2
+Failed: 0
