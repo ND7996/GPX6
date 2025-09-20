@@ -45,12 +45,12 @@ aa_mapping = {
     'G': 'GLY', 'H': 'HIS', 'I': 'ILE', 'K': 'LYS', 'L': 'LEU',
     'M': 'MET', 'N': 'ASN', 'P': 'PRO', 'Q': 'GLN', 'R': 'ARG',
     'S': 'SER', 'T': 'THR', 'V': 'VAL', 'W': 'TRP', 'Y': 'TYR',
-    'U': 'SEC'  # Selenocysteine
+    'U': 'CYS'  # TEMPORARY: Use CYS first, then manually change to SEC
 }
 
-def apply_mutation_direct(mutation_str, object_name="protein"):
+def apply_mutation_simple(mutation_str, object_name="protein"):
     """
-    Apply mutation using direct residue name change
+    Apply mutation using simple approach
     """
     if len(mutation_str) < 3:
         print(f"Invalid mutation format: {mutation_str}")
@@ -70,55 +70,24 @@ def apply_mutation_direct(mutation_str, object_name="protein"):
         # Get 3-letter code for new amino acid
         new_resn = aa_mapping.get(new_aa, new_aa)
         
-        # Method 1: Direct residue name alteration
-        cmd.alter(f"resi {position} and {object_name}", f"resn='{new_resn}'")
+        # Use mutagenesis wizard
+        cmd.wizard("mutagenesis")
+        cmd.refresh_wizard()
+        cmd.get_wizard().do_select(f"({object_name} and resi {position})")
+        cmd.get_wizard().set_mode(new_resn)
+        cmd.get_wizard().apply()
+        cmd.set_wizard()
         
-        print(f"Applied mutation: {original_aa}{position}{new_aa} ({new_resn})")
+        print(f"Applied mutation: {original_aa}{position}{new_aa}")
         return True
         
     except Exception as e:
         print(f"Error applying mutation {mutation_str}: {str(e)}")
         return False
 
-def apply_mutation_wizard(mutation_str, object_name="protein"):
-    """
-    Apply mutation using PyMOL wizard method (alternative approach)
-    """
-    if len(mutation_str) < 3:
-        return False
-        
-    original_aa = mutation_str[0]
-    new_aa = mutation_str[-1]
-    position = mutation_str[1:-1]
-    
-    try:
-        # Check if residue exists
-        selection = f"resi {position} and {object_name}"
-        if cmd.count_atoms(selection) == 0:
-            return False
-        
-        # Start mutagenesis wizard
-        cmd.wizard("mutagenesis")
-        cmd.refresh_wizard()
-        
-        # Set the mutation
-        cmd.get_wizard().set_mode(new_aa)
-        cmd.get_wizard().do_select(selection)
-        cmd.get_wizard().apply()
-        
-        # End wizard
-        cmd.set_wizard()
-        
-        print(f"Applied mutation (wizard): {original_aa}{position}{new_aa}")
-        return True
-        
-    except Exception as e:
-        print(f"Error with wizard method: {str(e)}")
-        return False
-
 def create_mutant_pdb_simple(level, mutations, output_dir="mutant_pdbs"):
     """
-    Create mutant PDB using simple residue name replacement
+    Create mutant PDB using simple approach
     """
     os.makedirs(output_dir, exist_ok=True)
     
@@ -134,22 +103,16 @@ def create_mutant_pdb_simple(level, mutations, output_dir="mutant_pdbs"):
     
     # Apply mutations
     for mutation in mutations:
-        success = apply_mutation_direct(mutation, "protein")
+        success = apply_mutation_simple(mutation, "protein")
         if success:
             successful_mutations.append(mutation)
         else:
-            # Try wizard method as backup
-            if apply_mutation_wizard(mutation, "protein"):
-                successful_mutations.append(mutation)
-            else:
-                failed_mutations.append(mutation)
+            failed_mutations.append(mutation)
     
-    # Rebuild and optimize
-    cmd.h_add("protein")
+    # Basic cleanup
     cmd.remove("solvent")
     
     # Save file
-    clean_mutations = [m.replace('U', 'Sec') for m in mutations]  # Make filename safe
     output_filename = f"GPX6_level{level:02d}.pdb"
     output_path = os.path.join(output_dir, output_filename)
     
@@ -162,6 +125,9 @@ def create_mutant_pdb_simple(level, mutations, output_dir="mutant_pdbs"):
             print(f"  Failed: {', '.join(failed_mutations)}")
     except Exception as e:
         print(f"✗ Error saving: {str(e)}")
+    
+    # Clean up
+    cmd.delete("protein")
 
 def create_pml_script(output_dir="mutant_pdbs"):
     """
@@ -189,7 +155,7 @@ copy level{level}, original
                     new_resn = aa_mapping.get(new_aa, new_aa)
                     pml_content += f"alter resi {position} and level{level}, resn='{new_resn}'\n"
             
-            pml_content += f"h_add level{level}\n"
+            pml_content += f"remove solvent\n"
             pml_content += f"save {output_dir}/GPX6_level{level:02d}.pdb, level{level}\n"
             pml_content += f"delete level{level}\n\n"
     

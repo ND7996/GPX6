@@ -1,0 +1,8 @@
+Starting solvation process at Sat Sep 20 04:57:06 PM CEST 2025
+Processing A74G...
+Successfully created solvated structure for A74G
+Solvation process completed at Sat Sep 20 04:57:10 PM CEST 2025
+Summary:
+Total PDB files: 1
+Successfully solvated: 1
+Failed: 0

@@ -6,7 +6,7 @@ load /home/hp/nayanika/github/GPX6/humanWT/humanWT.pdb, original
 # Level 1: T87K
 copy level1, original
 alter resi 87 and level1, resn='LYS'
-h_add level1
+remove solvent
 save mutant_pdbs/GPX6_level01.pdb, level1
 delete level1
 
@@ -14,7 +14,7 @@ delete level1
 copy level2, original
 alter resi 87 and level2, resn='LYS'
 alter resi 47 and level2, resn='SER'
-h_add level2
+remove solvent
 save mutant_pdbs/GPX6_level02.pdb, level2
 delete level2
 
@@ -23,7 +23,7 @@ copy level3, original
 alter resi 87 and level3, resn='LYS'
 alter resi 47 and level3, resn='SER'
 alter resi 143 and level3, resn='GLU'
-h_add level3
+remove solvent
 save mutant_pdbs/GPX6_level03.pdb, level3
 delete level3
 
@@ -33,7 +33,7 @@ alter resi 87 and level4, resn='LYS'
 alter resi 47 and level4, resn='SER'
 alter resi 143 and level4, resn='GLU'
 alter resi 60 and level4, resn='THR'
-h_add level4
+remove solvent
 save mutant_pdbs/GPX6_level04.pdb, level4
 delete level4
 
@@ -44,7 +44,7 @@ alter resi 47 and level5, resn='SER'
 alter resi 143 and level5, resn='GLU'
 alter resi 60 and level5, resn='THR'
 alter resi 104 and level5, resn='TYR'
-h_add level5
+remove solvent
 save mutant_pdbs/GPX6_level05.pdb, level5
 delete level5
 
@@ -56,7 +56,7 @@ alter resi 143 and level6, resn='GLU'
 alter resi 60 and level6, resn='THR'
 alter resi 104 and level6, resn='TYR'
 alter resi 142 and level6, resn='PRO'
-h_add level6
+remove solvent
 save mutant_pdbs/GPX6_level06.pdb, level6
 delete level6
 
@@ -69,7 +69,7 @@ alter resi 60 and level7, resn='THR'
 alter resi 104 and level7, resn='TYR'
 alter resi 142 and level7, resn='PRO'
 alter resi 139 and level7, resn='PHE'
-h_add level7
+remove solvent
 save mutant_pdbs/GPX6_level07.pdb, level7
 delete level7
 
@@ -83,7 +83,7 @@ alter resi 104 and level8, resn='TYR'
 alter resi 142 and level8, resn='PRO'
 alter resi 139 and level8, resn='PHE'
 alter resi 181 and level8, resn='ARG'
-h_add level8
+remove solvent
 save mutant_pdbs/GPX6_level08.pdb, level8
 delete level8
 
@@ -98,7 +98,7 @@ alter resi 142 and level9, resn='PRO'
 alter resi 139 and level9, resn='PHE'
 alter resi 181 and level9, resn='ARG'
 alter resi 52 and level9, resn='THR'
-h_add level9
+remove solvent
 save mutant_pdbs/GPX6_level09.pdb, level9
 delete level9
 
@@ -114,7 +114,7 @@ alter resi 139 and level10, resn='PHE'
 alter resi 181 and level10, resn='ARG'
 alter resi 52 and level10, resn='THR'
 alter resi 48 and level10, resn='PHE'
-h_add level10
+remove solvent
 save mutant_pdbs/GPX6_level10.pdb, level10
 delete level10
 
@@ -131,7 +131,7 @@ alter resi 181 and level11, resn='ARG'
 alter resi 52 and level11, resn='THR'
 alter resi 48 and level11, resn='PHE'
 alter resi 144 and level11, resn='HIS'
-h_add level11
+remove solvent
 save mutant_pdbs/GPX6_level11.pdb, level11
 delete level11
 
@@ -149,7 +149,7 @@ alter resi 52 and level12, resn='THR'
 alter resi 48 and level12, resn='PHE'
 alter resi 144 and level12, resn='HIS'
 alter resi 54 and level12, resn='THR'
-h_add level12
+remove solvent
 save mutant_pdbs/GPX6_level12.pdb, level12
 delete level12
 
@@ -168,7 +168,7 @@ alter resi 48 and level13, resn='PHE'
 alter resi 144 and level13, resn='HIS'
 alter resi 54 and level13, resn='THR'
 alter resi 177 and level13, resn='HIS'
-h_add level13
+remove solvent
 save mutant_pdbs/GPX6_level13.pdb, level13
 delete level13
 
@@ -188,7 +188,7 @@ alter resi 144 and level14, resn='HIS'
 alter resi 54 and level14, resn='THR'
 alter resi 177 and level14, resn='HIS'
 alter resi 102 and level14, resn='GLY'
-h_add level14
+remove solvent
 save mutant_pdbs/GPX6_level14.pdb, level14
 delete level14
 
@@ -209,7 +209,7 @@ alter resi 54 and level15, resn='THR'
 alter resi 177 and level15, resn='HIS'
 alter resi 102 and level15, resn='GLY'
 alter resi 24 and level15, resn='ILE'
-h_add level15
+remove solvent
 save mutant_pdbs/GPX6_level15.pdb, level15
 delete level15
 
@@ -231,7 +231,7 @@ alter resi 177 and level16, resn='HIS'
 alter resi 102 and level16, resn='GLY'
 alter resi 24 and level16, resn='ILE'
 alter resi 3 and level16, resn='LYS'
-h_add level16
+remove solvent
 save mutant_pdbs/GPX6_level16.pdb, level16
 delete level16
 
@@ -254,7 +254,7 @@ alter resi 102 and level17, resn='GLY'
 alter resi 24 and level17, resn='ILE'
 alter resi 3 and level17, resn='LYS'
 alter resi 173 and level17, resn='ARG'
-h_add level17
+remove solvent
 save mutant_pdbs/GPX6_level17.pdb, level17
 delete level17
 
@@ -278,7 +278,7 @@ alter resi 24 and level18, resn='ILE'
 alter resi 3 and level18, resn='LYS'
 alter resi 173 and level18, resn='ARG'
 alter resi 178 and level18, resn='THR'
-h_add level18
+remove solvent
 save mutant_pdbs/GPX6_level18.pdb, level18
 delete level18
 
@@ -303,7 +303,7 @@ alter resi 3 and level19, resn='LYS'
 alter resi 173 and level19, resn='ARG'
 alter resi 178 and level19, resn='THR'
 alter resi 74 and level19, resn='GLY'
-h_add level19
+remove solvent
 save mutant_pdbs/GPX6_level19.pdb, level19
 delete level19
 
