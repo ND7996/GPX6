@@ -1,0 +1,194 @@
+
+Build and version information
+
+Build number 5.10.24
+Build date   20240701
+Built:       
+      by     hp
+      on     hp-HP-Pavilion-Gaming-Laptop-15-ec0xxx
+      git id 9325b9c29ad62a733df16f540968e33ee6c78260
+      with   GNU Fortran Ubuntu 12.3.0-1ubuntu1~23.04 12.3.0
+Current date 2025- 9-20 and time 16:39:15
+
+Welcome in qprep modification date 20240701
+
+
+ Reading input from /home/hp/nayanika/github/GPX6/prep_structures/HUMAN/level2/A74G.inp 
+
+Reading molecular library /home/hp/nayanika/github/GPX6/parameters/qoplsaa.lib
+
+name  atoms  net Q  bonds  rules   imps Q-grps
+ALA      10   0.00      9      0      2      3
+NAL      12   1.00     11      0      1      3
+ALC      12   0.00     11      0      1      3
+ARG      24   1.00     23      0      6      4
+ARN      23   0.00     22      0      5      5
+ASH      13   0.00     12      0      3      3
+ASN      14   0.00     13      0      4      5
+ASP      12  -1.00     11      0      3      3
+CLA       1  -1.00      0      0      0    none, creating default
+CYS      11   0.00     10      0      2      3
+CYX      10   0.00      9      0      2      3
+GLH      16   0.00     15      0      3      4
+GLN      17   0.00     16      0      4      6
+GLU      15  -1.00     14      0      3      4
+GLY       7   0.00      6      0      2      2
+NGL       9   1.00      8      0      1      2
+GLC       9   0.00      8      0      1      2
+HID      17   0.00     17      0      6      3
+HIE      17   0.00     17      0      6      3
+HIP      18   1.00     18      0      7      3
+ILE      19   0.00     18      0      2      6
+LEU      19   0.00     18      0      2      6
+LYN      21   0.00     20      0      2      6
+LYS      22   1.00     21      0      2      6
+MET      17  -0.00     16      0      2      4
+PHE      20   0.00     20      0      8      8
+PRO      14   0.00     14      0      2      4
+SER      11  -0.00     10      0      2      3
+SOD       1   1.00      0      0      0      1
+THR      14  -0.00     13      0      2      4
+HOH       3   0.00      3      0      0      1
+TRP      24   0.00     25      0     11      8
+TYR      21   0.00     21      0      8      8
+VAL      16   0.00     15      0      2      5
+NME       6  -0.00      5      0      1      1
+ACE       6   0.00      5      0      1      2
+
+Accumulated no. of library entries loaded =  36
+
+
+Reading molecular library /home/hp/nayanika/github/GPX6/parameters/GPX.lib
+
+name  atoms  net Q  bonds  rules   imps Q-grps
+PRX       4   0.00      3      0      0      1
+SEC      11   0.00     10      0      2      3
+SNN      12   0.00     11      0      2      3
+SEN      12   0.00     11      0      2      3
+GLP      18   1.00     17      0      4      1
+SUL      10  -1.00      9      0      2      1
+
+Accumulated no. of library entries loaded =  42
+
+
+Reading force field parameter file.
+Forcefield name:               OPLS-AA
+Forcefield type:               AMBER
+Lennard-Jones combination rule:GEOMETRIC
+Scaling of 1-4 electrostatics: 0.500
+Cut-off rule:                  switching atoms
+Improper potential:            PERIODIC
+Improper generation:           EXPLICIT
+Coulomb constant:              332.0716
+Read  147 atom types
+>>>>> WARNING: No SYBYL name for one or more atom types.
+Read    0 atom type alias names
+Read    0 LJ type 2 pairs
+Read  235 bond types
+Read   44 unique bond parameters
+>>>>> WARNING: No SYBYL bond type for one or more bond types.
+Read  579 angle types
+Read   78  unique angle parameters
+Read 1756 torsion types
+Read  250 unique torsion parameters
+Read   77 improper types
+Force field parameters successfully read.
+
+
+>>>WARNING: ignoring unrecognised line in PDB file
+END
+PDB file contains  1569 atoms.
+The number of atoms in the topology will be  3099
+molecule    1: PRO     1 - HIE   197
+molecule    2: PRX   198
+
+Successfully read PDB file with    2 molecules,
+  198 residues totally (  198 in solute).
+ 3099 atoms totally ( 3099 in solute).
+
+Sequence listing:
+
+PRO  GLN  ASN  ARG  LYS  VAL  ASP  CYX  ASN  LYS  GLY  VAL  THR  GLY  THR  ILE 
+TYR  GLU  TYR  GLY  ALA  LEU  THR  LEU  ASN  GLY  GLU  GLU  TYR  ILE  GLN  PHE 
+STOP Qprep terminated
+LYS  GLN  PHE  ALA  GLY  LYS  HID  VAL  LEU  PHE  VAL  ASN  VAL  ALA  SER  TYR 
+SEC  GLY  LEU  ALA  ALA  GLN  TYR  PRO  GLU  LEU  ASN  ALA  LEU  GLN  GLU  GLU 
+LEU  LYS  ASN  PHE  GLY  VAL  ILE  VAL  LEU  GLY  PHE  PRO  CYS  ASN  GLN  PHE 
+GLY  LYS  GLN  GLU  PRO  GLY  LYS  ASN  SER  GLU  ILE  LEU  LEU  GLY  LEU  LYS 
+TYR  VAL  CYS  PRO  GLY  SER  GLY  PHE  VAL  PRO  SER  PHE  GLN  LEU  PHE  GLU 
+LYS  GLY  ASP  VAL  ASN  GLY  GLU  LYS  GLU  GLN  LYS  VAL  PHE  THR  PHE  LEU 
+LYS  ASN  SER  CYX  PRO  PRO  THR  SER  ASP  LEU  LEU  GLY  SER  SER  SER  GLN 
+LEU  PHE  TRP  GLU  PRO  MET  LYS  VAL  HID  ASP  ILE  ARG  TRP  ASN  PHE  GLU 
+LYS  PHE  LEU  VAL  GLY  PRO  ASP  GLY  VAL  PRO  VAL  MET  HID  TRP  PHE  HID 
+GLN  ALA  PRO  VAL  SER  THR  VAL  LYS  SER  ASP  ILE  LEU  GLU  TYR  LEU  LYS 
+GLN  PHE  ASN  THR  HIE  PRX 
+
+
+Simulation sphere centre                   :     29.409  29.158  19.820
+Simulation radius                          :     25.000
+
+Solvation sphere centre                   :     29.409  29.158  19.820
+Library entry used to generate solvent  :       HOH 
+Radius of solvent sphere                =      25.00 A
+Grid spacing                            =       3.10 A 
+No. of solvent molecules in the sphere:  2109
+Minimum distance to solute heavy atoms:  2.70 A
+No. of solvent molecules to add to the system:  1253
+Assigned  6858 atom types.
+Assigned  6858 atomic charges.
+Made      3143 solute bonds.
+Made         0 extra bonds.
+Made      3759 solvent bonds.
+Made      5682 solute angles.
+Made      1253 solvent angles.
+Made     11467 solute torsions.
+Made         0 solvent torsions.
+Made       653 solute impropers.
+Made         0 solvent impropers.
+Made      8292 entries in the 1-4 neighbour list.
+Made         0 entries in the long-range 1-4 neighbour list.
+Made     13837 entries in list of excluded neighbours.
+Made         0 entries in list of long-range excluded neighbours.
+Made      1530 solute hydrogens.
+Made      2506 solvent hydrogens.
+Made      762 solute  charge groups comprising a total of   2461 atoms.
+Made     1253 solvent charge groups comprising a total of   3759 atoms.
+Skipped   196excluded charge groups comprising a total of    638 atoms.
+Effective water radius                     : 23.95
+Topology successfully generated.
+
+---------------------------- Writing topology file ---------------------------
+solute atoms                :   3099
+solvent atoms               :   3759
+solvent mol atoms           :      3
+co-ordinates                :  20574
+integer atom codes          :   6858
+solute bonds                :   3143
+solvent bonds               :   3759
+bond parameters             :     36
+solute angles               :   5682
+solvent angles              :   1253
+angle parameters            :     59
+torsions                    :  11467
+torsion parameters          :    195
+impropers                   :    653
+improper parameters         :     36
+charges                     :   6858
+total charge of not excluded:  -3.00
+charge groups               :   2015
+atom type parameters        :    147
+polar LJ pairs              :      0
+neighbour list              :   8292
+long-range neighbour list   :      0
+neighbour exclusion list    :  13837
+long-range exclusions       :      0
+residues                    :   1451
+molecules                   :   1255
+Atom type names             :    147
+SYBYL type information      :    147
+excluded atom list          :    638
+
+
+
+PDB file successfully written.
+
