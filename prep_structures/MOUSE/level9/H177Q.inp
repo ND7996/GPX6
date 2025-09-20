@@ -1,0 +1,11 @@
+readlib /home/hp/nayanika/github/GPX6/parameters/qoplsaa.lib
+readlib /home/hp/nayanika/github/GPX6/parameters/GPX.lib
+readprm /home/hp/nayanika/github/GPX6/parameters/qoplsaa_all2.prm
+readpdb "/home/hp/nayanika/github/GPX6/prep_structures/MOUSE/level9/H177Q.pdb"
+set solvent_pack 2.7
+boundary sphere 49:SE 25.
+solvate 49:SE 25. grid HOH
+maketop "/home/hp/nayanika/github/GPX6/prep_structures/MOUSE/level9/H177Q_solvated.top"
+writetop "/home/hp/nayanika/github/GPX6/prep_structures/MOUSE/level9/H177Q_solvated.top"
+writepdb "/home/hp/nayanika/github/GPX6/prep_structures/MOUSE/level9/H177Q_solvated.pdb" y
+quit

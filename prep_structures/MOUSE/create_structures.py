@@ -12,13 +12,13 @@ import os
 pymol.finish_launching(['pymol', '-c'])
 
 # Define the base structure path
-base_pdb = "/home/hp/nayanika/github/GPX6/mouseWT/GPX6mousecys.pdb"
+#base_pdb = "/home/hp/nayanika/github/GPX6/mouseWT/GPX6mousecys.pdb"
+base_pdb = "/home/hp/nayanika/github/PhD_Thesis/EVB/protein_stepwise/GPX6WT/mousesec/1-prep/GPX6sec_mouse.pdb"
 
 # Define mutations for each level
 mutations_by_level = {
-    1: ["T54Q"],
-    2: ["T54Q", "C49U"],
-    3: ["T54Q", "C49U", "I24L"],
+    2: ["T54Q"],
+    3: ["T54Q", "I24L"],
     4: ["T54Q", "I24L", "F137Y"],
     5: ["T54Q", "I24L", "F137Y", "S47A"],
     6: ["T54Q", "I24L", "F137Y", "S47A", "T50A"],
