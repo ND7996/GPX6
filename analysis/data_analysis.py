@@ -253,7 +253,7 @@ clusters = kmeans.fit_predict(features)
 fig, ax = plt.subplots(figsize=(12, 8))
 
 # Define cluster colors and labels
-cluster_colors = ['#FF6B6B', '#4ECDC4', '#95E1D3']
+cluster_colors = ['#FF6B6B', '#4ECDC4', '#4c72b0']
 cluster_labels = ['High Barrier\n(Slow Mutations)', 
                  'Moderate Impact\n(Balanced)', 
                  'Low Barrier\n(Fast Mutations)']
@@ -346,7 +346,7 @@ fig, axes = plt.subplots(2, 1, figsize=(14, 16))
 sns.heatmap(pivot_dg_star, cmap='YlOrRd', linewidths=0.8, ax=axes[0],
            cbar_kws={'label': r'$\Delta\Delta$G‡ (kcal mol⁻¹)'}, 
            vmin=0, annot=False)
-axes[0].set_title(r'Transition State Destabilization ($\Delta\Delta$G‡) Across Evolution', 
+axes[0].set_title(r'($\Delta\Delta$G‡) Across Evolution', 
                  fontsize=18, pad=15)
 axes[0].set_ylabel('Mutation', fontsize=16)
 axes[0].set_xlabel('Evolutionary Level', fontsize=16)
@@ -354,7 +354,7 @@ axes[0].set_xlabel('Evolutionary Level', fontsize=16)
 # Plot 2: Ground State Effects
 sns.heatmap(pivot_dg0, cmap='coolwarm', center=0, linewidths=0.8, ax=axes[1],
            cbar_kws={'label': r'$\Delta\Delta$G° (kcal mol⁻¹)'}, annot=False)
-axes[1].set_title(r'Ground State Stabilization ($\Delta\Delta$G°) Across Evolution', 
+axes[1].set_title(r'($\Delta\Delta$G°) Across Evolution', 
                  fontsize=18, pad=15)
 axes[1].set_ylabel('Mutation', fontsize=16)
 axes[1].set_xlabel('Evolutionary Level', fontsize=16)
