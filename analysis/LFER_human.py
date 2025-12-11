@@ -19,7 +19,7 @@ plt.rcParams.update({
 sns.set_style("whitegrid")
 
 # =================== DATA LOADING ===================
-df = pd.read_csv(r"D:\PhD_Thesis\GPX6\analysis\mouse_mutants_FINAL_with_distances.csv")
+df = pd.read_csv(r"D:\PhD_Thesis\GPX6\analysis\human_mutants_FINAL_with_distances.csv")
 
 for c in ['dg_star', 'dg_star_error', 'dg0', 'dg0_error']:
     df[c] = pd.to_numeric(df[c], errors='coerce')
@@ -27,7 +27,12 @@ for c in ['dg_star', 'dg_star_error', 'dg0', 'dg0_error']:
 df['level_num'] = df['level'].str.replace('Level', '').astype(int)
 
 # =================== ΔΔG CALCULATION ===================
-ref = df[df['mutation'] == 'C49U'].set_index('level')
+# For human data, use humansec as reference
+ref = df[df['mutation'] == 'humansec'].set_index('level')
+
+if len(ref) == 0:
+    raise ValueError("No 'humansec' reference found in the data!")
+
 fallback = ref.iloc[0]
 
 all_data = []
@@ -40,12 +45,13 @@ for level in df['level'].unique():
     all_data.append(sub)
 
 dfp = pd.concat(all_data)
-dfp = dfp[dfp['mutation'] != 'C49U'].copy()
+# Remove reference from plotting (but keep humancys if desired)
+dfp = dfp[dfp['mutation'] != 'humansec'].copy()
 
 # =================== AUTO-FIND DISTANCE COLUMN ===================
 dist_col = None
-possible_names = ['distance_to_Cys49', 'dist_to_Cys49', 'distance_Cys49', 'dist_C49', 
-                  'Distance_to_Cys49', 'dist_to_Sec/Cys49']
+possible_names = ['distance_to_Sec49', 'dist_to_Sec49', 'distance_Sec49', 'dist_Sec49',
+                  'Distance_to_Sec49', 'dist_to_Sec/Cys49', 'dist_to_Cys49']
 for col in possible_names:
     if col in dfp.columns:
         dist_col = col
@@ -68,16 +74,27 @@ ax_main = fig.add_subplot(gs[0])
 ax_legend = fig.add_subplot(gs[1])
 
 # Filter data with valid distances
-mask_valid = dfp[['ΔΔG⁰', 'ΔΔG‡', dist_col]].notna().all(axis=1)
-dfp_valid = dfp[mask_valid].copy()
-
-# Get unique mutations with their average distance
-mutation_distances = dfp_valid.groupby('mutation')[dist_col].mean().sort_values()
-
-# Create scatter plot colored by distance
-sc = ax_main.scatter(dfp_valid['ΔΔG⁰'], dfp_valid['ΔΔG‡'],
-                     c=dfp_valid[dist_col], cmap='viridis',
-                     s=40, edgecolors='black', linewidth=0.6, alpha=0.85, zorder=3)
+if dist_col:
+    mask_valid = dfp[['ΔΔG⁰', 'ΔΔG‡', dist_col]].notna().all(axis=1)
+    dfp_valid = dfp[mask_valid].copy()
+    
+    # Get unique mutations with their average distance
+    mutation_distances = dfp_valid.groupby('mutation')[dist_col].mean().sort_values()
+    
+    # Create scatter plot colored by distance
+    sc = ax_main.scatter(dfp_valid['ΔΔG⁰'], dfp_valid['ΔΔG‡'],
+                         c=dfp_valid[dist_col], cmap='viridis',
+                         s=40, edgecolors='black', linewidth=0.6, alpha=0.85, zorder=3)
+    
+    # Add colorbar
+    cbar = plt.colorbar(sc, ax=ax_main, pad=0.02, aspect=30)
+    cbar.set_label('Distance to Residue 49 (Å)', rotation=270, labelpad=28, fontsize=16)
+else:
+    # If no distance column, just plot all points
+    mask_valid = dfp[['ΔΔG⁰', 'ΔΔG‡']].notna().all(axis=1)
+    dfp_valid = dfp[mask_valid].copy()
+    ax_main.scatter(dfp_valid['ΔΔG⁰'], dfp_valid['ΔΔG‡'],
+                   s=40, edgecolors='black', linewidth=0.6, alpha=0.85, zorder=3)
 
 # Add error bars
 ax_main.errorbar(dfp_valid['ΔΔG⁰'], dfp_valid['ΔΔG‡'], yerr=dfp_valid['ΔΔG‡_err'],
@@ -89,7 +106,8 @@ mask_reg = dfp[['ΔΔG⁰', 'ΔΔG‡']].notna().all(axis=1)
 slope, intercept, r_value, _, std_err = stats.linregress(
     dfp.loc[mask_reg, 'ΔΔG⁰'], dfp.loc[mask_reg, 'ΔΔG‡'])
 
-x_fit = np.linspace(-3.5, 16, 200)
+x_min, x_max = dfp.loc[mask_reg, 'ΔΔG⁰'].min(), dfp.loc[mask_reg, 'ΔΔG⁰'].max()
+x_fit = np.linspace(x_min - 1, x_max + 1, 200)
 y_fit = slope * x_fit + intercept
 ax_main.plot(x_fit, y_fit, color='#d62728', lw=3.5, zorder=5, alpha=0.7)
 
@@ -102,57 +120,56 @@ ax_main.text(0.04, 0.96, text, transform=ax_main.transAxes, fontsize=20, fontwei
 
 ax_main.set_xlabel(r'$\Delta\Delta$G° (kcal/mol)')
 ax_main.set_ylabel(r'$\Delta\Delta$G‡ (kcal/mol)')
-ax_main.set_title('Linear Free-Energy Relationship', fontsize=22, pad=20)
-ax_main.set_xlim(-3.5, 16)
-ax_main.set_ylim(-2, 22)
-
-# Create colorbar
-cbar = plt.colorbar(sc, ax=ax_main, pad=0.02, aspect=30)
-cbar.set_label('Distance to Residue 49 (Å)', rotation=270, labelpad=28, fontsize=16)
+ax_main.set_title('Linear Free-Energy Relationship (Human GPX6)', fontsize=22, pad=20)
+ax_main.grid(alpha=0.3)
 
 # =================== LEGEND PANEL ===================
-ax_legend.axis('off')
-ax_legend.set_xlim(0, 1)
-ax_legend.set_ylim(0, 1)
-
-# Title for legend
-ax_legend.text(0.5, 0.98, 'Mutations by Distance', 
-               fontsize=16, fontweight='bold', ha='center', va='top')
-
-# Create color-coded list of mutations
-cmap = plt.cm.viridis
-norm = plt.Normalize(vmin=dfp_valid[dist_col].min(), vmax=dfp_valid[dist_col].max())
-
-y_pos = 0.92
-line_height = 0.032
-
-for mutation, distance in mutation_distances.items():
-    color = cmap(norm(distance))
+if dist_col and len(mutation_distances) > 0:
+    ax_legend.axis('off')
+    ax_legend.set_xlim(0, 1)
+    ax_legend.set_ylim(0, 1)
     
-    # Color box
-    ax_legend.add_patch(plt.Rectangle((0.05, y_pos - 0.015), 0.08, 0.025, 
-                                      facecolor=color, edgecolor='black', linewidth=0.8))
+    # Title for legend
+    ax_legend.text(0.5, 0.98, 'Mutations by Distance', 
+                   fontsize=16, fontweight='bold', ha='center', va='top')
     
-    # Mutation and distance text
-    ax_legend.text(0.16, y_pos, f'{mutation}', fontsize=11, va='center', ha='left', 
-                   fontweight='bold')
-    ax_legend.text(0.85, y_pos, f'{distance:.1f} Å', fontsize=10, va='center', ha='right',
-                   color='gray')
+    # Create color-coded list of mutations
+    cmap = plt.cm.viridis
+    norm = plt.Normalize(vmin=dfp_valid[dist_col].min(), vmax=dfp_valid[dist_col].max())
     
-    y_pos -= line_height
+    y_pos = 0.92
+    line_height = 0.032
     
-    if y_pos < 0.05:  # Start a new column if needed
-        break
+    for mutation, distance in mutation_distances.items():
+        color = cmap(norm(distance))
+        
+        # Color box
+        ax_legend.add_patch(plt.Rectangle((0.05, y_pos - 0.015), 0.08, 0.025, 
+                                          facecolor=color, edgecolor='black', linewidth=0.8))
+        
+        # Mutation and distance text
+        ax_legend.text(0.16, y_pos, f'{mutation}', fontsize=11, va='center', ha='left', 
+                       fontweight='bold')
+        ax_legend.text(0.85, y_pos, f'{distance:.1f} Å', fontsize=10, va='center', ha='right',
+                       color='gray')
+        
+        y_pos -= line_height
+        
+        if y_pos < 0.05:  # Start a new column if needed
+            break
+else:
+    ax_legend.axis('off')
 
-plt.savefig(outdir / "1_LFER_distance_colored_clean.png", dpi=600, facecolor='white')
-plt.savefig(outdir / "1_LFER_distance_colored_clean.pdf")
+plt.savefig(outdir / "1_LFER_distance_colored_human.png", dpi=600, facecolor='white')
+plt.savefig(outdir / "1_LFER_distance_colored_human.pdf")
 plt.show()
 
 print(f"LFER → R² = {r_value**2:.3f} | n = {mask_reg.sum()}")
-print(f"Distance range: {dfp_valid[dist_col].min():.1f} - {dfp_valid[dist_col].max():.1f} Å")
-print(f"\nMutations ordered by distance:")
-for mutation, distance in mutation_distances.items():
-    print(f"  {mutation}: {distance:.1f} Å")
+if dist_col:
+    print(f"Distance range: {dfp_valid[dist_col].min():.1f} - {dfp_valid[dist_col].max():.1f} Å")
+    print(f"\nMutations ordered by distance:")
+    for mutation, distance in mutation_distances.items():
+        print(f"  {mutation}: {distance:.1f} Å")
 
 # =================== 2. MEAN EFFECT PER LEVEL ===================
 plt.figure(figsize=(9,6))
@@ -161,9 +178,9 @@ errors = dfp.groupby('level_num')['ΔΔG‡_err'].mean()
 means.plot(kind='bar', yerr=errors, capsize=6, color='#4c72b0', edgecolor='black', alpha=0.9)
 plt.ylabel(r'Mean $\Delta\Delta$G‡ (kcal/mol)')
 plt.xlabel('Evolutionary Level')
-plt.title('Average Transition-State Destabilization per Level')
+plt.title('Average Transition-State Destabilization per Level (Human GPX6)')
 plt.tight_layout()
-plt.savefig(outdir / "2_Mean_by_level.png", dpi=600)
+plt.savefig(outdir / "2_Mean_by_level_human.png", dpi=600)
 plt.show()
 
 # =================== 3. DISTANCE VS EFFECT ===================
@@ -178,10 +195,10 @@ if dist_col:
     cbar = plt.colorbar(sc, label='Distance to Residue 49 (Å)')
     ax.set_xlabel('Distance to Residue 49 (Å)', fontsize=16)
     ax.set_ylabel(r'$\Delta\Delta$G‡ (kcal/mol)', fontsize=16)
-    ax.set_title('Structural Distance vs Functional Impact', fontsize=18)
+    ax.set_title('Structural Distance vs Functional Impact (Human GPX6)', fontsize=18)
     ax.grid(alpha=0.3)
     plt.tight_layout()
-    plt.savefig(outdir / "3_Distance_vs_effect.png", dpi=600)
+    plt.savefig(outdir / "3_Distance_vs_effect_human.png", dpi=600)
     plt.show()
 
 # =================== 4. HEATMAP ===================
@@ -189,9 +206,9 @@ pivot = dfp.pivot_table(values='ΔΔG‡', index='level_num', columns='mutation'
 plt.figure(figsize=(16,8))
 sns.heatmap(pivot, cmap='RdBu_r', center=0, linewidths=0.5,
             cbar_kws={'label': r'$\Delta\Delta$G‡ (kcal/mol)'})
-plt.title('Mutational Effects Across Evolutionary Levels', fontsize=20, pad=20)
+plt.title('Mutational Effects Across Evolutionary Levels (Human GPX6)', fontsize=20, pad=20)
 plt.tight_layout()
-plt.savefig(outdir / "4_Heatmap.png", dpi=600)
+plt.savefig(outdir / "4_Heatmap_human.png", dpi=600)
 plt.show()
 
 # =================== DONE ===================
