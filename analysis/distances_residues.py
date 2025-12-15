@@ -8,7 +8,7 @@ import os
 import csv
 
 # ============== SETTINGS ==============
-TARGET_RESIDUE = 52
+TARGET_RESIDUE = 102
 REFERENCE_RESIDUES = [49, 83, 196]
 CHAIN = ""  # Leave empty for all chains, or specify like "A"
 
@@ -17,7 +17,7 @@ DISTANCE_ATOM_SELECTIONS = {
     196: "O2",
     49: "CA",
     83: "CA",
-    54: "CA"
+    102: "CA"
 }
 
 # H-bond parameters
