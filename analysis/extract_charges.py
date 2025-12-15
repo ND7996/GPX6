@@ -1,4 +1,4 @@
-import pymol
+cimport pymol
 import pandas as pd
 import os
 import glob

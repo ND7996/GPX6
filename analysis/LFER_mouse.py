@@ -102,7 +102,7 @@ ax_main.text(0.04, 0.96, text, transform=ax_main.transAxes, fontsize=20, fontwei
 
 ax_main.set_xlabel(r'$\Delta\Delta$G° (kcal/mol)')
 ax_main.set_ylabel(r'$\Delta\Delta$G‡ (kcal/mol)')
-ax_main.set_title('Linear Free-Energy Relationship', fontsize=22, pad=20)
+ax_main.set_title('Linear Free-Energy Relationship (Mouse GPX6)', fontsize=22, pad=20)
 ax_main.set_xlim(-3.5, 16)
 ax_main.set_ylim(-2, 22)
 
@@ -166,7 +166,7 @@ plt.tight_layout()
 plt.savefig(outdir / "2_Mean_by_level.png", dpi=600)
 plt.show()
 
-# =================== 3. DISTANCE VS EFFECT ===================
+# =================== 3. DISTANCE VS EFFECT - WITH RESIDUE LABELS ===================
 if dist_col:
     fig, ax = plt.subplots(figsize=(10,7))
     
@@ -175,10 +175,36 @@ if dist_col:
                     c=dfp_valid[dist_col], cmap='viridis',
                     s=40, edgecolors='black', linewidth=0.6, alpha=0.85)
     
+    # Add residue labels for each mutation
+    # Get unique mutations with their mean distance and ΔΔG‡
+    mutation_labels = dfp_valid.groupby('mutation').agg({
+        dist_col: 'mean',
+        'ΔΔG‡': 'mean'
+    }).reset_index()
+    
+    # Try to use adjustText if available, otherwise use simple text labels
+    try:
+        from adjustText import adjust_text
+        texts = []
+        for _, row in mutation_labels.iterrows():
+            texts.append(ax.text(row[dist_col], row['ΔΔG‡'], row['mutation'],
+                               fontsize=9, ha='center', fontweight='bold'))
+        
+        # Adjust text positions to avoid overlaps
+        adjust_text(texts, arrowprops=dict(arrowstyle='->', color='gray', lw=0.5))
+    except ImportError:
+        # If adjustText is not available, use simple offset labels
+        print("Note: adjustText package not available, using simple labels")
+        for _, row in mutation_labels.iterrows():
+            ax.text(row[dist_col], row['ΔΔG‡'], ' ' + row['mutation'],
+                   fontsize=9, ha='left', va='center', fontweight='bold',
+                   bbox=dict(boxstyle='round,pad=0.3', facecolor='white', 
+                            edgecolor='none', alpha=0.7))
+    
     cbar = plt.colorbar(sc, label='Distance to Residue 49 (Å)')
     ax.set_xlabel('Distance to Residue 49 (Å)', fontsize=16)
     ax.set_ylabel(r'$\Delta\Delta$G‡ (kcal/mol)', fontsize=16)
-    ax.set_title('Structural Distance vs Functional Impact', fontsize=18)
+    ax.set_title('Structural Distance vs Energy Change', fontsize=18)
     ax.grid(alpha=0.3)
     plt.tight_layout()
     plt.savefig(outdir / "3_Distance_vs_effect.png", dpi=600)
