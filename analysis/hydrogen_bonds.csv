@@ -1,0 +1,5 @@
+Donor_Residue,Donor_Residue_Name,Donor_Atom,Donor_Chain,Acceptor_Residue,Acceptor_Residue_Name,Acceptor_Atom,Acceptor_Chain,Distance_Angstrom,Bond_Type
+52,THR,N,,49,CYS,O,,3.21,H-Bond/Polar
+49,CYS,N,,52,THR,OG1,,3.08,H-Bond/Polar
+52,THR,OG1,,49,CYS,O,,2.99,H-Bond/Polar
+49,CYS,SG,,83,GLN,OE1,,3.39,H-Bond/Polar
