@@ -1,18 +1,22 @@
 CLUSTAL
 
-original_humansec PQNRKVDCNKGVTGTIYEYGALTLNGEEYIQFKQFAGKHVLFVNVAAYUGLAAQYPEL
-original_mousecys PQKSKVDCNKGVTGTVYEYGANTIDGGEFVNFQQYAGKHILFVNVASFCGLTATYPEL
-                     .*****  ****.*****.*..* *...*.*.****.******...**.*.****
+AF-F7CPY6-F1-model_v4 MIRQLWASSLFPLFLVGFAQLTPESQKMKMDCYKGVTGTIYEYGALTLNGEEYI
+original_humansec     PQNR------------------------KVDCNKGVTGTIYEYGALTLNGEEYI
+                                                  *.**.    ***********   ***
 
-original_humansec NALQEELKNFGVIVLAFPCNQFGKQEPGTNSEILLGLKYVCPGSGFVPSFQLFEKGDV
-original_mousecys NTLQEELKPFNVTVLGFPCNQFGKQEPGKNSEILLGLKYVRPGGGYVPNFQLFEKGDV
-                  *.******.*.*.**.************.*  ********.**.*.**.*********
+AF-F7CPY6-F1-model_v4 QFKQYAGKHVLFINVATYG-LTAQYPELNALQEELKPFGVVLLGFPCNQFGKQE
+original_humansec     QFKQFAGKHVLFVNVAAYUGLAAQYPELNALQEELKNFGVIVLAFPCNQFGKQE
+                      ****.*******.***.*  *.**************.***..*.**********
 
-original_humansec NGEKEQKVFTFLKNSCPPTSDLLGSSSQLFWEPMKVHDIRWNFEKFLVGPDGVPVMHW
-original_mousecys NGDNEQKVFSFLKNSCPPTSELFGSPEHLFWDPMKVHDIRWNFEKFLVGPDGVPVMRW
-                  **..*****.***** ** *.*.**...***.************************.*
+AF-F7CPY6-F1-model_v4 PGKNSEILSGLKYVRPGGGFVPNFQLFEKGDVNGEKEQKVFTFLKNSCPPTSDL
+original_humansec     PGTNSEILLGLKYVCPGSGFVPSFQLFEKGDVNGEKEQKVFTFLKNSCPPTSDL
+                      **.*****.*****.**.****.*************************** ***
 
-original_humansec FHQAPVSTVKSDILEYLKQFNTH                                   
-original_mousecys FHHTPVRIVQSDIMEYLNQTS--                                   
-                  **..**..*.***.***                                         
+AF-F7CPY6-F1-model_v4 LGSPKQLFWEPMKVHDIRWNFEKFLVGPDGVPVMRWFHRASVSTVKSDILEYLK
+original_humansec     LGSSSQLFWEPMKVHDIRWNFEKFLVGPDGVPVMHWFHQAPVSTVKSDILEYLK
+                      ***..*****************************.***.*.************ 
+
+AF-F7CPY6-F1-model_v4 QFTPE                                                 
+original_humansec     QFNTH                                                 
+                                                                            
 
