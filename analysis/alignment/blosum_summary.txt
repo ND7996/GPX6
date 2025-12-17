@@ -1,0 +1,32 @@
+================================================================================
+BLOSUM62 SIMILARITY ANALYSIS SUMMARY
+================================================================================
+
+BLOSUM62 is a substitution matrix used to score protein sequence alignments.
+Positive scores = similar amino acids (favorable substitution)
+Negative scores = dissimilar amino acids (unfavorable substitution)
+
+--------------------------------------------------------------------------------
+PAIRWISE SIMILARITY SCORES TO ANCESTOR
+--------------------------------------------------------------------------------
+
+Mouse:
+  Total BLOSUM Score: 821.0
+  Normalized Score: 4.390
+  (Higher = more similar to ancestor)
+
+Human:
+  Total BLOSUM Score: 876.0
+  Normalized Score: 4.635
+  (Higher = more similar to ancestor)
+
+--------------------------------------------------------------------------------
+INTERPRETATION
+--------------------------------------------------------------------------------
+
+Human sequences show HIGHER BLOSUM scores (4.635) compared to
+mouse sequences (4.390), indicating that human GPX6 has
+more biochemically similar amino acids to the ancestor.
+
+This suggests human GPX6 is more conserved in terms of amino acid
+properties (size, charge, hydrophobicity) compared to the ancestor.
