@@ -1,0 +1,18 @@
+SAMPLE SIMILARITY SCORES (First 5 sequences)
+============================================================
+
+GPX6_level01_chainA vs GPX6_level02_chainA: 0.9932 (99.3% similar)
+GPX6_level01_chainA vs GPX6_level03_chainA: 0.9879 (98.8% similar)
+GPX6_level01_chainA vs GPX6_level04_chainA: 0.9826 (98.3% similar)
+GPX6_level01_chainA vs GPX6_level05_chainA: 0.9789 (97.9% similar)
+GPX6_level01_chainA vs GPX6_level06_chainA: 0.9737 (97.4% similar)
+GPX6_level02_chainA vs GPX6_level03_chainA: 0.9932 (99.3% similar)
+GPX6_level02_chainA vs GPX6_level04_chainA: 0.9879 (98.8% similar)
+GPX6_level02_chainA vs GPX6_level05_chainA: 0.9842 (98.4% similar)
+GPX6_level02_chainA vs GPX6_level06_chainA: 0.9789 (97.9% similar)
+GPX6_level03_chainA vs GPX6_level04_chainA: 0.9932 (99.3% similar)
+GPX6_level03_chainA vs GPX6_level05_chainA: 0.9895 (98.9% similar)
+GPX6_level03_chainA vs GPX6_level06_chainA: 0.9842 (98.4% similar)
+GPX6_level04_chainA vs GPX6_level05_chainA: 0.9947 (99.5% similar)
+GPX6_level04_chainA vs GPX6_level06_chainA: 0.9895 (98.9% similar)
+GPX6_level05_chainA vs GPX6_level06_chainA: 0.9932 (99.3% similar)

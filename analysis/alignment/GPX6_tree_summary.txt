@@ -1,0 +1,63 @@
+==========================================================================================
+PHYLOGENETIC TREE GENERATION SUMMARY
+==========================================================================================
+
+Total Sequences: 42
+  - Core sequences: 3 (Ancestor_node25, Mouse_WT, Human_WT)
+  - M2H (Mouse->Human) levels: 20
+  - H2M (Human->Mouse) levels: 19
+  - Other sequences: 0
+
+------------------------------------------------------------------------------------------
+SEQUENCE LIST:
+------------------------------------------------------------------------------------------
+
+Core Sequences:
+  - Ancestor_node25                (216 aa)
+  - Mouse_WT                       (217 aa)
+  - Human_WT                       (216 aa)
+
+Mouse->Human (M2H) Levels:
+  - M2H_Level01                    (188 aa)
+  - M2H_Level02                    (188 aa)
+  - M2H_Level03                    (188 aa)
+  - M2H_Level04                    (188 aa)
+  - M2H_Level05                    (188 aa)
+  - M2H_Level06                    (188 aa)
+  - M2H_Level07                    (188 aa)
+  - M2H_Level08                    (189 aa)
+  - M2H_Level09                    (190 aa)
+  - M2H_Level10                    (191 aa)
+  - M2H_Level11                    (191 aa)
+  - M2H_Level12                    (191 aa)
+  - M2H_Level13                    (191 aa)
+  - M2H_Level14                    (191 aa)
+  - M2H_Level15                    (191 aa)
+  - M2H_Level16                    (191 aa)
+  - M2H_Level17                    (191 aa)
+  - M2H_Level18                    (191 aa)
+  - M2H_Level19                    (191 aa)
+  - M2H_Level20                    (191 aa)
+
+Human->Mouse (H2M) Levels:
+  - H2M_Level01                    (190 aa)
+  - H2M_Level02                    (190 aa)
+  - H2M_Level03                    (190 aa)
+  - H2M_Level04                    (190 aa)
+  - H2M_Level05                    (190 aa)
+  - H2M_Level06                    (190 aa)
+  - H2M_Level07                    (190 aa)
+  - H2M_Level08                    (190 aa)
+  - H2M_Level09                    (190 aa)
+  - H2M_Level10                    (190 aa)
+  - H2M_Level11                    (190 aa)
+  - H2M_Level12                    (190 aa)
+  - H2M_Level13                    (190 aa)
+  - H2M_Level14                    (190 aa)
+  - H2M_Level15                    (190 aa)
+  - H2M_Level16                    (190 aa)
+  - H2M_Level17                    (191 aa)
+  - H2M_Level18                    (191 aa)
+  - H2M_Level19                    (191 aa)
+
+==========================================================================================

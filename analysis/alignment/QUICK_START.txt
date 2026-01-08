@@ -1,0 +1,27 @@
+QUICK START GUIDE
+==================
+
+1. OPEN TREE IN FIGTREE:
+   - Open FigTree
+   - File -> Open -> Select: SIMILARITY_TREE_NO_DUPLICATES.nwk
+
+2. ADD COLORS:
+   - File -> Import Annotations -> Select: FIGTREE_COLORS.txt
+
+3. DISPLAY:
+   - Check 'Tip Labels' to see sequence names
+   - Try different layouts (Rectangular, Circular, Radial)
+
+4. UNDERSTAND THE TREE:
+   - This tree is BASED ON SEQUENCE SIMILARITY
+   - Closer branches = more similar sequences
+   - All duplicate sequence names have been made unique
+   - See SEQUENCE_MAPPING.txt for name translations
+
+COLOR KEY:
+- Red: Human sequences
+- Teal: Mouse sequences  
+- Yellow: H2M mutations
+- Green: M2H mutations
+- Blue: Ancestral nodes
+- Gray: Other sequences

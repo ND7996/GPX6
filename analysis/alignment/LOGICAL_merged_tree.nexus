@@ -1,0 +1,9 @@
+#NEXUS
+
+BEGIN TAXA;
+    DIMENSIONS NTAX=auto;
+END;
+
+BEGIN TREES;
+    TREE GPX6_Mammals_Combined = (((((((((9_Pan_troglodytes,1_Homo_sapiens)30,12_Macaca_mulatta)29,(3_Callithrix_jacchus,4_Saimiri_boliviensis)31)28,8_Tarsius_syrichta)27,21_Otolemur_garnettii)26,((((((2_Mus_musculus,18_Rattus_norvegicus)37,(11_Mesocricetus_auratus,16_Cricetulus_griseus)38)36,13_Jaculus_jaculus)35,22_Dipodomys_ordii)34,(14_Ictidomys_tridecemlineatus,5_Cavia_porcellus)39)33,10_Oryctolagus_cuniculus)32)25,(((17_Bos_taurus,6_Sus_scrofa)42,7_Equus_caballus)41,(15_Felis_catus,20_Odobenus_rosmarus)43)40)24,19_Loxodonta_africana)23,(Ancestor_node25,((Mouse_WT,((M2H_Level09,(((M2H_Level10,M2H_Level11)67,(M2H_Level12,M2H_Level13)68)69,((M2H_Level20,(M2H_Level18,M2H_Level19)70)71,((M2H_Level14,M2H_Level15)72,(M2H_Level16,M2H_Level17)73)74)75)76)77,(M2H_Level08,((M2H_Level03,(M2H_Level01,M2H_Level02)78)79,((M2H_Level04,M2H_Level05)80,(M2H_Level06,M2H_Level07)81)82)83)84)85)86,(Human_WT,((H2M_Level19,(H2M_Level17,H2M_Level18)87)88,((((H2M_Level01,H2M_Level02)89,(H2M_Level03,H2M_Level04)90)91,((H2M_Level05,H2M_Level06)92,(H2M_Level07,H2M_Level08)93)94)95,(((H2M_Level09,H2M_Level10)96,(H2M_Level11,H2M_Level12)97)98,((H2M_Level13,H2M_Level14)99,(H2M_Level15,H2M_Level16)100)101)102)103)104)105)106)107)108;
+END;
