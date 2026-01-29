@@ -3,7 +3,7 @@ import matplotlib.patches as mpatches
 import numpy as np
 import os
 
-def visualize_homolog_alignment(alignment_data, positions, title="Homolog 1"):
+def visualize_homolog_alignment(alignment_data, positions, title="Homolog 2"):
     """
     Visualize sequence alignment with colored boxes.
     Yellow boxes show the new additions at each step.
@@ -67,43 +67,42 @@ def visualize_homolog_alignment(alignment_data, positions, title="Homolog 1"):
 
 
 if __name__ == "__main__":
-    # Position numbers - updated to include all positions needed
-    positions = [48, 52, 47, 99, 54, 177, 144, 74, 178, 143, 139, 87, 142, 102, 24, 60, 181, 104, 49, 4, 107]
+    # Position numbers from the image
+    positions = [48, 52, 47, 99, 54, 177, 144, 74, 178, 143, 139, 173, 87, 142, 102, 24, 60, 181, 3, 104]
     
     # Create a mapping of position to column index
     pos_to_col = {pos: idx for idx, pos in enumerate(positions)}
     
     # Target positions for each row (newly selected in yellow)
     yellow_positions = [
-        54,   # row 0
-        49,   # row 1
-        24,   # row 2
-        139,  # row 3
-        47,   # row 4
-        60,   # row 5
-        74,   # row 6
-        144,  # row 7
-        99,   # row 8
-        177,  # row 9
-        178,  # row 10
-        104,  # row 11
-        4,    # row 12
-        52,   # row 13
-        87,   # row 14
-        102,  # row 15
-        107,  # row 16
-        142,  # row 17
-        181,  # row 18
-        48,   # row 19
-        143,  # row 20
+        87,   # row 0
+        173,  # row 1
+        47,   # row 2
+        143,  # row 3
+        60,   # row 4
+        104,  # row 5
+        142,  # row 6
+        139,  # row 7
+        181,  # row 8
+        48,   # row 9
+        3,    # row 10
+        54,   # row 11
+        144,  # row 12
+        177,  # row 13
+        102,  # row 14
+        24,   # row 15
+        99,   # row 16
+        52,   # row 17
+        178,  # row 18
+        74,   # row 19
     ]
     
     # Build alignment data with cumulative effect
     alignment_data = []
     selected_positions = set()  # Track all positions selected so far
     
-    for row_idx in range(21):  # Changed to 21 rows (0-20)
-        row = [0] * len(positions)  # Changed to match length of positions array
+    for row_idx in range(20):
+        row = [0] * 20  # Start with all white
         
         # Mark all previously selected positions as black
         for pos in selected_positions:
@@ -131,9 +130,9 @@ if __name__ == "__main__":
     os.makedirs(output_dir, exist_ok=True)
     
     # Save in multiple formats
-    output_path_png = os.path.join(output_dir, "mouse_to_human_mutants.png")
-    output_path_pdf = os.path.join(output_dir, "mouse_to_human_mutants.pdf")
-    output_path_svg = os.path.join(output_dir, "mouse_to_human_mutants.svg")
+    output_path_png = os.path.join(output_dir, "human_to_mouse_mutants.png")
+    output_path_pdf = os.path.join(output_dir, "human_to_mouse_mutants.pdf")
+    output_path_svg = os.path.join(output_dir, "human_to_mouse_mutants.svg")
     
     fig.savefig(output_path_png, dpi=300, bbox_inches='tight')
     fig.savefig(output_path_pdf, bbox_inches='tight')
