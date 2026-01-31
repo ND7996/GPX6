@@ -62,13 +62,15 @@ print(f"\nClosest to Ancestor:")
 print(f"Human: Level {hL[human_min_idx]} (distance = {hD[human_min_idx]:.6f})")
 print(f"Mouse: Level {mL[mouse_min_idx]} (distance = {mD[mouse_min_idx]:.6f})")
 
-# ===================== COLOR MAPPING FUNCTIONS =====================
-def get_red_shade(distance, all_distances):
+# ===================== COLOR GRADIENT FUNCTIONS =====================
+def get_human_gradient(distance, species_distances):
     """
-    Returns yellow-orange-red shade based on distance - closer = yellow, middle = orange, farther = red
+    Returns color for human pathway based on distance from ancestor:
+    - Closest to ancestor (smallest distance) = Dark green (#006400)
+    - Farthest from ancestor (largest distance) = Light green (not white, to stay visible)
     """
-    min_dist = np.min(all_distances)
-    max_dist = np.max(all_distances)
+    min_dist = np.min(species_distances)
+    max_dist = np.max(species_distances)
     
     # Normalize distance to 0-1 range
     if max_dist == min_dist:
@@ -79,27 +81,21 @@ def get_red_shade(distance, all_distances):
     # Clamp normalized value
     normalized = np.clip(normalized, 0, 1)
     
-    # Yellow -> Orange -> Red gradient
-    # Closest: (1.0, 1.0, 0.0) bright yellow
-    # Middle: (1.0, 0.5, 0.0) orange
-    # Farthest: (0.8, 0.0, 0.0) red
-    r = 1.0
-    if normalized < 0.5:
-        # Yellow to Orange
-        g = np.clip(1.0 - normalized, 0, 1)
-    else:
-        # Orange to Red
-        g = np.clip(1.0 - normalized * 2, 0, 1)
-    b = 0.0
+    # Dark green (0, 0.392, 0) to Light green (0.7, 0.95, 0.7) - NOT pure white
+    r = 0.0 + 0.7 * normalized
+    g = 0.392 + 0.558 * normalized  # Goes to 0.95
+    b = 0.0 + 0.7 * normalized
     
     return (r, g, b)
 
-def get_green_shade(distance, all_distances):
+def get_mouse_gradient(distance, species_distances):
     """
-    Returns light green to dark olive green shade based on distance
+    Returns color for mouse pathway based on distance from ancestor:
+    - Closest to ancestor (smallest distance) = Dark green (#006400)
+    - Farthest from ancestor (largest distance) = Light green (not white, to stay visible)
     """
-    min_dist = np.min(all_distances)
-    max_dist = np.max(all_distances)
+    min_dist = np.min(species_distances)
+    max_dist = np.max(species_distances)
     
     # Normalize distance to 0-1 range
     if max_dist == min_dist:
@@ -110,12 +106,10 @@ def get_green_shade(distance, all_distances):
     # Clamp normalized value
     normalized = np.clip(normalized, 0, 1)
     
-    # Light green to dark olive green gradient
-    # Closest: (0.6, 1.0, 0.4) light green
-    # Farthest: (0.3, 0.4, 0.2) dark olive green
-    r = np.clip(0.6 - 0.3 * normalized, 0, 1)
-    g = np.clip(1.0 - 0.6 * normalized, 0, 1)
-    b = np.clip(0.4 - 0.2 * normalized, 0, 1)
+    # Dark green (0, 0.392, 0) to Light green (0.7, 0.95, 0.7) - NOT pure white
+    r = 0.0 + 0.7 * normalized
+    g = 0.392 + 0.558 * normalized  # Goes to 0.95
+    b = 0.0 + 0.7 * normalized
     
     return (r, g, b)
 
@@ -129,61 +123,89 @@ ancestor_x, ancestor_y = 0, 0
 
 # Human pathway lines - radial from ancestor
 for i in range(len(hL)):
-    color = get_red_shade(hD0[i], hD0)
+    color = get_human_gradient(hD0[i], hD0)
     ax1.plot([ancestor_x, hL[i]], [ancestor_y, hD0[i]], 
-            color=color, alpha=0.25, linewidth=1.5, zorder=1)
+            color=color, alpha=0.8, linewidth=2.5, zorder=1)
 
 # Mouse pathway lines - radial from ancestor
 for i in range(len(mL)):
-    color = get_green_shade(mD0[i], mD0)
+    color = get_mouse_gradient(mD0[i], mD0)
     ax1.plot([ancestor_x, mL[i]], [ancestor_y, mD0[i]], 
-            color=color, alpha=0.25, linewidth=1.5, zorder=1)
+            color=color, alpha=0.8, linewidth=2.5, zorder=1)
 
-# Plot human points with red gradient
+# Plot human points with gradient
 for i, (x, y) in enumerate(zip(hL, hD0)):
-    color = get_red_shade(hD0[i], hD0)
+    color = get_human_gradient(hD0[i], hD0)
     ax1.scatter(x, y, s=400, c=[color], edgecolors='black', 
                linewidths=2, zorder=3, marker='o')
     ax1.text(x, y, str(hL[i]), ha='center', va='center', 
             fontsize=8, fontweight='bold', color='black', zorder=5)
+    # Add distance label below the point
+    ax1.text(x, y - 0.0015, f'{hD0[i]:.4f}', ha='center', va='top', 
+            fontsize=6, color='darkslategray', zorder=5, style='italic')
 
-# Plot mouse points with green gradient
+# Plot mouse points with gradient
 for i, (x, y) in enumerate(zip(mL, mD0)):
-    color = get_green_shade(mD0[i], mD0)
+    color = get_mouse_gradient(mD0[i], mD0)
     ax1.scatter(x, y, s=400, c=[color], edgecolors='black', 
-               linewidths=2, zorder=3, marker='s')
+               linewidths=2, zorder=3, marker='o')
     ax1.text(x, y, str(mL[i]), ha='center', va='center', 
             fontsize=8, fontweight='bold', color='black', zorder=5)
+    # Add distance label below the point
+    ax1.text(x, y - 0.0015, f'{mD0[i]:.4f}', ha='center', va='top', 
+            fontsize=6, color='darkslategray', zorder=5, style='italic')
 
 # Plot ancestor
 ax1.scatter(0, 0, s=500, c='#FFD700', edgecolors='black', 
-           linewidths=2.5, zorder=4, marker='o')
+           linewidths=2.5, zorder=4, marker='h')
 ax1.text(0, 0, 'A', ha='center', va='center', 
         fontsize=11, fontweight='bold', color='black', zorder=5)
 
-# Legend for Figure 1
-light_red = mpatches.Patch(color='#FFFF00', label='Closest (Human)', 
-                           edgecolor='black', linewidth=1)
-dark_red = mpatches.Patch(color='#CC0000', label='Farthest (Human)', 
-                          edgecolor='black', linewidth=1)
-light_green = mpatches.Patch(color='#99FF66', label='Closest (Mouse)', 
-                            edgecolor='black', linewidth=1)
-dark_olive = mpatches.Patch(color='#4D6633', label='Farthest (Mouse)', 
-                           edgecolor='black', linewidth=1)
-ancestor_marker = mpatches.Patch(color='#FFD700', label='Ancestor (A)', 
-                                 edgecolor='black', linewidth=1)
+# Legend for Figure 1 - Create gradient colored patches with more samples
+from matplotlib.patches import Rectangle
+from matplotlib.collections import PatchCollection
 
-legend1 = ax1.legend(handles=[light_red, dark_red, light_green, dark_olive, ancestor_marker], 
-                   loc='upper left', fontsize=8, framealpha=0.95, 
-                   edgecolor='black', title='Distance from Ancestor',
-                   title_fontsize=8, borderpad=0.5, labelspacing=0.4,
-                   handlelength=1.5, handletextpad=0.5)
+# Create a custom legend with gradient samples showing the full spectrum
+# More samples for better visualization of the gradient (showing 8 colors instead of 6)
+gradient_samples = [
+    (get_human_gradient(0.0, np.array([0, 1])), 'Closest to Ancestor'),
+    (get_human_gradient(0.15, np.array([0, 1])), ''),
+    (get_human_gradient(0.3, np.array([0, 1])), ''),
+    (get_human_gradient(0.45, np.array([0, 1])), ''),
+    (get_human_gradient(0.6, np.array([0, 1])), ''),
+    (get_human_gradient(0.75, np.array([0, 1])), ''),
+    (get_human_gradient(0.9, np.array([0, 1])), ''),
+    (get_human_gradient(1.0, np.array([0, 1])), 'Farthest from Ancestor')
+]
+
+gradient_patches = []
+for color, label in gradient_samples:
+    patch = mpatches.Patch(color=color, label=label if label else None, 
+                          edgecolor='black', linewidth=0.8)
+    gradient_patches.append(patch)
+
+ancestor_marker = plt.Line2D([0], [0], marker='h', color='w', markerfacecolor='#FFD700', 
+                            markersize=12, label='Ancestor (A)', markeredgecolor='black', 
+                            markeredgewidth=1.2)
+
+legend1 = ax1.legend(handles=gradient_patches + [ancestor_marker], 
+                   loc='center right', fontsize=8, framealpha=0.97, 
+                   edgecolor='black', title='Legend',
+                   title_fontsize=9, borderpad=0.4, labelspacing=0.4,
+                   handlelength=2, handletextpad=0.6, columnspacing=1.0)
 legend1.get_title().set_fontweight('bold')
+legend1.get_title().set_fontweight('bold')
+
+# Add text labels to identify human and mouse sequences
+ax1.text(1, hD0[0] + 0.001, 'Human', fontsize=10, fontweight='bold', 
+        color='darkgreen', ha='center', va='bottom')
+ax1.text(1, mD0[0] - 0.001, 'Mouse', fontsize=10, fontweight='bold', 
+        color='darkgreen', ha='center', va='top')
 
 # Formatting Figure 1
 ax1.set_xlabel('Level Number', fontsize=13, fontweight='bold')
 ax1.set_ylabel('Distance from Ancestor', fontsize=13, fontweight='bold')
-ax1.set_title('GPX6 Evolutionary Pathways from Ancestor\n(Radial View - All Levels from Common Ancestor)', 
+ax1.set_title('GPX6 Evolutionary Pathways from Ancestor\n(Radial View - Single Green Gradient)', 
              fontsize=15, fontweight='bold', pad=15)
 
 all_levels = list(range(0, max(max(hL), max(mL)) + 1))
@@ -199,7 +221,7 @@ ax1.spines['right'].set_visible(False)
 plt.tight_layout()
 
 # Save Figure 1
-fig1_path = os.path.join(save_dir, f'GPX6_radial_view_{timestamp}.png')
+fig1_path = os.path.join(save_dir, f'GPX6_radial_colored_{timestamp}.png')
 plt.savefig(fig1_path, dpi=300, bbox_inches='tight')
 print(f"Figure 1 saved: {fig1_path}")
 plt.close(fig1)
@@ -217,9 +239,9 @@ if len(hL) > 1:
     
     # Plot line segments with colors
     for i in range(len(hL_full) - 1):
-        color = get_red_shade(hD0_full[i+1], hD0)
+        color = get_human_gradient(hD0_full[i+1], hD0)
         ax2.plot([hL_full[i], hL_full[i+1]], [hD0_full[i], hD0_full[i+1]], 
-                color=color, alpha=0.4, linewidth=2.5, zorder=1)
+                color=color, alpha=0.85, linewidth=3, zorder=1)
 
 # Mouse pathway - connect points sequentially
 if len(mL) > 1:
@@ -229,44 +251,57 @@ if len(mL) > 1:
     
     # Plot line segments with colors
     for i in range(len(mL_full) - 1):
-        color = get_green_shade(mD0_full[i+1], mD0)
+        color = get_mouse_gradient(mD0_full[i+1], mD0)
         ax2.plot([mL_full[i], mL_full[i+1]], [mD0_full[i], mD0_full[i+1]], 
-                color=color, alpha=0.4, linewidth=2.5, zorder=1)
+                color=color, alpha=0.85, linewidth=3, zorder=1)
 
-# Plot human points with red gradient
+# Plot human points with gradient
 for i, (x, y) in enumerate(zip(hL, hD0)):
-    color = get_red_shade(hD0[i], hD0)
+    color = get_human_gradient(hD0[i], hD0)
     ax2.scatter(x, y, s=400, c=[color], edgecolors='black', 
                linewidths=2, zorder=3, marker='o')
     ax2.text(x, y, str(hL[i]), ha='center', va='center', 
             fontsize=8, fontweight='bold', color='black', zorder=5)
+    # Add distance label below the point
+    ax2.text(x, y - 0.0015, f'{hD0[i]:.4f}', ha='center', va='top', 
+            fontsize=6, color='darkslategray', zorder=5, style='italic')
 
-# Plot mouse points with green gradient
+# Plot mouse points with gradient
 for i, (x, y) in enumerate(zip(mL, mD0)):
-    color = get_green_shade(mD0[i], mD0)
+    color = get_mouse_gradient(mD0[i], mD0)
     ax2.scatter(x, y, s=400, c=[color], edgecolors='black', 
-               linewidths=2, zorder=3, marker='s')
+               linewidths=2, zorder=3, marker='o')
     ax2.text(x, y, str(mL[i]), ha='center', va='center', 
             fontsize=8, fontweight='bold', color='black', zorder=5)
+    # Add distance label below the point
+    ax2.text(x, y - 0.0015, f'{mD0[i]:.4f}', ha='center', va='top', 
+            fontsize=6, color='darkslategray', zorder=5, style='italic')
 
 # Plot ancestor
 ax2.scatter(0, 0, s=500, c='#FFD700', edgecolors='black', 
-           linewidths=2.5, zorder=4, marker='o')
+           linewidths=2.5, zorder=4, marker='h')
 ax2.text(0, 0, 'A', ha='center', va='center', 
         fontsize=11, fontweight='bold', color='black', zorder=5)
 
 # Legend for Figure 2
-legend2 = ax2.legend(handles=[light_red, dark_red, light_green, dark_olive, ancestor_marker], 
-                   loc='upper left', fontsize=8, framealpha=0.95, 
-                   edgecolor='black', title='Distance from Ancestor',
-                   title_fontsize=8, borderpad=0.5, labelspacing=0.4,
-                   handlelength=1.5, handletextpad=0.5)
+legend2 = ax2.legend(handles=gradient_patches + [ancestor_marker], 
+                   loc='center right', fontsize=8, framealpha=0.97, 
+                   edgecolor='black', title='Legend',
+                   title_fontsize=9, borderpad=0.4, labelspacing=0.4,
+                   handlelength=2, handletextpad=0.6, columnspacing=1.0)
 legend2.get_title().set_fontweight('bold')
+legend2.get_title().set_fontweight('bold')
+
+# Add text labels to identify human and mouse sequences
+ax2.text(1, hD0[0] + 0.001, 'Human', fontsize=10, fontweight='bold', 
+        color='darkgreen', ha='center', va='bottom')
+ax2.text(1, mD0[0] - 0.001, 'Mouse', fontsize=10, fontweight='bold', 
+        color='darkgreen', ha='center', va='top')
 
 # Formatting Figure 2
 ax2.set_xlabel('Level Number', fontsize=13, fontweight='bold')
 ax2.set_ylabel('Distance from Ancestor', fontsize=13, fontweight='bold')
-ax2.set_title('GPX6 Evolutionary Pathways from Ancestor\n(Sequential View - Level-to-Level Progression)', 
+ax2.set_title('GPX6 Evolutionary Pathways from Ancestor)', 
              fontsize=15, fontweight='bold', pad=15)
 
 ax2.set_xticks(all_levels)
@@ -280,7 +315,7 @@ ax2.spines['right'].set_visible(False)
 plt.tight_layout()
 
 # Save Figure 2
-fig2_path = os.path.join(save_dir, f'GPX6_sequential_view_{timestamp}.png')
+fig2_path = os.path.join(save_dir, f'GPX6_sequential_colored_{timestamp}.png')
 plt.savefig(fig2_path, dpi=300, bbox_inches='tight')
 print(f"Figure 2 saved: {fig2_path}")
 plt.show()
@@ -290,14 +325,14 @@ print("\n" + "="*70)
 print("DETAILED ANALYSIS")
 print("="*70)
 
-print(f"\nHuman GPX6 (PINK → RED):")
+print(f"\nHuman GPX6:")
 closest_h_indices = np.argsort(hD0)[:3]
 farthest_h_indices = np.argsort(hD0)[-3:]
 print(f"  Closest levels: {hL[closest_h_indices].tolist()}")
 print(f"  Farthest levels: {hL[farthest_h_indices].tolist()}")
 print(f"  Mean distance: {np.mean(hD):.6f}")
 
-print(f"\nMouse GPX6 (CYAN → TEAL):")
+print(f"\nMouse GPX6:")
 closest_m_indices = np.argsort(mD0)[:3]
 farthest_m_indices = np.argsort(mD0)[-3:]
 print(f"  Closest levels: {mL[closest_m_indices].tolist()}")
@@ -306,6 +341,6 @@ print(f"  Mean distance: {np.mean(mD):.6f}")
 
 print("\n" + "="*70)
 print(f"\nBoth figures saved to: {save_dir}")
-print(f"  - Figure 1 (Radial): GPX6_radial_view_{timestamp}.png")
-print(f"  - Figure 2 (Sequential): GPX6_sequential_view_{timestamp}.png")
+print(f"  - Figure 1 (Radial): GPX6_radial_colored_{timestamp}.png")
+print(f"  - Figure 2 (Sequential): GPX6_sequential_colored_{timestamp}.png")
 print("="*70)
