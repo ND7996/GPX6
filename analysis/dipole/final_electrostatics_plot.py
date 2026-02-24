@@ -18,8 +18,8 @@ from matplotlib.patches import FancyBboxPatch
 from scipy import stats
 
 CONFIG = dict(
-    human_file = r"D:\PhD_Thesis\GPX6\analysis\dipole\human_mutants_merged.csv",
-    mouse_file = r"D:\PhD_Thesis\GPX6\analysis\dipole\mouse_mutants_merged.csv",
+    human_file = r"D:\PhD_Thesis\GPX6\analysis\dipole\human_HBONDS.csv",
+    mouse_file = r"D:\PhD_Thesis\GPX6\analysis\dipole\mouse_HBONDS.csv",
     human_refs = ["humansec", "humancys"],
     mouse_refs = ["mousecys", "C49U"],
     output     = r"D:\PhD_Thesis\GPX6\analysis\dipole\fig_heatmap_levels",
