@@ -2,7 +2,7 @@
 
 This guide presents a complete, automated workflow for conducting **Free Energy Perturbation (FEP)** calculations using the **Q5/Q6 software suite**. It covers all steps from initial structure preparation through final statistical analysis of free energy differences between protein variants.
 
-![Detailed Workflow](https://raw.githubusercontent.com/ND7996/GPX6/main/analysis/figures/detailed_workflow.drawio.png)
+![Detailed Workflow](https://raw.githubusercontent.com/ND7996/GPX6/detailed_workflow.drawio.png)
 
 # This workflow is generated using GPX6 protein as a model 
 ---
