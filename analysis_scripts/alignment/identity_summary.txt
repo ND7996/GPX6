@@ -1,0 +1,63 @@
+================================================================================
+COMPREHENSIVE SEQUENCE IDENTITY SUMMARY
+================================================================================
+
+CORE SEQUENCES IDENTITY TO ANCESTOR:
+--------------------------------------------------------------------------------
+Human WT:     23.28%
+Mouse WT:     19.15%
+
+MUTATION LEVEL SEQUENCES IDENTITY TO ANCESTOR:
+--------------------------------------------------------------------------------
+
+Human → Mouse Pathway:
+  H2M_Level01            6.35%
+  H2M_Level02            6.35%
+  H2M_Level03            5.82%
+  H2M_Level04            5.82%
+  H2M_Level05            5.82%
+  H2M_Level06            5.82%
+  H2M_Level07            5.82%
+  H2M_Level08            5.82%
+  H2M_Level09            5.82%
+  H2M_Level10            5.82%
+  H2M_Level11            5.82%
+  H2M_Level12            5.82%
+  H2M_Level13            5.82%
+  H2M_Level14            6.35%
+  H2M_Level15            6.35%
+  H2M_Level16            6.88%
+  H2M_Level17            7.89%
+  H2M_Level18            7.89%
+  H2M_Level19            7.89%
+
+Mouse → Human Pathway:
+  M2H_Level01            7.45%
+  M2H_Level02            7.49%
+  M2H_Level03            7.49%
+  M2H_Level04            7.49%
+  M2H_Level05            7.49%
+  M2H_Level06            7.49%
+  M2H_Level07            7.49%
+  M2H_Level08            7.45%
+  M2H_Level09           43.39%
+  M2H_Level10           43.16%
+  M2H_Level11           43.16%
+  M2H_Level12           43.68%
+  M2H_Level13           43.16%
+  M2H_Level14           42.63%
+  M2H_Level15           42.11%
+  M2H_Level16           41.58%
+  M2H_Level17           41.05%
+  M2H_Level18           41.58%
+  M2H_Level19           41.58%
+  M2H_Level20           41.05%
+
+================================================================================
+
+BLOSUM62 SCORES TO ANCESTOR:
+--------------------------------------------------------------------------------
+Human WT:     0.212 (normalized)
+Mouse WT:     0.064 (normalized)
+
+================================================================================

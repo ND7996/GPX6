@@ -1,0 +1,30 @@
+
+    LOGICAL TREE STRUCTURE (Conceptual):
+    
+    Universal Root
+    |
+    +--- Natural Evolution (Mammalian Phylogeny)
+    |    |
+    |    +- Primates
+    |    |  +- Homo_sapiens ------------+
+    |    |  +- Pan_troglodytes          |  (Modern species)
+    |    |  +- Macaca_mulatta           |
+    |    |                              |
+    |    +- Rodents                     |
+    |       +- Mus_musculus ------------+
+    |       +- Rattus_norvegicus        |
+    |       +- Other rodents            |
+    |                                   |
+    +--- Experimental Evolution         | (Connection to modern species)
+         (GPX6 mutations)               |
+         |                              |
+         Ancestor_node25                |
+         |                              |
+         +- Mouse_WT -------------------+ (Related to Mus_musculus)
+         |  +- M2H_Level01-20
+         |     (Mouse -> Human mutations)
+         |
+         +- Human_WT -------------------+ (Related to Homo_sapiens)
+            +- H2M_Level01-19
+               (Human -> Mouse mutations)
+    

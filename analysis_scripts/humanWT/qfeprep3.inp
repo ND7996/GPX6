@@ -1,0 +1,61 @@
+51            # number of files/frames
+2  0                # number of states and predefined off-diagonals
+0.59616123 100        # RT and number of points to skip
+50             # number of bins
+10    # minimum points for bin
+40.0         # state2 shift (alpha)
+1                    # number of diagonal elements
+1 2 25.0 0 0 0     # states 1 and 2, A=const=Hij, mu=eta=r0= 0
+1 -1                 # linear combination of states ( E = e1 - e2 )
+rep3_fep_000_1.000.en
+rep3_fep_001_0.980.en
+rep3_fep_002_0.960.en
+rep3_fep_003_0.940.en
+rep3_fep_004_0.920.en
+rep3_fep_005_0.900.en
+rep3_fep_006_0.880.en
+rep3_fep_007_0.860.en
+rep3_fep_008_0.840.en
+rep3_fep_009_0.820.en
+rep3_fep_010_0.800.en
+rep3_fep_011_0.780.en
+rep3_fep_012_0.760.en
+rep3_fep_013_0.740.en
+rep3_fep_014_0.720.en
+rep3_fep_015_0.700.en
+rep3_fep_016_0.680.en
+rep3_fep_017_0.660.en
+rep3_fep_018_0.640.en
+rep3_fep_019_0.620.en
+rep3_fep_020_0.600.en
+rep3_fep_021_0.580.en
+rep3_fep_022_0.560.en
+rep3_fep_023_0.540.en
+rep3_fep_024_0.520.en
+rep3_fep_025_0.500.en
+rep3_fep_026_0.480.en
+rep3_fep_027_0.460.en
+rep3_fep_028_0.440.en
+rep3_fep_029_0.420.en
+rep3_fep_030_0.400.en
+rep3_fep_031_0.380.en
+rep3_fep_032_0.360.en
+rep3_fep_033_0.340.en
+rep3_fep_034_0.320.en
+rep3_fep_035_0.300.en
+rep3_fep_036_0.280.en
+rep3_fep_037_0.260.en
+rep3_fep_038_0.240.en
+rep3_fep_039_0.220.en
+rep3_fep_040_0.200.en
+rep3_fep_041_0.180.en
+rep3_fep_042_0.160.en
+rep3_fep_043_0.140.en
+rep3_fep_044_0.120.en
+rep3_fep_045_0.100.en
+rep3_fep_046_0.080.en
+rep3_fep_047_0.060.en
+rep3_fep_048_0.040.en
+rep3_fep_049_0.020.en
+rep3_fep_050_0.000.en
+stop

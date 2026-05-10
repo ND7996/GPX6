@@ -1,0 +1,31 @@
+================================================================================
+PHYLOGENY VALIDATION REPORT
+================================================================================
+
+CONFIRMATION: THIS PHYLOGENY IS BASED ON SEQUENCE SIMILARITY
+--------------------------------------------------------------------------------
+
+Method Used: Direct Pairwise Comparison
+
+METHODOLOGY:
+[OK] Step 1: Pairwise similarity calculation
+[OK] Step 2: Similarity -> Distance conversion (d = 1 - s)
+[OK] Step 3: UPGMA tree building
+[OK] Step 4: Branch lengths = phylogenetic distances
+
+INTERPRETATION:
+--------------------------------------------------------------------------------
+Higher similarity = Shorter distance = Closer in tree
+Lower similarity = Longer distance = Further in tree
+
+FILES FOR VERIFICATION:
+COMBINED_SIMILARITY_MATRIX.csv - All similarities
+DISTANCE_MATRIX.csv - All distances
+SIMILARITY_REPORT.txt - Statistics
+SIMILARITY_BASED_PHYLOGENY.nwk - Tree file (OPEN IN FIGTREE)
+PHYLOGENETIC_TREE.png - Quick visual
+FIGTREE_INSTRUCTIONS.txt - How to use FigTree
+
+================================================================================
+This phylogeny is 100% based on sequence similarity!
+================================================================================

@@ -1,0 +1,38 @@
+
+# Simplified logical structure showing connections:
+# Tree connects GPX6 sequences to their corresponding species
+
+(
+  # Mammalian tree with inserted GPX6 sequences
+  (
+    ... [other primates] ...,
+    
+    # Human lineage with experimental sequences
+    (9_Pan_troglodytes,
+      (1_Homo_sapiens,
+        # Human GPX6 experimental evolution
+        (Human_WT,
+          (H2M_Level19, ... all H2M mutations ...)
+        )
+      )200
+    )30,
+    
+    ... [more mammals] ...,
+    
+    # Mouse lineage with experimental sequences  
+    (
+      (2_Mus_musculus,
+        # Mouse GPX6 experimental evolution
+        (Mouse_WT,
+          (M2H_Level09, ... all M2H mutations ...)
+        )
+      )201,
+      18_Rattus_norvegicus
+    )37,
+    
+    ... [rest of mammals] ...
+  )23,
+  
+  # Ancestral sequence (outgroup)
+  Ancestor_node25_renumbered125
+)202;

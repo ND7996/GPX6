@@ -1,0 +1,36 @@
+Chain X:
+ALA <-> LEU: 4.88 Å
+ALA <-> PHE: 3.94 Å
+ALA <-> VAL: 4.99 Å
+ALA <-> ALA: 3.82 Å
+ALA <-> PRO: 3.83 Å
+LEU <-> ALA: 4.88 Å
+LEU <-> PHE: 4.63 Å
+LEU <-> VAL: 3.88 Å
+LEU <-> LEU: 4.66 Å
+LEU <-> ILE: 3.90 Å
+PHE <-> ALA: 3.94 Å
+PHE <-> LEU: 4.63 Å
+PHE <-> VAL: 4.80 Å
+PHE <-> PRO: 3.91 Å
+PHE <-> TRP: 3.84 Å
+VAL <-> LEU: 3.88 Å
+VAL <-> ILE: 3.92 Å
+VAL <-> VAL: 4.95 Å
+VAL <-> PHE: 4.80 Å
+VAL <-> ALA: 3.84 Å
+VAL <-> PRO: 3.77 Å
+VAL <-> MET: 3.90 Å
+ILE <-> VAL: 3.92 Å
+ILE <-> LEU: 3.90 Å
+PRO <-> PHE: 3.91 Å
+PRO <-> VAL: 3.77 Å
+PRO <-> PRO: 3.82 Å
+PRO <-> MET: 3.87 Å
+PRO <-> ALA: 3.83 Å
+TRP <-> PHE: 3.84 Å
+MET <-> PRO: 3.87 Å
+MET <-> VAL: 3.90 Å
+
+Chain Y:
+

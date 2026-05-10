@@ -1,0 +1,73 @@
+\documentclass[12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\begin{document}
+
+\section*{What the Figure Shows}
+
+This is a \textbf{dual heatmap} visualizing the thermodynamic stability effects ($\Delta\Delta G^{*}$) of mutations in the GPX6 protein (Glutathione Peroxidase 6) across two species --- \textbf{Human} (top) and \textbf{Mouse} (bottom).
+
+\subsection*{The Core Data}
+
+Each cell represents a $\Delta\Delta G^{*}$ value (in kcal/mol) --- the change in free energy of a mutant relative to the wild-type reference. This tells you whether a mutation stabilizes or destabilizes the protein:
+
+\begin{itemize}
+\item \textbf{Red cells} $\rightarrow$ positive $\Delta\Delta G^{*}$ = the mutation is \textbf{destabilizing} (makes the protein less stable)
+\item \textbf{Blue cells} $\rightarrow$ negative $\Delta\Delta G^{*}$ = the mutation is \textbf{stabilizing} (makes the protein more stable)
+\item \textbf{White/pale cells} $\approx$ neutral effect
+\item \textbf{Grey cells} = that mutation was not observed at that particular level
+\end{itemize}
+
+\subsection*{The Axes}
+
+\begin{itemize}
+\item \textbf{Y-axis (rows):} Individual mutations (e.g.\ T87K, H173R, S4R), sorted first by \textbf{H-bond count} then by their \textbf{Level-0 $\Delta\Delta G^{*}$} value
+\item \textbf{X-axis (columns):} The \textbf{mutation level} (0, 2, 4, \ldots\ up to $\sim$18--20) --- this represents the combinatorial depth of mutations, i.e.\ how many simultaneous mutations are present in that particular sequence context. Level 0 is the single mutation in the wild-type background; higher levels are the same mutation appearing within increasingly complex multi-mutant backgrounds
+\end{itemize}
+
+\subsection*{The Annotations}
+
+The \textbf{number annotated in the first column (Level 0)} is the raw $\Delta\Delta G^{*}$ value for that single mutation. This lets you quickly read off the direct effect.
+
+The \textbf{coloured badges on the right} show the \textbf{H-bond count} for each mutation, using a plasma-like colour scale: dark purple (0 H-bonds) $\rightarrow$ blue $\rightarrow$ teal $\rightarrow$ green $\rightarrow$ yellow $\rightarrow$ orange (5 H-bonds). The badge colour also sets the colour of the row label text, so you can cross-reference at a glance.
+
+Mutations marked with a \textbf{$\star$ (star)} are \textbf{active-site H-bond mutants} --- residues that form hydrogen bonds directly at the catalytic site. Their labels are also bold.
+
+\subsection*{What the Biology Tells You}
+
+Looking at the human panel, most 0-H-bond mutations cluster at the top and are destabilizing (warm/red at Level 0), while mutations with more H-bonds (3--5, shown in green/yellow/orange toward the bottom) tend to be more neutral or mildly stabilizing. The active-site mutations A52T$\star$ and Y48F$\star$ are particularly interesting as they show context-dependent effects --- their $\Delta\Delta G^{*}$ fluctuates substantially across levels, meaning their impact depends heavily on the mutational background.
+
+In the mouse panel, R99C stands out immediately with a very dark red Level-0 value (+8.0 kcal/mol), making it the most strongly destabilizing single mutation. T52A$\star$ and F48Y$\star$ are the active-site mutants in mouse. Mouse mutations also extend to Level $\sim$20, suggesting a broader combinatorial space was sampled.
+
+The key biological insight the figure is designed to convey is whether \textbf{H-bond network integrity correlates with mutational robustness} --- mutations embedded in richer H-bond networks (more badges, warmer badge colours) might be buffered against destabilization across different mutational backgrounds.
+
+\section*{How the Code Builds It}
+
+The script is well-structured in several logical stages:
+
+\subsection*{1. Configuration (\texttt{CONFIG} dict)}
+
+File paths, colour scheme, H-bond badge colours (hardcoded plasma-inspired palette), and species accent colours (blue for human, amber for mouse) are all centralized here, making the script easy to adapt.
+
+\subsection*{2. Data loading (\texttt{get\_wt\_ref} + \texttt{load\_pivot})}
+
+The wild-type reference $\Delta\Delta G^{*}$ is computed as the mean of reference sequences (e.g.\ \texttt{humansec}, \texttt{humancys}) at Level 0. All other mutations are then expressed as $\Delta\Delta G^{*}$ relative to this baseline. The data is pivoted into a matrix (mutations $\times$ levels), and rows are sorted by H-bond count then Level-0 $\Delta\Delta G^{*}$.
+
+\subsection*{3. Unified colour scale}
+
+\texttt{vabs} finds the maximum absolute $\Delta\Delta G^{*}$ across \emph{both} species so both heatmaps share an identical colour scale --- essential for honest visual comparison. \texttt{TwoSlopeNorm} ensures white always sits exactly at zero regardless of asymmetry in the data range.
+
+\subsection*{4. \texttt{draw\_heatmap} function}
+
+This is the core drawing engine. It manually places \texttt{plt.Rectangle} patches for each cell (rather than using \texttt{imshow} or \texttt{seaborn}), which gives full control over cell appearance. Missing values get grey fill. Level-0 cells get a text annotation. Y-tick labels are coloured by H-bond count. The H-bond badge is drawn as a \texttt{FancyBboxPatch} with rounded corners, positioned just to the right of the grid.
+
+\subsection*{5. Figure assembly}
+
+Two subplots stacked vertically with height ratios proportional to the number of mutations in each species. A shared colorbar is added as a manually placed axis (\texttt{fig.add\_axes}). The H-bond legend and annotation text are placed in the right margin.
+
+The choice to use manual \texttt{Rectangle} patches rather than a standard heatmap function is deliberate --- it makes it straightforward to handle missing data, custom cell annotations, and the badge strip without fighting against the constraints of higher-level plotting APIs.
+
+\end{document}

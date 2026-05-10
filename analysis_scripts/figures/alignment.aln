@@ -1,0 +1,18 @@
+CLUSTAL
+
+HumanSEC     PQNRKVDCNKGVTGTIYEYGALTLNGEEYIQFKQFAGKHVLFVNVAAYUGLAAQYPELNALQE
+MouseCys     A---KVDCNKGVTGTIYEYGANTLNGGEYVQFQQYAGKHILFVNVASFCGLTATYPELNTLQE
+                 ***** ***********.*    **.**.*.****.******...**.*.*****.***
+
+HumanSEC     ELKNFGVIVLAFPCNQFGKQEPGTNSEILLGLKYVCPGSGFVPSFQLFEKGDVNGEKEQKVFT
+MouseCys     ELKQFNVIVLGFPCNQFGKQEPGKNSEILLGLKYVRPGGGYVPNFQLFEKGDVNGENEQKVFS
+             ***.*.****.************.***********.**.*.**.************.*****.
+
+HumanSEC     FLKNSCPPTSDLLGSSSQLFWEPMKVHDIRWNFEKFLVGPDGVPVMHWFHQAPVSTVKSDILE
+MouseCys     FLKNSCPPTSELLGSPE?LFWDPMKVHDIRWNFEKFLVGPDGVPVMRWFHQTPVSTVQSDIME
+             **********.****...***.************************.****.*****.***.*
+
+HumanSEC     YLKQFNTH                                                       
+MouseCys     YLN-----                                                       
+             **                                                             
+

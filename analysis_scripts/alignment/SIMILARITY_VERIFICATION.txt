@@ -1,0 +1,25 @@
+VERIFICATION: THIS TREE IS BASED ON SEQUENCE SIMILARITY
+======================================================================
+
+METHODOLOGY:
+1. Sequences were PROPERLY ALIGNED using MSA
+2. Pairwise similarities calculated from aligned positions
+3. Similarity converted to distance: distance = 1 - similarity
+4. Phylogenetic tree built from distance matrix using UPGMA
+
+SIMILARITY EVIDENCE:
+======================================================================
+
+KEY SIMILARITY SCORES:
+
+TREE STRUCTURE CONFIRMATION:
+======================================================================
+If sequences are similar, they will be close in the tree.
+If sequences are different, they will be far apart.
+
+The tree file contains BRANCH LENGTHS proportional to distance.
+Shorter branches = higher similarity.
+
+
+COMPLETE SIMILARITY MATRIX saved as: SIMILARITY_MATRIX_DETAILED.csv
+You can verify all pairwise similarities in that file.

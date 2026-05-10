@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MSA Paper Figure</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            overflow: hidden; /* No scrolling */
+            background: white;
+            font-family: 'Courier New', monospace;
+        }
+
+        .msa-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            width: 100%;
+            transform: scale(1);
+        }
+
+        /* Title */
+        h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+
+        /* Sequence rows */
+        .sequence-row {
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 10px 0;
+        }
+
+        /* Sequence name */
+        .seq-name {
+            display: inline-block;
+            width: 180px;
+            font-weight: bold;
+            margin-right: 15px;
+            font-size: 20px;
+            color: #2c3e50;
+            text-align: right;
+        }
+
+        /* Sequence text */
+        .sequence {
+            font-size: 24px; /* Larger font for clarity */
+            letter-spacing: 2px;
+            display: inline-block;
+        }
+
+        /* Residues */
+        .aa {
+            color: #2c3e50;
+            font-weight: 600;
+            padding: 1px 3px;
+        }
+
+        .gap {
+            color: #95a5a6;
+            opacity: 0.7;
+            padding: 1px 3px;
+        }
+
+        /* Highlighting */
+        .highlighted {
+            border-radius: 4px;
+            padding: 2px 4px;
+        }
+
+        /* Scaling for smaller screens */
+        @media screen and (max-width: 1600px) {
+            .msa-container {
+                transform: scale(0.9);
+            }
+        }
+        @media screen and (max-width: 1200px) {
+            .msa-container {
+                transform: scale(0.8);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="msa-container">
+        <h2>Multiple Sequence Alignment</h2>
+
+        <div class="sequence-row">
+            <span class="seq-name">original_humansec</span>
+            <span class="sequence"><span class='aa'>P</span><span class='aa'>Q</span><span class="aa highlighted" style="background-color: #FF0000; color: white; font-weight: bold;">N</span><span class="aa highlighted" style="background-color: #FF0000; color: white; font-weight: bold;">R</span><span class='aa'>K</span><span class='aa'>V</span><span class='aa'>D</span><span class='aa'>C</span><span class='aa'>N</span><span class='aa'>K</span><span class='aa'>G</span><span class='aa'>V</span><span class='aa'>T</span><span class='aa'>G</span><span class='aa'>T</span><span class="aa highlighted" style="background-color: #FFD700; color: white; font-weight: bold;">I</span><span class='aa'>Y</span><span class='aa'>E</span><span class='aa'>Y</span><span class='aa'>G</span><span class='aa'>A</span><span class="aa highlighted" style="background-color: #FFD700; color: white; font-weight: bold;">L</span><span class='aa'>T</span><span class="aa highlighted" style="background-color: #FF0000; color: white; font-weight: bold;">L</span><span class="aa highlighted" style="background-color: #FFD700; color: white; font-weight: bold;">N</span><span class='aa'>G</span><span class="aa highlighted" style="background-color: #FFD700; color: white; font-weight: bold;">E</span><span class='aa'>E</span><span class="aa highlighted" style="background-color: #FFD700; color: white; font-weight: bold;">Y</span><span class="aa highlighted" style="background-color: #FFD700; color: white; font-weight: bold;">I</span><span class="aa highlighted" style="background-color: #FFD700; color: white; font-weight: bold;">Q</span><span class='aa'>F</span><span class="aa highlighted" style="background-color: #FFD700; color: white; font-weight: bold;">K</span><span class='aa'>Q</span><span class="aa highlighted" style="background-color: #FFD700; color: white; font-weight: bold;">F</span><span class='aa'>A</span><span class='aa'>G</span><span class='aa'>K</span><span class='aa'>H</span><span class="aa highlighted" style="background-color: #FFD700; color: white; font-weight: bold;">V</span><span class='aa'>L</span><span class='aa'>F</span><span class='aa'>V</span><span class='aa'>N</span><span class='aa'>V</span><span class='aa'>A</span><span class="aa highlighted" style="background-color: #FF0000; color: white; font-weight: bold;">A</span><span class="aa highlighted" style="background-color: #FF0000; color: white; font-weight: bold;">Y</span><span class="aa highlighted" style="background-color: #FFD700; color: white; font-weight: bold;">U</span><span class='aa'>G</span><span class='aa'>L</span><span class="aa highlighted" style="background-color: #FF0000; color: white; font-weight: bold;">A</span><span class='aa'>A</span><span class="aa highlighted" style="background-color: #FF0000; color: white; font-weight: bold;">Q</span><span class='aa'>Y</span><span class='aa'>P</span><span class='aa'>E</span><span class='aa'>L</span><span class='aa'>N</span><span class="aa highlighted" style="background-color: #FF0000; color: white; font-weight: bold;">A</span><span class='aa'>L</span><span class='aa'>Q</span><span class='aa'>E</span><span class='aa'>E</span><span class='aa'>L</span><span class='aa'>K</span><span class="aa highlighted" style="background-color: #FFD700; color: white; font-weight: bold;">N</span><span class='aa'>F</span><span class="aa highlighted" style="background-color: #FFD700; color: white; font-weight: bold;">G</span><span class='aa'>V</span><span class="aa highlighted" style="background-color: #FFD700; color: white; font-weight: bold;">I</span><span class='aa'>V</span><span class='aa'>L</span><span class="aa highlighted" style="background-color: #FF0000; color: white; font-weight: bold;">A</span><span class='aa'>F</span><span class='aa'>P</span><span class='aa'>C</span><span class='aa'>N</span><span class='aa'>Q</span><span class='aa'>F</span><span class='aa'>G</span><span class='aa'>K</span><span class='aa'>Q</span><span class='aa'>E</span><span class='aa'>P</span><span class='aa'>G</span><span class="aa highlighted" style="background-color: #FF0000; color: white; font-weight: bold;">T</span><span class='aa'>N</span><span class='aa'>S</span><span class='aa'>E</span><span class='aa'>I</span><span class='aa'>L</span><span class='aa'>L</span><span class='aa'>G</span><span class='aa'>L</span><span class='aa'>K</span><span class='aa'>Y</span><span class='aa'>V</span><span class="aa highlighted" style="background-color: #FF0000; color: white; font-weight: bold;">C</span></span>
+        </div>
+        <div class="sequence-row">
+            <span class="seq-name"></span> <!-- Empty to align second row -->
+            <span class="sequence"><span class='aa'>P</span><span class='aa'>G</span><span class="aa highlighted" style="background-color: #FF0000; color: white; font-weight: bold;">S</span><span class='aa'>G</span><span class="aa highlighted" style="background-color: #FF0000; color: white; font-weight: bold;">F</span><span class='aa'>V</span><span class='aa'>P</span><span class="aa highlighted" style="background-color: #FF0000; color: white; font-weight: bold;">S</span><span class='aa'>F</span><span class='aa'>Q</span><span class='aa'>L</span><span class='aa'>F</span><span class='aa'>E</span><span class='aa'>K</span><span class='aa'>G</span><span class='aa'>D</span><span class='aa'>V</span><span class='aa'>N</span><span class='aa'>G</span><span class="aa highlighted" style="background-color: #FFD700; color: white; font-weight: bold;">E</span><span class="aa highlighted" style="background-color: #FFD700; color: white; font-weight: bold;">K</span><span class='aa'>E</span><span class='aa'>Q</span><span class='aa'>K</span><span class='aa'>V</span><span class='aa'>F</span><span class="aa highlighted" style="background-color: #FFD700; color: white; font-weight: bold;">T</span><span class='aa'>F</span><span class='aa'>L</span><span class='aa'>K</span><span class='aa'>N</span><span class='aa'>S</span><span class='aa'>C</span><span class='aa'>P</span><span class='aa'>P</span><span class='aa'>T</span><span class='aa'>S</span><span class="aa highlighted" style="background-color: #FFD700; color: white; font-weight: bold;">D</span><span class='aa'>L</span><span class="aa highlighted" style="background-color: #FF0000; color: white; font-weight: bold;">L</span><span class='aa'>G</span><span class='aa'>S</span><span class="aa highlighted" style="background-color: #FF0000; color: white; font-weight: bold;">S</span><span class="aa highlighted" style="background-color: #FF0000; color: white; font-weight: bold;">S</span><span class="aa highlighted" style="background-color: #FF0000; color: white; font-weight: bold;">Q</span><span class='aa'>L</span><span class='aa'>F</span><span class='aa'>W</span><span class="aa highlighted" style="background-color: #FFD700; color: white; font-weight: bold;">E</span><span class='aa'>P</span><span class='aa'>M</span><span class='aa'>K</span><span class='aa'>V</span><span class='aa'>H</span><span class='aa'>D</span><span class='aa'>I</span><span class='aa'>R</span><span class='aa'>W</span><span class='aa'>N</span><span class='aa'>F</span><span class='aa'>E</span><span class='aa'>K</span><span class='aa'>F</span><span class='aa'>L</span><span class='aa'>V</span><span class='aa'>G</span><span class='aa'>P</span><span class='aa'>D</span><span class='aa'>G</span><span class='aa'>V</span><span class='aa'>P</span><span class='aa'>V</span><span class='aa'>M</span><span class="aa highlighted" style="background-color: #FF0000; color: white; font-weight: bold;">H</span><span class='aa'>W</span><span class='aa'>F</span><span class='aa'>H</span><span class="aa highlighted" style="background-color: #FF0000; color: white; font-weight: bold;">Q</span><span class="aa highlighted" style="background-color: #FF0000; color: white; font-weight: bold;">A</span><span class='aa'>P</span><span class='aa'>V</span><span class="aa highlighted" style="background-color: #FF0000; color: white; font-weight: bold;">S</span><span class="aa highlighted" style="background-color: #FFD700; color: white; font-weight: bold;">T</span><span class='aa'>V</span><span class="aa highlighted" style="background-color: #FFD700; color: white; font-weight: bold;">K</span><span class='aa'>S</span><span class='aa'>D</span><span class='aa'>I</span><span class="aa highlighted" style="background-color: #FFD700; color: white; font-weight: bold;">L</span><span class='aa'>E</span><span class='aa'>Y</span><span class='aa'>L</span><span class="aa highlighted" style="background-color: #FFD700; color: white; font-weight: bold;">K</span><span class='aa'>Q</span><span class="aa highlighted" style="background-color: #FFD700; color: white; font-weight: bold;">F</span><span class="aa highlighted" style="background-color: #FFD700; color: white; font-weight: bold;">N</span><span class="aa highlighted" style="background-color: #FFD700; color: white; font-weight: bold;">T</span><span class="aa highlighted" style="background-color: #FFD700; color: white; font-weight: bold;">H</span></span>
+        </div>
+
+        <div class="sequence-row">
+            <span class="seq-name">original_mousecys</span>
+            <span class="sequence"><span class='aa'>P</span><span class='aa'>Q</span><span class="aa highlighted" style="background-color: #FF0000; color: white; font-weight: bold;">K</span><span class="aa highlighted" style="background-color: #FF0000; color: white; font-weight: bold;">S</span><span class='aa'>K</span><span class='aa'>V</span><span class='aa'>D</span><span class='aa'>C</span><span class='aa'>N</span><span class='aa'>K</span><span class='aa'>G</span><span class='aa'>V</span><span class='aa'>T</span><span class='aa'>G</span><span class='aa'>T</span><span class="aa highlighted" style="background-color: #FFD700; color: white; font-weight: bold;">V</span><span class='aa'>Y</span><span class='aa'>E</span><span class='aa'>Y</span><span class='aa'>G</span><span class='aa'>A</span><span class="aa highlighted" style="background-color: #FFD700; color: white; font-weight: bold;">N</span><span class='aa'>T</span><span class="aa highlighted" style="background-color: #FF0000; color: white; font-weight: bold;">I</span><span class="aa highlighted" style="background-color: #FFD700; color: white; font-weight: bold;">D</span><span class='aa'>G</span><span class="aa highlighted" style="background-color: #FFD700; color: white; font-weight: bold;">G</span><span class='aa'>E</span><span class="aa highlighted" style="background-color: #FFD700; color: white; font-weight: bold;">F</span><span class="aa highlighted" style="background-color: #FFD700; color: white; font-weight: bold;">V</span><span class="aa highlighted" style="background-color: #FFD700; color: white; font-weight: bold;">N</span><span class='aa'>F</span><span class="aa highlighted" style="background-color: #FFD700; color: white; font-weight: bold;">Q</span><span class='aa'>Q</span><span class="aa highlighted" style="background-color: #FFD700; color: white; font-weight: bold;">Y</span><span class='aa'>A</span><span class='aa'>G</span><span class='aa'>K</span><span class='aa'>H</span><span class="aa highlighted" style="background-color: #FFD700; color: white; font-weight: bold;">I</span><span class='aa'>L</span><span class='aa'>F</span><span class='aa'>V</span><span class='aa'>N</span><span class='aa'>V</span><span class='aa'>A</span><span class="aa highlighted" style="background-color: #FF0000; color: white; font-weight: bold;">S</span><span class="aa highlighted" style="background-color: #FF0000; color: white; font-weight: bold;">F</span><span class="aa highlighted" style="background-color: #FFD700; color: white; font-weight: bold;">C</span><span class='aa'>G</span><span class='aa'>L</span><span class="aa highlighted" style="background-color: #FF0000; color: white; font-weight: bold;">T</span><span class='aa'>A</span><span class="aa highlighted" style="background-color: #FF0000; color: white; font-weight: bold;">T</span><span class='aa'>Y</span><span class='aa'>P</span><span class='aa'>E</span><span class='aa'>L</span><span class='aa'>N</span><span class="aa highlighted" style="background-color: #FF0000; color: white; font-weight: bold;">T</span><span class='aa'>L</span><span class='aa'>Q</span><span class='aa'>E</span><span class='aa'>E</span><span class='aa'>L</span><span class='aa'>K</span><span class="aa highlighted" style="background-color: #FFD700; color: white; font-weight: bold;">P</span><span class='aa'>F</span><span class="aa highlighted" style="background-color: #FFD700; color: white; font-weight: bold;">N</span><span class='aa'>V</span><span class="aa highlighted" style="background-color: #FFD700; color: white; font-weight: bold;">T</span><span class='aa'>V</span><span class='aa'>L</span><span class="aa highlighted" style="background-color: #FF0000; color: white; font-weight: bold;">G</span><span class='aa'>F</span><span class='aa'>P</span><span class='aa'>C</span><span class='aa'>N</span><span class='aa'>Q</span><span class='aa'>F</span><span class='aa'>G</span><span class='aa'>K</span><span class='aa'>Q</span><span class='aa'>E</span><span class='aa'>P</span><span class='aa'>G</span><span class="aa highlighted" style="background-color: #FF0000; color: white; font-weight: bold;">K</span><span class='aa'>N</span><span class='aa'>S</span><span class='aa'>E</span><span class='aa'>I</span><span class='aa'>L</span><span class='aa'>L</span><span class='aa'>G</span><span class='aa'>L</span><span class='aa'>K</span><span class='aa'>Y</span><span class='aa'>V</span><span class="aa highlighted" style="background-color: #FF0000; color: white; font-weight: bold;">R</span></span>
+        </div>
+        <div class="sequence-row">
+            <span class="seq-name"></span> <!-- Empty to align second row -->
+            <span class="sequence"><span class='aa'>P</span><span class='aa'>G</span><span class="aa highlighted" style="background-color: #FF0000; color: white; font-weight: bold;">G</span><span class='aa'>G</span><span class="aa highlighted" style="background-color: #FF0000; color: white; font-weight: bold;">Y</span><span class='aa'>V</span><span class='aa'>P</span><span class="aa highlighted" style="background-color: #FF0000; color: white; font-weight: bold;">N</span><span class='aa'>F</span><span class='aa'>Q</span><span class='aa'>L</span><span class='aa'>F</span><span class='aa'>E</span><span class='aa'>K</span><span class='aa'>G</span><span class='aa'>D</span><span class='aa'>V</span><span class='aa'>N</span><span class='aa'>G</span><span class="aa highlighted" style="background-color: #FFD700; color: white; font-weight: bold;">D</span><span class="aa highlighted" style="background-color: #FFD700; color: white; font-weight: bold;">N</span><span class='aa'>E</span><span class='aa'>Q</span><span class='aa'>K</span><span class='aa'>V</span><span class='aa'>F</span><span class="aa highlighted" style="background-color: #FFD700; color: white; font-weight: bold;">S</span><span class='aa'>F</span><span class='aa'>L</span><span class='aa'>K</span><span class='aa'>N</span><span class='aa'>S</span><span class='aa'>C</span><span class='aa'>P</span><span class='aa'>P</span><span class='aa'>T</span><span class='aa'>S</span><span class="aa highlighted" style="background-color: #FFD700; color: white; font-weight: bold;">E</span><span class='aa'>L</span><span class="aa highlighted" style="background-color: #FF0000; color: white; font-weight: bold;">F</span><span class='aa'>G</span><span class='aa'>S</span><span class="aa highlighted" style="background-color: #FF0000; color: white; font-weight: bold;">P</span><span class="aa highlighted" style="background-color: #FF0000; color: white; font-weight: bold;">E</span><span class="aa highlighted" style="background-color: #FF0000; color: white; font-weight: bold;">H</span><span class='aa'>L</span><span class='aa'>F</span><span class='aa'>W</span><span class="aa highlighted" style="background-color: #FFD700; color: white; font-weight: bold;">D</span><span class='aa'>P</span><span class='aa'>M</span><span class='aa'>K</span><span class='aa'>V</span><span class='aa'>H</span><span class='aa'>D</span><span class='aa'>I</span><span class='aa'>R</span><span class='aa'>W</span><span class='aa'>N</span><span class='aa'>F</span><span class='aa'>E</span><span class='aa'>K</span><span class='aa'>F</span><span class='aa'>L</span><span class='aa'>V</span><span class='aa'>G</span><span class='aa'>P</span><span class='aa'>D</span><span class='aa'>G</span><span class='aa'>V</span><span class='aa'>P</span><span class='aa'>V</span><span class='aa'>M</span><span class="aa highlighted" style="background-color: #FF0000; color: white; font-weight: bold;">R</span><span class='aa'>W</span><span class='aa'>F</span><span class='aa'>H</span><span class="aa highlighted" style="background-color: #FF0000; color: white; font-weight: bold;">H</span><span class="aa highlighted" style="background-color: #FF0000; color: white; font-weight: bold;">T</span><span class='aa'>P</span><span class='aa'>V</span><span class="aa highlighted" style="background-color: #FF0000; color: white; font-weight: bold;">R</span><span class="aa highlighted" style="background-color: #FFD700; color: white; font-weight: bold;">I</span><span class='aa'>V</span><span class="aa highlighted" style="background-color: #FFD700; color: white; font-weight: bold;">Q</span><span class='aa'>S</span><span class='aa'>D</span><span class='aa'>I</span><span class="aa highlighted" style="background-color: #FFD700; color: white; font-weight: bold;">M</span><span class='aa'>E</span><span class='aa'>Y</span><span class='aa'>L</span><span class="aa highlighted" style="background-color: #FFD700; color: white; font-weight: bold;">N</span><span class='aa'>Q</span><span class="aa highlighted" style="background-color: #FFD700; color: white; font-weight: bold;">T</span><span class="aa highlighted" style="background-color: #FFD700; color: white; font-weight: bold;">S</span><span class="gap highlighted" style="background-color: #FFD700; color: black; opacity: 0.8;">-</span><span class="gap highlighted" style="background-color: #FFD700; color: black; opacity: 0.8;">-</span></span>
+        </div>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+Gained Hydrogen Bonds (Human):
+ALA 52 N (Chain X) → SEC 49 O (Chain X)
+SEC 49 O (Chain X) → ALA 52 N (Chain X)
+ALA 178 O (Chain X) → GLN 54 NE2 (Chain X)
+GLN 144 N (Chain X) → SER 143 N (Chain X)
+SER 143 N (Chain X) → GLN 144 N (Chain X)
+ALA 178 N (Chain X) → GLN 177 N (Chain X)
+GLN 177 N (Chain X) → ALA 178 N (Chain X)
+GLN 54 NE2 (Chain X) → ALA 178 O (Chain X)
+
+Lost Hydrogen Bonds (Human):
+ARG 99 O (Chain X) → SER 47 OG (Chain X)
+THR 52 OG1 (Chain X) → CYS 49 N (Chain X)
+THR 52 N (Chain X) → CYS 49 O (Chain X)
+CYS 49 O (Chain X) → THR 52 N (Chain X)
+CYS 49 N (Chain X) → THR 52 OG1 (Chain X)
+SER 47 OG (Chain X) → ARG 99 O (Chain X)
+ASN 107 OD1 (Chain X) → ASN 107 N (Chain X)
+ASN 107 N (Chain X) → ASN 107 OD1 (Chain X)
+GLU 143 OE1 (Chain X) → PRO 142 N (Chain X)
+HID 144 N (Chain X) → GLU 143 N (Chain X)
+GLU 143 OE1 (Chain X) → GLU 143 N (Chain X)
+GLU 143 N (Chain X) → GLU 143 OE1 (Chain X)
+PRO 142 N (Chain X) → GLU 143 OE1 (Chain X)
+GLU 143 N (Chain X) → HID 144 N (Chain X)
+THR 178 N (Chain X) → HID 177 N (Chain X)
+HID 177 N (Chain X) → THR 178 N (Chain X)
+
+Shared Hydrogen Bonds:

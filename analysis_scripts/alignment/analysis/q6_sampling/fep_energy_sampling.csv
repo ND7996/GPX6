@@ -1,0 +1,2 @@
+source_file,timestep_fs,fep_steps_per_window,energy_interval_steps,energy_interval_ps,saved_energy_records_per_window,lambda_windows,saved_energy_records_per_profile_per_replica,qfep_skip_points,qfep_bins,qfep_min_points_per_bin,notes
+STUDENTS/GPX6/input/genfeps.proc,1,20000,5,0.005,4000,51,204000,100,50,10,"Same values found in genfeps.proc, selgenfeps.proc, humangenfeps.proc, humanselgenfeps.proc; Q6 writes energy every 5 MD steps during each 20000-step FEP window."

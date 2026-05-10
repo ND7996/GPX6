@@ -1,0 +1,14 @@
+Analysis ====================
+  Analysis                                 = ====================
+  Scope                                    = Pairs of taxa
+  Estimate Variance                        = ====================
+     Variance Estimation Method            = Bootstrap method
+        Bootstrap Replicates               = 500
+  Substitution Model                       = ====================
+     Substitutions Type                    = Amino acid
+     Model/Method                          = Poisson model
+  Rates and Patterns                       = ====================
+     Rates among Sites                     = Uniform Rates
+     Pattern among Lineages                = Same (Homogeneous)
+  Data Subset to Use                       = ====================
+     Gaps/Missing Data                     = Pairwise deletion

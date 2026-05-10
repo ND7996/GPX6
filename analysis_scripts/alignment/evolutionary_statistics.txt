@@ -1,0 +1,8 @@
+PHYLOGENETIC ANALYSIS RESULTS
+================================================================================
+
+Mouse Mean Identity: 79.04% ± 1.26%
+Human Mean Identity: 86.77% ± 0.60%
+
+Mann-Whitney U test p-value: 0.000000
+Significant difference: Yes

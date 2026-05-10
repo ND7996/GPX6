@@ -1,0 +1,124 @@
+
+WARNING: rep03/qfep.out: Rough Free energy profile (3 minima and 1 maxima found), look at the graphs!
+
+
+WARNING: rep06/qfep.out: Rough Free energy profile (3 minima and 1 maxima found), look at the graphs!
+
+
+WARNING: rep21/qfep.out: Rough Free energy profile (3 minima and 1 maxima found), look at the graphs!
+
+
+WARNING: rep23/qfep.out: Rough Free energy profile (3 minima and 1 maxima found), look at the graphs!
+
+
+WARNING: rep26/qfep.out: Rough Free energy profile (3 minima and 1 maxima found), look at the graphs!
+
+
+WARNING: rep27/qfep.out: Rough Free energy profile (3 minima and 1 maxima found), look at the graphs!
+
+
+WARNING: rep28/qfep.out: Rough Free energy profile (3 minima and 1 maxima found), look at the graphs!
+
+
+WARNING: rep29/qfep.out: Rough Free energy profile (3 minima and 1 maxima found), look at the graphs!
+
+
+WARNING: rep30/qfep.out: Rough Free energy profile (4 minima and 1 maxima found), look at the graphs!
+
+
+WARNING: rep32/qfep.out: Rough Free energy profile (3 minima and 1 maxima found), look at the graphs!
+
+
+WARNING: rep34/qfep.out: Rough Free energy profile (3 minima and 1 maxima found), look at the graphs!
+
+
+WARNING: rep40/qfep.out: Rough Free energy profile (4 minima and 1 maxima found), look at the graphs!
+
+
+WARNING: rep41/qfep.out: Rough Free energy profile (3 minima and 1 maxima found), look at the graphs!
+
+
+WARNING: rep43/qfep.out: Rough Free energy profile (3 minima and 1 maxima found), look at the graphs!
+
+
+WARNING: rep44/qfep.out: Rough Free energy profile (3 minima and 1 maxima found), look at the graphs!
+
+
+WARNING: rep47/qfep.out: Rough Free energy profile (3 minima and 1 maxima found), look at the graphs!
+
+
+WARNING: rep52/qfep.out: Rough Free energy profile (3 minima and 1 maxima found), look at the graphs!
+
+
+WARNING: rep53/qfep.out: Rough Free energy profile (3 minima and 1 maxima found), look at the graphs!
+
+
+WARNING: rep54/qfep.out: Rough Free energy profile (3 minima and 1 maxima found), look at the graphs!
+
+
+WARNING: rep56/qfep.out: Rough Free energy profile (3 minima and 1 maxima found), look at the graphs!
+
+
+WARNING: rep62/qfep.out: Rough Free energy profile (4 minima and 1 maxima found), look at the graphs!
+
+
+WARNING: rep63/qfep.out: Rough Free energy profile (3 minima and 1 maxima found), look at the graphs!
+
+
+WARNING: rep70/qfep.out: Rough Free energy profile (3 minima and 1 maxima found), look at the graphs!
+
+
+WARNING: rep75/qfep.out: Rough Free energy profile (3 minima and 1 maxima found), look at the graphs!
+
+
+WARNING: rep77/qfep.out: Rough Free energy profile (3 minima and 1 maxima found), look at the graphs!
+
+
+WARNING: rep79/qfep.out: Rough Free energy profile (4 minima and 1 maxima found), look at the graphs!
+
+
+WARNING: rep80/qfep.out: Rough Free energy profile (3 minima and 1 maxima found), look at the graphs!
+
+
+WARNING: rep87/qfep.out: Rough Free energy profile (3 minima and 1 maxima found), look at the graphs!
+
+
+----------------------------------- SUMMARY -----------------------------------
+# Analysed with: QTools/q_analysefeps.py (0.7.0)
+# Work dir: /home/hp/nayanika/github/PhD_Thesis/EVB/protein_stepwise/GPX6WT/humansec/1-prep
+# Date: Tue Oct  8 21:22:35 2024
+# CMDline: /home/hp/nayanika/github/qtools/qscripts-cli/q_analysefeps.py rep00 rep01 rep02 rep03 rep04 rep05 rep06 rep07 rep08 rep09 rep10 rep11 rep12 rep13 rep14 rep15 rep16 rep17 rep18 rep19 rep20 rep21 rep22 rep23 rep24 rep25 rep26 rep27 rep28 rep29 rep30 rep31 rep32 rep33 rep34 rep35 rep36 rep37 rep38 rep39 rep40 rep41 rep42 rep43 rep44 rep45 rep46 rep47 rep48 rep49 rep50 rep51 rep52 rep53 rep54 rep55 rep56 rep57 rep58 rep59 rep60 rep61 rep62 rep63 rep64 rep65 rep66 rep67 rep68 rep69 rep70 rep71 rep72 rep73 rep74 rep75 rep76 rep77 rep78 rep79 rep80 rep81 rep82 rep83 rep84 rep85 rep86 rep87 rep88 rep89 rep90 rep91 rep92 rep93 rep94 rep95 rep96 rep97 rep98 rep99
+
+
+----- Statistics -----
+
+#                 Mean      Std.dev    Median    Std.error       N
+dG*              16.37       8.65      16.36       0.95         83
+dG0             -60.85      16.72     -65.47       1.84         83
+dG_lambda       -62.60      13.41     -65.98       1.34        100
+
+
+------- Fails --------
+
+Failed to produce dGa/dG0:
+-> rep01/qfep.out: Bad reaction free energy profile - 1 local minima (instead of 2)
+-> rep04/qfep.out: Bad reaction free energy profile - 1 local minima (instead of 2)
+-> rep10/qfep.out: Bad reaction free energy profile - 1 local minima (instead of 2)
+-> rep17/qfep.out: Bad reaction free energy profile - reactants minima: 3, products minima: 0
+-> rep18/qfep.out: Bad reaction free energy profile - 1 local minima (instead of 2)
+-> rep19/qfep.out: Bad reaction free energy profile - 1 local minima (instead of 2)
+-> rep24/qfep.out: Bad reaction free energy profile - 1 local minima (instead of 2)
+-> rep33/qfep.out: Bad reaction free energy profile - 1 local minima (instead of 2)
+-> rep45/qfep.out: Bad reaction free energy profile - 1 local minima (instead of 2)
+-> rep46/qfep.out: Bad reaction free energy profile - 1 local minima (instead of 2)
+-> rep49/qfep.out: Bad reaction free energy profile - 1 local minima (instead of 2)
+-> rep64/qfep.out: Bad reaction free energy profile - 1 local minima (instead of 2)
+-> rep67/qfep.out: Bad reaction free energy profile - 1 local minima (instead of 2)
+-> rep68/qfep.out: Bad reaction free energy profile - 1 local minima (instead of 2)
+-> rep82/qfep.out: Bad reaction free energy profile - 1 local minima (instead of 2)
+-> rep88/qfep.out: Bad reaction free energy profile - 1 local minima (instead of 2)
+-> rep90/qfep.out: Bad reaction free energy profile - 1 local minima (instead of 2)
+-------------------------------------------------------------------------------
+
+Wrote 'q_analysefeps.log'...    # Backed up to '#q_analysefeps.log.15#'
+Wrote 'qaf.PlotData.json'... (q_plot.py is your friend)   # Backed up to '#qaf.PlotData.json.15#'

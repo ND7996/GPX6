@@ -1,0 +1,99 @@
+================================================================================
+SEQUENCE IDENTITY ANALYSIS REPORT
+================================================================================
+
+ANALYSIS: Which sequence is closest to the ancestor?
+--------------------------------------------------------------------------------
+
+Human:
+  Identity to ancestor:    87.30%
+  Matching positions:      165 / 189
+  Different positions:     24
+  Full sequence name:      protein_humansec
+
+Mouse:
+  Identity to ancestor:    78.61%
+  Matching positions:      147 / 187
+  Different positions:     40
+  Full sequence name:      protein_mousecys
+
+================================================================================
+CONCLUSION
+================================================================================
+
+**Human** is CLOSEST to the ancestor sequence
+with 87.30% identity (165/189 positions)
+
+Human is 8.69 percentage points closer to the ancestor than Mouse.
+
+EVOLUTIONARY INTERPRETATION:
+--------------------------------------------------------------------------------
+
+Average sequence identity to ancestor: 82.96%
+Average divergence from ancestor:      17.04%
+
+Since the ancestor-descendant split (~90 million years ago for human-mouse):
+  • Human has accumulated fewer changes (more conserved)
+  • The high identity (83.0%) indicates strong functional constraints
+  • Both lineages show adaptation, but Human retained more ancestral features
+
+================================================================================
+POSITION-BY-POSITION DIFFERENCES
+================================================================================
+
+Positions where sequences differ from ancestor:
+
+Pos   Anc   Mouse   Human   Status
+--------------------------------------------------
+1     S     P       P       M:DIFF, H:DIFF
+3     K     K       N       M:SAME, H:DIFF
+4     M     S       R       M:DIFF, H:DIFF
+6     M     V       V       M:DIFF, H:DIFF
+9     Y     N       N       M:DIFF, H:DIFF
+16    I     V       I       M:DIFF, H:SAME
+22    L     N       L       M:DIFF, H:SAME
+24    L     I       L       M:DIFF, H:SAME
+25    N     D       N       M:DIFF, H:SAME
+27    E     G       E       M:DIFF, H:SAME
+29    Y     F       Y       M:DIFF, H:SAME
+30    I     V       I       M:DIFF, H:SAME
+31    Q     N       Q       M:DIFF, H:SAME
+33    K     Q       K       M:DIFF, H:SAME
+35    Y     Y       F       M:SAME, H:DIFF
+40    V     I       V       M:DIFF, H:SAME
+43    I     V       V       M:DIFF, H:DIFF
+47    T     S       A       M:DIFF, H:DIFF
+48    Y     F       Y       M:DIFF, H:SAME
+52    T     T       A       M:SAME, H:DIFF
+54    Q     T       Q       M:DIFF, H:SAME
+60    A     T       A       M:DIFF, H:SAME
+67    P     P       N       M:SAME, H:DIFF
+69    G     N       G       M:DIFF, H:SAME
+71    V     T       I       M:DIFF, H:DIFF
+72    L     V       V       M:DIFF, H:DIFF
+74    G     G       A       M:SAME, H:DIFF
+87    K     K       T       M:SAME, H:DIFF
+93    S     L       L       M:DIFF, H:DIFF
+99    R     R       C       M:SAME, H:DIFF
+102   G     G       S       M:SAME, H:DIFF
+104   F     Y       F       M:DIFF, H:SAME
+107   N     N       S       M:SAME, H:DIFF
+119   E     D       E       M:DIFF, H:SAME
+120   K     N       K       M:DIFF, H:SAME
+126   T     S       T       M:DIFF, H:SAME
+137   D     E       D       M:DIFF, H:SAME
+139   L     F       L       M:DIFF, H:SAME
+142   P     P       S       M:SAME, H:DIFF
+143   K     E       S       M:DIFF, H:DIFF
+148   E     D       E       M:DIFF, H:SAME
+178   A     T       A       M:DIFF, H:SAME
+179   S     P       P       M:DIFF, H:DIFF
+181   S     R       S       M:DIFF, H:SAME
+182   T     I       T       M:DIFF, H:SAME
+184   K     Q       K       M:DIFF, H:SAME
+188   L     M       L       M:DIFF, H:SAME
+192   K     N       K       M:DIFF, H:SAME
+194   F     T       F       M:DIFF, H:SAME
+195   T     S       N       M:DIFF, H:DIFF
+
+================================================================================

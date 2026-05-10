@@ -1,0 +1,59 @@
+SEQUENCE COLLECTION SUMMARY
+==================================================
+
+Total sequences: 82
+
+
+HUMAN WT/RELATED (0 sequences):
+
+MOUSE WT/RELATED (0 sequences):
+
+H2M MUTATIONS (0 sequences):
+
+M2H MUTATIONS (0 sequences):
+
+ANCESTRAL NODES (21 sequences):
+  • JORDI_node_23
+  • JORDI_node_24
+  • JORDI_node_25
+  • JORDI_node_26
+  • JORDI_node_27
+  • JORDI_node_28
+  • JORDI_node_29
+  • JORDI_node_30
+  • JORDI_node_31
+  • JORDI_node_32
+  • JORDI_node_33
+  • JORDI_node_34
+  • JORDI_node_35
+  • JORDI_node_36
+  • JORDI_node_37
+  • JORDI_node_38
+  • JORDI_node_39
+  • JORDI_node_40
+  • JORDI_node_41
+  • JORDI_node_42
+  • ... and 1 more
+
+OTHER SEQUENCES (61 sequences):
+  • HUMAN_GPX6_level01_GPX6_level01_chainA
+  • HUMAN_GPX6_level02_GPX6_level02_chainA
+  • HUMAN_GPX6_level03_GPX6_level03_chainA
+  • HUMAN_GPX6_level04_GPX6_level04_chainA
+  • HUMAN_GPX6_level05_GPX6_level05_chainA
+  • HUMAN_GPX6_level06_GPX6_level06_chainA
+  • HUMAN_GPX6_level07_GPX6_level07_chainA
+  • HUMAN_GPX6_level08_GPX6_level08_chainA
+  • HUMAN_GPX6_level09_GPX6_level09_chainA
+  • HUMAN_GPX6_level10_GPX6_level10_chainA
+  • HUMAN_GPX6_level11_GPX6_level11_chainA
+  • HUMAN_GPX6_level12_GPX6_level12_chainA
+  • HUMAN_GPX6_level13_GPX6_level13_chainA
+  • HUMAN_GPX6_level14_GPX6_level14_chainA
+  • HUMAN_GPX6_level15_GPX6_level15_chainA
+  • HUMAN_GPX6_level16_GPX6_level16_chainA
+  • HUMAN_GPX6_level17_GPX6_level17_chainA
+  • HUMAN_GPX6_level18_GPX6_level18_chainA
+  • HUMAN_GPX6_level19_GPX6_level19_chainA
+  • Homo_sapiens
+  • ... and 41 more

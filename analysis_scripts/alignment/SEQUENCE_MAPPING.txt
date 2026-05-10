@@ -1,0 +1,95 @@
+ORIGINAL TO CLEANED SEQUENCE ID MAPPING
+==================================================
+
+All duplicate sequence names have been made unique.
+
+
+Ancestral_Nodes (21):
+  • node_23
+  • node_24
+  • node_25
+  • node_26
+  • node_27
+  • node_28
+  • node_29
+  • node_30
+  • node_31
+  • node_32
+  • node_33
+  • node_34
+  • node_35
+  • node_36
+  • node_37
+  • node_38
+  • node_39
+  • node_40
+  • node_41
+  • node_42
+  • node_43
+
+Homo_sapiens (1):
+  • Homo_sapiens
+
+Mus_musculus (1):
+  • Mus_musculus
+
+Other_Sequences (59):
+  • Bos_taurus
+  • Callithrix_jacchus
+  • Cavia_porcellus
+  • Cricetulus_griseus
+  • Dipodomys_ordii
+  • Equus_caballus
+  • Felis_catus
+  • GPX6_level01_chainA
+  • GPX6_level01_chainA_2
+  • GPX6_level02_chainA
+  • GPX6_level02_chainA_2
+  • GPX6_level03_chainA
+  • GPX6_level03_chainA_2
+  • GPX6_level04_chainA
+  • GPX6_level04_chainA_2
+  • GPX6_level05_chainA
+  • GPX6_level05_chainA_2
+  • GPX6_level06_chainA
+  • GPX6_level06_chainA_2
+  • GPX6_level07_chainA
+  • GPX6_level07_chainA_2
+  • GPX6_level08_chainA
+  • GPX6_level08_chainA_2
+  • GPX6_level09_chainA
+  • GPX6_level09_chainA_2
+  • GPX6_level10_chainA
+  • GPX6_level10_chainA_2
+  • GPX6_level11_chainA
+  • GPX6_level11_chainA_2
+  • GPX6_level12_chainA
+  • GPX6_level12_chainA_2
+  • GPX6_level13_chainA
+  • GPX6_level13_chainA_2
+  • GPX6_level14_chainA
+  • GPX6_level14_chainA_2
+  • GPX6_level15_chainA
+  • GPX6_level15_chainA_2
+  • GPX6_level16_chainA
+  • GPX6_level16_chainA_2
+  • GPX6_level17_chainA
+  • GPX6_level17_chainA_2
+  • GPX6_level18_chainA
+  • GPX6_level18_chainA_2
+  • GPX6_level19_chainA
+  • GPX6_level19_chainA_2
+  • GPX6_level20_chainA
+  • Ictidomys_tridecemlineatus
+  • Jaculus_jaculus
+  • Loxodonta_africana
+  • Macaca_mulatta
+  • Mesocricetus_auratus
+  • Odobenus_rosmarus
+  • Oryctolagus_cuniculus
+  • Otolemur_garnettii
+  • Pan_troglodytes
+  • Rattus_norvegicus
+  • Saimiri_boliviensis
+  • Sus_scrofa
+  • Tarsius_syrichta

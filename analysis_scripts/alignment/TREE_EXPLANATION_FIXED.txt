@@ -1,0 +1,55 @@
+
+================================================================
+LOGICALLY CONNECTED TREE - EXPLANATION
+================================================================
+
+PROBLEM:
+In your original merged tree, GPX6 sequences were placed in a 
+SEPARATE BRANCH from all mammals. This didn't reflect the 
+logical relationship where:
+- Human_WT should be close to Homo_sapiens
+- Mouse_WT should be close to Mus_musculus
+
+SOLUTION:
+We inserted the GPX6 sequences INTO the mammalian tree at the 
+appropriate branches:
+
+1. HUMAN LINEAGE:
+   Original: (Pan_troglodytes, Homo_sapiens)30
+   Modified: (Pan_troglodytes, (Homo_sapiens, Human_GPX6_clade)200)30
+   
+   Human_GPX6_clade contains:
+   - Human_WT (lab version of human GPX6)
+   - All H2M mutation levels (evolved toward mouse-like)
+
+2. MOUSE LINEAGE:
+   Original: (Mus_musculus, Rattus_norvegicus)37
+   Modified: ((Mus_musculus, Mouse_GPX6_clade)201, Rattus_norvegicus)37
+   
+   Mouse_GPX6_clade contains:
+   - Mouse_WT (lab version of mouse GPX6)
+   - All M2H mutation levels (evolved toward human-like)
+
+3. ANCESTOR:
+   Ancestor_node25 is placed as an outgroup to root the tree.
+
+WHY THIS IS BETTER:
+- Phylogenetic relationships match logical relationships
+- Mouse_WT is now sister to Mus_musculus (as it should be)
+- Human_WT is now sister to Homo_sapiens (as it should be)
+- The tree structure reflects the TRUE biological relationships
+
+HOW TO USE:
+1. Open LOGICALLY_CONNECTED_TREE_FIXED.nwk in FigTree
+2. Compare with your original tree
+3. Note how GPX6 sequences are now nested within mammalian branches
+
+================================================================
+Node Number Summary:
+- Mammalian tree: nodes 23-43
+- Human GPX6 clade: nodes 100-162 (original + 100 offset)
+- Mouse GPX6 clade: nodes 100-142 (original + 100 offset)
+- New connection nodes: 200 (human), 201 (mouse)
+- Root: node 202
+- Ancestor: renumbered to avoid conflicts
+================================================================

@@ -1,0 +1,90 @@
+================================================================================
+SEQUENCE SIMILARITY ANALYSIS REPORT
+================================================================================
+
+METHODOLOGY:
+--------------------------------------------------------------------------------
+1. Optimal pairwise global alignment (Bio.Align.PairwiseAligner)
+2. Identity = matches / comparable positions
+3. BLOSUM62 similarity scoring
+4. Combined metric: 70% identity + 30% BLOSUM62
+
+SIMILARITY STATISTICS:
+--------------------------------------------------------------------------------
+Total comparisons: 3321
+Mean similarity: 0.8505 (85.05%)
+Median similarity: 0.8353 (83.53%)
+Min similarity: 0.7055 (70.55%)
+Max similarity: 1.0000 (100.00%)
+Std deviation: 0.0700
+
+TOP 20 MOST SIMILAR PAIRS:
+--------------------------------------------------------------------------------
+1. node_33 <-> node_39
+   Similarity: 1.0000 (100.00%)
+
+2. node_24 <-> node_40
+   Similarity: 1.0000 (100.00%)
+
+3. GPX6_level09_chainA_2 <-> GPX6_level10_chainA_2
+   Similarity: 1.0000 (100.00%)
+
+4. GPX6_level08_chainA_2 <-> GPX6_level10_chainA_2
+   Similarity: 1.0000 (100.00%)
+
+5. GPX6_level08_chainA_2 <-> GPX6_level09_chainA_2
+   Similarity: 1.0000 (100.00%)
+
+6. GPX6_level07_chainA_2 <-> GPX6_level10_chainA_2
+   Similarity: 1.0000 (100.00%)
+
+7. GPX6_level07_chainA_2 <-> GPX6_level09_chainA_2
+   Similarity: 1.0000 (100.00%)
+
+8. GPX6_level07_chainA_2 <-> GPX6_level08_chainA_2
+   Similarity: 1.0000 (100.00%)
+
+9. GPX6_level01_chainA_2 <-> GPX6_level02_chainA_2
+   Similarity: 1.0000 (100.00%)
+
+10. GPX6_level16_chainA <-> GPX6_level17_chainA
+   Similarity: 1.0000 (100.00%)
+
+11. node_23 <-> node_40
+   Similarity: 0.9965 (99.65%)
+
+12. node_23 <-> node_24
+   Similarity: 0.9965 (99.65%)
+
+13. GPX6_level14_chainA <-> GPX6_level15_chainA
+   Similarity: 0.9957 (99.57%)
+
+14. GPX6_level02_chainA_2 <-> GPX6_level03_chainA_2
+   Similarity: 0.9957 (99.57%)
+
+15. GPX6_level01_chainA_2 <-> GPX6_level03_chainA_2
+   Similarity: 0.9957 (99.57%)
+
+16. node_32 <-> node_39
+   Similarity: 0.9955 (99.55%)
+
+17. node_32 <-> node_33
+   Similarity: 0.9955 (99.55%)
+
+18. GPX6_level12_chainA_2 <-> GPX6_level13_chainA_2
+   Similarity: 0.9954 (99.54%)
+
+19. GPX6_level01_chainA <-> GPX6_level02_chainA
+   Similarity: 0.9954 (99.54%)
+
+20. GPX6_level04_chainA_2 <-> GPX6_level05_chainA_2
+   Similarity: 0.9954 (99.54%)
+
+
+SIMILARITY DISTRIBUTION:
+--------------------------------------------------------------------------------
+0-20%     :    0 pairs (  0.0%)
+20-40%    :    0 pairs (  0.0%)
+40-60%    :    0 pairs (  0.0%)
+60-80%    :  968 pairs ( 29.1%)
+80-100%   : 2353 pairs ( 70.9%)

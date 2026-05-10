@@ -1,0 +1,59 @@
+NODE MAPPING AND LOGICAL CONNECTIONS
+============================================================
+
+MAMMALIAN TREE (Natural Evolution)
+----------------------------------------
+Root: node 23
+Species: 23 mammalian species
+Key species:
+  - Homo_sapiens (human): in clade with node 30
+  - Mus_musculus (mouse): in clade with node 37
+  - Pan_troglodytes (chimpanzee): in clade with node 30
+  - Rattus_norvegicus (rat): in clade with node 37
+
+GPX6 EXPERIMENTAL TREE (Renumbered)
+----------------------------------------
+Original root: node 63
+Renumbered root: node 104 (63 + 41 offset)
+Sequences: 44 total (1 ancestor + 2 WT + 41 mutations)
+Key sequences:
+  - Ancestor_node25: Hypothetical ancestral protein
+  - Mouse_WT: Experimental mouse GPX6 (node 83 = 42+41)
+  - Human_WT: Experimental human GPX6 (node 103 = 62+41)
+  - M2H mutations: Evolved FROM Mouse_WT toward human-like
+  - H2M mutations: Evolved FROM Human_WT toward mouse-like
+
+LOGICAL CONNECTIONS
+----------------------------------------
+These are CONCEPTUAL connections, not direct tree connections:
+
+  Homo_sapiens (natural)  ↔  Human_WT (experimental)
+  (Node 30 in mammal tree)   (Node 103 in GPX6 tree)
+  ↓                          ↓
+  Natural human protein      Lab version of human protein
+
+  Mus_musculus (natural)   ↔  Mouse_WT (experimental)
+  (Node 37 in mammal tree)   (Node 83 in GPX6 tree)
+  ↓                          ↓
+  Natural mouse protein      Lab version of mouse protein
+
+EXPERIMENTAL EVOLUTION PATHS:
+  1. M2H path: Mouse_WT → ... → More human-like mutations
+  2. H2M path: Human_WT → ... → More mouse-like mutations
+  3. Both paths show evolutionary hysteresis
+
+HOW TO INTERPRET THE MERGED TREE
+----------------------------------------
+1. The tree has TWO independent evolutionary stories:
+   - Left branch: Natural evolution (millions of years)
+   - Right branch: Experimental evolution (lab mutations)
+
+2. The connection is LOGICAL, not topological:
+   - Mouse_WT is the lab equivalent of Mus_musculus protein
+   - Human_WT is the lab equivalent of Homo_sapiens protein
+
+3. In phylogenetic terms:
+   - This is a tree of 67 sequences
+   - 23 are natural species proteins
+   - 44 are experimental/variant proteins
+   - They share a common root but evolved differently

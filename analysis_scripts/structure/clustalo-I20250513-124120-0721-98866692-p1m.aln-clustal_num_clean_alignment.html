@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MSA Clean Alignment</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body { 
+            font-family: 'Courier New', monospace; 
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            margin: 0;
+            padding: 20px; 
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 100%;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .header h1 {
+            margin: 0 0 10px 0;
+            font-size: 24px;
+        }
+
+        .stats {
+            background: #f8f9fa;
+            padding: 15px;
+            border-bottom: 1px solid #dee2e6;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            border-left: 4px solid #667eea;
+            margin: 5px;
+        }
+
+        .msa-container {
+            padding: 20px;
+            overflow-x: auto;
+            background: #fafafa;
+        }
+
+        .sequence-row {
+            margin: 8px 0;
+            white-space: nowrap;
+            font-family: 'Courier New', monospace;
+            display: flex;
+            align-items: center;
+        }
+
+        .seq-name {
+            display: inline-block;
+            width: 200px;
+            font-weight: bold;
+            margin-right: 20px;
+            padding: 8px 12px;
+            background: #e9ecef;
+            color: #495057;
+            border-radius: 5px;
+            flex-shrink: 0;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .sequence {
+            font-family: 'Courier New', monospace;
+            letter-spacing: 1px;
+            flex-grow: 1;
+        }
+
+        .aa {
+            padding: 2px 1px;
+            font-weight: bold;
+        }
+
+        .gap {
+            color: #6c757d;
+            opacity: 0.5;
+            font-weight: normal;
+        }
+
+        .ruler {
+            margin: 15px 0 5px 0;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #dee2e6;
+            padding-bottom: 5px;
+        }
+
+        .ruler-ticks {
+            margin: 0 0 15px 0;
+            display: flex;
+            align-items: center;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        .ruler-pos {
+            font-size: 10px;
+            color: #495057;
+            font-weight: bold;
+        }
+
+        .ruler-tick {
+            color: #667eea;
+            font-weight: bold;
+            font-size: 12px;
+        }
+
+        .ruler-minor {
+            color: #6c757d;
+            font-weight: normal;
+        }
+
+        .ruler-space {
+            color: transparent;
+        }
+
+        .footer {
+            background: #f8f9fa;
+            padding: 15px 20px;
+            border-top: 1px solid #dee2e6;
+            font-size: 12px;
+            color: #6c757d;
+        }
+
+        .alignment-quality {
+            background: #e3f2fd;
+            padding: 15px;
+            margin: 10px 0;
+            border-left: 4px solid #2196f3;
+            border-radius: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .seq-name {
+                width: 120px;
+                font-size: 12px;
+            }
+
+            body {
+                font-size: 12px;
+            }
+
+            .stats {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Multiple Sequence Alignment</h1>
+            <p>Clean Alignment View - First 3 Sequences</p>
+        </div>
+
+        <div class="stats">
+            <div class="stat-item">
+                <strong>Total Sequences:</strong> 3
+            </div>
+            <div class="stat-item">
+                <strong>Showing:</strong> 3 sequences
+            </div>
+            <div class="stat-item">
+                <strong>Alignment Length:</strong> 197
+            </div>
+            <div class="stat-item">
+                <strong>Avg. Sequence Length:</strong> 196.0
+            </div>
+        </div>
+
+        <div class="msa-container">
+            <div class="msa"><div class="ruler">
+<span class="seq-name">Position</span><span class="ruler-pos">         1</span><span class="ruler-pos">        11</span><span class="ruler-pos">        21</span><span class="ruler-pos">        31</span><span class="ruler-pos">        41</span><span class="ruler-pos">        51</span><span class="ruler-pos">        61</span><span class="ruler-pos">        71</span><span class="ruler-pos">        81</span><span class="ruler-pos">        91</span><span class="ruler-pos">       101</span><span class="ruler-pos">       111</span><span class="ruler-pos">       121</span><span class="ruler-pos">       131</span><span class="ruler-pos">       141</span><span class="ruler-pos">       151</span><span class="ruler-pos">       161</span><span class="ruler-pos">       171</span><span class="ruler-pos">       181</span><span class="ruler-pos">       191</span>
+</div>
+<div class="ruler-ticks">
+<span class="seq-name">Markers</span><span class="ruler-tick">|</span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-minor">·</span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-tick">|</span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-minor">·</span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-tick">|</span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-minor">·</span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-tick">|</span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-minor">·</span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-tick">|</span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-minor">·</span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-tick">|</span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-minor">·</span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-tick">|</span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-minor">·</span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-tick">|</span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-minor">·</span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-tick">|</span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-minor">·</span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-tick">|</span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-minor">·</span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-tick">|</span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-minor">·</span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-tick">|</span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-minor">·</span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-tick">|</span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-minor">·</span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-tick">|</span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-minor">·</span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-tick">|</span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-minor">·</span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-tick">|</span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-minor">·</span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-tick">|</span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-minor">·</span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-tick">|</span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-minor">·</span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-tick">|</span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-minor">·</span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-tick">|</span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-space"> </span><span class="ruler-minor">·</span><span class="ruler-space"> </span>
+</div>
+                <div class="sequence-row">
+                    <span class="seq-name" title="protein_chainX">protein_chainX</span>
+                    <span class="sequence"><span class='aa'>P</span><span class='aa'>Q</span><span class='aa'>K</span><span class='aa'>S</span><span class='aa'>K</span><span class='aa'>V</span><span class='aa'>D</span><span class='aa'>X</span><span class='aa'>N</span><span class='aa'>K</span> <span class='aa'>G</span><span class='aa'>V</span><span class='aa'>T</span><span class='aa'>G</span><span class='aa'>T</span><span class='aa'>V</span><span class='aa'>Y</span><span class='aa'>E</span><span class='aa'>Y</span><span class='aa'>G</span> <span class='aa'>A</span><span class='aa'>N</span><span class='aa'>T</span><span class='aa'>I</span><span class='aa'>D</span><span class='aa'>G</span><span class='aa'>G</span><span class='aa'>E</span><span class='aa'>F</span><span class='aa'>V</span> <span class='aa'>N</span><span class='aa'>F</span><span class='aa'>Q</span><span class='aa'>Q</span><span class='aa'>Y</span><span class='aa'>A</span><span class='aa'>G</span><span class='aa'>K</span><span class='aa'>X</span><span class='aa'>I</span> <span class='aa'>L</span><span class='aa'>F</span><span class='aa'>V</span><span class='aa'>N</span><span class='aa'>V</span><span class='aa'>A</span><span class='aa'>S</span><span class='aa'>F</span><span class='aa'>C</span><span class='aa'>G</span> <span class='aa'>L</span><span class='aa'>T</span><span class='aa'>A</span><span class='aa'>T</span><span class='aa'>Y</span><span class='aa'>P</span><span class='aa'>E</span><span class='aa'>L</span><span class='aa'>N</span><span class='aa'>T</span> <span class='aa'>L</span><span class='aa'>Q</span><span class='aa'>E</span><span class='aa'>E</span><span class='aa'>L</span><span class='aa'>K</span><span class='aa'>P</span><span class='aa'>F</span><span class='aa'>N</span><span class='aa'>V</span> <span class='aa'>T</span><span class='aa'>V</span><span class='aa'>L</span><span class='aa'>G</span><span class='aa'>F</span><span class='aa'>P</span><span class='aa'>C</span><span class='aa'>N</span><span class='aa'>Q</span><span class='aa'>F</span> <span class='aa'>G</span><span class='aa'>K</span><span class='aa'>Q</span><span class='aa'>E</span><span class='aa'>P</span><span class='aa'>G</span><span class='aa'>K</span><span class='aa'>N</span><span class='aa'>S</span><span class='aa'>E</span> <span class='aa'>I</span><span class='aa'>L</span><span class='aa'>L</span><span class='aa'>G</span><span class='aa'>L</span><span class='aa'>K</span><span class='aa'>Y</span><span class='aa'>V</span><span class='aa'>R</span><span class='aa'>P</span> <span class='aa'>G</span><span class='aa'>G</span><span class='aa'>G</span><span class='aa'>Y</span><span class='aa'>V</span><span class='aa'>P</span><span class='aa'>N</span><span class='aa'>F</span><span class='aa'>Q</span><span class='aa'>L</span> <span class='aa'>F</span><span class='aa'>E</span><span class='aa'>K</span><span class='aa'>G</span><span class='aa'>D</span><span class='aa'>V</span><span class='aa'>N</span><span class='aa'>G</span><span class='aa'>D</span><span class='aa'>N</span> <span class='aa'>E</span><span class='aa'>Q</span><span class='aa'>K</span><span class='aa'>V</span><span class='aa'>F</span><span class='aa'>S</span><span class='aa'>F</span><span class='aa'>L</span><span class='aa'>K</span><span class='aa'>N</span> <span class='aa'>S</span><span class='aa'>X</span><span class='aa'>P</span><span class='aa'>P</span><span class='aa'>T</span><span class='aa'>S</span><span class='aa'>E</span><span class='aa'>L</span><span class='aa'>F</span><span class='aa'>G</span> <span class='aa'>S</span><span class='aa'>P</span><span class='aa'>E</span><span class='aa'>X</span><span class='aa'>L</span><span class='aa'>F</span><span class='aa'>W</span><span class='aa'>D</span><span class='aa'>P</span><span class='aa'>M</span> <span class='aa'>K</span><span class='aa'>V</span><span class='aa'>X</span><span class='aa'>D</span><span class='aa'>I</span><span class='aa'>R</span><span class='aa'>W</span><span class='aa'>N</span><span class='aa'>F</span><span class='aa'>E</span> <span class='aa'>K</span><span class='aa'>F</span><span class='aa'>L</span><span class='aa'>V</span><span class='aa'>G</span><span class='aa'>P</span><span class='aa'>D</span><span class='aa'>G</span><span class='aa'>V</span><span class='aa'>P</span> <span class='aa'>V</span><span class='aa'>M</span><span class='aa'>R</span><span class='aa'>W</span><span class='aa'>F</span><span class='aa'>X</span><span class='aa'>X</span><span class='aa'>T</span><span class='aa'>P</span><span class='aa'>V</span> <span class='aa'>R</span><span class='aa'>I</span><span class='aa'>V</span><span class='aa'>Q</span><span class='aa'>S</span><span class='aa'>D</span><span class='aa'>I</span><span class='aa'>M</span><span class='aa'>E</span><span class='aa'>Y</span> <span class='aa'>L</span><span class='aa'>N</span><span class='aa'>Q</span><span class='aa'>T</span><span class='aa'>S</span><span class='gap'>-</span><span class='gap'>-</span></span>
+                </div>
+                <div class="sequence-row">
+                    <span class="seq-name" title="protein_chainA">protein_chainA</span>
+                    <span class="sequence"><span class='aa'>S</span><span class='aa'>Q</span><span class='aa'>K</span><span class='aa'>M</span><span class='aa'>K</span><span class='aa'>M</span><span class='aa'>D</span><span class='aa'>C</span><span class='aa'>Y</span><span class='aa'>K</span> <span class='aa'>G</span><span class='aa'>V</span><span class='aa'>T</span><span class='aa'>G</span><span class='aa'>T</span><span class='aa'>I</span><span class='aa'>Y</span><span class='aa'>E</span><span class='aa'>Y</span><span class='aa'>G</span> <span class='aa'>A</span><span class='aa'>L</span><span class='aa'>T</span><span class='aa'>L</span><span class='aa'>N</span><span class='aa'>G</span><span class='aa'>E</span><span class='aa'>E</span><span class='aa'>Y</span><span class='aa'>I</span> <span class='aa'>Q</span><span class='aa'>F</span><span class='aa'>K</span><span class='aa'>Q</span><span class='aa'>Y</span><span class='aa'>A</span><span class='aa'>G</span><span class='aa'>K</span><span class='aa'>H</span><span class='aa'>V</span> <span class='aa'>L</span><span class='aa'>F</span><span class='aa'>I</span><span class='aa'>N</span><span class='aa'>V</span><span class='aa'>A</span><span class='aa'>T</span><span class='aa'>Y</span><span class='gap'>-</span><span class='aa'>G</span> <span class='aa'>L</span><span class='aa'>T</span><span class='aa'>A</span><span class='aa'>Q</span><span class='aa'>Y</span><span class='aa'>P</span><span class='aa'>E</span><span class='aa'>L</span><span class='aa'>N</span><span class='aa'>A</span> <span class='aa'>L</span><span class='aa'>Q</span><span class='aa'>E</span><span class='aa'>E</span><span class='aa'>L</span><span class='aa'>K</span><span class='aa'>P</span><span class='aa'>F</span><span class='aa'>G</span><span class='aa'>V</span> <span class='aa'>V</span><span class='aa'>L</span><span class='aa'>L</span><span class='aa'>G</span><span class='aa'>F</span><span class='aa'>P</span><span class='aa'>C</span><span class='aa'>N</span><span class='aa'>Q</span><span class='aa'>F</span> <span class='aa'>G</span><span class='aa'>K</span><span class='aa'>Q</span><span class='aa'>E</span><span class='aa'>P</span><span class='aa'>G</span><span class='aa'>K</span><span class='aa'>N</span><span class='aa'>S</span><span class='aa'>E</span> <span class='aa'>I</span><span class='aa'>L</span><span class='aa'>S</span><span class='aa'>G</span><span class='aa'>L</span><span class='aa'>K</span><span class='aa'>Y</span><span class='aa'>V</span><span class='aa'>R</span><span class='aa'>P</span> <span class='aa'>G</span><span class='aa'>G</span><span class='aa'>G</span><span class='aa'>F</span><span class='aa'>V</span><span class='aa'>P</span><span class='aa'>N</span><span class='aa'>F</span><span class='aa'>Q</span><span class='aa'>L</span> <span class='aa'>F</span><span class='aa'>E</span><span class='aa'>K</span><span class='aa'>G</span><span class='aa'>D</span><span class='aa'>V</span><span class='aa'>N</span><span class='aa'>G</span><span class='aa'>E</span><span class='aa'>K</span> <span class='aa'>E</span><span class='aa'>Q</span><span class='aa'>K</span><span class='aa'>V</span><span class='aa'>F</span><span class='aa'>T</span><span class='aa'>F</span><span class='aa'>L</span><span class='aa'>K</span><span class='aa'>N</span> <span class='aa'>S</span><span class='aa'>C</span><span class='aa'>P</span><span class='aa'>P</span><span class='aa'>T</span><span class='aa'>S</span><span class='aa'>D</span><span class='aa'>L</span><span class='aa'>L</span><span class='aa'>G</span> <span class='aa'>S</span><span class='aa'>P</span><span class='aa'>K</span><span class='aa'>Q</span><span class='aa'>L</span><span class='aa'>F</span><span class='aa'>W</span><span class='aa'>E</span><span class='aa'>P</span><span class='aa'>M</span> <span class='aa'>K</span><span class='aa'>V</span><span class='aa'>H</span><span class='aa'>D</span><span class='aa'>I</span><span class='aa'>R</span><span class='aa'>W</span><span class='aa'>N</span><span class='aa'>F</span><span class='aa'>E</span> <span class='aa'>K</span><span class='aa'>F</span><span class='aa'>L</span><span class='aa'>V</span><span class='aa'>G</span><span class='aa'>P</span><span class='aa'>D</span><span class='aa'>G</span><span class='aa'>V</span><span class='aa'>P</span> <span class='aa'>V</span><span class='aa'>M</span><span class='aa'>R</span><span class='aa'>W</span><span class='aa'>F</span><span class='aa'>H</span><span class='aa'>R</span><span class='aa'>A</span><span class='aa'>S</span><span class='aa'>V</span> <span class='aa'>S</span><span class='aa'>T</span><span class='aa'>V</span><span class='aa'>K</span><span class='aa'>S</span><span class='aa'>D</span><span class='aa'>I</span><span class='aa'>L</span><span class='aa'>E</span><span class='aa'>Y</span> <span class='aa'>L</span><span class='aa'>K</span><span class='aa'>Q</span><span class='aa'>F</span><span class='aa'>T</span><span class='aa'>P</span><span class='aa'>E</span></span>
+                </div>
+                <div class="sequence-row">
+                    <span class="seq-name" title="protein_chainY">protein_chainY</span>
+                    <span class="sequence"><span class='aa'>P</span><span class='aa'>Q</span><span class='aa'>N</span><span class='aa'>R</span><span class='aa'>K</span><span class='aa'>V</span><span class='aa'>D</span><span class='aa'>X</span><span class='aa'>N</span><span class='aa'>K</span> <span class='aa'>G</span><span class='aa'>V</span><span class='aa'>T</span><span class='aa'>G</span><span class='aa'>T</span><span class='aa'>I</span><span class='aa'>Y</span><span class='aa'>E</span><span class='aa'>Y</span><span class='aa'>G</span> <span class='aa'>A</span><span class='aa'>L</span><span class='aa'>T</span><span class='aa'>L</span><span class='aa'>N</span><span class='aa'>G</span><span class='aa'>E</span><span class='aa'>E</span><span class='aa'>Y</span><span class='aa'>I</span> <span class='aa'>Q</span><span class='aa'>F</span><span class='aa'>K</span><span class='aa'>Q</span><span class='aa'>F</span><span class='aa'>A</span><span class='aa'>G</span><span class='aa'>K</span><span class='aa'>X</span><span class='aa'>V</span> <span class='aa'>L</span><span class='aa'>F</span><span class='aa'>V</span><span class='aa'>N</span><span class='aa'>V</span><span class='aa'>A</span><span class='aa'>A</span><span class='aa'>Y</span><span class='aa'>U</span><span class='aa'>G</span> <span class='aa'>L</span><span class='aa'>A</span><span class='aa'>A</span><span class='aa'>Q</span><span class='aa'>Y</span><span class='aa'>P</span><span class='aa'>E</span><span class='aa'>L</span><span class='aa'>N</span><span class='aa'>A</span> <span class='aa'>L</span><span class='aa'>Q</span><span class='aa'>E</span><span class='aa'>E</span><span class='aa'>L</span><span class='aa'>K</span><span class='aa'>N</span><span class='aa'>F</span><span class='aa'>G</span><span class='aa'>V</span> <span class='aa'>I</span><span class='aa'>V</span><span class='aa'>L</span><span class='aa'>A</span><span class='aa'>F</span><span class='aa'>P</span><span class='aa'>C</span><span class='aa'>N</span><span class='aa'>Q</span><span class='aa'>F</span> <span class='aa'>G</span><span class='aa'>K</span><span class='aa'>Q</span><span class='aa'>E</span><span class='aa'>P</span><span class='aa'>G</span><span class='aa'>T</span><span class='aa'>N</span><span class='aa'>S</span><span class='aa'>E</span> <span class='aa'>I</span><span class='aa'>L</span><span class='aa'>L</span><span class='aa'>G</span><span class='aa'>L</span><span class='aa'>K</span><span class='aa'>Y</span><span class='aa'>V</span><span class='aa'>C</span><span class='aa'>P</span> <span class='aa'>G</span><span class='aa'>S</span><span class='aa'>G</span><span class='aa'>F</span><span class='aa'>V</span><span class='aa'>P</span><span class='aa'>S</span><span class='aa'>F</span><span class='aa'>Q</span><span class='aa'>L</span> <span class='aa'>F</span><span class='aa'>E</span><span class='aa'>K</span><span class='aa'>G</span><span class='aa'>D</span><span class='aa'>V</span><span class='aa'>N</span><span class='aa'>G</span><span class='aa'>E</span><span class='aa'>K</span> <span class='aa'>E</span><span class='aa'>Q</span><span class='aa'>K</span><span class='aa'>V</span><span class='aa'>F</span><span class='aa'>T</span><span class='aa'>F</span><span class='aa'>L</span><span class='aa'>K</span><span class='aa'>N</span> <span class='aa'>S</span><span class='aa'>X</span><span class='aa'>P</span><span class='aa'>P</span><span class='aa'>T</span><span class='aa'>S</span><span class='aa'>D</span><span class='aa'>L</span><span class='aa'>L</span><span class='aa'>G</span> <span class='aa'>S</span><span class='aa'>S</span><span class='aa'>S</span><span class='aa'>Q</span><span class='aa'>L</span><span class='aa'>F</span><span class='aa'>W</span><span class='aa'>E</span><span class='aa'>P</span><span class='aa'>M</span> <span class='aa'>K</span><span class='aa'>V</span><span class='aa'>X</span><span class='aa'>D</span><span class='aa'>I</span><span class='aa'>R</span><span class='aa'>W</span><span class='aa'>N</span><span class='aa'>F</span><span class='aa'>E</span> <span class='aa'>K</span><span class='aa'>F</span><span class='aa'>L</span><span class='aa'>V</span><span class='aa'>G</span><span class='aa'>P</span><span class='aa'>D</span><span class='aa'>G</span><span class='aa'>V</span><span class='aa'>P</span> <span class='aa'>V</span><span class='aa'>M</span><span class='aa'>X</span><span class='aa'>W</span><span class='aa'>F</span><span class='aa'>X</span><span class='aa'>Q</span><span class='aa'>A</span><span class='aa'>P</span><span class='aa'>V</span> <span class='aa'>S</span><span class='aa'>T</span><span class='aa'>V</span><span class='aa'>K</span><span class='aa'>S</span><span class='aa'>D</span><span class='aa'>I</span><span class='aa'>L</span><span class='aa'>E</span><span class='aa'>Y</span> <span class='aa'>L</span><span class='aa'>K</span><span class='aa'>Q</span><span class='aa'>F</span><span class='aa'>N</span><span class='aa'>T</span><span class='aa'>X</span></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="alignment-quality">
+            <h4>Alignment Quality Notes:</h4>
+            <ul>
+                <li>Showing first 3 sequences for clarity</li>
+                <li>Gaps (-) are shown in light gray</li>
+                <li>Position ruler shows every 10th position</li>
+                <li>Sequences are properly spaced for better readability</li>
+            </ul>
+        </div>
+
+        <div class="footer">
+            <strong>File:</strong> clustalo-I20250513-124120-0721-98866692-p1m.aln-clustal_num
+            <br>
+            <strong>Generated:</strong> clustalo-I20250513-124120-0721-98866692-p1m.aln-clustal_num_clean_alignment.html
+            <br>
+            <strong>Total sequences in file:</strong> 3 (showing first 3)
+        </div>
+    </div>
+</body>
+</html>

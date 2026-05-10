@@ -1,0 +1,12 @@
+================================================================================
+HOW TO VISUALIZE IN FIGTREE
+================================================================================
+
+1. Download FigTree: http://tree.bio.ed.ac.uk/software/figtree/
+2. Open FigTree
+3. File -> Open -> Select: SIMILARITY_BASED_PHYLOGENY.nwk
+4. Customize:
+   - Check [Branch Labels] to show distances
+   - Check [Scale Bar] to show scale
+   - Adjust fonts in Appearance panel
+5. Export: File -> Export Trees (PDF/PNG/SVG)
