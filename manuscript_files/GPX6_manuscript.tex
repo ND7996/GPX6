@@ -1,0 +1,116 @@
+\documentclass[journal=jpcbfk,manuscript=article]{achemso}
+
+% Image-related packages
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage[export]{adjustbox}
+\usepackage{wrapfig}
+\usepackage{chemformula}
+\usepackage{url}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{subcaption}
+\usepackage{booktabs}
+\usepackage{placeins} % for FloatBarrier
+\usepackage{geometry}
+\usepackage{adjustbox}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage{placeins}
+\usepackage{graphicx}
+\usepackage{setspace}
+\usepackage{caption}
+\usepackage{lineno}
+\usepackage{amsmath}
+\usepackage{xcolor}
+\DeclareRobustCommand{\revadd}[1]{\textcolor{red}{#1}}
+% Example for temporary red text during revision:
+% \revadd{Text to show in red while drafting.}
+
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.4em}
+
+\captionsetup{
+  font=small,
+  labelfont=bf,
+  skip=4pt
+}
+\captionsetup[subfigure]{labelformat=parens}
+
+% Ensures figures never overflow the page
+\setkeys{Gin}{width=\linewidth,keepaspectratio}
+
+% Optional: Better spacing for two-column journals
+\usepackage{dblfloatfix}
+
+% reference to SI tables and figures: https://www.overleaf.com/learn/how-to/Cross_referencing_with_the_xr_package_in_Overleaf
+\usepackage{xr-hyper}   % for cross-document refs (optional)
+\usepackage{xr}
+\externaldocument[SI-]{GPX6_suppinfo}
+
+
+
+% Add explicit graphics path
+\graphicspath{{../Figures/}} % Path to your image directory
+
+% Bibliography package
+%\usepackage[numbers,sort&compress]{natbib}
+%\usepackage[authoryear]{natbib}
+%\usepackage[superscript,sort&compress]{cite}
+\input{title}
+
+
+
+\begin{document}
+\linenumbers
+% Import external files. To replace by content before submission
+
+%\input{removablecommands}
+
+\begin{tocentry}
+\includegraphics[scale=1]{finalTOC.png}
+\end{tocentry}
+
+
+\input{abstract}
+\input{introduction}
+\input{methods}
+\input{results}
+\input{discussion}
+\input{conclusions}
+
+\section*{Data and Software Availability}
+
+The manuscript source files, figure material, and analysis files are available from the GPX6 GitHub repository (\url{https://github.com/ND7996/GPX6}). The molecular simulation dataset generated in this study is available through the CORA Research Data Repository managed by CSUC (\url{https://doi.org/10.34810/data3230}). The manuscript and Supporting Information identify the molecular simulation, EVB, alignment, and sequence-design software used for the calculations.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% The same is true for Supporting Information, which should use the
+%% suppinfo environment.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{suppinfo}
+
+Supporting Information Available: supplementary figures, tables, and methodological details for the EVB calculations and sequence analyses (`GPX6\_suppinfo.pdf`).
+
+\end{suppinfo}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{Funding Sources}
+
+This project did not receive dedicated research funding. Nayanika Das acknowledges travel bursaries provided by the COZYME COST Action and by the Department of Biosciences at the UVic-UCC.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% The "Acknowledgement" section can be given in all manuscript
+%% classes.  This should be given within the "acknowledgement"
+%% environment, which will make the correct section or running title.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{acknowledgement}
+
+The authors thank Roger Casals for support with computational aspects of the work, and Jing Yang, Adrián López García de Lomana, and Sergi Castellano for helpful discussions. The authors acknowledge the Red Española de Supercomputación (RES) for computational resources provided by the Instituto Astrofísico de Canarias in La Palma under project BCV-2024-1-0030. The authors also acknowledge the Consorci dels Serveis Universitaris de Catalunya (CSUC) for computational resources on Pirineus3. An AI-based language tool was used only for language editing and improvement of the manuscript text. All authors reviewed and approved the final version of the manuscript, agree with its content, and share responsibility for the reported results and conclusions.
+
+\end{acknowledgement}
+
+\bibliography{references}
+
+\end{document}

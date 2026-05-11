@@ -1,0 +1,452 @@
+%\documentclass[journal=jacsat,manuscript=article]{achemso}
+\documentclass[journal=jpcbfk,manuscript=suppinfo]{achemso}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Essential packages
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[T1]{fontenc}             % Modern font encodings
+\usepackage{chemformula}             % Formula subscripts using \ch{}
+\usepackage{booktabs}                % For professional tables
+\usepackage{makecell}                % Multiline table headers
+\usepackage{siunitx}                 % Proper units
+\usepackage{float}                   % 'H' float specifier
+\usepackage{subcaption}             % For subfigures
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{tabularx}
+\usepackage{threeparttable}
+\usepackage{chemfig}
+\graphicspath{{../Figures/}} % Path to your image directory
+\usepackage{siunitx}
+\DeclareSIUnit\angstrom{\text{\AA}}
+\usepackage[hidelinks]{hyperref}
+\usepackage{xr}
+\externaldocument[MAIN-]{GPX6_manuscript}
+\usepackage{amssymb}
+\usepackage{caption}   % add to preamble
+\usepackage{lineno}
+\usepackage{xcolor}
+\DeclareRobustCommand{\revadd}[1]{\textcolor{red}{#1}}
+% Example for temporary red text during revision:
+% \revadd{Text to show in red while drafting.}
+\captionsetup[subfigure]{labelformat=parens}
+\definecolor{backbonegray}{RGB}{120,135,135}
+\setchemfig{
+  atom sep=1.95em,
+  bond offset=2pt,
+  bond style={line width=0.85pt},
+  cram width=3.5pt,
+  cram dash width=0.45pt,
+  cram dash sep=1.1pt,
+  double bond sep=2.2pt
+}
+\newcommand{\bbatom}[1]{\textcolor{backbonegray}{#1}}
+\newlength{\peroxidepanelheight}
+\setlength{\peroxidepanelheight}{12.7em}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Packages to remove before submission
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage{emoji}             % Modern font encodings
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Macros and settings
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand*\mycommand[1]{\texttt{\emph{#1}}}
+\sisetup{detect-all} % Let siunitx detect font and math styles
+
+\input{title} % to replace by content before submission.
+
+
+\begin{document}
+\linenumbers
+
+%\input{removablecommands} % to remove before submission
+
+\newpage
+\listoftables
+\listoffigures
+\setcounter{figure}{0}
+\newpage
+\begin{figure}
+    \centering
+    \includegraphics[width=0.9\linewidth]{FigS1.png}
+    \caption[Detailed workflow]{Detailed workflow.}
+    \label{fig:workflow}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.9\linewidth]{FigS2.png}
+    \caption[Concerted peroxide-reduction pathway]{Alternative concerted peroxide-reduction pathway in water.}
+    \label{fig:concerted_mechanism}
+\end{figure}
+
+\begin{figure}
+\centering
+\begin{subfigure}[t]{0.46\textwidth}
+\centering
+\schemestart
+\chemfig{
+  @{cysN}\bbatom{N}
+    (-[:120,,,,draw=backbonegray] @{cysHN1}\bbatom{H})
+    (-[:240,,,,draw=backbonegray] @{cysHN2}\phantom{H})
+  -[,,,,draw=backbonegray] @{cysCA}\bbatom{CA}
+    (
+      -[2,,,,draw=backbonegray] @{cysH}\bbatom{HA}
+    )
+    (
+      -[6,1.35] @{cysCB}CB
+        (-[4,1.25] @{cysHB1}HB1)
+        (-[0,1.25] @{cysHB2}HB2)
+        -[6,1.35] @{cysSG}{SG}
+          -[6,1.25] @{cysHG}HG1
+    )
+  -[,,,,draw=backbonegray] @{cysC}\bbatom{C}
+    (=[1,,,,draw=backbonegray] @{cysO}\bbatom{O})
+    -[-1,,,,draw=backbonegray] @{cysOH}\phantom{O}
+}
+\schemestop
+\caption{Cysteine}
+\label{fig:moiety_a}
+\end{subfigure}
+\hfill
+\begin{subfigure}[t]{0.46\textwidth}
+\centering
+\schemestart
+\chemfig{
+  @{secN}\bbatom{N}
+    (-[:120,,,,draw=backbonegray] @{secHN1}\bbatom{H})
+    (-[:240,,,,draw=backbonegray] @{secHN2}\phantom{H})
+  -[,,,,draw=backbonegray] @{secCA}\bbatom{CA}
+    (
+      -[2,,,,draw=backbonegray] @{secH}\bbatom{HA}
+    )
+    (
+      -[6,1.35] @{secCB}CB
+        (-[4,1.25] @{secHB1}HB1)
+        (-[0,1.25] @{secHB2}HB2)
+        -[6,1.35] @{secSE}{SE}
+          -[6,1.25] @{secHG}HG1
+    )
+  -[,,,,draw=backbonegray] @{secC}\bbatom{C}
+    (=[1,,,,draw=backbonegray] @{secO}\bbatom{O})
+    -[-1,,,,draw=backbonegray] @{secOH}\phantom{O}
+}
+\schemestop
+\caption{Selenocysteine}
+\label{fig:moiety_b}
+\end{subfigure}
+
+\vspace{1.6em}
+
+\begin{subfigure}[t]{0.46\textwidth}
+\centering
+\begin{minipage}[c][\peroxidepanelheight][c]{\linewidth}
+\centering
+\schemestart
+\chemfig{
+  @{hpa}H1
+  - @{hpoa}{O1}
+  - @{hpob}{O2}
+  - @{hpb}H2
+}
+\schemestop
+\end{minipage}
+\caption{\ch{H2O2}}
+\label{fig:moiety_c}
+\end{subfigure}
+\hfill
+\begin{subfigure}[t]{0.46\textwidth}
+\centering
+\schemestart
+\chemfig{
+  @{glnN}\bbatom{N}
+    (-[:120,,,,draw=backbonegray] @{glnHN1}\bbatom{H})
+    (-[:240,,,,draw=backbonegray] @{glnHN2}\phantom{H})
+  -[,,,,draw=backbonegray] @{glnCA}\bbatom{CA}
+    (
+      -[2,,,,draw=backbonegray] @{glnH}\bbatom{HA}
+    )
+    (
+      -[6,1.28] @{glnCB}CB
+        (-[4,1.18] @{glnHB1}HB1)
+        (-[0,1.18] @{glnHB2}HB2)
+        -[6,1.28] @{glnCG}CG
+          (-[4,1.18] @{glnHG1}HG1)
+          (-[0,1.18] @{glnHG2}HG2)
+          -[6,1.28] @{glnCD}CD
+            (=[0,1.18] @{glnOE}OE1)
+            -[6,1.18] @{glnNE}NE2
+              (-[4,1.12] @{glnHE21}HE21)
+              (-[0,1.12] @{glnHE22}HE22)
+    )
+  -[,,,,draw=backbonegray] @{glnC}\bbatom{C}
+    (=[1,,,,draw=backbonegray] @{glnO}\bbatom{O})
+    -[-1,,,,draw=backbonegray] @{glnOH}\phantom{O}
+}
+\schemestop
+\caption{Glutamine}
+\label{fig:moiety_d}
+\end{subfigure}
+
+\caption[Reactive-system atom labels]{Reactive-system atom labels used in the EVB calculations. Backbone atoms and bonds are shown in gray for the amino-acid fragments.}
+\label{fig:atoms}
+\end{figure}
+
+\begin{table}[H]
+\centering
+\caption[Morse potentials]{Morse potentials. {\normalfont
+Morse potential representation given by $V(r) = D_e\left(1 - e^{-a(r-r_e)}\right)^2$,
+used for the EVB/FEP bond terms whose connectivity changes between the reactant and product diabatic states. In the reactant state these terms describe peroxide O1--H1 and chalcogen--HG1 bonds; in the product state they describe peroxide O1--HG1 and Gln83 OE1--H1 bonds. Atom IDs correspond to those shown in Fig.~\ref{fig:atoms}.
+Here, SEC denotes selenium-containing systems, SUL denotes sulfur-containing systems,
+and PRX refers to hydrogen peroxide ($\mathrm{H_2O_2}$). Harmonic FEP bond terms used for non-proton-transfer internal geometry changes are not listed here.}}
+\begin{threeparttable}
+\begin{tabularx}{\textwidth}{lXXX}
+\toprule
+\textbf{Bond type} &
+\makecell{\textbf{H--O (peroxide,} \\ \textbf{water) [$D_e$, $\alpha$, $r_e$]}} &
+\makecell{\textbf{H--Se/H--S} \\ \textbf{[$D_e$, $\alpha$, $r_e$]}} &
+\makecell{\textbf{HE1--OE1} \\ \textbf{[$D_e$, $\alpha$, $r_e$]}} \\
+\midrule
+SEC & 102, 2.26, 0.96 & 81, 1.87, 1.40\tnote{*} & 102, 2.26, 0.96 \\
+SUL & 102, 2.26, 0.96 & 81, 1.87, 1.32\tnote{*} & 102, 2.26, 0.96 \\
+\bottomrule
+\end{tabularx}
+\begin{tablenotes}
+\item[*] The H--Se/H--S value differs between SEC and SUL; both values are intentionally retained for comparison.
+\end{tablenotes}
+\end{threeparttable}
+\label{tab:morse}
+\end{table}
+    
+\begin{table}[H]
+\centering
+\small
+\setlength{\tabcolsep}{3pt}
+\begin{tabularx}{\textwidth}{lXXccc}
+\toprule
+\textbf{Coordinate} & \textbf{Cys atoms} & \textbf{Sec atoms} & \makecell{\textbf{Interval} \\ \textbf{(\si{\angstrom})}} & \makecell{\textbf{$K_{\mathrm{heat}}$}} & \makecell{\textbf{$K_{\mathrm{prod}}$}} \\
+\midrule
+Chalcogen--peroxide O1 & \texttt{49.SG-196.O1} & \texttt{49.SE-196.O1} & 1.5--1.9 & 10 & 2 \\
+Gln83 OE1--peroxide O1 & \texttt{83.OE1-196.O1} & \texttt{83.OE1-196.O1} & 1.3--1.7 & 10 & 2 \\
+Chalcogen--labile H & \texttt{49.SG-49.HG1} & \texttt{49.SE-49.HG1} & 1.1--1.5 & 5 & 2 \\
+Peroxide O1--peroxide H1 & \texttt{196.O1-196.H1} & \texttt{196.O1-196.H1} & 0.8--1.2 & 5 & 2 \\
+Gln83 OE1--transferred H1 & \texttt{83.OE1-196.H1} & \texttt{83.OE1-196.H1} & 0.8--1.2 & 5 & 2 \\
+Peroxide O1--transferred chalcogen H & \texttt{196.O1-49.HG1} & \texttt{196.O1-49.HG1} & 0.8--1.2 & 5 & 2 \\
+\bottomrule
+\end{tabularx}
+\caption[Flat-bottom potential bound distances]{Flat-bottom potential bound distances. {\normalfont Distance restraints were represented using flat-bottom harmonic potentials applied during pre-FEP equilibration and production FEP sampling. The restraint energy is zero inside the listed interval and harmonic outside it. $K_{\mathrm{heat}}$ gives the initial heat-up force constant and $K_{\mathrm{prod}}$ the final value retained during production FEP windows; force constants are in \si{kcal.mol^{-1}.\angstrom^{-2}}. During the pre-FEP release stages the active-site restraint constants were reduced stepwise to the production value.}}
+\label{tab:flatbottom}
+\end{table}
+
+\begin{figure}[htbp]
+  \centering
+  \begin{subfigure}{0.48\linewidth}
+    \centering
+    \includegraphics[width=\linewidth]{FigS4A.png}
+    \caption{Sulfur containing active site.}
+  \end{subfigure}
+  \hspace{0.02\linewidth}
+  \begin{subfigure}{0.48\linewidth}
+    \centering
+    \includegraphics[width=\linewidth]{FigS4B.png}
+    \caption{Selenium containing active site}
+  \end{subfigure}
+  \caption[Flat-bottom potentials]{Flat-bottom potentials. Active-site flat-bottom distance restraints used to maintain the reactive complex during pre-FEP equilibration and production FEP sampling, according to the intervals and force constants in Table~\ref{tab:flatbottom}.}
+  \label{fig:flatbottom}
+\end{figure}
+
+\begin{table}[htbp]
+\centering
+\caption[Partial charges for the Cys and Sec systems]{Partial charges for the Cys and Sec systems. {\normalfont Partial atomic charges in reactant state (RS) and product state (PS) for atoms in CYS/SEC, GLN, and hydrogen peroxide (\ch{H2O2}). Slash-separated labels indicate the only naming differences between the Cys and Sec setups; the assigned charges are identical.}}
+\label{tab:partial_charges}
+\begin{tabular}{llcc}
+\toprule
+\textbf{Moiety} & \textbf{Atom} & \textbf{RS Charge} & \textbf{PS Charge} \\
+\midrule
+CYS/SEC & SG/SE & -0.335 & -0.9    \\
+CYS/SEC & HG1   &  0.155 &  0.418  \\
+CYS/SEC & CB    &  0.060 & -0.3    \\
+CYS/SEC & HB1   &  0.060 &  0.1    \\
+CYS/SEC & HB2   &  0.060 &  0.1    \\
+CYS/SEC & CA    &  0.140 &  0.14   \\
+CYS/SEC & HA    &  0.060 &  0.06   \\
+CYS/SEC & N     & -0.500 & -0.5    \\
+CYS/SEC & HN    &  0.300 &  0.3    \\
+\ch{H2O2} & O1  & -0.418 & -0.418 \\
+\ch{H2O2} & O2  & -0.418 & -0.418 \\
+\ch{H2O2} & H1  &  0.418 &  0.418 \\
+\ch{H2O2} & H2  &  0.418 &  0.418 \\
+GLN      & NE2  & -0.760 & -0.4965 \\
+GLN      & HE21 &  0.380 &  0.48   \\
+GLN      & HE22 &  0.380 &  0.48   \\
+GLN      & CD   &  0.500 &  0.2858 \\
+GLN      & OE1  & -0.500 & -0.503  \\
+GLN      & CB   & -0.120 & -0.12   \\
+GLN      & HB1  &  0.060 &  0.06   \\
+GLN      & HB2  &  0.060 &  0.06   \\
+GLN      & CG   & -0.120 &  0.2157 \\
+GLN      & HG1  &  0.060 &  0.06   \\
+GLN      & HG2  &  0.060 &  0.06   \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+  \centering
+  \begin{tabular}{|l|c|}
+    \hline
+    \textbf{Parameter} & \textbf{Value (kcal/mol)} \\
+    \hline
+    Off-diagonal ($H_{12}$) & 13.52 \\
+    State-energy shift ($\alpha$) & 1.30 \\
+    \hline
+  \end{tabular}
+  \caption[EVB parameters]{EVB parameters. {\normalfont Mapped EVB parameters used after calibration to the human Sec-GPX6 WT profile. The state-energy shift $\alpha$ and off-diagonal coupling $H_{12}$ were fitted to the quantum-mechanical free-energy profile of human Sec-containing glutathione peroxidase reported by Prabhakar et al., using $\Delta G^{\ddagger}=16.40$~kcal/mol and $\Delta G^{\circ}=-60.52$~kcal/mol as calibration targets. The calibrated values were then held fixed for all mutant and homolog calculations.}}
+  \label{tab:evb_parameters}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption[Mouse pathway mutation distances]{Mouse mutations and corresponding distances from residue~49.}
+\label{tab:mouse_mutation_distance}
+\begin{tabular}{lc}
+\toprule
+\textbf{Mutation} & \textbf{Distance (\AA)} \\
+\midrule
+C49U & 0.0 \\
+F48Y & 3.9 \\
+T52A & 5.2 \\
+S47A & 5.6 \\
+R99C & 9.5 \\
+T54Q & 10.0 \\
+H144Q & 11.6 \\
+H177Q & 11.5 \\
+G74A & 14.3 \\
+T178A & 14.8 \\
+E143S & 15.3 \\
+P142S & 16.4 \\
+F139L & 16.3 \\
+K87T & 16.4 \\
+Y104F & 16.1 \\
+G102S & 16.8 \\
+L24I & 18.7 \\
+T60A & 19.1 \\
+S4R & 19.6 \\
+N107S & 19.8 \\
+R181S & 19.5 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption[Human pathway mutation distances]{Human mutations and corresponding distances from residue~49.}
+\label{tab:human_mutation_distance}
+\begin{tabular}{lc}
+\toprule
+\textbf{Mutation} & \textbf{Distance (\AA)} \\
+\midrule
+U49C & 0.0 \\
+Y48F & 3.8 \\
+A52T & 5.5 \\
+A47S & 5.6 \\
+Q54T & 10.4 \\
+C99R & 9.7 \\
+Q144H & 11.5 \\
+Q177H & 11.5 \\
+A178T & 14.2 \\
+T87K & 16.8 \\
+A74G & 14.6 \\
+S143E & 15.1 \\
+S142P & 16.6 \\
+N3K & 17.7 \\
+L139F & 16.5 \\
+F104Y & 17.1 \\
+A60T & 19.8 \\
+L24I & 18.5 \\
+S102G & 18.1 \\
+H173R & 19.6 \\
+S181R & 19.2 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\small
+\caption[Simulation protocol workflow]{Simulation protocol workflow. {\normalfont Comprehensive minimization, relaxation, pre-FEP equilibration, and FEP simulation protocol. The initial qtools relaxation was performed at the reactant-state lambda vector without the active-site flat-bottom restraints. These active-site restraints were introduced in the pre-FEP equilibration, reduced to their production force constant, and retained during FEP sampling.}}
+\label{tab:combined_protocol}
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabularx}{\textwidth}{@{}lccX@{}}
+\toprule
+\textbf{Step/Process} & \textbf{Steps} & \textbf{Time (ps)} & \textbf{Remarks} \\
+\midrule
+\multicolumn{4}{@{}l}{\textit{Restrained Minimization}} \\[2pt]
+\quad Steps 1--5 & 100--500  & 0.01--0.05 & Light restraints \\
+\quad Step 6     & 50,000    & 25.0       & Heavy atoms (10 kcal·mol$^{-1}$·\AA$^{-2}$) \\
+\addlinespace
+\multicolumn{4}{@{}l}{\textit{Unrestrained Minimization}} \\[2pt]
+\quad Steps 7--11 & 100--500 & 0.01--0.05 & No restraints \\
+\quad Step 12     & 50,000   & 25.0       & No restraints \\
+\addlinespace
+\multicolumn{4}{@{}l}{\textit{Relaxation}} \\[2pt]
+\quad Heat-up (1--3)       & 2,000--5,000 & 2.0--5.0 & Active-site flat-bottom restraints introduced \\
+\quad Equilibration (4--8) & 10,000 each  & 50.0     & Sequence restraints released; active-site restraints reduced \\
+\quad Final                & 10,000       & 10.0     & Sequence restraints removed; active-site restraints retained \\
+\addlinespace
+\multicolumn{4}{@{}l}{\textit{Production}} \\[2pt]
+\quad FEP (51 windows) & 20,000 each & 1,020 total & Active-site flat-bottom restraints retained \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\begin{figure}[p]
+\centering
+\includegraphics[width=\textwidth, height=0.75\textheight, keepaspectratio]{FigS5.png}
+\caption[Stability effects of cumulative mutations during directed evolution of mouse and human GPX6]{Stability effects of cumulative mutations during directed evolution of mouse and human GPX6. Heatmaps display $\Delta\Delta G^{*}$ (kcal mol$^{-1}$) for (a) mouse and (b) human GPX6 variants across mutation levels. Positive values (red) indicate destabilizing mutations, while negative values (blue) indicate stabilizing mutations relative to the wild-type enzyme. This sign convention is analogous to the main-text energetic maps in that positive values denote an unfavorable increase in free energy; here, however, $\Delta\Delta G^{*}$ describes folded-state stability rather than activation or reaction free energy. Rows represent individual mutations, sorted by increasing distance from the active site (Cys/Sec49). Columns show cumulative mutation levels (level~0 = single mutant; higher levels include all preceding mutations). The coloured badges on the right indicate the number of local hydrogen bonds formed by each mutation when introduced alone. Grey cells denote combinations not observed at that level.}
+\label{fig:heatmap_levels}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{FigS6.png}
+    \caption[ProteinMPNN triangular sequence-space projection]{Geometric projection of ProteinMPNN-generated sequence ensembles in triangular sequence space. 
+    The plot positions ProteinMPNN-designed sequences according to their normalized Levenshtein distances from three reference points: the mouse GPX6 wild-type structure (PDB 7FC2, bottom-left, blue vertex), the AlphaFold-predicted human GPX6 wild-type (bottom-right, orange/red vertex), and the node~25 ancestral sequence from the mammalian GPX6 reconstruction of Rees et al. (green, apex). The three distances were converted into barycentric weights with the same softmax projection used in the main text ($\tau=1.0$). Blue points represent sequences generated from mouse-derived backbones, while orange/red points correspond to sequences generated from human-derived backbones. The dense central cloud of intermixed points highlights substantial overlap between the two directional designs, with only limited extension toward the ancestral node. Because ProteinMPNN was used here as a fixed-backbone design probe rather than as a phylogenetic reconstruction model, proximity to node~25 should be interpreted as structural compatibility with ancestral-like sequence features rather than as recovery of the ancestral sequence. This projection reveals the extent of ancestral sequence recovery achieved by ProteinMPNN when using EVB-derived intermediate and endpoint backbone structures along the mouse-to-human and human-to-mouse trajectories.}
+    \label{fig:proteinmpnn_design}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{FigS7.png}
+\caption[Pairwise sequence-distance heatmap of GPX6 variants]{Pairwise sequence-distance heatmap of GPX6 variants derived from human and mouse evolutionary trajectories, including the reconstructed ancestor. Distances were calculated over the 20-residue pathway set as $1-I_{ij}$, where $I_{ij}$ is the fraction of identical residues in the compared subset. Color intensity represents sequence distance, with Ward hierarchical clustering grouping variants based on similarity. Human variants (red), mouse variants (green), and the ancestor (blue) form distinct clusters. Mutational levels correspond to the step numbers defined in the greedy pathway analysis in Figure~\ref{fig:gpx6_all_pathways}.}
+    \label{fig:gpx6_heatmap}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{FigS8.png}
+\caption[ProteinMPNN sequence-distance heatmap]{Hierarchical clustering heatmap of genetic distances among GPX6 ProteinMPNN sequences from human, mouse, and ancestral designs. The heatmap shows pairwise genetic distances computed from normalized BLOSUM62 similarity. Row and column side bars indicate species origin: red = human, green = mouse, blue = ancestor. The custom colormap transitions from blue (ancestor) through green (mouse) to red (human), where blue represents low genetic distance/high similarity and red represents high genetic distance.}
+\label{fig:gpx6_mpnn_heatmap}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{FigS9.png}
+    \caption[Human and mouse GPX6 Clustal Omega alignment]{Sequence alignment of human GPX6 (UniProtKB P59796) and mouse GPX6 (UniProtKB Q91WR8), generated with Clustal Omega 1.2.4. The full alignment spans 221 UniProt positions, shown above each block. Identical residues are shaded grey and substitutions are shaded yellow. The red outline marks catalytic residue~49 in the mature/PDB numbering used for the EVB calculations, corresponding to UniProt alignment position~73. Blue outlines mark the 19 residues fixed in the human-to-mouse calculated pathway, and green outlines mark the 20 residues fixed in the mouse-to-human calculated pathway; these pathway residue numbers are shifted by +24 relative to the full UniProt alignment.}
+    \label{fig:gpx6_sequence_alignment}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{FigS10.png}
+    \caption[EVB-measured mutational pathways]{Complete set of EVB-measured mutational pathways connecting human and mouse GPX6. Activation free energies are shown as a function of mutational level for all pathways evaluated in the two evolutionary directions. (a) Trajectories initiated from human GPX6 and progressing toward mouse-like sequences. (b) Trajectories initiated from mouse GPX6 and progressing toward human-like sequences. Thin light-blue lines represent the full set of EVB-evaluated pathways, whereas the dark blue line with error bars highlights the greedy pathway obtained by selecting, at each level, the mutation that produced the lowest activation barrier. Horizontal dashed lines indicate the activation free energies of the two wild types and their residue-49 swapped variants, allowing direct comparison between the pathway ensemble and the catalytic-residue swap. Lower $\Delta G^{\ddagger}$ values correspond to lower activation barriers and are therefore favorable in the same sense as negative $\Delta\Delta G^{*}$ values in Figure~\ref{fig:heatmap_levels}, although the two figures report different thermodynamic quantities.}
+    \label{fig:gpx6_all_pathways}
+\end{figure}
+
+\end{document}

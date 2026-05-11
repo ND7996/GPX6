@@ -1,0 +1,50 @@
+\section{Introduction}
+
+Selenium is incorporated into proteins primarily as selenocysteine (Sec), the 21st amino acid, through recoding of the UGA stop codon.\cite{Berry1991UGA,Kryukov2003Selenoproteomes,Shetty2015Selenocysteine,hondal_selenium_2011,Labunskyy2014} Relative to cysteine (Cys), Sec has a lower side-chain pK$_a$, a larger and more polarizable chalcogen atom, and a selenolate form that is typically more nucleophilic than the corresponding thiolate, which together make selenium especially effective in redox catalysis.\cite{johansson_selenocysteine_2005,hondal_selenium_2011,Arner2010,ChungKrahn2022SelenocysteineToolbox,Reich2016,Kanavos2026SecSelectivity} The glutathione peroxidases (GPXs) are a major family of thiol-dependent peroxidases that reduce \ch{H2O2} and organic hydroperoxides to water or the corresponding alcohols, and they include some of the earliest recognized vertebrate selenoenzymes.\cite{Rotruck1973,BrigeliusFlohe2013GlutathionePeroxidases,pei_research_2023} GPX6 is particularly unusual within this family because the catalytic residue differs across mammalian lineages. Sec is retained in humans and some other primate lineages, whereas Cys--containing GPX6 has evolved convergently across mammals, including rodents, rabbits, cats, and some monkeys.\cite{BrigeliusFlohe2013GlutathionePeroxidases,rees_ancient_2024}
+
+Mechanistic studies of seleno-GPXs by Morokuma and coworkers\cite{prabhakar_elucidation_2005,prabhakar_is_2006} indicate that peroxide reduction proceeds predominantly through a stepwise pathway in which the resting selenol is first deprotonated to the reactive selenolate, followed by O--O bond cleavage and formation of selenenic acid. 
+In this framework, formation of the selenolate carries a substantial free-energy barrier and precedes peroxide bond cleavage, whereas the alternative concerted pathway is much less favorable. 
+In the concerted mechanism, Se--H bond cleavage and \ch{H2O2} O--O bond cleavage occur in a single step with assistance from a bridging water molecule, but previous calculations found this route to have a substantially higher barrier.
+Because this acid--base step is the earliest chemically discriminating event between Sec-- and Cys--containing enzymes, it provides a focused point of comparison across GPX6 variants.\cite{prabhakar_is_2006,cardey_selenocysteine_2007} The analogous thiol-to-thiolate transformation can be defined for Cys--containing homologs, allowing a consistent mechanistic framework across the evolutionary series.\cite{cardey_selenocysteine_2007}
+The catalytic cycle and the stepwise reaction scheme considered here are summarized in Figure~\ref{fig:gpx6_mechanism}; the alternative concerted pathway is provided as supplementary context (Figure~\ref{SI-fig:concerted_mechanism}). 
+
+
+\begin{figure}[htbp]
+\centering
+\begin{subfigure}{0.65\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{Fig1A.png}
+    \caption{}
+\end{subfigure}
+\hspace{0.02\textwidth}
+\begin{subfigure}{0.95\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{Fig1B.png}
+    \caption{}
+\end{subfigure}
+\caption[Catalytic cycle and reaction mechanism]{Catalytic cycle and proposed stepwise reaction mechanism for the reduction of \ch{H2O2}. (a) Overall catalytic cycle in GPX6, illustrating the interconversion of selenium redox states during the reduction of \ch{H2O2}. The catalytic intermediates include selenol (SeH, \textbf{I}), selenolate (Se$^{-}$, \textbf{II}), selenenic acid (SeOH, \textbf{III}), and selenosulfide (Se--SG, \textbf{IV}). Glutathione (GSH) functions as the reducing cosubstrate, whereas \ch{H2O2} acts as the oxidizing substrate. (b) Stepwise pathway in water for the I to III transition.}
+\label{fig:gpx6_mechanism}
+\end{figure}
+
+Previous phylogenetic and functional analyses identified a clear evolutionary split in GPX6. Human GPX6 (UniProtKB P59796) retains Sec at the catalytic site, whereas mouse GPX6 (UniProtKB Q91WR8) belongs to a rodent Cys--containing lineage.\cite{rees_ancient_2024} Ancestral sequence reconstruction further suggests that the last common ancestor of these lineages encoded Sec and that Cys--containing GPX6 variants arose through multiple independent Sec--loss events across mammals.\cite{rees_ancient_2024} These convergent GPX6-Cys changes show signatures of positive selection, suggesting that evolution favored the Cys state and that the Cys--containing enzyme may have acquired or improved a still-unresolved novel function.\cite{rees_ancient_2024} Reintroduction of Sec into rodent GPX6 restores classical peroxidase activity, underscoring the catalytic importance of the reactive residue.\cite{rees_ancient_2024} However, a simple reversal from Cys to Sec is genetically demanding because Sec incorporation requires not only a UGA codon at the catalytic position but also the selenocysteine insertion machinery, including a SECIS RNA secondary-structure element in the 3$'$ untranslated region.\cite{Berry1991UGA,Kryukov2003Selenoproteomes,Shetty2015Selenocysteine,ChungKrahn2022SelenocysteineToolbox} GPX6 therefore provides a rare natural system in which a chemically meaningful catalytic substitution can be examined against the evolution of its genetic background. More broadly, it offers a tractable example of how an intrinsically favorable catalytic chemistry can become embedded within lineage-specific compensatory sequence changes. What remains unresolved is how the Sec--to-Cys exchange interacts with the surrounding sequence context, and whether the corresponding catalytic states are energetically accessible along realistic substitution trajectories.
+
+Epistasis provides the relevant conceptual framework for this problem. The effect of a mutation can depend strongly on the genetic background in which it occurs, constraining accessible evolutionary routes and generating path dependence in protein evolution.\cite{maynardsmith1970proteinspace,Weinreich2006,starr2016epistasis,storz_compensatory_2018} Experimental and structural studies have shown that such path dependence can arise from conformational and biophysical interactions among substitutions, making later evolutionary outcomes contingent on earlier sequence changes.\cite{Ortlund2007,Bridgham2009,Harms2014} In enzymes, these interactions often emerge because substitutions reshape electrostatics, hydrogen-bonding networks, conformational preferences, and pK$_a$ values in ways that alter transition-state stabilization and catalytic barriers.\cite{Warshel2006,Kamerlin2010,VillaWarshel2001,Tokuriki2009,storz_compensatory_2018} For GPX6, this implies that the catalytic consequences of replacing Sec with Cys are unlikely to be determined by the reactive residue alone, but by the broader mutational context in which that substitution occurs.\cite{rees_ancient_2024,starr2016epistasis}
+
+In this work, we use empirical valence bond (EVB) simulations to quantify how sequence divergence and epistatic interactions reshape the catalytic free-energy landscape connecting human and mouse GPX6. We first evaluate the proton-transfer step that generates the reactive selenolate or thiolate species in Sec-- and Cys--containing variants of both homologs. We then examine how individual and combinatorial substitutions modulate activation free energies, use these energetic profiles to construct low-barrier mutational pathways, and place the resulting trajectories in the phylogenetic context established previously.\cite{rees_ancient_2024} This design tests whether the Sec/Cys transition behaves as a simple catalytic-residue exchange or as a background-dependent reorganization of transition-state stabilization. As a secondary analysis, we also ask whether sequence generation from EVB-derived structures recovers ancestral-like sequence features more effectively than the energetic pathways alone.
+The active-site architecture and the subset of substitutions analyzed in this work are shown in Figure~\ref{fig:gpx6_structure_mutations}.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.7\textwidth]{Fig2.png}
+\caption[GPX6 active site and analyzed substitutions]{Three-dimensional structure of GPX6 shown in cartoon representation, with the substitution sites analyzed in this study highlighted in yellow. These sites were selected based on their distance from the active-site chalcogen, ranging from proximal positions to residues located up to 20~\AA{} away.}
+\label{fig:gpx6_structure_mutations}
+\end{figure}
+
+%\begin{enumerate}
+% standard evb run
+%\item Validate the use of EVB to compare the catalytic properties of cysteine- and selenocysteine-containing GPX6
+% point mutations
+%\item Determine how sequence divergence and specific amino acid substitutions influence GPX6 catalytic activity.
+%pathway of mutations
+%\item Elucidate Structure–Function Relationships and Evolutionary Adaptation in GPX6
+%\end{enumerate}

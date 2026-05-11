@@ -1,0 +1,116 @@
+\section{Results and Discussion}
+
+\subsection{Catalytic-Residue Swap Profiles in Human and Mouse GPX6}
+
+To isolate the energetic effect of residue~49 before the pathway analysis, we first compared wild-type human Sec-GPX6 and mouse Cys-GPX6 with their reciprocal catalytic-residue variants, human Cys-GPX6 and mouse Sec-GPX6. Figure~\ref{fig:sec_vs_cys_profiles} shows the bin-averaged EVB free-energy profiles for this four-system catalytic-residue swap. Human Sec-GPX6 has an activation barrier of $16.40 \pm 0.83$~kcal/mol, whereas human Cys-GPX6 increases to $17.83 \pm 0.97$~kcal/mol. Mouse Cys-GPX6 has a barrier of $17.68 \pm 0.91$~kcal/mol, whereas mouse Sec-GPX6 shows the lowest barrier, $14.84 \pm 0.52$~kcal/mol. Thus, the figure defines the two wild types as human Sec-GPX6 and mouse Cys-GPX6 and shows that the Cys-containing profiles are comparable, while the Sec-containing profiles shift downward to an extent that depends on the homologous scaffold.
+
+ These data show that, as expected, replacement of Cys by Sec lowers the barrier for the proton-transfer step in both sequence backgrounds. The barrier reduction is $1.43$~kcal/mol in the human scaffold and $2.84$~kcal/mol in the mouse scaffold, and in both cases the effect exceeds the combined standard errors of the profiles. This residue-49 swap therefore confirms the catalytic advantage of Sec in GPX6, while also showing that the magnitude of this advantage is modulated by the surrounding protein environment. 
+
+\begin{figure}[H]
+\centering
+\begin{subfigure}{0.49\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{Fig3A.png}
+    \caption{Human Cys-GPX6.}
+    \label{fig:sec_vs_cys_human_cys}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.49\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{Fig3B.png}
+    \caption{Human Sec-GPX6 (wt).}
+    \label{fig:sec_vs_cys_human_sec}
+\end{subfigure}
+\vspace{0.5em}
+\begin{subfigure}{0.49\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{Fig3C.png}
+    \caption{Mouse Cys-GPX6 (wt).}
+    \label{fig:sec_vs_cys_mouse_cys}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.49\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{Fig3D.png}
+    \caption{Mouse Sec-GPX6.}
+    \label{fig:sec_vs_cys_mouse_sec}
+\end{subfigure}
+\caption[Catalytic-residue swap EVB profiles]{EVB free-energy profiles for the residue-49 catalytic swap in human and mouse GPX6. Each panel shows bin-averaged profiles from independent replicas for the proton-transfer step. Human Sec-GPX6 and mouse Cys-GPX6 are the wild-type systems; human Cys-GPX6 and mouse Sec-GPX6 are the reciprocal catalytic-residue variants.}
+\label{fig:sec_vs_cys_profiles}
+\end{figure}
+
+\subsection{Mutational Landscapes and Pathway Asymmetry}
+
+To compare how the 20 proximal substitutions reshape the two catalytic scaffolds, we constructed directional low-barrier trajectories after first imposing the residue-49 exchange. The mouse-to-human trajectory starts from the mouse-derived background after C49U has generated mouse Sec-GPX6 and introduces human-like substitutions. The human-to-mouse trajectory starts from the human-derived background after U49C has generated human Cys-GPX6 and introduces mouse-like substitutions. These labels therefore describe the structural or sequence background from which each trajectory starts. At each step, the pathway construction fixes the remaining substitution that gives the lowest activation barrier. The resulting trajectories represent locally optimized, barrier-minimizing routes through the 20 proximal substitutions, providing an energetic path model for the sequence transition. The selected substitution order in each direction is reported in the context of the complete EVB-evaluated pathway ensemble (Figure~\ref{SI-fig:gpx6_all_pathways}). The first noncatalytic step differs between the two trajectories, with the mouse-to-human path beginning at residue~54 and the human-to-mouse path beginning at residue~87. Figure~\ref{fig:pathway_heatmaps} summarizes the cumulative energetic consequences of these routes. Each column represents a mutational level, and each row tracks the contribution of a specific substitution to $\Delta G^{\ddagger}$ and $\Delta G^{\circ}$ relative to the corresponding catalytic-residue-swapped background.
+
+The two heatmaps show that direction matters. In the mouse Sec-GPX6 background, successive human-like substitutions generally lower or preserve the activation barrier, so the pathway moves through a broad region of neutral or stabilizing $\Delta G^{\ddagger}$ values. In the human Cys-GPX6 background, early mouse-like substitutions instead create a sustained destabilizing region, especially in $\Delta G^{\ddagger}$. This contrast is consistent with the different timing of the catalytic-residue exchange along the two routes. In the human-to-mouse pathway, introduction of U49C establishes a destabilizing baseline that propagates through many subsequent mutations, whereas in the mouse-to-human pathway the compensatory C49U change occurs early and largely prevents accumulation of the same energetic strain. The reaction free energies also change with direction, but the contrast is clearest for the activation barrier. Together, these patterns support a graded form of path dependence in which both directions retain energetically accessible steps, while the same sequence differences have different kinetic consequences depending on the catalytic scaffold in which they are introduced.
+
+The persistence of this background dependence after explicit EVB calculation supports an epistatic interpretation. Some substitutions with neutral or favorable effects in both catalytic-residue states could plausibly have occurred before Sec loss, because they would be compatible with both the ancestral Sec-dependent peroxidase activity and the derived Cys-containing state. In contrast, substitutions whose energetic effect depends strongly on whether residue~49 is Sec or Cys are better interpreted as candidates for changes that either followed Sec loss or helped stabilize the emerging Cys background. The EVB ordering therefore provides a physically grounded constraint on which substitutions are compatible with the two functional states and which are more likely to be contingent on the catalytic-residue exchange.
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}{\textwidth}
+        \centering
+        \includegraphics[width=0.95\textwidth]{Fig4A.png}
+        \caption{Mouse-to-human pathway.}
+        \label{fig:heatmap_mouse}
+    \end{subfigure}
+    \vspace{0.5em}
+    \begin{subfigure}{\textwidth}
+        \centering
+        \includegraphics[width=0.95\textwidth]{Fig4B.png}
+        \caption{Human-to-mouse pathway.}
+        \label{fig:heatmap_human}
+    \end{subfigure}
+    \caption[Cumulative free-energy changes along greedy pathways]{Cumulative free-energy changes along the greedy GPX6 substitution pathways. Heatmaps show changes in activation free energy ($\Delta G^{\ddagger}$) and reaction free energy ($\Delta G^{\circ}$) as substitutions are added along the mouse-to-human and human-to-mouse trajectories. Columns correspond to successive mutational levels, rows correspond to individual substitutions tracked across the trajectory, negative values indicate stabilization, and positive values indicate destabilization relative to the corresponding catalytic-residue-swapped background; colors denote distance from catalytic residue~49.}
+    \label{fig:pathway_heatmaps}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}{\textwidth}
+        \centering
+        \includegraphics[width=0.88\textwidth,height=0.34\textheight,keepaspectratio]{Fig5A.png}
+        \caption{Mouse GPX6 variants.}
+        \label{fig:lfer_mouse}
+    \end{subfigure}
+    \vspace{0.5em}
+    \begin{subfigure}{\textwidth}
+        \centering
+        \includegraphics[width=0.88\textwidth,height=0.34\textheight,keepaspectratio]{Fig5B.png}
+        \caption{Human GPX6 variants.}
+        \label{fig:lfer_human}
+    \end{subfigure}
+    \caption[Linear free-energy relationships]{Linear free-energy relationships for mouse and human GPX6 variants. Each panel correlates the change in reaction free energy ($\Delta G^{\circ}$) with the change in activation free energy ($\Delta G^{\ddagger}$). Grey points represent individual simulation replicas, colored points show mutation averages with standard errors, colors denote distance from catalytic residue~49, and the red line shows the linear regression fit. The correlations are moderate in both homologs ($R^2 = 0.51$ for mouse and $R^2 = 0.54$ for human), indicating that thermodynamic perturbations are partly, but not completely, propagated into the catalytic barrier. }
+    \label{fig:lfer_combined}
+\end{figure}
+
+The linear free-energy relationship analysis in Figure~\ref{fig:lfer_combined} shows that thermodynamic--kinetic coupling differs only modestly between the two homologs. Substitutions that destabilize the reaction also tend to increase the activation barrier in both datasets, with $R^2 = 0.51$ for mouse GPX6 and $R^2 = 0.54$ for human GPX6. These moderate correlations indicate that changes in reaction thermodynamics are partly propagated into changes in the activation barrier. At the residue level, however, the energetic effects can change sign across mutational levels, pointing to contributions beyond local hydrogen-bonding in the full energetic response (Figure~\ref{SI-fig:heatmap_levels}).
+
+Figure~\ref{fig:gpx6_human_to_mouse_profile} shows the activation free-energy profile along the human-to-mouse mutational pathway after the U49C catalytic-residue exchange. The profile fluctuates across the trajectory rather than relaxing monotonically, but these fluctuations are relatively smooth compared with the broad variability of the full mutational landscape (Figure~\ref{SI-fig:gpx6_all_pathways}). In the greedy trajectory, $\Delta G^{\ddagger}$ remains near the lower envelope of the sampled pathway distribution in both directions, whereas many alternative paths sample substantially higher activation barriers.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{Fig6.png}
+    \caption[Human-to-mouse activation free-energy profile]{Activation free-energy ($\Delta G^{\ddagger}$) profile along the human-to-mouse mutational pathway when the U49C mutation is introduced at each mutation level. Error bars indicate standard deviation.}
+    \label{fig:gpx6_human_to_mouse_profile}
+\end{figure}
+
+\subsection{Phylogenetic Context of the EVB Pathways}
+
+Figure~\ref{fig:gpx6_triangle} places the EVB-derived trajectories in the phylogenetic framework of Rees et al.\cite{rees_ancient_2024} The ancestral reference is the reconstructed Sec-containing ancestor before the primate and rodent/lagomorph GPX6 lineages diverged, referred to as node~25 in that study.
+
+Variants from the mouse-to-human trajectory and variants from the human-to-mouse trajectory form largely distinct clusters in the 20-residue sequence-distance analysis, while the reconstructed ancestor behaves as a transitional reference rather than as a recovered endpoint of either greedy path (Figure~\ref{SI-fig:gpx6_heatmap}). This supports the interpretation that the EVB paths capture energetically accessible transformations between modern homologs and place those transformations in relation to the reconstructed ancestral sequence.
+
+The geometric projection in Figure~\ref{fig:gpx6_triangle} maps individual intermediates relative to mouse wild-type GPX6, human wild-type GPX6, and the node~25 ancestral sequence. The trajectories do not collapse onto a single line, and the endpoints do not perfectly exchange positions in this reduced projection. Instead, both directional pathways move through partially overlapping regions near the base of the triangle while retaining lineage-specific structure. This behavior argues against a strict hysteresis picture in which forward and reverse transformations are completely separated. At the same time, the energetic ordering of substitutions shows that epistasis imposes a reproducible bias on how one enzymatic background can be converted into the other.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.82\textwidth]{Fig7.png}
+    \caption[Sequence-space context of EVB trajectories]{Geometric projection of the mutational paths connecting mouse and human GPX6. Blue and orange points represent individual mutational intermediates along the stepwise substitution trajectories from mouse to human and from human to mouse, respectively. Each point is labeled by the amino acid selected at each level following the greedy algorithm criteria, showing how sequence changes accumulate across the two directional paths relative to the node~25 ancestor (green).}
+    \label{fig:gpx6_triangle}
+\end{figure}
+
+\subsection{ProteinMPNN as a Secondary Test of Ancestral Sequence Recovery}
+
+Because the EVB pathways are selected by catalytic energetics rather than by sequence likelihood, we used ProteinMPNN as a secondary, fixed-backbone design probe of sequence preferences compatible with the EVB-sampled structures. The designed sequences expanded the explored sequence space and showed local convergence between trajectory-specific backbones, while remaining distinct from the node~25 ancestral sequence (Figures~\ref{SI-fig:proteinmpnn_design} and \ref{SI-fig:gpx6_mpnn_heatmap}). This separation is informative because it suggests that low-barrier catalytic pathways and ancestral sequence recovery are related but distinct constraints, and that the EVB-derived conformations encode only part of the information needed to specify the ancestral GPX6 sequence.
