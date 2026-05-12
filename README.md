@@ -1,6 +1,6 @@
 # Free Energy Perturbation (FEP) Workflow Guide
 
-This guide presents a complete, automated workflow for conducting **Free Energy Perturbation (FEP)** calculations using the **Q5 software suite**. It covers all steps from initial structure preparation through final statistical analysis of free energy differences between protein variants.
+This guide presents a complete, automated workflow for conducting **Free Energy Perturbation (FEP)** calculations using the **Q6 software suite**. It covers all steps from initial structure preparation through final statistical analysis of free energy differences between protein variants.
 
 ![Detailed Workflow](detailed_workflow.drawio.png)
 
@@ -12,11 +12,25 @@ This guide presents a complete, automated workflow for conducting **Free Energy 
 
 | Software | Version | Purpose |
 |----------|---------|---------|
-| [Q5](https://github.com/qusers/qgui) | 5.x | FEP/MD engine (`qprep5`, `qdyn5`, `qfep5`) |
-| [PyMOL](https://pymol.org/) | Latest (Windows) | Structure preparation and mutation |
-| [Qtools](https://github.com/qusers/qtools) | Latest | FEP analysis (`q_mapper.py`, `q_analysefeps.py`) |
+| [Q6](https://github.com/qusers/Q6) | 6.x | FEP/MD engine (`qprep6`, `qdyn6`, `qfep6`) |
+| [PyMOL](https://pymol.org/) | Structure preparation and mutation |
+| [Qtools](https://github.com/mpurg/qtools) | Latest | FEP analysis (`q_mapper.py`, `q_analysefeps.py`) |
 | Python | ≥ 3.8 | Script execution |
-| Force Field | OPLS-AA | All MD and FEP simulations |
+| Force Field | OPLS-AA |
+
+---
+
+## Installation
+
+Clone the repository and install the required Python packages:
+
+```bash
+git clone https://github.com/ND7996/GPX6.git
+cd GPX6
+pip install -r requirements.txt
+```
+
+> **Note:** Q5, PyMOL, and Qtools must be installed separately — see their respective links in the table above.
 
 ---
 
@@ -24,8 +38,10 @@ This guide presents a complete, automated workflow for conducting **Free Energy 
 
 | System | Source | Identifier |
 |--------|--------|------------|
-| Mouse GPX6 | Experimental (X-ray) | [PDB: 7FC2](https://www.rcsb.org/structure/7FC2) |
-| Human GPX6 | AlphaFold model | As described in the manuscript |
+| Mouse GPX6 | [PDB: 7FC2](https://www.rcsb.org/structure/7FC2) |
+| Human GPX6 | AlphaFold model | 
+
+As described in the manuscript 
 
 Both structures were mutated using PyMOL automation (Step 1) to generate the variant panel used in this study.
 
@@ -90,7 +106,7 @@ Prepares solvated systems and topologies for MD relaxation.
 ### Process
 
 1. Extracts base name from each PDB file
-2. Generates `.inp` file and runs `qprep5`
+2. Generates `.inp` file and runs `qprep6`
 3. Applies solvation and boundary conditions
 
 ### Output
@@ -138,7 +154,7 @@ Generates input files for energy minimization and equilibration.
 - `--pdb`: Solvated structure
 - `--fep`: FEP file
 - `--outdir minim`: Output folder
-- `--rs run_qdyn_5.sh`: Qdyn execution script
+- `--rs run_qdyn6.sh`: Qdyn execution script
 
 ### Steps
 
@@ -215,7 +231,7 @@ Performs statistical evaluation of FEP results.
 
 ---
 
-This pipeline is built to support automated FEP calculations in protein mutagenesis projects using the Q software suite.
+This pipeline is built to support automated FEP calculations in protein mutagenesis projects using the Q6 software suite.
 
 ---
 
