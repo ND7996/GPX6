@@ -13,10 +13,10 @@ This guide presents a complete, automated workflow for conducting **Free Energy 
 | Software | Version | Purpose |
 |----------|---------|---------|
 | [Q6](https://github.com/qusers/Q6) | 6.x | FEP/MD engine (`qprep6`, `qdyn6`, `qfep6`) |
-| [PyMOL](https://pymol.org/) | Structure preparation and mutation |
+| [PyMOL](https://pymol.org/) | Latest (Windows) | Structure preparation and mutation |
 | [Qtools](https://github.com/mpurg/qtools) | Latest | FEP analysis (`q_mapper.py`, `q_analysefeps.py`) |
 | Python | ≥ 3.8 | Script execution |
-| Force Field | OPLS-AA |
+| Force Field | OPLS-AA | All MD and FEP simulations |
 
 ---
 
@@ -38,27 +38,16 @@ pip install -r requirements.txt
 
 | System | Source | Identifier |
 |--------|--------|------------|
-| Mouse GPX6 | [PDB: 7FC2](https://www.rcsb.org/structure/7FC2) |
-| Human GPX6 | AlphaFold model | 
-
-As described in the manuscript 
+| Mouse GPX6 | Experimental (X-ray) | [PDB: 7FC2](https://www.rcsb.org/structure/7FC2) |
+| Human GPX6 | AlphaFold model | As described in the manuscript |
 
 Both structures were mutated using PyMOL automation (Step 1) to generate the variant panel used in this study.
 
 ---
 
-## Key Simulation Parameters
+## Simulation Parameters
 
-| Parameter | Value |
-|-----------|-------|
-| Lambda windows | 51 |
-| Replicas per mutant | 15 |
-| Simulation length per replica | 1.02 ns (20,000 steps × 1 fs per window) |
-| Total simulation per mutant | ~15 ns |
-| Temperature | 300 K |
-| Boundary conditions | Periodic |
-| Solvation | Explicit water |
-| Restraints | Active-site flat-bottom restraints throughout FEP |
+Full simulation protocol, parameters, and convergence analysis are described in detail in the associated manuscript.
 
 ---
 
@@ -117,7 +106,7 @@ Prepares solvated systems and topologies for MD relaxation.
 ### Specifications
 
 - **Solvation**: Explicit water model
-- **Boundary Conditions**: Periodic
+- **Boundary Conditions**: Spherical
 - **Force Field**: OPLS-AA
 
 ---
