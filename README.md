@@ -10,13 +10,14 @@ This guide presents a complete, automated workflow for conducting **Free Energy 
 
 ## Environment & Dependencies
 
-| Software | Purpose |
-|----------|---------|---------|
+
+| Tool | Purpose |
+|------|--------|
 | [Q6](https://github.com/qusers/Q6) | FEP/MD engine (`qprep6`, `qdyn6`, `qfep6`) |
 | [PyMOL](https://pymol.org/) | Structure preparation and mutation |
 | [Qtools](https://github.com/mpurg/qtools) | FEP analysis (`q_mapper.py`, `q_analysefeps.py`) |
-| Python 3.8 | 
-| Force Field OPLS-AA | 
+| Python 3.8 | Programming environment |
+| OPLS-AA | Force field |
 
 ---
 
