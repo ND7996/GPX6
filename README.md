@@ -1,13 +1,52 @@
 # Free Energy Perturbation (FEP) Workflow Guide
 
-This guide presents a complete, automated workflow for conducting **Free Energy Perturbation (FEP)** calculations using the **Q5/Q6 software suite**. It covers all steps from initial structure preparation through final statistical analysis of free energy differences between protein variants.
+This guide presents a complete, automated workflow for conducting **Free Energy Perturbation (FEP)** calculations using the **Q5 software suite**. It covers all steps from initial structure preparation through final statistical analysis of free energy differences between protein variants.
 
 ![Detailed Workflow](detailed_workflow.drawio.png)
 
-# This workflow is generated using GPX6 protein as a model 
+# This workflow is generated using GPX6 protein as a model
+
 ---
 
-##  Workflow Overview
+## Environment & Dependencies
+
+| Software | Version | Purpose |
+|----------|---------|---------|
+| [Q5](https://github.com/qusers/qgui) | 5.x | FEP/MD engine (`qprep5`, `qdyn5`, `qfep5`) |
+| [PyMOL](https://pymol.org/) | Latest (Windows) | Structure preparation and mutation |
+| [Qtools](https://github.com/qusers/qtools) | Latest | FEP analysis (`q_mapper.py`, `q_analysefeps.py`) |
+| Python | ≥ 3.8 | Script execution |
+| Force Field | OPLS-AA | All MD and FEP simulations |
+
+---
+
+## Starting Structures
+
+| System | Source | Identifier |
+|--------|--------|------------|
+| Mouse GPX6 | Experimental (X-ray) | [PDB: 7FC2](https://www.rcsb.org/structure/7FC2) |
+| Human GPX6 | AlphaFold model | As described in the manuscript |
+
+Both structures were mutated using PyMOL automation (Step 1) to generate the variant panel used in this study.
+
+---
+
+## Key Simulation Parameters
+
+| Parameter | Value |
+|-----------|-------|
+| Lambda windows | 51 |
+| Replicas per mutant | 15 |
+| Simulation length per replica | 1.02 ns (20,000 steps × 1 fs per window) |
+| Total simulation per mutant | ~15 ns |
+| Temperature | 300 K |
+| Boundary conditions | Periodic |
+| Solvation | Explicit water |
+| Restraints | Active-site flat-bottom restraints throughout FEP |
+
+---
+
+## Workflow Overview
 
 This pipeline automates the calculation of binding free energy differences through a structured 7-step process involving:
 
@@ -21,17 +60,20 @@ This pipeline automates the calculation of binding free energy differences throu
 
 ---
 
-##  STEP 1 - Structure Preparation
+## STEP 1 - Structure Preparation
 
 ### Purpose
+
 Automates point mutations in a PDB structure using PyMOL.
 
 ### Details
+
 - **Tool**: PyMOL automation script
 - **Function**: Introduces predefined mutations (e.g., mouse-to-human substitutions or SEC incorporation)
 - **Output**: Individual PDB files for each variant
 
-###  Features
+### Features
+
 - Automated mutation mapping
 - Preserves backbone integrity
 - Ensures mutation compatibility
@@ -39,49 +81,58 @@ Automates point mutations in a PDB structure using PyMOL.
 
 ---
 
-##  STEP 2 - Solvation with Qprep
+## STEP 2 - Solvation with Qprep
 
-###  Purpose
+### Purpose
+
 Prepares solvated systems and topologies for MD relaxation.
 
-###  Process
+### Process
+
 1. Extracts base name from each PDB file
 2. Generates `.inp` file and runs `qprep5`
 3. Applies solvation and boundary conditions
 
-###  Output
+### Output
+
 - `${base_name}_solvated.pdb`
 - `${base_name}_solvated.top`
 
-###  Specifications
+### Specifications
+
 - **Solvation**: Explicit water model
 - **Boundary Conditions**: Periodic
-- **Force Field**: Q-compatible
+- **Force Field**: OPLS-AA
 
 ---
 
-##  STEP 3 - FEP File Generation
+## STEP 3 - FEP File Generation
 
-###  Purpose
+### Purpose
+
 Uses `makeFEP.py` to create lambda-dependent FEP input files.
 
-###  Inputs
+### Inputs
+
 | File | Role |
 |------|------|
 | `fepmousecys.qmap` | Mapping for mouse WT |
 | `fephumansec.qmap` | Mapping for human WT |
 
-###  Output
-- FEP files with initial/final state mappings and perturbation parameters
+### Output
+
+- FEP files with initial/final state mappings and perturbation parameters across 51 lambda windows
 
 ---
 
-##  STEP 4 - Relaxation Input Setup
+## STEP 4 - Relaxation Input Setup
 
-###  Purpose
+### Purpose
+
 Generates input files for energy minimization and equilibration.
 
-###  Required Inputs
+### Required Inputs
+
 - `--genrelax.proc`: Relaxation parameters
 - `--top`: Topology file
 - `--pdb`: Solvated structure
@@ -89,7 +140,8 @@ Generates input files for energy minimization and equilibration.
 - `--outdir minim`: Output folder
 - `--rs run_qdyn_5.sh`: Qdyn execution script
 
-###  Steps
+### Steps
+
 - Validates inputs
 - Generates `.inp` files
 - Creates run scripts
@@ -97,20 +149,24 @@ Generates input files for energy minimization and equilibration.
 
 ---
 
-##  STEP 5 - Minimized PDB for FEP
+## STEP 5 - Minimized PDB for FEP
 
-###  Purpose
+### Purpose
+
 Performs energy minimization and prepares PDBs for FEP simulations.
 
 ### Process
+
 1. Scans system directories
 2. Locates `relax_012.re` restart files
 3. Runs relaxation and prepares minimized structures
 
-###  Output
+### Output
+
 - `minim.pdb` saved in each system folder
 
-###  Quality Checks
+### Quality Checks
+
 - Convergence validation
 - Energy profile checks
 - Structural integrity
@@ -120,18 +176,21 @@ Performs energy minimization and prepares PDBs for FEP simulations.
 ## STEP 6 - FEP Input Generation
 
 ### Purpose
+
 Generates complete FEP simulation input sets with replica support.
 
 ### Required Inputs
+
 - `--genfeps.proc`: Parameters for FEP and equilibration
 - `--pdb`: `minim.pdb`
-- `--repeats`: Number of replicas
-- `--frames`: e.g., `51`
-- `--fromlambda`: e.g., `1.0`
-- `--prefix`: e.g., `replica`
+- `--repeats`: 15 replicas
+- `--frames`: 51
+- `--fromlambda`: 1.0
+- `--prefix`: `replica`
 - `--rs`: Execution script
 
 ### Output
+
 FEP-ready folders per replica inside each system directory.
 
 ---
@@ -139,15 +198,18 @@ FEP-ready folders per replica inside each system directory.
 ## STEP 7 - Analysis with Qtools
 
 ### Purpose
+
 Performs statistical evaluation of FEP results.
 
 ### Pipeline
 
 #### 7.1 Data Mapping
+
 - **Tool**: `q_mapper.py`
-- **Function**: Aggregates lambda data across replicas
+- **Function**: Aggregates lambda data across 15 replicas
 
 #### 7.2 FEP Analysis
+
 - **Tool**: `q_analysefeps.py`
 - **Output**: `test.out` + JSON structured data
 
@@ -155,3 +217,14 @@ Performs statistical evaluation of FEP results.
 
 This pipeline is built to support automated FEP calculations in protein mutagenesis projects using the Q software suite.
 
+---
+
+## Data Availability
+
+All scripts, input files, and parameters are available in this repository.
+MPNN sequence design data are available at [github.com/ND7996/MPNN](https://github.com/ND7996/MPNN).
+
+Raw simulation trajectories (`.dcd`, `.en`, `.log`) are currently stored on an external hard drive
+connected to the university cluster and are being deposited to
+[CSUC (Consorci de Serveis Universitaris de Catalunya)](https://www.csuc.cat/en) for long-term public archival.
+A DOI will be added here upon completion. Raw data are available upon request to the corresponding author.
