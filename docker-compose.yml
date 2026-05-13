@@ -1,0 +1,15 @@
+services:
+  gpx6:
+    build:
+      context: .
+    image: gpx6-workflow:latest
+    working_dir: /workspace/GPX6
+    volumes:
+      - .:/workspace/GPX6
+      # Mount a host Q6 install here if qprep5/qdyn5_r8/qfep5 are not already in PATH.
+      # - /path/to/Q6/bin:/opt/q6/bin:ro
+    environment:
+      MPLBACKEND: Agg
+      GPX6_HOME: /workspace/GPX6
+    tty: true
+    stdin_open: true

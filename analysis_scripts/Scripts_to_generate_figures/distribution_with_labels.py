@@ -1,7 +1,7 @@
-import sys
+﻿import sys
 import os
 
-ACS_PATH = r"D:\PhD_Thesis\analysis\FINAL_PUBLICATION_FIGURES"
+ACS_PATH = r"./analysis_scripts/Scripts_to_generate_figures/Figures"
 
 if ACS_PATH not in sys.path:
     sys.path.append(ACS_PATH)
@@ -17,8 +17,8 @@ import matplotlib.gridspec as gridspec
 import numpy as np
 from adjustText import adjust_text
 
-# ── Paths ──────────────────────────────────────────────────────────────────────
-INPUT_FASTA   = Path(r"D:\PhD_Thesis\analysis\alignment\all_sequences_for_selection.fasta")
+# â”€â”€ Paths â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+INPUT_FASTA   = Path(r"./analysis_scripts/alignment/gpx6_human_mouse_input.fasta")
 OUTPUT_PREFIX = Path("results/gpx6_bary_sharp")
 
 REFERENCE_IDS = ["MOUSE_GPX6_WT", "HUMAN_GPX6_WT", "ANCESTOR_node_25"]
@@ -41,7 +41,7 @@ SOFTMAX_TEMP = 0.07
 JITTER_SCALE = 0.006
 RNG          = np.random.default_rng(seed=42)
 
-# ── Mutation table ─────────────────────────────────────────────────────────────
+# â”€â”€ Mutation table â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 MUTATION_TABLE = {
     3:   ("K", "N"),  4:   ("S", "R"),  16:  ("V", "I"),  22:  ("N", "L"),
     24:  ("I", "L"),  25:  ("D", "N"),  27:  ("G", "E"),  29:  ("F", "Y"),
@@ -81,7 +81,7 @@ def build_label_lookup(query_records):
             label_lookup[sid] = make_label(HUMAN_YELLOW_POSITIONS[row_idx], is_mouse=False)
     return label_lookup
 
-# ── FASTA parser ───────────────────────────────────────────────────────────────
+# â”€â”€ FASTA parser â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 def parse_fasta(path: Path):
     records, header, chunks = [], None, []
     with path.open() as fh:
@@ -102,7 +102,7 @@ def parse_fasta(path: Path):
         raise ValueError(f"No FASTA records in {path}")
     return records
 
-# ── Distance metrics ───────────────────────────────────────────────────────────
+# â”€â”€ Distance metrics â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 def levenshtein_distance(a: str, b: str) -> int:
     if len(a) < len(b):
         a, b = b, a
@@ -140,7 +140,7 @@ METRICS = [
     ("Sqrt Levenshtein",    dist_sqrt_lev),
 ]
 
-# ── Softmax barycentric ────────────────────────────────────────────────────────
+# â”€â”€ Softmax barycentric â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 def distances_to_xy(d_A, d_B, d_C, temp=SOFTMAX_TEMP):
     ds  = np.array([d_A, d_B, d_C], dtype=float)
     ds -= ds.min()
@@ -149,7 +149,7 @@ def distances_to_xy(d_A, d_B, d_C, temp=SOFTMAX_TEMP):
     xy  = w[0]*VERTICES[0] + w[1]*VERTICES[1] + w[2]*VERTICES[2]
     return float(xy[0]), float(xy[1]), w[0], w[1], w[2], int(np.argmin([d_A, d_B, d_C]))
 
-# ── Grouping ───────────────────────────────────────────────────────────────────
+# â”€â”€ Grouping â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 GROUP_STYLE = {
     "Mouse GPX6 variants": dict(color="#2166ac", marker="o", zorder=4),   # blue
     "Human GPX6 variants": dict(color="#E87722", marker="o", zorder=5),   # orange
@@ -170,7 +170,7 @@ def get_group(seq_id: str) -> str:
         return "Human GPX6 variants"
     return "Other"
 
-# ── Plot helpers ───────────────────────────────────────────────────────────────
+# â”€â”€ Plot helpers â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 def draw_triangle(ax):
     tri = np.vstack([VERTICES, VERTICES[0]])
     ax.plot(tri[:, 0], tri[:, 1], color="#333333", linewidth=1.8, zorder=2)
@@ -266,7 +266,7 @@ def write_csv(path: Path, rows, fieldnames):
         w.writeheader()
         w.writerows(rows)
 
-# ── Main ───────────────────────────────────────────────────────────────────────
+# â”€â”€ Main â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 def main():
     all_records = parse_fasta(INPUT_FASTA)
     print(f"Loaded {len(all_records)} sequences from {INPUT_FASTA.name}")
@@ -301,7 +301,7 @@ def main():
     label_lookup = build_label_lookup(query_records)
     print(f"  Yellow-labelled sequences: {len(label_lookup)}")
     for sid, lbl in label_lookup.items():
-        print(f"    {sid}  →  {lbl}")
+        print(f"    {sid}  â†’  {lbl}")
 
     FIG10_NAMES = ["Fig10a", "Fig10b", "Fig10c", "Fig10d"]
     all_csv = []

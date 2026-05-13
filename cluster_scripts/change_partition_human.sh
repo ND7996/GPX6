@@ -1,4 +1,4 @@
-#!/bin/bash
+﻿#!/bin/bash
 
 # Define partition mappings
 declare -A partition_map=(
@@ -18,7 +18,7 @@ declare -A partition_map=(
 )
 
 # Base directory
-base_dir="/home/nsekhar/stepwise/MUT/step1/HUMAN/level3/"
+base_dir="./prep_structures/HUMAN/level3/"
 
 # Loop through all relevant subdirectories
 for sub_dir in "${!partition_map[@]}"; do
@@ -49,4 +49,5 @@ for sub_dir in "${!partition_map[@]}"; do
     echo "Directory $full_path does not exist."
   fi
 done
+
 

@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+﻿<<<<<<< HEAD
 import sys
 import pandas as pd
 import numpy as np
@@ -11,7 +11,7 @@ import warnings
 warnings.filterwarnings('ignore')
 
 # =================== ACS PUBLICATION STYLE ===================
-ACS_PATH = r"D:\PhD_Thesis\analysis\FINAL_PUBLICATION_FIGURES"
+ACS_PATH = r"./analysis_scripts/Scripts_to_generate_figures/Figures"
 if ACS_PATH not in sys.path:
     sys.path.append(ACS_PATH)
 
@@ -22,7 +22,7 @@ sns.set_style("whitegrid", {'axes.linewidth': 0.8, 'grid.linewidth': 0.4})
 set_acs_style()
 
 # =================== OUTPUT FOLDER ===================
-outdir = Path(r"D:\PhD_Thesis\analysis\FINAL_PUBLICATION_FIGURES\Results\LFER")
+outdir = Path(r"./analysis_scripts/Scripts_to_generate_figures/Figures/Results\LFER")
 outdir.mkdir(parents=True, exist_ok=True)
 
 # =================== SEM HELPER ===================
@@ -44,7 +44,7 @@ def find_dist_col(df):
             return col
     return None
 
-# =================== DATA LOADING & ΔΔG CALCULATION ===================
+# =================== DATA LOADING & Î”Î”G CALCULATION ===================
 def load_and_compute(csv_path, ref_mutation):
     df = pd.read_csv(csv_path)
     for c in ['dg_star', 'dg_star_error', 'dg0', 'dg0_error']:
@@ -60,10 +60,10 @@ def load_and_compute(csv_path, ref_mutation):
     for level in df['level'].unique():
         sub = df[df['level'] == level].copy()
         r = ref.loc[level] if level in ref.index else fallback
-        sub['ΔΔG‡'] = sub['dg_star'] - r['dg_star']
-        sub['ΔΔG⁰']  = sub['dg0']     - r['dg0']
-        sub['ΔΔG‡_err'] = np.sqrt(sub['dg_star_error']**2 + r['dg_star_error']**2)
-        sub['ΔΔG⁰_err']  = np.sqrt(sub['dg0_error']**2    + r['dg0_error']**2)
+        sub['Î”Î”Gâ€¡'] = sub['dg_star'] - r['dg_star']
+        sub['Î”Î”Gâ°']  = sub['dg0']     - r['dg0']
+        sub['Î”Î”Gâ€¡_err'] = np.sqrt(sub['dg_star_error']**2 + r['dg_star_error']**2)
+        sub['Î”Î”Gâ°_err']  = np.sqrt(sub['dg0_error']**2    + r['dg0_error']**2)
         all_data.append(sub)
 
     dfp = pd.concat(all_data)
@@ -75,22 +75,22 @@ def load_and_compute(csv_path, ref_mutation):
     print(f"[{csv_path.name}] Distance column: '{dist_col}'")
 
     means_per_mut = dfp.groupby('mutation').agg(
-        ΔΔG0_mean           = ('ΔΔG⁰',     'mean'),
-        ΔΔG0_sem            = ('ΔΔG⁰',      sem),
-        ΔΔGddagger_mean     = ('ΔΔG‡',     'mean'),
-        ΔΔGddagger_sem      = ('ΔΔG‡',      sem),
-        ΔΔGddagger_err_mean = ('ΔΔG‡_err', 'mean'),
+        Î”Î”G0_mean           = ('Î”Î”Gâ°',     'mean'),
+        Î”Î”G0_sem            = ('Î”Î”Gâ°',      sem),
+        Î”Î”Gddagger_mean     = ('Î”Î”Gâ€¡',     'mean'),
+        Î”Î”Gddagger_sem      = ('Î”Î”Gâ€¡',      sem),
+        Î”Î”Gddagger_err_mean = ('Î”Î”Gâ€¡_err', 'mean'),
     ).reset_index()
 
     if dist_col:
         means_per_mut[dist_col] = dfp.groupby('mutation')[dist_col].mean().values
 
-    mask_reg = dfp[['ΔΔG⁰', 'ΔΔG‡']].notna().all(axis=1)
-    x_all = dfp.loc[mask_reg, 'ΔΔG⁰'].values
-    y_all = dfp.loc[mask_reg, 'ΔΔG‡'].values
+    mask_reg = dfp[['Î”Î”Gâ°', 'Î”Î”Gâ€¡']].notna().all(axis=1)
+    x_all = dfp.loc[mask_reg, 'Î”Î”Gâ°'].values
+    y_all = dfp.loc[mask_reg, 'Î”Î”Gâ€¡'].values
     slope, intercept, r_value, p_value, std_err_reg = stats.linregress(x_all, y_all)
 
-    print(f"  LFER: α={slope:.3f}±{std_err_reg:.3f}, R²={r_value**2:.3f}, p={p_value:.3e}, n={len(x_all)}")
+    print(f"  LFER: Î±={slope:.3f}Â±{std_err_reg:.3f}, RÂ²={r_value**2:.3f}, p={p_value:.3e}, n={len(x_all)}")
 
     return dict(
         dfp=dfp, means_per_mut=means_per_mut, dist_col=dist_col,
@@ -102,7 +102,7 @@ def load_and_compute(csv_path, ref_mutation):
 # =================== LOAD BOTH DATASETS ===================
 print("\n--- Loading human ---")
 H = load_and_compute(
-    Path(r"D:\PhD_Thesis\analysis\dipole\human_HBONDS.csv"),
+    Path(r"./analysis_scripts\human_HBONDS.csv"),
     ref_mutation='humansec'
 )
 # also exclude humancys from human
@@ -110,14 +110,14 @@ H['dfp'] = H['dfp'][H['dfp']['mutation'].str.lower() != 'humancys'].copy()
 
 print("\n--- Loading mouse ---")
 M = load_and_compute(
-    Path(r"D:\PhD_Thesis\analysis\dipole\mouse_HBONDS.csv"),
+    Path(r"./analysis_scripts\mouse_HBONDS.csv"),
     ref_mutation='mousecys'
 )
 # also exclude C49U from mouse if present
 M['dfp'] = M['dfp'][M['dfp']['mutation'].str.lower() != 'c49u'].copy()
 
 # =================== SHARED AXIS LIMITS ===================
-# Collect all ΔΔG⁰ and ΔΔG‡ from both datasets
+# Collect all Î”Î”Gâ° and Î”Î”Gâ€¡ from both datasets
 all_x = np.concatenate([H['x_all'], M['x_all']])
 all_y = np.concatenate([H['y_all'], M['y_all']])
 
@@ -147,10 +147,10 @@ else:
     shared_norm = None
     cmap_v = None
 
-print(f"\nShared ΔΔG⁰ range: {shared_xlim[0]:.1f} to {shared_xlim[1]:.1f}")
-print(f"Shared ΔΔG‡ range: {shared_ylim[0]:.1f} to {shared_ylim[1]:.1f}")
+print(f"\nShared Î”Î”Gâ° range: {shared_xlim[0]:.1f} to {shared_xlim[1]:.1f}")
+print(f"Shared Î”Î”Gâ€¡ range: {shared_ylim[0]:.1f} to {shared_ylim[1]:.1f}")
 if all_dist_vals:
-    print(f"Shared distance range: {shared_vmin:.1f} to {shared_vmax:.1f} Å")
+    print(f"Shared distance range: {shared_vmin:.1f} to {shared_vmax:.1f} Ã…")
 
 # =================== PLOTTING FUNCTION ===================
 def plot_all_figures(data, label, ref_label, outdir, shared_xlim, shared_ylim,
@@ -170,15 +170,15 @@ def plot_all_figures(data, label, ref_label, outdir, shared_xlim, shared_ylim,
 
     # Valid data for scatter
     if dist_col and shared_norm is not None:
-        mask_valid = dfp[['ΔΔG⁰', 'ΔΔG‡', dist_col]].notna().all(axis=1)
+        mask_valid = dfp[['Î”Î”Gâ°', 'Î”Î”Gâ€¡', dist_col]].notna().all(axis=1)
         dfp_valid  = dfp[mask_valid].copy()
         mutation_distances = dfp_valid.groupby('mutation')[dist_col].mean().sort_values()
     else:
-        dfp_valid = dfp[dfp[['ΔΔG⁰', 'ΔΔG‡']].notna().all(axis=1)].copy()
+        dfp_valid = dfp[dfp[['Î”Î”Gâ°', 'Î”Î”Gâ€¡']].notna().all(axis=1)].copy()
         mutation_distances = None
 
     # ------------------------------------------------------------------
-    # FIGURE 1 — LFER
+    # FIGURE 1 â€” LFER
     # ------------------------------------------------------------------
     fig = plt.figure(figsize=(7, 3.5))
     gs  = fig.add_gridspec(
@@ -191,7 +191,7 @@ def plot_all_figures(data, label, ref_label, outdir, shared_xlim, shared_ylim,
 
     # Raw scatter
     ax_main.scatter(
-        dfp_valid['ΔΔG⁰'], dfp_valid['ΔΔG‡'],
+        dfp_valid['Î”Î”Gâ°'], dfp_valid['Î”Î”Gâ€¡'],
         color='gray', edgecolors='none',
         s=6, alpha=0.30, zorder=2
     )
@@ -202,27 +202,27 @@ def plot_all_figures(data, label, ref_label, outdir, shared_xlim, shared_ylim,
     # Per-mutation means
     if dist_col and dist_col in means_per_mut.columns and shared_norm is not None:
         sc = ax_main.scatter(
-            means_per_mut['ΔΔG0_mean'], means_per_mut['ΔΔGddagger_mean'],
+            means_per_mut['Î”Î”G0_mean'], means_per_mut['Î”Î”Gddagger_mean'],
             c=means_per_mut[dist_col], cmap='viridis', norm=shared_norm,
             s=40, edgecolors='black', linewidth=0.6, alpha=0.95, zorder=6
         )
     else:
         sc = ax_main.scatter(
-            means_per_mut['ΔΔG0_mean'], means_per_mut['ΔΔGddagger_mean'],
+            means_per_mut['Î”Î”G0_mean'], means_per_mut['Î”Î”Gddagger_mean'],
             color='#4c72b0',
             s=40, edgecolors='black', linewidth=0.6, alpha=0.95, zorder=6
         )
 
     # Error bars
     ax_main.errorbar(
-        means_per_mut['ΔΔG0_mean'], means_per_mut['ΔΔGddagger_mean'],
-        xerr=means_per_mut['ΔΔG0_sem'],
-        yerr=means_per_mut['ΔΔGddagger_err_mean'],
+        means_per_mut['Î”Î”G0_mean'], means_per_mut['Î”Î”Gddagger_mean'],
+        xerr=means_per_mut['Î”Î”G0_sem'],
+        yerr=means_per_mut['Î”Î”Gddagger_err_mean'],
         fmt='none', elinewidth=0.8, capsize=2.5, capthick=0.8,
         color='black', alpha=0.65, zorder=5
     )
 
-    # R² annotation
+    # RÂ² annotation
     ax_main.text(
         0.04, 0.96,
         f'$R^2$ = {r_value**2:.2f}',
@@ -239,7 +239,7 @@ def plot_all_figures(data, label, ref_label, outdir, shared_xlim, shared_ylim,
 
     if dist_col and shared_norm is not None:
         cbar = plt.colorbar(sc, ax=ax_main, pad=0.02, aspect=25, shrink=0.85)
-        cbar.set_label('Distance to residue 49 (Å)', rotation=270, labelpad=12, fontsize=7)
+        cbar.set_label('Distance to residue 49 (Ã…)', rotation=270, labelpad=12, fontsize=7)
         cbar.ax.tick_params(labelsize=6)
 
     # Legend panel
@@ -258,7 +258,7 @@ def plot_all_figures(data, label, ref_label, outdir, shared_xlim, shared_ylim,
                                facecolor=color, edgecolor='black', linewidth=0.5)
             )
             ax_legend.text(0.18, y_pos, mutation, fontsize=6, va='center', ha='left')
-            ax_legend.text(0.98, y_pos, f'{distance:.1f} Å', fontsize=6,
+            ax_legend.text(0.98, y_pos, f'{distance:.1f} Ã…', fontsize=6,
                            va='center', ha='right', color='#444444')
             y_pos -= line_height
             if y_pos < 0.02:
@@ -280,17 +280,17 @@ def plot_all_figures(data, label, ref_label, outdir, shared_xlim, shared_ylim,
     print(f"Saved Figure 1 ({label})")
 
     # ------------------------------------------------------------------
-    # FIGURE 2 — MEAN EFFECT PER EVOLUTIONARY LEVEL
+    # FIGURE 2 â€” MEAN EFFECT PER EVOLUTIONARY LEVEL
     # ------------------------------------------------------------------
     fig, ax = acs_figure(width=3.3, height=2.5)
 
     sns.stripplot(
-        data=dfp, x='level_num', y='ΔΔG‡',
+        data=dfp, x='level_num', y='Î”Î”Gâ€¡',
         color='#4c72b0', size=3.5, alpha=0.45,
         jitter=True, ax=ax, zorder=2
     )
     sns.pointplot(
-        data=dfp, x='level_num', y='ΔΔG‡',
+        data=dfp, x='level_num', y='Î”Î”Gâ€¡',
         color='black', markers='D', linestyles='',
         errorbar='se', capsize=0.15,
         markersize=5, linewidth=1.0,
@@ -314,23 +314,23 @@ def plot_all_figures(data, label, ref_label, outdir, shared_xlim, shared_ylim,
     print(f"Saved Figure 2 ({label})")
 
     # ------------------------------------------------------------------
-    # FIGURE 3 — DISTANCE VS ΔΔG‡
+    # FIGURE 3 â€” DISTANCE VS Î”Î”Gâ€¡
     # ------------------------------------------------------------------
     if dist_col and shared_norm is not None:
         fig, ax = acs_figure(width=3.3, height=2.8)
 
         ax.scatter(
-            dfp_valid[dist_col], dfp_valid['ΔΔG‡'],
+            dfp_valid[dist_col], dfp_valid['Î”Î”Gâ€¡'],
             color='gray', edgecolors='none', s=5, alpha=0.25, zorder=1
         )
         sc2 = ax.scatter(
-            means_per_mut[dist_col], means_per_mut['ΔΔGddagger_mean'],
+            means_per_mut[dist_col], means_per_mut['Î”Î”Gddagger_mean'],
             c=means_per_mut[dist_col], cmap='viridis', norm=shared_norm,
             s=35, edgecolors='black', linewidth=0.5, alpha=0.92, zorder=4
         )
         ax.errorbar(
-            means_per_mut[dist_col], means_per_mut['ΔΔGddagger_mean'],
-            yerr=means_per_mut['ΔΔGddagger_err_mean'],
+            means_per_mut[dist_col], means_per_mut['Î”Î”Gddagger_mean'],
+            yerr=means_per_mut['Î”Î”Gddagger_err_mean'],
             fmt='none', elinewidth=0.8, capsize=2.5, capthick=0.8,
             color='black', alpha=0.60, zorder=3
         )
@@ -338,24 +338,24 @@ def plot_all_figures(data, label, ref_label, outdir, shared_xlim, shared_ylim,
         try:
             from adjustText import adjust_text
             texts = [
-                ax.text(row[dist_col], row['ΔΔGddagger_mean'], row['mutation'],
+                ax.text(row[dist_col], row['Î”Î”Gddagger_mean'], row['mutation'],
                         fontsize=5.5, ha='center')
                 for _, row in means_per_mut.iterrows()
             ]
             adjust_text(texts, arrowprops=dict(arrowstyle='->', color='gray', lw=0.4))
         except ImportError:
             for _, row in means_per_mut.iterrows():
-                ax.text(row[dist_col], row['ΔΔGddagger_mean'], ' ' + row['mutation'],
+                ax.text(row[dist_col], row['Î”Î”Gddagger_mean'], ' ' + row['mutation'],
                         fontsize=5.5, ha='left', va='center',
                         bbox=dict(boxstyle='round,pad=0.15', facecolor='white',
                                   edgecolor='none', alpha=0.70))
 
         cbar2 = plt.colorbar(sc2, ax=ax, pad=0.02)
-        cbar2.set_label('Distance to residue 49 (Å)', rotation=270, labelpad=12, fontsize=7)
+        cbar2.set_label('Distance to residue 49 (Ã…)', rotation=270, labelpad=12, fontsize=7)
         cbar2.ax.tick_params(labelsize=6)
 
         ax.set_ylim(shared_ylim)
-        ax.set_xlabel('Distance to residue 49 (Å)', fontsize=8)
+        ax.set_xlabel('Distance to residue 49 (Ã…)', fontsize=8)
         ax.set_ylabel(r'$\Delta\Delta G^{\ddagger}$ (kcal mol$^{-1}$)', fontsize=8)
         ax.tick_params(axis='both', labelsize=7)
 
@@ -365,15 +365,15 @@ def plot_all_figures(data, label, ref_label, outdir, shared_xlim, shared_ylim,
         print(f"Saved Figure 3 ({label})")
 
     # ------------------------------------------------------------------
-    # FIGURE 4 — HEATMAP
+    # FIGURE 4 â€” HEATMAP
     # ------------------------------------------------------------------
     pivot = dfp.pivot_table(
-        values='ΔΔG‡', index='level_num', columns='mutation', aggfunc='mean'
+        values='Î”Î”Gâ€¡', index='level_num', columns='mutation', aggfunc='mean'
     )
 
     # Shared colormap limits for heatmap
-    heatmap_vmin = min(H['dfp']['ΔΔG‡'].min(), M['dfp']['ΔΔG‡'].min())
-    heatmap_vmax = max(H['dfp']['ΔΔG‡'].max(), M['dfp']['ΔΔG‡'].max())
+    heatmap_vmin = min(H['dfp']['Î”Î”Gâ€¡'].min(), M['dfp']['Î”Î”Gâ€¡'].min())
+    heatmap_vmax = max(H['dfp']['Î”Î”Gâ€¡'].max(), M['dfp']['Î”Î”Gâ€¡'].max())
     heatmap_abs  = max(abs(heatmap_vmin), abs(heatmap_vmax))
 
     fig, ax = plt.subplots(figsize=(7, 3.0))
@@ -400,32 +400,32 @@ def plot_all_figures(data, label, ref_label, outdir, shared_xlim, shared_ylim,
     print(f"Saved Figure 4 ({label})")
 
     # ------------------------------------------------------------------
-    # FIGURE 5 — PER-MUTATION SUMMARY BAR
+    # FIGURE 5 â€” PER-MUTATION SUMMARY BAR
     # ------------------------------------------------------------------
     mut_summary = dfp.groupby('mutation').agg(
-        ΔΔG0_mean       = ('ΔΔG⁰', 'mean'),
-        ΔΔGddagger_mean = ('ΔΔG‡', 'mean'),
-        ΔΔGddagger_sem  = ('ΔΔG‡',  sem),
-        n               = ('ΔΔG‡', 'count'),
+        Î”Î”G0_mean       = ('Î”Î”Gâ°', 'mean'),
+        Î”Î”Gddagger_mean = ('Î”Î”Gâ€¡', 'mean'),
+        Î”Î”Gddagger_sem  = ('Î”Î”Gâ€¡',  sem),
+        n               = ('Î”Î”Gâ€¡', 'count'),
     ).reset_index()
-    mut_summary = mut_summary.sort_values('ΔΔGddagger_mean')
+    mut_summary = mut_summary.sort_values('Î”Î”Gddagger_mean')
     mut_summary['ci95'] = (
         stats.t.ppf(0.975, df=(mut_summary['n'] - 1).clip(lower=1))
-        * mut_summary['ΔΔGddagger_sem']
+        * mut_summary['Î”Î”Gddagger_sem']
     )
 
     fig, ax = acs_figure(width=3.3, height=max(2.5, 0.22 * len(mut_summary)))
 
-    colors = ['#d62728' if v > 0 else '#1f77b4' for v in mut_summary['ΔΔGddagger_mean']]
+    colors = ['#d62728' if v > 0 else '#1f77b4' for v in mut_summary['Î”Î”Gddagger_mean']]
     ax.barh(
-        mut_summary['mutation'], mut_summary['ΔΔGddagger_mean'],
+        mut_summary['mutation'], mut_summary['Î”Î”Gddagger_mean'],
         xerr=mut_summary['ci95'],
         color=colors, edgecolor='black', linewidth=0.5,
         error_kw=dict(elinewidth=0.8, capsize=2.5, capthick=0.8, ecolor='black'),
         alpha=0.80, height=0.65
     )
     ax.axvline(0, color='black', lw=0.8)
-    ax.set_xlim(shared_ylim)   # same scale as ΔΔG‡ axis
+    ax.set_xlim(shared_ylim)   # same scale as Î”Î”Gâ€¡ axis
     ax.set_xlabel(r'$\Delta\Delta G^{\ddagger}$ (kcal mol$^{-1}$)', fontsize=8)
     ax.tick_params(axis='both', labelsize=6)
 
@@ -443,14 +443,14 @@ def plot_all_figures(data, label, ref_label, outdir, shared_xlim, shared_ylim,
     # SUMMARY STATS
     # ------------------------------------------------------------------
     print(f"\n{'='*60}")
-    print(f"SUMMARY STATISTICS — {label.upper()}")
+    print(f"SUMMARY STATISTICS â€” {label.upper()}")
     print(f"{'='*60}")
-    print(f"LFER slope α  = {slope:.3f} ± {std_err:.3f}")
-    print(f"R²            = {r_value**2:.4f}")
+    print(f"LFER slope Î±  = {slope:.3f} Â± {std_err:.3f}")
+    print(f"RÂ²            = {r_value**2:.4f}")
     print(f"p-value       = {p_value:.3e}")
     print(f"n (data pts)  = {n_pts}")
-    print(mut_summary[['mutation', 'ΔΔG0_mean', 'ΔΔGddagger_mean',
-                        'ΔΔGddagger_sem', 'ci95', 'n']].to_string(index=False))
+    print(mut_summary[['mutation', 'Î”Î”G0_mean', 'Î”Î”Gddagger_mean',
+                        'Î”Î”Gddagger_sem', 'ci95', 'n']].to_string(index=False))
 
 # =================== RUN BOTH ===================
 print("\n" + "="*60)
@@ -482,7 +482,7 @@ import warnings
 warnings.filterwarnings('ignore')
 
 # =================== ACS PUBLICATION STYLE ===================
-ACS_PATH = r"D:\PhD_Thesis\analysis\FINAL_PUBLICATION_FIGURES"
+ACS_PATH = r"./analysis_scripts/Scripts_to_generate_figures/Figures"
 if ACS_PATH not in sys.path:
     sys.path.append(ACS_PATH)
 
@@ -493,7 +493,7 @@ sns.set_style("whitegrid", {'axes.linewidth': 0.8, 'grid.linewidth': 0.4})
 set_acs_style()
 
 # =================== OUTPUT FOLDER ===================
-outdir = Path(r"D:\PhD_Thesis\analysis\FINAL_PUBLICATION_FIGURES\Results\LFER")
+outdir = Path(r"./analysis_scripts/Scripts_to_generate_figures/Figures/Results\LFER")
 outdir.mkdir(parents=True, exist_ok=True)
 
 # =================== SEM HELPER ===================
@@ -515,7 +515,7 @@ def find_dist_col(df):
             return col
     return None
 
-# =================== DATA LOADING & ΔΔG CALCULATION ===================
+# =================== DATA LOADING & Î”Î”G CALCULATION ===================
 def load_and_compute(csv_path, ref_mutation):
     df = pd.read_csv(csv_path)
     for c in ['dg_star', 'dg_star_error', 'dg0', 'dg0_error']:
@@ -531,10 +531,10 @@ def load_and_compute(csv_path, ref_mutation):
     for level in df['level'].unique():
         sub = df[df['level'] == level].copy()
         r = ref.loc[level] if level in ref.index else fallback
-        sub['ΔΔG‡'] = sub['dg_star'] - r['dg_star']
-        sub['ΔΔG⁰']  = sub['dg0']     - r['dg0']
-        sub['ΔΔG‡_err'] = np.sqrt(sub['dg_star_error']**2 + r['dg_star_error']**2)
-        sub['ΔΔG⁰_err']  = np.sqrt(sub['dg0_error']**2    + r['dg0_error']**2)
+        sub['Î”Î”Gâ€¡'] = sub['dg_star'] - r['dg_star']
+        sub['Î”Î”Gâ°']  = sub['dg0']     - r['dg0']
+        sub['Î”Î”Gâ€¡_err'] = np.sqrt(sub['dg_star_error']**2 + r['dg_star_error']**2)
+        sub['Î”Î”Gâ°_err']  = np.sqrt(sub['dg0_error']**2    + r['dg0_error']**2)
         all_data.append(sub)
 
     dfp = pd.concat(all_data)
@@ -546,22 +546,22 @@ def load_and_compute(csv_path, ref_mutation):
     print(f"[{csv_path.name}] Distance column: '{dist_col}'")
 
     means_per_mut = dfp.groupby('mutation').agg(
-        ΔΔG0_mean           = ('ΔΔG⁰',     'mean'),
-        ΔΔG0_sem            = ('ΔΔG⁰',      sem),
-        ΔΔGddagger_mean     = ('ΔΔG‡',     'mean'),
-        ΔΔGddagger_sem      = ('ΔΔG‡',      sem),
-        ΔΔGddagger_err_mean = ('ΔΔG‡_err', 'mean'),
+        Î”Î”G0_mean           = ('Î”Î”Gâ°',     'mean'),
+        Î”Î”G0_sem            = ('Î”Î”Gâ°',      sem),
+        Î”Î”Gddagger_mean     = ('Î”Î”Gâ€¡',     'mean'),
+        Î”Î”Gddagger_sem      = ('Î”Î”Gâ€¡',      sem),
+        Î”Î”Gddagger_err_mean = ('Î”Î”Gâ€¡_err', 'mean'),
     ).reset_index()
 
     if dist_col:
         means_per_mut[dist_col] = dfp.groupby('mutation')[dist_col].mean().values
 
-    mask_reg = dfp[['ΔΔG⁰', 'ΔΔG‡']].notna().all(axis=1)
-    x_all = dfp.loc[mask_reg, 'ΔΔG⁰'].values
-    y_all = dfp.loc[mask_reg, 'ΔΔG‡'].values
+    mask_reg = dfp[['Î”Î”Gâ°', 'Î”Î”Gâ€¡']].notna().all(axis=1)
+    x_all = dfp.loc[mask_reg, 'Î”Î”Gâ°'].values
+    y_all = dfp.loc[mask_reg, 'Î”Î”Gâ€¡'].values
     slope, intercept, r_value, p_value, std_err_reg = stats.linregress(x_all, y_all)
 
-    print(f"  LFER: α={slope:.3f}±{std_err_reg:.3f}, R²={r_value**2:.3f}, p={p_value:.3e}, n={len(x_all)}")
+    print(f"  LFER: Î±={slope:.3f}Â±{std_err_reg:.3f}, RÂ²={r_value**2:.3f}, p={p_value:.3e}, n={len(x_all)}")
 
     return dict(
         dfp=dfp, means_per_mut=means_per_mut, dist_col=dist_col,
@@ -573,7 +573,7 @@ def load_and_compute(csv_path, ref_mutation):
 # =================== LOAD BOTH DATASETS ===================
 print("\n--- Loading human ---")
 H = load_and_compute(
-    Path(r"D:\PhD_Thesis\analysis\dipole\human_HBONDS.csv"),
+    Path(r"./analysis_scripts\human_HBONDS.csv"),
     ref_mutation='humansec'
 )
 # also exclude humancys from human
@@ -581,14 +581,14 @@ H['dfp'] = H['dfp'][H['dfp']['mutation'].str.lower() != 'humancys'].copy()
 
 print("\n--- Loading mouse ---")
 M = load_and_compute(
-    Path(r"D:\PhD_Thesis\analysis\dipole\mouse_HBONDS.csv"),
+    Path(r"./analysis_scripts\mouse_HBONDS.csv"),
     ref_mutation='mousecys'
 )
 # also exclude C49U from mouse if present
 M['dfp'] = M['dfp'][M['dfp']['mutation'].str.lower() != 'c49u'].copy()
 
 # =================== SHARED AXIS LIMITS ===================
-# Collect all ΔΔG⁰ and ΔΔG‡ from both datasets
+# Collect all Î”Î”Gâ° and Î”Î”Gâ€¡ from both datasets
 all_x = np.concatenate([H['x_all'], M['x_all']])
 all_y = np.concatenate([H['y_all'], M['y_all']])
 
@@ -618,10 +618,10 @@ else:
     shared_norm = None
     cmap_v = None
 
-print(f"\nShared ΔΔG⁰ range: {shared_xlim[0]:.1f} to {shared_xlim[1]:.1f}")
-print(f"Shared ΔΔG‡ range: {shared_ylim[0]:.1f} to {shared_ylim[1]:.1f}")
+print(f"\nShared Î”Î”Gâ° range: {shared_xlim[0]:.1f} to {shared_xlim[1]:.1f}")
+print(f"Shared Î”Î”Gâ€¡ range: {shared_ylim[0]:.1f} to {shared_ylim[1]:.1f}")
 if all_dist_vals:
-    print(f"Shared distance range: {shared_vmin:.1f} to {shared_vmax:.1f} Å")
+    print(f"Shared distance range: {shared_vmin:.1f} to {shared_vmax:.1f} Ã…")
 
 # =================== PLOTTING FUNCTION ===================
 def plot_all_figures(data, label, ref_label, outdir, shared_xlim, shared_ylim,
@@ -641,15 +641,15 @@ def plot_all_figures(data, label, ref_label, outdir, shared_xlim, shared_ylim,
 
     # Valid data for scatter
     if dist_col and shared_norm is not None:
-        mask_valid = dfp[['ΔΔG⁰', 'ΔΔG‡', dist_col]].notna().all(axis=1)
+        mask_valid = dfp[['Î”Î”Gâ°', 'Î”Î”Gâ€¡', dist_col]].notna().all(axis=1)
         dfp_valid  = dfp[mask_valid].copy()
         mutation_distances = dfp_valid.groupby('mutation')[dist_col].mean().sort_values()
     else:
-        dfp_valid = dfp[dfp[['ΔΔG⁰', 'ΔΔG‡']].notna().all(axis=1)].copy()
+        dfp_valid = dfp[dfp[['Î”Î”Gâ°', 'Î”Î”Gâ€¡']].notna().all(axis=1)].copy()
         mutation_distances = None
 
     # ------------------------------------------------------------------
-    # FIGURE 1 — LFER
+    # FIGURE 1 â€” LFER
     # ------------------------------------------------------------------
     fig = plt.figure(figsize=(7, 3.5))
     gs  = fig.add_gridspec(
@@ -662,7 +662,7 @@ def plot_all_figures(data, label, ref_label, outdir, shared_xlim, shared_ylim,
 
     # Raw scatter
     ax_main.scatter(
-        dfp_valid['ΔΔG⁰'], dfp_valid['ΔΔG‡'],
+        dfp_valid['Î”Î”Gâ°'], dfp_valid['Î”Î”Gâ€¡'],
         color='gray', edgecolors='none',
         s=6, alpha=0.30, zorder=2
     )
@@ -673,27 +673,27 @@ def plot_all_figures(data, label, ref_label, outdir, shared_xlim, shared_ylim,
     # Per-mutation means
     if dist_col and dist_col in means_per_mut.columns and shared_norm is not None:
         sc = ax_main.scatter(
-            means_per_mut['ΔΔG0_mean'], means_per_mut['ΔΔGddagger_mean'],
+            means_per_mut['Î”Î”G0_mean'], means_per_mut['Î”Î”Gddagger_mean'],
             c=means_per_mut[dist_col], cmap='viridis', norm=shared_norm,
             s=40, edgecolors='black', linewidth=0.6, alpha=0.95, zorder=6
         )
     else:
         sc = ax_main.scatter(
-            means_per_mut['ΔΔG0_mean'], means_per_mut['ΔΔGddagger_mean'],
+            means_per_mut['Î”Î”G0_mean'], means_per_mut['Î”Î”Gddagger_mean'],
             color='#4c72b0',
             s=40, edgecolors='black', linewidth=0.6, alpha=0.95, zorder=6
         )
 
     # Error bars
     ax_main.errorbar(
-        means_per_mut['ΔΔG0_mean'], means_per_mut['ΔΔGddagger_mean'],
-        xerr=means_per_mut['ΔΔG0_sem'],
-        yerr=means_per_mut['ΔΔGddagger_err_mean'],
+        means_per_mut['Î”Î”G0_mean'], means_per_mut['Î”Î”Gddagger_mean'],
+        xerr=means_per_mut['Î”Î”G0_sem'],
+        yerr=means_per_mut['Î”Î”Gddagger_err_mean'],
         fmt='none', elinewidth=0.8, capsize=2.5, capthick=0.8,
         color='black', alpha=0.65, zorder=5
     )
 
-    # R² annotation
+    # RÂ² annotation
     ax_main.text(
         0.04, 0.96,
         f'$R^2$ = {r_value**2:.2f}',
@@ -710,7 +710,7 @@ def plot_all_figures(data, label, ref_label, outdir, shared_xlim, shared_ylim,
 
     if dist_col and shared_norm is not None:
         cbar = plt.colorbar(sc, ax=ax_main, pad=0.02, aspect=25, shrink=0.85)
-        cbar.set_label('Distance to residue 49 (Å)', rotation=270, labelpad=12, fontsize=7)
+        cbar.set_label('Distance to residue 49 (Ã…)', rotation=270, labelpad=12, fontsize=7)
         cbar.ax.tick_params(labelsize=6)
 
     # Legend panel
@@ -729,7 +729,7 @@ def plot_all_figures(data, label, ref_label, outdir, shared_xlim, shared_ylim,
                                facecolor=color, edgecolor='black', linewidth=0.5)
             )
             ax_legend.text(0.18, y_pos, mutation, fontsize=6, va='center', ha='left')
-            ax_legend.text(0.98, y_pos, f'{distance:.1f} Å', fontsize=6,
+            ax_legend.text(0.98, y_pos, f'{distance:.1f} Ã…', fontsize=6,
                            va='center', ha='right', color='#444444')
             y_pos -= line_height
             if y_pos < 0.02:
@@ -751,17 +751,17 @@ def plot_all_figures(data, label, ref_label, outdir, shared_xlim, shared_ylim,
     print(f"Saved Figure 1 ({label})")
 
     # ------------------------------------------------------------------
-    # FIGURE 2 — MEAN EFFECT PER EVOLUTIONARY LEVEL
+    # FIGURE 2 â€” MEAN EFFECT PER EVOLUTIONARY LEVEL
     # ------------------------------------------------------------------
     fig, ax = acs_figure(width=3.3, height=2.5)
 
     sns.stripplot(
-        data=dfp, x='level_num', y='ΔΔG‡',
+        data=dfp, x='level_num', y='Î”Î”Gâ€¡',
         color='#4c72b0', size=3.5, alpha=0.45,
         jitter=True, ax=ax, zorder=2
     )
     sns.pointplot(
-        data=dfp, x='level_num', y='ΔΔG‡',
+        data=dfp, x='level_num', y='Î”Î”Gâ€¡',
         color='black', markers='D', linestyles='',
         errorbar='se', capsize=0.15,
         markersize=5, linewidth=1.0,
@@ -785,23 +785,23 @@ def plot_all_figures(data, label, ref_label, outdir, shared_xlim, shared_ylim,
     print(f"Saved Figure 2 ({label})")
 
     # ------------------------------------------------------------------
-    # FIGURE 3 — DISTANCE VS ΔΔG‡
+    # FIGURE 3 â€” DISTANCE VS Î”Î”Gâ€¡
     # ------------------------------------------------------------------
     if dist_col and shared_norm is not None:
         fig, ax = acs_figure(width=3.3, height=2.8)
 
         ax.scatter(
-            dfp_valid[dist_col], dfp_valid['ΔΔG‡'],
+            dfp_valid[dist_col], dfp_valid['Î”Î”Gâ€¡'],
             color='gray', edgecolors='none', s=5, alpha=0.25, zorder=1
         )
         sc2 = ax.scatter(
-            means_per_mut[dist_col], means_per_mut['ΔΔGddagger_mean'],
+            means_per_mut[dist_col], means_per_mut['Î”Î”Gddagger_mean'],
             c=means_per_mut[dist_col], cmap='viridis', norm=shared_norm,
             s=35, edgecolors='black', linewidth=0.5, alpha=0.92, zorder=4
         )
         ax.errorbar(
-            means_per_mut[dist_col], means_per_mut['ΔΔGddagger_mean'],
-            yerr=means_per_mut['ΔΔGddagger_err_mean'],
+            means_per_mut[dist_col], means_per_mut['Î”Î”Gddagger_mean'],
+            yerr=means_per_mut['Î”Î”Gddagger_err_mean'],
             fmt='none', elinewidth=0.8, capsize=2.5, capthick=0.8,
             color='black', alpha=0.60, zorder=3
         )
@@ -809,24 +809,24 @@ def plot_all_figures(data, label, ref_label, outdir, shared_xlim, shared_ylim,
         try:
             from adjustText import adjust_text
             texts = [
-                ax.text(row[dist_col], row['ΔΔGddagger_mean'], row['mutation'],
+                ax.text(row[dist_col], row['Î”Î”Gddagger_mean'], row['mutation'],
                         fontsize=5.5, ha='center')
                 for _, row in means_per_mut.iterrows()
             ]
             adjust_text(texts, arrowprops=dict(arrowstyle='->', color='gray', lw=0.4))
         except ImportError:
             for _, row in means_per_mut.iterrows():
-                ax.text(row[dist_col], row['ΔΔGddagger_mean'], ' ' + row['mutation'],
+                ax.text(row[dist_col], row['Î”Î”Gddagger_mean'], ' ' + row['mutation'],
                         fontsize=5.5, ha='left', va='center',
                         bbox=dict(boxstyle='round,pad=0.15', facecolor='white',
                                   edgecolor='none', alpha=0.70))
 
         cbar2 = plt.colorbar(sc2, ax=ax, pad=0.02)
-        cbar2.set_label('Distance to residue 49 (Å)', rotation=270, labelpad=12, fontsize=7)
+        cbar2.set_label('Distance to residue 49 (Ã…)', rotation=270, labelpad=12, fontsize=7)
         cbar2.ax.tick_params(labelsize=6)
 
         ax.set_ylim(shared_ylim)
-        ax.set_xlabel('Distance to residue 49 (Å)', fontsize=8)
+        ax.set_xlabel('Distance to residue 49 (Ã…)', fontsize=8)
         ax.set_ylabel(r'$\Delta\Delta G^{\ddagger}$ (kcal mol$^{-1}$)', fontsize=8)
         ax.tick_params(axis='both', labelsize=7)
 
@@ -836,15 +836,15 @@ def plot_all_figures(data, label, ref_label, outdir, shared_xlim, shared_ylim,
         print(f"Saved Figure 3 ({label})")
 
     # ------------------------------------------------------------------
-    # FIGURE 4 — HEATMAP
+    # FIGURE 4 â€” HEATMAP
     # ------------------------------------------------------------------
     pivot = dfp.pivot_table(
-        values='ΔΔG‡', index='level_num', columns='mutation', aggfunc='mean'
+        values='Î”Î”Gâ€¡', index='level_num', columns='mutation', aggfunc='mean'
     )
 
     # Shared colormap limits for heatmap
-    heatmap_vmin = min(H['dfp']['ΔΔG‡'].min(), M['dfp']['ΔΔG‡'].min())
-    heatmap_vmax = max(H['dfp']['ΔΔG‡'].max(), M['dfp']['ΔΔG‡'].max())
+    heatmap_vmin = min(H['dfp']['Î”Î”Gâ€¡'].min(), M['dfp']['Î”Î”Gâ€¡'].min())
+    heatmap_vmax = max(H['dfp']['Î”Î”Gâ€¡'].max(), M['dfp']['Î”Î”Gâ€¡'].max())
     heatmap_abs  = max(abs(heatmap_vmin), abs(heatmap_vmax))
 
     fig, ax = plt.subplots(figsize=(7, 3.0))
@@ -871,32 +871,32 @@ def plot_all_figures(data, label, ref_label, outdir, shared_xlim, shared_ylim,
     print(f"Saved Figure 4 ({label})")
 
     # ------------------------------------------------------------------
-    # FIGURE 5 — PER-MUTATION SUMMARY BAR
+    # FIGURE 5 â€” PER-MUTATION SUMMARY BAR
     # ------------------------------------------------------------------
     mut_summary = dfp.groupby('mutation').agg(
-        ΔΔG0_mean       = ('ΔΔG⁰', 'mean'),
-        ΔΔGddagger_mean = ('ΔΔG‡', 'mean'),
-        ΔΔGddagger_sem  = ('ΔΔG‡',  sem),
-        n               = ('ΔΔG‡', 'count'),
+        Î”Î”G0_mean       = ('Î”Î”Gâ°', 'mean'),
+        Î”Î”Gddagger_mean = ('Î”Î”Gâ€¡', 'mean'),
+        Î”Î”Gddagger_sem  = ('Î”Î”Gâ€¡',  sem),
+        n               = ('Î”Î”Gâ€¡', 'count'),
     ).reset_index()
-    mut_summary = mut_summary.sort_values('ΔΔGddagger_mean')
+    mut_summary = mut_summary.sort_values('Î”Î”Gddagger_mean')
     mut_summary['ci95'] = (
         stats.t.ppf(0.975, df=(mut_summary['n'] - 1).clip(lower=1))
-        * mut_summary['ΔΔGddagger_sem']
+        * mut_summary['Î”Î”Gddagger_sem']
     )
 
     fig, ax = acs_figure(width=3.3, height=max(2.5, 0.22 * len(mut_summary)))
 
-    colors = ['#d62728' if v > 0 else '#1f77b4' for v in mut_summary['ΔΔGddagger_mean']]
+    colors = ['#d62728' if v > 0 else '#1f77b4' for v in mut_summary['Î”Î”Gddagger_mean']]
     ax.barh(
-        mut_summary['mutation'], mut_summary['ΔΔGddagger_mean'],
+        mut_summary['mutation'], mut_summary['Î”Î”Gddagger_mean'],
         xerr=mut_summary['ci95'],
         color=colors, edgecolor='black', linewidth=0.5,
         error_kw=dict(elinewidth=0.8, capsize=2.5, capthick=0.8, ecolor='black'),
         alpha=0.80, height=0.65
     )
     ax.axvline(0, color='black', lw=0.8)
-    ax.set_xlim(shared_ylim)   # same scale as ΔΔG‡ axis
+    ax.set_xlim(shared_ylim)   # same scale as Î”Î”Gâ€¡ axis
     ax.set_xlabel(r'$\Delta\Delta G^{\ddagger}$ (kcal mol$^{-1}$)', fontsize=8)
     ax.tick_params(axis='both', labelsize=6)
 
@@ -914,14 +914,14 @@ def plot_all_figures(data, label, ref_label, outdir, shared_xlim, shared_ylim,
     # SUMMARY STATS
     # ------------------------------------------------------------------
     print(f"\n{'='*60}")
-    print(f"SUMMARY STATISTICS — {label.upper()}")
+    print(f"SUMMARY STATISTICS â€” {label.upper()}")
     print(f"{'='*60}")
-    print(f"LFER slope α  = {slope:.3f} ± {std_err:.3f}")
-    print(f"R²            = {r_value**2:.4f}")
+    print(f"LFER slope Î±  = {slope:.3f} Â± {std_err:.3f}")
+    print(f"RÂ²            = {r_value**2:.4f}")
     print(f"p-value       = {p_value:.3e}")
     print(f"n (data pts)  = {n_pts}")
-    print(mut_summary[['mutation', 'ΔΔG0_mean', 'ΔΔGddagger_mean',
-                        'ΔΔGddagger_sem', 'ci95', 'n']].to_string(index=False))
+    print(mut_summary[['mutation', 'Î”Î”G0_mean', 'Î”Î”Gddagger_mean',
+                        'Î”Î”Gddagger_sem', 'ci95', 'n']].to_string(index=False))
 
 # =================== RUN BOTH ===================
 print("\n" + "="*60)
@@ -942,3 +942,4 @@ plot_all_figures(M, label='mouse', ref_label='mousecys',
 
 >>>>>>> 52a0899df1d7ce42275b260475b162758c100d86
 print(f"\nAll figures saved to: {outdir}")
+

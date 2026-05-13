@@ -1,5 +1,5 @@
-"""
-GPX6 Sequence Analysis — original sequences (Human / Mouse / Ancestor)
+﻿"""
+GPX6 Sequence Analysis â€” original sequences (Human / Mouse / Ancestor)
 ACS publication style.
 
 CHANGES:
@@ -10,7 +10,7 @@ CHANGES:
 import sys
 import os
 
-ACS_PATH = r"D:\PhD_Thesis\analysis\FINAL_PUBLICATION_FIGURES"
+ACS_PATH = r"./analysis_scripts/Scripts_to_generate_figures/Figures"
 if ACS_PATH not in sys.path:
     sys.path.append(ACS_PATH)
 
@@ -33,22 +33,22 @@ from Bio.Align import PairwiseAligner
 from Bio.Align import substitution_matrices
 
 
-# ═══════════════════════════════════════════════════════════════════
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 # PATHS
-# ═══════════════════════════════════════════════════════════════════
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 
 INPUT_FASTA = Path(
-    r"D:\PhD_Thesis\analysis\alignment\all_sequences_for_selection.fasta"
+    r"./analysis_scripts/alignment/gpx6_human_mouse_input.fasta"
 )
 OUTPUT_DIR = Path(
-    r"D:\PhD_Thesis\analysis\FINAL_PUBLICATION_FIGURES\GPX6_original"
+    r"./analysis_scripts/Scripts_to_generate_figures/Figures/GPX6_original"
 )
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
 
-# ═══════════════════════════════════════════════════════════════════
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 # STYLE
-# ═══════════════════════════════════════════════════════════════════
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 
 C_HUMAN    = "#E07B39"
 C_MOUSE    = "#3A7EBF"
@@ -80,9 +80,9 @@ plt.rcParams.update({
 })
 
 
-# ═══════════════════════════════════════════════════════════════════
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 # ALIGNMENT
-# ═══════════════════════════════════════════════════════════════════
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 
 ALIGNER = PairwiseAligner()
 ALIGNER.mode                = "global"
@@ -91,9 +91,9 @@ ALIGNER.open_gap_score      = -10
 ALIGNER.extend_gap_score    = -0.5
 
 
-# ═══════════════════════════════════════════════════════════════════
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 # HELPERS
-# ═══════════════════════════════════════════════════════════════════
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 
 def normsim(a, b):
     ab = float(ALIGNER.score(a, b))
@@ -140,11 +140,11 @@ def draw_hull(ax, points, rgba, pad=0.06):
         pass
 
 
-# ═══════════════════════════════════════════════════════════════════
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 # LOAD SEQUENCES
-# ═══════════════════════════════════════════════════════════════════
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 
-print("Loading sequences …")
+print("Loading sequences â€¦")
 records = list(SeqIO.parse(INPUT_FASTA, "fasta"))
 if not records:
     raise ValueError(f"No sequences in {INPUT_FASTA}")
@@ -167,11 +167,11 @@ name_to_short   = dict(zip(names, short_names))
 name_to_species = dict(zip(names, species))
 
 
-# ═══════════════════════════════════════════════════════════════════
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 # PAIRWISE DISTANCES
-# ═══════════════════════════════════════════════════════════════════
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 
-print("Computing pairwise distances …")
+print("Computing pairwise distances â€¦")
 
 sim_mat   = np.zeros((n, n))
 pair_rows = []
@@ -189,14 +189,14 @@ dist_mat_full = 1.0 - sim_mat
 
 d_min = dist_mat_full[dist_mat_full > 0].min()
 d_max = dist_mat_full.max()
-print(f"  Distance range: {d_min:.4f} – {d_max:.4f}")
+print(f"  Distance range: {d_min:.4f} â€“ {d_max:.4f}")
 
 
-# ═══════════════════════════════════════════════════════════════════
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 # HIERARCHICAL CLUSTERING
-# ═══════════════════════════════════════════════════════════════════
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 
-print("Hierarchical clustering …")
+print("Hierarchical clustering â€¦")
 
 import scipy.cluster.hierarchy as sch
 from scipy.cluster.hierarchy import fcluster
@@ -215,11 +215,11 @@ n_clusters     = len(set(cluster_labels))
 print(f"  {n_clusters} clusters at cutoff {CLUSTER_CUTOFF}")
 
 
-# ═══════════════════════════════════════════════════════════════════
-# HEATMAP — publication quality
-# ═══════════════════════════════════════════════════════════════════
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+# HEATMAP â€” publication quality
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 
-print("Generating heatmap …")
+print("Generating heatmap â€¦")
 
 warnings.filterwarnings("ignore", category=UserWarning)
 
@@ -344,11 +344,11 @@ plt.close()
 print("Heatmap saved.")
 
 
-# ═══════════════════════════════════════════════════════════════════
-# SSN — FIXED ANCHOR NODES AT TRIANGLE VERTICES
-# ═══════════════════════════════════════════════════════════════════
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+# SSN â€” FIXED ANCHOR NODES AT TRIANGLE VERTICES
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 
-print("Building SSN …")
+print("Building SSN â€¦")
 
 from matplotlib.lines import Line2D
 from matplotlib.patches import Ellipse
@@ -436,7 +436,7 @@ def ewidths(t, base, scale):
             for _, _, d in t]
 
 
-# ── Draw ──────────────────────────────────────────────────────────
+# â”€â”€ Draw â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 fig, ax = plt.subplots(figsize=(14, 11))
 ax.set_facecolor("white")
 
@@ -527,7 +527,7 @@ for nlist, col in [(mouse_nodes, C_MOUSE), (human_nodes, C_HUMAN),
                            node_color=col, node_size=nsizes(nlist),
                            edgecolors="white", linewidths=1.4, ax=ax)
 
-# ── Node labels — overlap-aware placement ─────────────────────────
+# â”€â”€ Node labels â€” overlap-aware placement â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 # Build list of (node, x, y, label, fontsize) sorted so WT nodes
 # are placed first (they anchor the layout).
 all_xy   = np.array(list(pos.values()))
@@ -544,7 +544,7 @@ for nd in G_all.nodes():
 # Sort: WT nodes first so they grab the cleanest positions
 label_entries.sort(key=lambda e: (0 if e[5] else 1, e[0]))
 
-# Candidate offset directions (angle steps) — try these in order
+# Candidate offset directions (angle steps) â€” try these in order
 _offsets = [
     ( 0.0,  1.0),   # above
     ( 0.0, -1.0),   # below
@@ -594,7 +594,7 @@ for nd, nx_, ny_, lbl, fs, wt in label_entries:
             best_dist = scale
             break
 
-    # Fallback: nudge further out until clear (up to 4× base offset)
+    # Fallback: nudge further out until clear (up to 4Ã— base offset)
     if best_xy is None:
         for mult in [1.6, 2.2, 3.0, 4.0]:
             for dx_unit, dy_unit in _offsets:
@@ -629,18 +629,18 @@ for nd, nx_, ny_, lbl, fs, wt in label_entries:
                           edgecolor="none", alpha=0.72),
     )
 
-# ── Legend ─────────────────────────────────────────────────────────
+# â”€â”€ Legend â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 legend_elements = [
     mpatches.Patch(facecolor=C_HUMAN,    edgecolor="white", label="Human"),
     mpatches.Patch(facecolor=C_MOUSE,    edgecolor="white", label="Mouse"),
     mpatches.Patch(facecolor=C_ANCESTOR, edgecolor="white", label="Ancestor"),
     Line2D([0], [0], color="#555", lw=2.0,
-           label=f"Strong intra (sim ≥ {HIGH_T})"),
+           label=f"Strong intra (sim â‰¥ {HIGH_T})"),
     Line2D([0], [0], color="#aaa", lw=0.8,
-           label=f"Weak intra (sim ≥ {LOW_T})"),
-    Line2D([0], [0], color="#9B6B4E", lw=1.5, label="Human–Mouse inter"),
-    Line2D([0], [0], color="#C47AC0", lw=1.5, label="Human–Ancestor inter"),
-    Line2D([0], [0], color="#5E8FC0", lw=1.5, label="Mouse–Ancestor inter"),
+           label=f"Weak intra (sim â‰¥ {LOW_T})"),
+    Line2D([0], [0], color="#9B6B4E", lw=1.5, label="Humanâ€“Mouse inter"),
+    Line2D([0], [0], color="#C47AC0", lw=1.5, label="Humanâ€“Ancestor inter"),
+    Line2D([0], [0], color="#5E8FC0", lw=1.5, label="Mouseâ€“Ancestor inter"),
     Line2D([0], [0], color="black",   lw=1.0, linestyle=(0, (8, 6)),
            alpha=0.4, label="Anchor triangle"),
 ]
@@ -658,11 +658,11 @@ plt.close()
 print("SSN saved.")
 
 
-# ═══════════════════════════════════════════════════════════════════
-# DISTANCE TO ANCESTOR — barplot
-# ═══════════════════════════════════════════════════════════════════
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+# DISTANCE TO ANCESTOR â€” barplot
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 
-print("Distance barplot …")
+print("Distance barplot â€¦")
 
 anc_dist = []
 for i, seq in enumerate(seqs):
@@ -712,11 +712,11 @@ plt.savefig(OUTPUT_DIR / "distance_to_ancestor_barplot.png",
 plt.close()
 
 
-# ═══════════════════════════════════════════════════════════════════
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 # SUMMARY BARPLOT
-# ═══════════════════════════════════════════════════════════════════
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 
-print("Summary plot …")
+print("Summary plot â€¦")
 
 summary = []
 for sp in ("human", "mouse", "ancestor"):
@@ -741,11 +741,11 @@ plt.savefig(OUTPUT_DIR / "distance_summary.png",
 plt.close()
 
 
-# ═══════════════════════════════════════════════════════════════════
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 # TERNARY / BARYCENTRIC AFFINITY PLOT
-# ═══════════════════════════════════════════════════════════════════
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 
-print("Ternary affinity plot …")
+print("Ternary affinity plot â€¦")
 
 import csv as _csv
 from matplotlib.patches import FancyArrowPatch
@@ -848,7 +848,7 @@ for sp, col in [("human", C_HUMAN), ("mouse", C_MOUSE),
                edgecolors="white", linewidths=0.6,
                zorder=5, label=sp.capitalize(), alpha=0.90)
 
-# ── Ternary labels — overlap-aware placement ──────────────────────
+# â”€â”€ Ternary labels â€” overlap-aware placement â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 tern_range = np.array([1.44, 1.23])   # approx data range of the ternary plot
 TCHAR_W  = tern_range[0] * 0.018
 TLINE_H  = tern_range[1] * 0.040
@@ -909,10 +909,10 @@ for r in query_sorted:
             color="0.25", zorder=6)
 
 edge_label_kwargs = dict(fontsize=8, color="0.4", ha="center", va="center")
-ax.text(0.25, -0.10, "← more Human WT →",  rotation=0,   **edge_label_kwargs)
-ax.text(0.75, -0.10, "← more Mouse WT →",  rotation=0,   **edge_label_kwargs)
-ax.text(0.17,  0.44, "← more Ancestor",    rotation=60,  **edge_label_kwargs)
-ax.text(0.83,  0.44, "more Ancestor →",    rotation=-60, **edge_label_kwargs)
+ax.text(0.25, -0.10, "â† more Human WT â†’",  rotation=0,   **edge_label_kwargs)
+ax.text(0.75, -0.10, "â† more Mouse WT â†’",  rotation=0,   **edge_label_kwargs)
+ax.text(0.17,  0.44, "â† more Ancestor",    rotation=60,  **edge_label_kwargs)
+ax.text(0.83,  0.44, "more Ancestor â†’",    rotation=-60, **edge_label_kwargs)
 
 legend_elements = [
     mpatches.Patch(facecolor=C_HUMAN,    label="Human variants"),
@@ -937,3 +937,4 @@ plt.close()
 print("Ternary plot saved.")
 
 print("\nDone.")
+

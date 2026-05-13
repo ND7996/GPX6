@@ -1,12 +1,12 @@
-#!/bin/bash
+﻿#!/bin/bash
 # Define the main directory containing mutation folders
-BASE_DIR="/home/nsekhar/stepwise/MUT/step1/HUMAN/level2"
+BASE_DIR="./prep_structures/HUMAN/level2"
 # List of mutation folders
 MUTATIONS=(A178T A47S A52T A60T C99R E148D F104Y L139F L24I Q144H Q177H Q54T R4S S102G S107N S142P S143E S181R Y48F)
 # Log file for missing .en files
 LOG_FILE="missing_en_files.log"
 # Output directory for saving .en files
-OUTPUT_DIR="/home/nsekhar/stepwise/MUT/collected_en_files"
+OUTPUT_DIR="./analysis_scripts/collected_en_files"
 
 # Create output directory if it doesn't exist
 mkdir -p "$OUTPUT_DIR"
@@ -51,4 +51,5 @@ for MUT in "${MUTATIONS[@]}"; do
 done
 
 echo "Process completed. Folders with missing .en files are logged in $LOG_FILE."
+
 

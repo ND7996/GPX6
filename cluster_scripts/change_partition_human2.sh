@@ -1,10 +1,10 @@
-#!/bin/bash
+﻿#!/bin/bash
 
 # Define high-memory mutation directories
 highmem_dirs=("S142P" "S143E" "S181R" "Y48F")
 
 # Base directory
-base_dir="/home/nsekhar/stepwise/MUT/step1/HUMAN/level3"
+base_dir="./prep_structures/HUMAN/level3"
 
 # Loop through specified high-memory directories
 for sub_dir in "${highmem_dirs[@]}"; do
@@ -38,4 +38,5 @@ for sub_dir in "${highmem_dirs[@]}"; do
     echo "Directory $full_path does not exist."
   fi
 done
+
 

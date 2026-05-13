@@ -1,4 +1,4 @@
-"""
+﻿"""
 gpx6_all_pathways_fixed.py
 FIXES APPLIED:
   - Panels A/B gap eliminated (hspace=0.25, tight margins)
@@ -7,7 +7,7 @@ FIXES APPLIED:
   - Figure margins tightened (left/right/top/bottom)
   - Mutation labels larger (9 pt, was 7 pt)
   - Legend font 9 pt (was 7 pt)
-  - Removed acsfonts dependency — pure matplotlib/Arial
+  - Removed acsfonts dependency â€” pure matplotlib/Arial
   - All text forced black
   - Inward ticks retained
   - Colored reference lines + legend retained
@@ -24,7 +24,7 @@ import matplotlib.colors as mcolors
 import matplotlib.text as mtext
 
 # ==========================================================
-# JCIM STYLE — no external dependency
+# JCIM STYLE â€” no external dependency
 # ==========================================================
 plt.rcParams.update({
     "font.family":      "Arial",
@@ -46,15 +46,15 @@ plt.rcParams.update({
 })
 
 # ==========================================================
-# FILES — update these paths for your machine
+# FILES â€” update these paths for your machine
 # ==========================================================
-HUMAN_FILE = r"D:\PhD_Thesis\analysis\dipole\human_HBONDS.csv"
-MOUSE_FILE = r"D:\PhD_Thesis\analysis\dipole\mouse_HBONDS.csv"
+HUMAN_FILE = r"./analysis_scripts\human_HBONDS.csv"
+MOUSE_FILE = r"./analysis_scripts\mouse_HBONDS.csv"
 
 HUMAN_REFS = ["humansec", "U49C"]
 MOUSE_REFS = ["mousecys", "C49U"]
 
-OUTPUT_FILE = r"D:\PhD_Thesis\analysis\NetworkX\gpx6_all_pathways.png"
+OUTPUT_FILE = r"./analysis_scripts/Scripts_to_generate_figures/Figures/gpx6_all_pathways.png"
 os.makedirs(os.path.dirname(OUTPUT_FILE), exist_ok=True)
 
 # ==========================================================
@@ -137,13 +137,13 @@ global_vmin = min(min(h["all_dg"]), min(m["all_dg"]))
 global_vmax = max(max(h["all_dg"]), max(m["all_dg"]))
 
 # ==========================================================
-# FIGURE — tighter layout, panels closer together
+# FIGURE â€” tighter layout, panels closer together
 # ==========================================================
 fig = plt.figure(figsize=(12, 9))
 
 gs = fig.add_gridspec(
     2, 1,
-    hspace  = 0.25,   # ← was 0.58; much tighter gap between A and B
+    hspace  = 0.25,   # â† was 0.58; much tighter gap between A and B
     left    = 0.09,
     right   = 0.80,
     top     = 0.95,
@@ -202,7 +202,7 @@ for ax, d, panel in PANELS:
         capsize=3.0, zorder=5,
     )
 
-    # Mutation labels — larger font
+    # Mutation labels â€” larger font
     ytop = viability_dg + 1.6
     ybot = global_vmin  - 1.2
 
@@ -214,7 +214,7 @@ for ax, d, panel in PANELS:
         ax.annotate(
             mut,
             xy=(lv, dg), xytext=(lv, ytxt),
-            fontsize=9, color="black",      # ← was 7
+            fontsize=9, color="black",      # â† was 7
             ha="center", va=va,
             arrowprops=dict(arrowstyle="-", color="black", lw=0.6),
         )
@@ -223,7 +223,7 @@ for ax, d, panel in PANELS:
     ax.text(
         -0.06, 1.02, panel,
         transform=ax.transAxes,
-        fontsize=10, fontweight="bold", color="black",   # ← was 12, now bold
+        fontsize=10, fontweight="bold", color="black",   # â† was 12, now bold
     )
 
     # Axes formatting
@@ -244,7 +244,7 @@ for ax, d, panel in PANELS:
     leg = ax.legend(
         handles=ref_handles,
         loc="upper left",
-        fontsize=9,          # ← was 7
+        fontsize=9,          # â† was 7
         frameon=False,
     )
     for text in leg.get_texts():
@@ -273,3 +273,4 @@ for ext in ("png", "pdf"):
     plt.savefig(out, dpi=600, bbox_inches="tight",
                 pad_inches=0.02, facecolor="white")
     print("Saved:", out)
+

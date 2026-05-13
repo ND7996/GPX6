@@ -1,7 +1,8 @@
 #!/bin/bash
+set -euo pipefail
 
 # Define the base directory
-BASE_DIR="/home/nsekhar/stepwise/MUT/step1/HUMAN/level3"
+BASE_DIR="${BASE_DIR:-./prep_structures/HUMAN/level0}"
 
 # Define the mutation folders
 MUTATIONS=(
@@ -29,7 +30,7 @@ for mutation in "${MUTATIONS[@]}"; do
     for i in $(seq -f "replica%03g" 0 15); do
         if [[ -d "$i" && -f "$i/run_qdyn_5.sh" ]]; then
             echo "Submitting job in $mutation/$i..."
-            (cd "$i" && sbatch run_qdyn_5.sh)
+            (cd "$i" && bash run_qdyn_5.sh)
         else
             echo "Skipping $mutation/$i (not found or missing run_qdyn_5.sh)"
         fi

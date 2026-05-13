@@ -1,7 +1,7 @@
-rm -rf replicamousesec*
+﻿rm -rf replicamousesec*
 rm -rf relax
-relax=/home/nayanika/github/PhD_Thesis/EVB/EVB-Q6/openMM-OPLS/protein/GPX6WT/mousesec
-source $HOME/github/qtools/qtools_init.sh 
+relax=./analysis_scripts/mouseWT/mousesec
+# Qtools is installed on PATH in the Docker image.
 dir=`pwd` 
 echo '##################################################'
 echo 'running qprep5'
@@ -21,8 +21,8 @@ echo 'running qgenrelax'
 echo '##################################################'
 
 #mkdir relax
-#cp /home/nayanika/github/PhD_Thesis/EVB/EVB-Q6/openMM-OPLS/protein/GPX6WT/mouse/GPX6_wtmousecys.fep/relax
-$HOME/github/qtools/qscripts-cli/q_genrelax.py genrelax.proc \
+#cp ./analysis_scripts/mouseWT/relax
+q_genrelax.py genrelax.proc \
           --top GPX6sec_mouse.top \
           --rs  run_qdyn.sh \
           --pdb GPX6sec_mouse.pdb  \
@@ -30,6 +30,7 @@ $HOME/github/qtools/qscripts-cli/q_genrelax.py genrelax.proc \
           --outdir relax
 cd relax
 cd $relax
+
 
 
 

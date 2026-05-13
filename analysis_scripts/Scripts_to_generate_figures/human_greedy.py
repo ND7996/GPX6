@@ -1,4 +1,4 @@
-"""
+﻿"""
 Human Homolog Alignment - JCIM Style (10pt Fonts)
 Saved to Figures_FINAL
 """
@@ -6,7 +6,7 @@ Saved to Figures_FINAL
 import sys
 import os
 
-ACS_PATH = r"D:\PhD_Thesis\analysis\FINAL_PUBLICATION_FIGURES"
+ACS_PATH = r"./analysis_scripts/Scripts_to_generate_figures/Figures"
 
 if ACS_PATH not in sys.path:
     sys.path.append(ACS_PATH)
@@ -94,9 +94,10 @@ if __name__ == "__main__":
     fig = visualize_homolog_alignment(alignment_data, positions, title="Human to Mouse Mutational Path")
     
     # Save to Figures_FINAL
-    output_dir = r"D:\PhD_Thesis\analysis\FINAL_PUBLICATION_FIGURES\Figures_FINAL"
+    output_dir = r"./analysis_scripts/Scripts_to_generate_figures/Figures/Figures_FINAL"
     os.makedirs(output_dir, exist_ok=True)
     fig.savefig(os.path.join(output_dir, "human_homolog_alignment.png"), dpi=600, bbox_inches='tight')
     fig.savefig(os.path.join(output_dir, "human_homolog_alignment.pdf"), bbox_inches='tight')
     print(f"Figure saved to: {output_dir}")
     plt.show()
+

@@ -1,10 +1,10 @@
-"""
-GPX6 Mutant Heatmap — JCIM publication version
+﻿"""
+GPX6 Mutant Heatmap â€” JCIM publication version
 Final improvements:
 1. One vertical distance strip only (left side)
 2. Exact distance values shown beside strip
 3. Removed redundant bottom distance colorbar
-4. Shared ΔG* / ΔG0 scales across species
+4. Shared Î”G* / Î”G0 scales across species
 5. JCIM double-column layout
 6. Clean typography + tight spacing
 """
@@ -82,10 +82,10 @@ DIST_CMAP = mcolors.LinearSegmentedColormap.from_list("dist", _cool)
 # =============================================================================
 # FILES
 # =============================================================================
-MOUSE_CSV = r"D:\PhD_Thesis\analysis\dipole\mouse_HBONDS.csv"
-HUMAN_CSV = r"D:\PhD_Thesis\analysis\dipole\human_HBONDS.csv"
+MOUSE_CSV = r"./analysis_scripts\mouse_HBONDS.csv"
+HUMAN_CSV = r"./analysis_scripts\human_HBONDS.csv"
 
-OUT_DIR = r"D:\PhD_Thesis\analysis\FINAL_PUBLICATION_FIGURES\Results\Mutational_map"
+OUT_DIR = r"./analysis_scripts/Scripts_to_generate_figures/Figures/Results\Mutational_map"
 os.makedirs(OUT_DIR, exist_ok=True)
 
 
@@ -216,7 +216,7 @@ def draw_panel(ax,data,norm,title,label_y=True):
     cb.ax.tick_params(labelsize=5)
     
     # Add label for colorbar
-    if "ΔG*" in title:
+    if "Î”G*" in title:
         cb.set_label("kcal/mol", fontsize=5, labelpad=1)
     else:
         cb.set_label("kcal/mol", fontsize=5, labelpad=1)
@@ -265,7 +265,7 @@ def draw_distance_strip(fig, ax, dist_vals, vmax):
     for s in axd.spines.values():
         s.set_visible(False)
 
-    axd.set_title("dist.\n(Å)",fontsize=5,pad=2)
+    axd.set_title("dist./n(Ã…)",fontsize=5,pad=2)
 
 
 def make_figure(star,dg0,norm_star,norm_dg0,dist,outfile):
@@ -331,3 +331,4 @@ if __name__ == "__main__":
     )
 
     print("Done.")
+

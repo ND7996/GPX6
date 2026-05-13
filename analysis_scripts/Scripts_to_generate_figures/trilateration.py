@@ -1,5 +1,5 @@
-"""
-Distance-based trilateration from Hamming distances — GPX6 protein sequences
+﻿"""
+Distance-based trilateration from Hamming distances â€” GPX6 protein sequences
 Adapted for a single FASTA input with references: MOUSE_GPX6_WT, HUMAN_GPX6_WT, ANCESTOR_node_25
 """
 
@@ -11,9 +11,9 @@ from pprint import pprint
 import matplotlib.pyplot as plt
 import numpy as np
 
-# ── Input / Output ────────────────────────────────────────────────────────────
+# â”€â”€ Input / Output â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 INPUT_FASTA = Path(
-    r"D:\PhD_Thesis\analysis\alignment\all_sequences_for_selection.fasta"
+    r"./analysis_scripts/alignment/gpx6_human_mouse_input.fasta"
 )
 OUTPUT_PREFIX = Path("results/gpx6_trilateration")
 
@@ -21,7 +21,7 @@ OUTPUT_PREFIX = Path("results/gpx6_trilateration")
 REFERENCE_IDS = ["MOUSE_GPX6_WT", "HUMAN_GPX6_WT", "ANCESTOR_node_25"]
 
 
-# ── Parsers ───────────────────────────────────────────────────────────────────
+# â”€â”€ Parsers â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 def parse_fasta(path: Path):
     records = []
     header = None
@@ -45,7 +45,7 @@ def parse_fasta(path: Path):
     return records
 
 
-# ── Distance metric ───────────────────────────────────────────────────────────
+# â”€â”€ Distance metric â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 def levenshtein_distance(seq_a: str, seq_b: str) -> int:
     if len(seq_a) < len(seq_b):
         seq_a, seq_b = seq_b, seq_a
@@ -63,14 +63,14 @@ def levenshtein_distance(seq_a: str, seq_b: str) -> int:
 
 
 def sequence_distance(seq_a: str, seq_b: str) -> float:
-    """Normalised Levenshtein — handles unequal-length sequences, returns [0, 1]."""
+    """Normalised Levenshtein â€” handles unequal-length sequences, returns [0, 1]."""
     scale = max(len(seq_a), len(seq_b))
     if scale == 0:
         return 0.0
     return levenshtein_distance(seq_a, seq_b) / scale
 
 
-# ── Geometry ──────────────────────────────────────────────────────────────────
+# â”€â”€ Geometry â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 def trilaterate(reference_xy, distances):
     p1 = np.asarray(reference_xy[0], dtype=float)
     p2 = np.asarray(reference_xy[1], dtype=float)
@@ -100,7 +100,7 @@ def write_csv(path: Path, rows, fieldnames):
         writer.writerows(rows)
 
 
-# ── Grouping for plot colours ─────────────────────────────────────────────────
+# â”€â”€ Grouping for plot colours â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 def get_group(seq_id: str) -> str:
     sid = seq_id.upper()
     if "MOUSE" in sid:
@@ -117,7 +117,7 @@ GROUP_COLORS = {
 }
 
 
-# ── Main ──────────────────────────────────────────────────────────────────────
+# â”€â”€ Main â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 def main():
     all_records = parse_fasta(INPUT_FASTA)
     print(f"Loaded {len(all_records)} sequences from {INPUT_FASTA.name}")
@@ -178,7 +178,7 @@ def main():
     write_csv(output_csv, rows, fieldnames=list(rows[0].keys()))
     print(f"\nSaved CSV : {output_csv}")
 
-    # ── Plot ──────────────────────────────────────────────────────────────────
+    # â”€â”€ Plot â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     fig, ax = plt.subplots(figsize=(8, 8))
 
     # Triangle outline
@@ -189,7 +189,7 @@ def main():
     ax.scatter(reference_xy[:, 0], reference_xy[:, 1],
                s=220, color="#d04f2a", zorder=5, marker="^")
 
-    # Reference labels — short names, positioned outside triangle corners
+    # Reference labels â€” short names, positioned outside triangle corners
     short_names = [rid.replace("_chainA", "").replace("_chain", "") for rid in reference_ids]
     anchor_label_kwargs = [
         dict(ha="left",   va="top",    x=reference_xy[0][0] - 0.03, y=reference_xy[0][1] - 0.05),
@@ -201,7 +201,7 @@ def main():
                 ha=kw["ha"], va=kw["va"],
                 fontsize=9, fontweight="bold", color="#d04f2a")
 
-    # Query points — colored by species group, NO per-point text labels
+    # Query points â€” colored by species group, NO per-point text labels
     groups_present = sorted(set(get_group(r["sequence_id"]) for r in rows))
     for group in groups_present:
         grows = [r for r in rows if get_group(r["sequence_id"]) == group]
@@ -217,14 +217,14 @@ def main():
               title="Sequence group", title_fontsize=9)
 
     # # ax.set_title(
-    # #     "GPX6 — Distance-based trilateration\n"
+    # #     "GPX6 â€” Distance-based trilateration\n"
     # #     "(normalised Levenshtein distance, protein sequences)",
     # #     fontsize=12
     # )
     ax.set_aspect("equal")
     ax.set_xlim(-0.3, 1.3)
     ax.set_ylim(-0.15, 1.05)
-    ax.axis("off")   # hide ticks — triangle is the coordinate system
+    ax.axis("off")   # hide ticks â€” triangle is the coordinate system
     fig.tight_layout()
 
     output_png = Path(f"{OUTPUT_PREFIX}.png")

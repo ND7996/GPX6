@@ -1,4 +1,4 @@
-"""
+﻿"""
 merge_slides_to_svg.py
 ----------------------
 Merges Slide1-Slide4 PNGs into a single SVG (2x2 grid) and saves each
@@ -18,9 +18,9 @@ from pathlib import Path
 import numpy as np
 from PIL import Image
 
-# ── SETTINGS ──────────────────────────────────────────────────────────────────
+# â”€â”€ SETTINGS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 INPUT_DIR = Path(
-    r"D:\PhD_Thesis\analysis\FINAL_PUBLICATION_FIGURES"
+    r"./analysis_scripts/Scripts_to_generate_figures/Figures"
     r"\Updated_figures\Updated_figures_V3"
 )
 
@@ -35,7 +35,7 @@ DPI            = 600   # physical DPI declared in SVG dimensions
 TRIM_TOLERANCE = 10    # how close to 255 a channel must be to count as white
 SAFETY_MARGIN  = 10    # pixels of border kept after trim
 GAP_PX         = 60    # gap between panels in merged SVG
-# ──────────────────────────────────────────────────────────────────────────────
+# â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 
 def flatten_to_rgb(img: Image.Image) -> Image.Image:

@@ -1,0 +1,12 @@
+numpy
+matplotlib
+biopython
+pandas
+jupyter
+scipy
+seaborn
+networkx
+Pillow
+adjustText
+ipykernel
+nbconvert

@@ -5,9 +5,23 @@ import shutil
 
 # ================================
 # ================================
-BASE_PDB_FILE = ""
-MUTATIONS_FILE = ""
-OUTPUT_DIR = ""
+GPX6_SPECIES = os.environ.get("GPX6_SPECIES", "HUMAN").upper()
+LEVEL_NUMBER = int(os.environ.get("GPX6_LEVEL", "0"))
+
+if GPX6_SPECIES == "MOUSE":
+    default_base_pdb = "./prep_structures/original_mousecys.pdb"
+else:
+    default_base_pdb = "./prep_structures/original_humansec.pdb"
+
+BASE_PDB_FILE = os.environ.get("BASE_PDB_FILE", default_base_pdb)
+MUTATIONS_FILE = os.environ.get(
+    "MUTATIONS_FILE",
+    f"./prep_structures/{GPX6_SPECIES}/level{LEVEL_NUMBER}.txt"
+)
+OUTPUT_DIR = os.environ.get(
+    "OUTPUT_DIR",
+    f"./prep_structures/{GPX6_SPECIES}/level{LEVEL_NUMBER}"
+)
 # ================================
 
 # Mapping of one-letter to three-letter amino acid codes

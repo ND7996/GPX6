@@ -1,4 +1,4 @@
-# =================== MOUSE CODE WITH UNIFIED DISTANCE SCALE ===================
+﻿# =================== MOUSE CODE WITH UNIFIED DISTANCE SCALE ===================
 import sys
 import pandas as pd
 import numpy as np
@@ -9,7 +9,7 @@ import warnings
 warnings.filterwarnings('ignore')
 
 # =================== JCIM PUBLICATION STYLE ===================
-ACS_PATH = r"D:\PhD_Thesis\analysis\FINAL_PUBLICATION_FIGURES"
+ACS_PATH = r"./analysis_scripts/Scripts_to_generate_figures/Figures"
 if ACS_PATH not in sys.path:
     sys.path.append(ACS_PATH)
 
@@ -17,11 +17,11 @@ from acsfonts import set_jcim_style, jcim_figure, save_jcim_figure
 set_jcim_style()
 
 # =================== DATA LOADING ===================
-input_csv = Path(r"D:\PhD_Thesis\analysis\dipole\mouse_HBONDS.csv")
+input_csv = Path(r"./analysis_scripts\mouse_HBONDS.csv")
 df = pd.read_csv(input_csv)
 
 # =================== OUTPUT FOLDER ===================
-outdir = Path(r"D:\PhD_Thesis\analysis\FINAL_PUBLICATION_FIGURES\Results\LFER")
+outdir = Path(r"./analysis_scripts/Scripts_to_generate_figures/Figures/Results\LFER")
 outdir.mkdir(parents=True, exist_ok=True)
 
 for c in ['dg_star', 'dg_star_error', 'dg0', 'dg0_error']:
@@ -34,7 +34,7 @@ def sem(series):
     n = series.dropna().shape[0]
     return np.nan if n < 2 else series.std(ddof=1) / np.sqrt(n)
 
-# =================== ΔΔG CALCULATION ===================
+# =================== Î”Î”G CALCULATION ===================
 ref = df[df['mutation'] == 'C49U'].set_index('level')
 fallback = ref.iloc[0]
 
@@ -43,10 +43,10 @@ for level in df['level'].unique():
     sub = df[df['level'] == level].copy()
     r = ref.loc[level] if level in ref.index else fallback
 
-    sub['ΔΔG‡'] = sub['dg_star'] - r['dg_star']
-    sub['ΔΔG⁰'] = sub['dg0'] - r['dg0']
-    sub['ΔΔG‡_err'] = np.sqrt(sub['dg_star_error']**2 + r['dg_star_error']**2)
-    sub['ΔΔG⁰_err'] = np.sqrt(sub['dg0_error']**2 + r['dg0_error']**2)
+    sub['Î”Î”Gâ€¡'] = sub['dg_star'] - r['dg_star']
+    sub['Î”Î”Gâ°'] = sub['dg0'] - r['dg0']
+    sub['Î”Î”Gâ€¡_err'] = np.sqrt(sub['dg_star_error']**2 + r['dg_star_error']**2)
+    sub['Î”Î”Gâ°_err'] = np.sqrt(sub['dg0_error']**2 + r['dg0_error']**2)
 
     all_data.append(sub)
 
@@ -72,20 +72,20 @@ if dist_col:
 
 # =================== PER-MUTATION MEANS ===================
 means_per_mut = dfp.groupby('mutation').agg(
-    ΔΔG0_mean=('ΔΔG⁰', 'mean'),
-    ΔΔG0_sem=('ΔΔG⁰', sem),
-    ΔΔGddagger_mean=('ΔΔG‡', 'mean'),
-    ΔΔGddagger_sem=('ΔΔG‡', sem),
-    ΔΔGddagger_err_mean=('ΔΔG‡_err', 'mean'),
+    Î”Î”G0_mean=('Î”Î”Gâ°', 'mean'),
+    Î”Î”G0_sem=('Î”Î”Gâ°', sem),
+    Î”Î”Gddagger_mean=('Î”Î”Gâ€¡', 'mean'),
+    Î”Î”Gddagger_sem=('Î”Î”Gâ€¡', sem),
+    Î”Î”Gddagger_err_mean=('Î”Î”Gâ€¡_err', 'mean'),
 ).reset_index()
 
 if dist_col:
     means_per_mut[dist_col] = dfp.groupby('mutation')[dist_col].mean().values
 
 # =================== LINEAR REGRESSION ===================
-mask_reg = dfp[['ΔΔG⁰', 'ΔΔG‡']].notna().all(axis=1)
-x_all = dfp.loc[mask_reg, 'ΔΔG⁰'].values
-y_all = dfp.loc[mask_reg, 'ΔΔG‡'].values
+mask_reg = dfp[['Î”Î”Gâ°', 'Î”Î”Gâ€¡']].notna().all(axis=1)
+x_all = dfp.loc[mask_reg, 'Î”Î”Gâ°'].values
+y_all = dfp.loc[mask_reg, 'Î”Î”Gâ€¡'].values
 
 slope, intercept, r_value, p_value, std_err = stats.linregress(x_all, y_all)
 
@@ -108,17 +108,17 @@ ax_legend = fig.add_subplot(gs[1])
 
 # =================== COLOR MAP WITH UNIFIED SCALE ===================
 if dist_col:
-    mask_valid = dfp[['ΔΔG⁰', 'ΔΔG‡', dist_col]].notna().all(axis=1)
+    mask_valid = dfp[['Î”Î”Gâ°', 'Î”Î”Gâ€¡', dist_col]].notna().all(axis=1)
     dfp_valid = dfp[mask_valid].copy()
     norm = plt.Normalize(vmin=UNIFIED_DISTANCE_MIN, vmax=UNIFIED_DISTANCE_MAX)
     cmap_v = plt.colormaps['RdBu_r']
 else:
-    dfp_valid = dfp[dfp[['ΔΔG⁰', 'ΔΔG‡']].notna().all(axis=1)].copy()
+    dfp_valid = dfp[dfp[['Î”Î”Gâ°', 'Î”Î”Gâ€¡']].notna().all(axis=1)].copy()
 
 # =================== MAIN SCATTER ===================
 ax_main.scatter(
-    dfp_valid['ΔΔG⁰'],
-    dfp_valid['ΔΔG‡'],
+    dfp_valid['Î”Î”Gâ°'],
+    dfp_valid['Î”Î”Gâ€¡'],
     color='gray',
     s=15,
     alpha=0.35,
@@ -131,8 +131,8 @@ marker_size = 55
 
 if dist_col and dist_col in means_per_mut.columns:
     sc = ax_main.scatter(
-        means_per_mut['ΔΔG0_mean'],
-        means_per_mut['ΔΔGddagger_mean'],
+        means_per_mut['Î”Î”G0_mean'],
+        means_per_mut['Î”Î”Gddagger_mean'],
         c=means_per_mut[dist_col],
         cmap=cmap_v,
         norm=norm,
@@ -143,8 +143,8 @@ if dist_col and dist_col in means_per_mut.columns:
     )
 else:
     sc = ax_main.scatter(
-        means_per_mut['ΔΔG0_mean'],
-        means_per_mut['ΔΔGddagger_mean'],
+        means_per_mut['Î”Î”G0_mean'],
+        means_per_mut['Î”Î”Gddagger_mean'],
         color='#4c72b0',
         s=marker_size,
         edgecolors='black',
@@ -153,10 +153,10 @@ else:
     )
 
 ax_main.errorbar(
-    means_per_mut['ΔΔG0_mean'],
-    means_per_mut['ΔΔGddagger_mean'],
-    xerr=means_per_mut['ΔΔG0_sem'],
-    yerr=means_per_mut['ΔΔGddagger_err_mean'],
+    means_per_mut['Î”Î”G0_mean'],
+    means_per_mut['Î”Î”Gddagger_mean'],
+    xerr=means_per_mut['Î”Î”G0_sem'],
+    yerr=means_per_mut['Î”Î”Gddagger_err_mean'],
     fmt='none',
     ecolor='black',
     alpha=0.6,
@@ -182,7 +182,7 @@ ax_main.set_ylim(-5, 12.5)
 # =================== COLORBAR WITH UNIFIED SCALE ===================
 if dist_col:
     cbar = plt.colorbar(sc, ax=ax_main, pad=0.02, aspect=25, shrink=0.85)
-    cbar.set_label('Distance to residue 49 (Å)', rotation=270, labelpad=15)
+    cbar.set_label('Distance to residue 49 (Ã…)', rotation=270, labelpad=15)
 
 # =================== RIGHT PANEL - EMPTY ===================
 ax_legend.axis('off')
@@ -205,8 +205,9 @@ plt.show()
 
 print(f"Saved: {outdir / 'mouse_Figure1_LFER.png'}")
 print(f"\nLFER regression:")
-print(f"  α (slope)   = {slope:.3f} ± {std_err:.3f}")
-print(f"  R²          = {r_value**2:.3f}")
+print(f"  Î± (slope)   = {slope:.3f} Â± {std_err:.3f}")
+print(f"  RÂ²          = {r_value**2:.3f}")
 print(f"  p-value     = {p_value:.3e}")
 print(f"  n (points)  = {len(x_all)}")
 print(f"  Number of mutations: {n_mutations}")
+

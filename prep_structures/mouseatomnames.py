@@ -2,7 +2,7 @@ import os
 import re
 
 # Define the base directory containing mutation folders
-base_directory = '/home/hp/results/MOUSE/level2'
+base_directory = os.environ.get("BASE_DIR", "./prep_structures/MOUSE/level2")
 mutation_folders = [
     "A74G", "E143S", "F139L", "F48Y", "G102S", "H144Q", "H177Q",
     "I24L", "K87T", "N107S", "P142S", "R181S", "R99C", "S47A",

@@ -1,12 +1,12 @@
-from PIL import Image, ImageOps
+﻿from PIL import Image, ImageOps
 import matplotlib.pyplot as plt
 
 # ---- INPUT FILES ----
 files = [
-    r"D:\PhD_Thesis\analysis\FINAL_PUBLICATION_FIGURES\Figures_FINAL\Fig3A.png",
-    r"D:\PhD_Thesis\analysis\FINAL_PUBLICATION_FIGURES\Figures_FINAL\Fig3B.png",
-    r"D:\PhD_Thesis\analysis\FINAL_PUBLICATION_FIGURES\Figures_FINAL\Fig3C.png",
-    r"D:\PhD_Thesis\analysis\FINAL_PUBLICATION_FIGURES\Figures_FINAL\Fig3D.png"
+    r"./analysis_scripts/Scripts_to_generate_figures/Figures/Figures_FINAL/Fig3A.png",
+    r"./analysis_scripts/Scripts_to_generate_figures/Figures/Figures_FINAL/Fig3B.png",
+    r"./analysis_scripts/Scripts_to_generate_figures/Figures/Figures_FINAL/Fig3C.png",
+    r"./analysis_scripts/Scripts_to_generate_figures/Figures/Figures_FINAL/Fig3D.png"
 ]
 
 # ---- PARAMETERS ----
@@ -53,8 +53,9 @@ for ax, img, label in zip(axes.flatten(), processed_images, labels):
 plt.subplots_adjust(wspace=0.02, hspace=0.02)
 
 # ---- SAVE ----
-output_path = r"D:\PhD_Thesis\analysis\FINAL_PUBLICATION_FIGURES\Figures_FINAL\Fig3_JCIM.png"
+output_path = r"./analysis_scripts/Scripts_to_generate_figures/Figures/Figures_FINAL/Fig3_JCIM.png"
 plt.savefig(output_path, dpi=600, bbox_inches='tight')
 
 print("Final JCIM-ready figure saved at:")
 print(output_path)
+

@@ -1,4 +1,4 @@
-"""
+﻿"""
 GPX6 ProteinMPNN sequence analysis - Heatmap Only
 JCIM compliant: Arial 8pt, black text, frameless legend
 """
@@ -6,7 +6,7 @@ JCIM compliant: Arial 8pt, black text, frameless legend
 import sys
 import os
 
-ACS_PATH = r"D:\PhD_Thesis\analysis\FINAL_PUBLICATION_FIGURES"
+ACS_PATH = r"./analysis_scripts/Scripts_to_generate_figures/Figures"
 if ACS_PATH not in sys.path:
     sys.path.append(ACS_PATH)
 
@@ -43,16 +43,16 @@ from scipy.spatial.distance import pdist
 
 warnings.filterwarnings("ignore")
 
-# ═══════════════════════════════════════════════
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 # PARAMETERS
-# ═══════════════════════════════════════════════
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 
 TOP_PER_SPECIES     = 1671
 HEATMAP_PER_SPECIES = 100
 
-# ═══════════════════════════════════════════════
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 # COLORS
-# ═══════════════════════════════════════════════
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 
 C_HUMAN    = "#E41A1C"
 C_MOUSE    = "#4DAF4A"
@@ -63,18 +63,18 @@ heatmap_cmap = LinearSegmentedColormap.from_list(
     "species_cmap", [C_ANCESTOR, C_MOUSE, C_HUMAN], N=256
 )
 
-# ═══════════════════════════════════════════════
-# PATHS  ←  print these at startup so you can verify
-# ═══════════════════════════════════════════════
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+# PATHS  â†  print these at startup so you can verify
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 
 # Adjust these three paths to match your actual file locations.
 # Run the script once; the startup block will print whether each file exists.
 
-FASTA_ANCESTOR = Path(r"D:\PhD_Thesis\analysis\alignment\ancestor_25.fasta")
-FASTA_HUMAN    = Path(r"D:\PhD_Thesis\MPNN\Human\GPX6MPNN_generated\all_generated_sequences.fasta")
-FASTA_MOUSE    = Path(r"D:\PhD_Thesis\MPNN\Mouse\GPX6MPNN_generated\all_generated_sequences.fasta")
+FASTA_ANCESTOR = Path(r"./analysis_scripts/alignment/gpx6_human_mouse_input.fasta")
+FASTA_HUMAN    = Path(r"./analysis_scripts/MPNN/Human/GPX6MPNN_generated/all_generated_sequences.fasta")
+FASTA_MOUSE    = Path(r"./analysis_scripts/MPNN/Mouse/GPX6MPNN_generated/all_generated_sequences.fasta")
 
-OUTPUT_DIR = Path(r"D:\PhD_Thesis\analysis\FINAL_PUBLICATION_FIGURES\Phylogeny")
+OUTPUT_DIR = Path(r"./analysis_scripts/Scripts_to_generate_figures/Figures/Phylogeny")
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
 def check_paths():
@@ -84,14 +84,14 @@ def check_paths():
                      ("mouse",    FASTA_MOUSE)]:
         exists = p.exists()
         status = "OK " if exists else "MISSING"
-        print(f"  [{status}] {label:8s} → {p}")
+        print(f"  [{status}] {label:8s} â†’ {p}")
         if not exists:
             ok = False
     return ok
 
-# ═══════════════════════════════════════════════
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 # ALIGNER
-# ═══════════════════════════════════════════════
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 
 ALIGNER = PairwiseAligner()
 ALIGNER.mode = "global"
@@ -118,9 +118,9 @@ def normsim(a, b):
     except Exception:
         return 0.0
 
-# ═══════════════════════════════════════════════
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 # LOAD SEQUENCES
-# ═══════════════════════════════════════════════
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 
 def load_sequences():
     """
@@ -150,7 +150,7 @@ def load_sequences():
                 continue
             names.append(record.id)
             seqs.append(seq)
-            species.append(label)   # ← stored separately, never overwritten
+            species.append(label)   # â† stored separately, never overwritten
             loaded += 1
 
         note = f" ({skipped} empty skipped)" if skipped else ""
@@ -158,9 +158,9 @@ def load_sequences():
 
     return names, seqs, species
 
-# ═══════════════════════════════════════════════
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 # SIMILARITY MATRIX  (with progress and error safety)
-# ═══════════════════════════════════════════════
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 
 def compute_similarity(seqs):
     n     = len(seqs)
@@ -182,12 +182,12 @@ def compute_similarity(seqs):
             print(f"  pairs: {done:,}/{total:,}  ({pct:.1f}%)", end="\r", flush=True)
 
     np.fill_diagonal(sim, 1.0)
-    print(f"\n  done — {errs} pairs had errors (set to 0)")
+    print(f"\n  done â€” {errs} pairs had errors (set to 0)")
     return sim
 
-# ═══════════════════════════════════════════════
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 # DIVERSITY SAMPLING
-# ═══════════════════════════════════════════════
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 
 def diversity_sample(group_indices, sim, k):
     """
@@ -226,28 +226,28 @@ def get_heatmap_indices(species, sim):
     for label, group in groups.items():
         n = len(group)
         if n == 0:
-            print(f"  [WARN] '{label}': 0 sequences — skipped")
+            print(f"  [WARN] '{label}': 0 sequences â€” skipped")
             continue
         if n == 1:
             # single sequence (e.g. reconstructed ancestor): use it as-is
-            print(f"  '{label}': 1 sequence — used directly (no sampling needed)")
+            print(f"  '{label}': 1 sequence â€” used directly (no sampling needed)")
             selected.extend(group)
             continue
         reps = diversity_sample(group, sim, HEATMAP_PER_SPECIES)
-        print(f"  '{label}': {n} → {len(reps)} representative sequences")
+        print(f"  '{label}': {n} â†’ {len(reps)} representative sequences")
         selected.extend(reps)
 
     if len(selected) < 2:
         raise ValueError(
-            "Fewer than 2 sequences selected for the heatmap.\n"
+            "Fewer than 2 sequences selected for the heatmap./n"
             "Check that FASTA files exist and paths are correct (run check_paths())."
         )
 
     return selected
 
-# ═══════════════════════════════════════════════
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 # HEATMAP
-# ═══════════════════════════════════════════════
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 
 def plot_heatmap(sim, species, idx):
     sub  = sim[np.ix_(idx, idx)]
@@ -322,9 +322,9 @@ def plot_heatmap(sim, species, idx):
 
     plt.close()
 
-# ═══════════════════════════════════════════════
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 # MAIN
-# ═══════════════════════════════════════════════
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 
 def main():
     print("=" * 60)
@@ -336,7 +336,7 @@ def main():
     if not all_ok:
         print("\n  Fix the MISSING paths above before continuing.")
         print("  The script will run with whatever files are present,")
-        print("  but missing species will be absent from the heatmap.\n")
+        print("  but missing species will be absent from the heatmap./n")
 
     print("\n[1/3] Loading sequences ...")
     names, seqs, species = load_sequences()
@@ -346,7 +346,7 @@ def main():
         raise ValueError("Need at least 2 sequences total. Check your FASTA paths.")
 
     print("\n[2/3] Computing pairwise similarity matrix ...")
-    print(f"  ({len(seqs)} sequences → {len(seqs)*(len(seqs)-1)//2:,} pairs)")
+    print(f"  ({len(seqs)} sequences â†’ {len(seqs)*(len(seqs)-1)//2:,} pairs)")
     sim = compute_similarity(seqs)
 
     print("\n[3/3] Sampling representatives and plotting ...")
@@ -354,9 +354,10 @@ def main():
     print(f"  heatmap: {len(idx)} total sequences")
     plot_heatmap(sim, species, idx)
 
-    print("\n✅ Done. Output saved to:")
+    print("\nâœ… Done. Output saved to:")
     print(f"   {OUTPUT_DIR}")
 
 
 if __name__ == "__main__":
     main()
+

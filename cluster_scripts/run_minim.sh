@@ -1,7 +1,8 @@
 #!/bin/bash
+set -euo pipefail
 
 # Base directory
-BASE_DIR="/home/nsekhar/stepwise/MUT/step1/HUMAN/level3"
+BASE_DIR="${BASE_DIR:-./prep_structures/HUMAN/level0}"
 
 # Updated mutation folders
 MUTATIONS=("A178T" "A47S" "A52T" "A60T" "C99R" "A74G" "F104Y" "L139F"
@@ -21,9 +22,8 @@ for MUT in "${MUTATIONS[@]}"; do
 
         # Check if the script exists and is executable
         if [ -f "$RUN_SCRIPT" ]; then
-            chmod +x "$RUN_SCRIPT"  # Ensure script is executable
             echo "Submitting job for $MUT"
-            (cd "$MINIM_DIR" && sbatch run_qdyn_5.sh)  # Submit job via sbatch
+            (cd "$MINIM_DIR" && bash run_qdyn_5.sh)
         else
             echo "Error: run_qdyn_5.sh not found in $MINIM_DIR"
         fi

@@ -1,9 +1,9 @@
-from PIL import Image
+﻿from PIL import Image
 import numpy as np
 import os
 
-input_dir = r"D:\PhD_Thesis\analysis\FINAL_PUBLICATION_FIGURES\Updated_figures\High_resolution"
-output_dir = r"D:\PhD_Thesis\analysis\FINAL_PUBLICATION_FIGURES\Updated_figures\High_resolution"
+input_dir = r"./analysis_scripts/Scripts_to_generate_figures/Figures/Updated_figures\High_resolution"
+output_dir = r"./analysis_scripts/Scripts_to_generate_figures/Figures/Updated_figures\High_resolution"
 
 # Create output directory if it doesn't exist
 os.makedirs(output_dir, exist_ok=True)
@@ -108,20 +108,21 @@ for filename in png_files:
             optimize=True
         )
         
-        print(f"✓ {filename}")
-        print(f"  Cropped: {orig_w}x{orig_h} → Resized: {target_w_px}x{target_h_px}")
+        print(f"âœ“ {filename}")
+        print(f"  Cropped: {orig_w}x{orig_h} â†’ Resized: {target_w_px}x{target_h_px}")
         print(f"  Padding: {pad_w}px horizontal, {pad_h}px vertical")
         print(f"  Aspect ratio preserved: {aspect_ratio:.3f}")
         print(f"  Saved TIFF: {os.path.basename(output_tiff_path)}")
         print(f"  Saved PNG:  {os.path.basename(output_png_path)}")
         print()
 
-print(f"\n✅ Complete! {len(png_files)} images processed")
+print(f"\nâœ… Complete! {len(png_files)} images processed")
 print(f"Output directory: {output_dir}")
 print(f"\nJCIM Publication Requirements:")
-print(f"  ✓ Resolution: {TARGET_DPI} DPI")
-print(f"  ✓ Width: {FIGURE_WIDTH_INCHES}\" ({target_w_px}px at {TARGET_DPI} DPI)")
-print(f"  ✓ Format: TIFF with LZW compression")
-print(f"  ✓ PNG also saved for preview purposes")
-print(f"  ✓ Whitespace removed with {PADDING_PERCENT*100}% padding")
-print(f"  ✓ Content preserved (nothing cut)")
+print(f"  âœ“ Resolution: {TARGET_DPI} DPI")
+print(f"  âœ“ Width: {FIGURE_WIDTH_INCHES}\" ({target_w_px}px at {TARGET_DPI} DPI)")
+print(f"  âœ“ Format: TIFF with LZW compression")
+print(f"  âœ“ PNG also saved for preview purposes")
+print(f"  âœ“ Whitespace removed with {PADDING_PERCENT*100}% padding")
+print(f"  âœ“ Content preserved (nothing cut)")
+

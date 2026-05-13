@@ -1,7 +1,7 @@
-#!/bin/bash
+﻿#!/bin/bash
 
 # Define the main directory containing mutation folders
-BASE_DIR="/home/nsekhar/stepwise/MUT/step1/HUMAN/level0"
+BASE_DIR="./prep_structures/HUMAN/level0"
 
 # List of mutation folders
 MUTATIONS=(A178T A47S A52T A60T C99R E148D F104Y L139F L24I Q144H Q177H Q54T R4S S102G S107N S142P S143E S181R Y48F)
@@ -36,4 +36,5 @@ for MUT in "${MUTATIONS[@]}"; do
 done
 
 echo "All .dcd files copied successfully!"
+
 

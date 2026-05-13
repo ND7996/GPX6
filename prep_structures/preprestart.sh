@@ -1,12 +1,14 @@
 #!/bin/bash
+set -euo pipefail
 
 # Base directory containing all system folders
-base_dir="/home/hp/results/C49U"
+base_dir="${BASE_DIR:-./prep_structures/HUMAN/level0}"
 
 # Paths to required files
-lib1="/home/hp/nayanika/github/GPX6/parameters/qoplsaa.lib"
-lib2="/home/hp/nayanika/github/GPX6/parameters/GPX.lib"
-prm="/home/hp/nayanika/github/GPX6/parameters/qoplsaa_all2.prm"
+param_dir="${PARAM_DIR:-./parameters}"
+lib1="$param_dir/qoplsaa.lib"
+lib2="$param_dir/GPX.lib"
+prm="$param_dir/qoplsaa_all2.prm"
 relax_file="relax_012.re"  # Make sure this file is accessible in the same directory or provide the full path
 
 # Iterate through each subdirectory in the base directory
@@ -50,6 +52,7 @@ EOF
             
             # Cleanup
             rm -f "$input_file"
+            cd - >/dev/null || exit
         else
             echo "No .top file found in $minim_dir."
         fi

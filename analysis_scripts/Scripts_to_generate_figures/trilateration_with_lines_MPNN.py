@@ -1,14 +1,14 @@
-from pathlib import Path
+﻿from pathlib import Path
 import math, re, csv as _csv
 import matplotlib.pyplot as plt
 import numpy as np
 
-# ── Paths ─────────────────────────────────────────────────────────────────────
-HUMAN_FASTA   = Path(r"D:\PhD_Thesis\MPNN\results\proteinmpnn_all\proteinmpnn_outputs\combined_HUMAN_labeled.fasta")
-MOUSE_FASTA   = Path(r"D:\PhD_Thesis\MPNN\results\proteinmpnn_all\proteinmpnn_outputs\combined_MOUSE_labeled.fasta")
+# â”€â”€ Paths â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+HUMAN_FASTA   = Path(r"./analysis_scripts/MPNN/proteinmpnn_outputs/combined_HUMAN_labeled.fasta")
+MOUSE_FASTA   = Path(r"./analysis_scripts/MPNN/proteinmpnn_outputs/combined_MOUSE_labeled.fasta")
 OUTPUT_PREFIX = Path("results/gpx6_mpnn_ternary")
 
-# ── References ────────────────────────────────────────────────────────────────
+# â”€â”€ References â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 ANC_SEQ = "PQKMKMDCNKGVTGTIYEYGALTLNGEEYIQFKQYAGKHVLFVNVATYGLTAQYPELNALQEELKHFGVIVLGFPCNQFGKQEPGKNSEILSGLKYVRPGGGFVPNFQLFEKGDVNGEKEQKVFTFLKNSCPPTSDLLGSSSQLFWEPMKVHDIRWNFEKFLVGPDGVPVMRWFHRAPVSTVKSDILEYLKQF"
 HUM_SEQ = "PQNRKVDNKGVTGTIYEYGALTLNGEEYIQFKQFAGKVLFVNVAAYLAAQYPELNALQEELKNFGVIVLAFPCNQFGKQEPGTNSEILLGLKYVCPGSGFVPSFQLFEKGDVNGEKEQKVFTFLKNSPPTSDLLGSSSQLFWEPMKVDIRWNFEKFLVGPDGVPVMWFQAPVSTVKSDILEYLKQFNT"
 MOU_SEQ = "PQKSKVDNKGVTGTVYEYGANTIDGGEFVNFQQYAGKILFVNVASFCGLTATYPELNTLQEELKPFNVTVLGFPCNQFGKQEPGKNSEILLGLKYVRPGGGYVPNFQLFEKGDVNGDNEQKVFSFLKNSPPTSELFGSPELFWDPMKVDIRWNFEKFLVGPDGVPVMRWFTPVRIVQSDIMEYLNQTS"
@@ -17,7 +17,7 @@ REF_SEQS = [ANC_SEQ, HUM_SEQ, MOU_SEQ]
 # vertex 0=ANC (top), 1=MOU (bottom-left), 2=HUM (bottom-right)
 VERTICES = np.array([[0.5, math.sqrt(3)/2], [0.0, 0.0], [1.0, 0.0]])
 
-# ── BLOSUM62 ──────────────────────────────────────────────────────────────────
+# â”€â”€ BLOSUM62 â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 _B62 = {
     ('A','A'):4,('A','R'):-1,('A','N'):-2,('A','D'):-2,('A','C'):0,('A','Q'):-1,('A','E'):-1,('A','G'):0,('A','H'):-2,('A','I'):-1,('A','L'):-1,('A','K'):-1,('A','M'):-1,('A','F'):-2,('A','P'):-1,('A','S'):1,('A','T'):0,('A','W'):-3,('A','Y'):-2,('A','V'):0,
     ('R','R'):5,('R','N'):-1,('R','D'):-2,('R','C'):-3,('R','Q'):1,('R','E'):0,('R','G'):-2,('R','H'):0,('R','I'):-3,('R','L'):-2,('R','K'):2,('R','M'):-1,('R','F'):-3,('R','P'):-2,('R','S'):-1,('R','T'):-1,('R','W'):-3,('R','Y'):-2,('R','V'):-3,
@@ -92,14 +92,14 @@ def parse_fasta(path):
                         "".join(chunks).upper()))
     return records
 
-# ── Load — species assigned from filename, not header ─────────────────────────
+# â”€â”€ Load â€” species assigned from filename, not header â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 all_records = []
 for fp, sp_label in [(HUMAN_FASTA, "HUM"), (MOUSE_FASTA, "MOU")]:
     for sid, score, seq in parse_fasta(fp):
         all_records.append((sid, score, seq, sp_label))
 print(f"Loaded {len(all_records)} sequences total")
 
-# ── Compute barycentric coords ─────────────────────────────────────────────────
+# â”€â”€ Compute barycentric coords â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 rows = []; skipped = 0
 for i, (sid, score, seq, sp) in enumerate(all_records):
     if i % 100 == 0: print(f"  {i}/{len(all_records)}...")
@@ -122,7 +122,7 @@ hum_r = [r for r in rows if r["species"] == "HUM"]
 mou_r = [r for r in rows if r["species"] == "MOU"]
 print(f"  HUM: {len(hum_r)}   MOU: {len(mou_r)}")
 
-# ── Save CSV ───────────────────────────────────────────────────────────────────
+# â”€â”€ Save CSV â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 OUTPUT_PREFIX.parent.mkdir(parents=True, exist_ok=True)
 csv_out = f"{OUTPUT_PREFIX}_coords.csv"
 with open(csv_out, "w", newline="") as f:
@@ -130,7 +130,7 @@ with open(csv_out, "w", newline="") as f:
     w.writeheader(); w.writerows(rows)
 print(f"CSV saved: {csv_out}")
 
-# ── Plot ───────────────────────────────────────────────────────────────────────
+# â”€â”€ Plot â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 plt.rcParams.update({
     "font.family":       "Arial",
     "font.size":         11,
@@ -188,7 +188,7 @@ CORNER_OFFSETS = [
 for (vx, vy), (dx, dy, ha, va), lbl in zip(VERTICES, CORNER_OFFSETS, CORNER_LABELS):
     ax.text(vx+dx, vy+dy, lbl, ha=ha, va=va, fontsize=11, color="#111111")
 
-# ── ONLY CHANGE: legend smaller font + moved below plot to avoid overlap ───────
+# â”€â”€ ONLY CHANGE: legend smaller font + moved below plot to avoid overlap â”€â”€â”€â”€â”€â”€â”€
 ax.legend(loc="upper center", bbox_to_anchor=(0.5, -0.02), ncol=2,
           framealpha=0.95, fontsize=7, title="Sequence group", title_fontsize=7,
           markerscale=1.2, handletextpad=0.4, borderpad=0.6)
@@ -203,3 +203,4 @@ fig.savefig(out, dpi=300, bbox_inches="tight")
 plt.show()
 print(f"Plot saved: {out}")
 print(f"CSV:        {csv_out}")
+

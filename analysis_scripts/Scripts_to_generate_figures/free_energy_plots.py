@@ -1,4 +1,4 @@
-"""
+﻿"""
 unify_xaxis_png.py
 ------------------
 Unifies the x-axis range of 4 existing PNG figures to -350..500
@@ -10,16 +10,16 @@ import numpy as np
 from PIL import Image, ImageDraw, ImageFont
 import os
 
-# ── Spine coordinates (auto-detected from images) ─────────────────────────
+# â”€â”€ Spine coordinates (auto-detected from images) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 LEFT, RIGHT = 263, 1786
 TOP, BOTTOM = 206, 1416
 IMG_W, IMG_H = 2000, 1607
 PLOT_W = RIGHT - LEFT   # 1523 px
 PLOT_H = BOTTOM - TOP   # 1210 px
 
-# ── Input figures with their current x-axis data ranges ───────────────────
-INPUT_DIR  = r"D:\PhD_Thesis\analysis\FINAL_PUBLICATION_FIGURES\Figures_FINAL"
-OUTPUT_DIR = r"D:\PhD_Thesis\analysis\FINAL_PUBLICATION_FIGURES\Figures_FINAL\unified_xaxis"
+# â”€â”€ Input figures with their current x-axis data ranges â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+INPUT_DIR  = r"./analysis_scripts/Scripts_to_generate_figures/Figures/Figures_FINAL"
+OUTPUT_DIR = r"./analysis_scripts/Scripts_to_generate_figures/Figures/Figures_FINAL/unified_xaxis"
 
 fig_info = [
     ("Fig3A.png", -300, 325),   # humancys
@@ -28,16 +28,16 @@ fig_info = [
     ("Fig3D.png", -300, 500),   # mousesec
 ]
 
-# ── Unified target x range ─────────────────────────────────────────────────
+# â”€â”€ Unified target x range â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 TARGET_XMIN, TARGET_XMAX = -350, 500
 px_per_unit = PLOT_W / (TARGET_XMAX - TARGET_XMIN)   # ~1.792 px/unit
 
-# ── Tick marks to draw ─────────────────────────────────────────────────────
+# â”€â”€ Tick marks to draw â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 TICKS = [-300, -200, -100, 0, 100, 200, 300, 400, 500]
 
-# ── ACS-style font (adjust path for Windows if needed) ────────────────────
-# Windows: r"C:\Windows\Fonts\arial.ttf"
-FONT_PATH  = r"C:\Windows\Fonts\arial.ttf"
+# â”€â”€ ACS-style font (adjust path for Windows if needed) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+# Windows: r"/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"
+FONT_PATH  = r"/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"
 TICK_SIZE  = 44
 LABEL_SIZE = 44
 
@@ -104,4 +104,5 @@ for fname, xmin, xmax in fig_info:
     result.save(out_path, dpi=(300, 300))
     print(f"[OK] {out_path}")
 
-print("\nDone. All figures saved with unified x-axis −350 to 500.")
+print("\nDone. All figures saved with unified x-axis âˆ’350 to 500.")
+

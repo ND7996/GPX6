@@ -1,14 +1,14 @@
-from pathlib import Path
+﻿from pathlib import Path
 import csv, math, re
 import matplotlib.pyplot as plt
 import numpy as np
 
-# ── Paths ─────────────────────────────────────────────────────────────────────
-HUMAN_FASTA   = Path(r"D:\PhD_Thesis\MPNN\results\proteinmpnn_all\proteinmpnn_outputs\combined_HUMAN_labeled.fasta")
-MOUSE_FASTA   = Path(r"D:\PhD_Thesis\MPNN\results\proteinmpnn_all\proteinmpnn_outputs\combined_MOUSE_labeled.fasta")
+# â”€â”€ Paths â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+HUMAN_FASTA   = Path(r"./analysis_scripts/MPNN/proteinmpnn_outputs/combined_HUMAN_labeled.fasta")
+MOUSE_FASTA   = Path(r"./analysis_scripts/MPNN/proteinmpnn_outputs/combined_MOUSE_labeled.fasta")
 OUTPUT_PREFIX = Path("results/gpx6_mpnn_ternary")
 
-# ── Reference sequences (original GPX6 WTs) ───────────────────────────────────
+# â”€â”€ Reference sequences (original GPX6 WTs) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 ANC_SEQ = "PQKMKMDCNKGVTGTIYEYGALTLNGEEYIQFKQYAGKHVLFVNVATYGLTAQYPELNALQEELKHFGVIVLGFPCNQFGKQEPGKNSEILSGLKYVRPGGGFVPNFQLFEKGDVNGEKEQKVFTFLKNSCPPTSDLLGSSSQLFWEPMKVHDIRWNFEKFLVGPDGVPVMRWFHRAPVSTVKSDILEYLKQF"
 HUM_SEQ = "PQNRKVDNKGVTGTIYEYGALTLNGEEYIQFKQFAGKVLFVNVAAYLAAQYPELNALQEELKNFGVIVLAFPCNQFGKQEPGTNSEILLGLKYVCPGSGFVPSFQLFEKGDVNGEKEQKVFTFLKNSPPTSDLLGSSSQLFWEPMKVDIRWNFEKFLVGPDGVPVMWFQAPVSTVKSDILEYLKQFNT"
 MOU_SEQ = "PQKSKVDNKGVTGTVYEYGANTIDGGEFVNFQQYAGKILFVNVASFCGLTATYPELNTLQEELKPFNVTVLGFPCNQFGKQEPGKNSEILLGLKYVRPGGGYVPNFQLFEKGDVNGDNEQKVFSFLKNSPPTSELFGSPELFWDPMKVDIRWNFEKFLVGPDGVPVMRWFTPVRIVQSDIMEYLNQTS"
@@ -16,7 +16,7 @@ REF_SEQS   = [ANC_SEQ, HUM_SEQ, MOU_SEQ]
 REF_LABELS = ["Ancestor\n(node_25)", "Human\nGPX6 WT", "Mouse\nGPX6 WT"]
 VERTICES   = np.array([[0.5, math.sqrt(3)/2], [0.0, 0.0], [1.0, 0.0]])
 
-# ── BLOSUM62 affine NW ────────────────────────────────────────────────────────
+# â”€â”€ BLOSUM62 affine NW â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 _B62 = {
     ('A','A'):4,('A','R'):-1,('A','N'):-2,('A','D'):-2,('A','C'):0,('A','Q'):-1,('A','E'):-1,('A','G'):0,('A','H'):-2,('A','I'):-1,('A','L'):-1,('A','K'):-1,('A','M'):-1,('A','F'):-2,('A','P'):-1,('A','S'):1,('A','T'):0,('A','W'):-3,('A','Y'):-2,('A','V'):0,
     ('R','R'):5,('R','N'):-1,('R','D'):-2,('R','C'):-3,('R','Q'):1,('R','E'):0,('R','G'):-2,('R','H'):0,('R','I'):-3,('R','L'):-2,('R','K'):2,('R','M'):-1,('R','F'):-3,('R','P'):-2,('R','S'):-1,('R','T'):-1,('R','W'):-3,('R','Y'):-2,('R','V'):-3,
@@ -88,7 +88,7 @@ def parse_fasta(path):
         records.append((sid,float(m.group(1)) if m else None,"".join(chunks).upper()))
     return records
 
-# ── Load — HUM and MOU only, no templates ────────────────────────────────────
+# â”€â”€ Load â€” HUM and MOU only, no templates â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 all_records=[]
 for fp in [HUMAN_FASTA, MOUSE_FASTA]:
     all_records.extend(
@@ -97,7 +97,7 @@ for fp in [HUMAN_FASTA, MOUSE_FASTA]:
     )
 print(f"Loaded {len(all_records)} designed sequences")
 
-# ── Compute ───────────────────────────────────────────────────────────────────
+# â”€â”€ Compute â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 rows=[]; skipped=0
 for i,(sid,score,seq) in enumerate(all_records):
     if i%100==0: print(f"  {i}/{len(all_records)}...")
@@ -129,7 +129,7 @@ with open(f"{OUTPUT_PREFIX}_coords.csv","w",newline="") as f:
     w=_csv.DictWriter(f,fieldnames=list(rows[0].keys()))
     w.writeheader(); w.writerows(rows)
 
-# ── Plot ──────────────────────────────────────────────────────────────────────
+# â”€â”€ Plot â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 plt.rcParams.update({"font.family":"Arial","font.size":11,"figure.dpi":300,
                      "legend.frameon":True,"legend.edgecolor":"#cccccc",
                      "legend.framealpha":0.9})
@@ -140,7 +140,7 @@ CORNER_NAMES  = ["ANCESTOR_node_25", "MOUSE_GPX6_WT", "HUMAN_GPX6_WT"]
 fig,ax=plt.subplots(figsize=(8,8))
 ax.set_aspect("equal"); ax.axis("off")
 
-# Triangle — white fill, black border
+# Triangle â€” white fill, black border
 ax.add_patch(plt.Polygon(VERTICES, fill=True, facecolor="white",
              edgecolor="black", linewidth=2.0, zorder=0))
 
@@ -149,7 +149,7 @@ for (vx,vy),vc in zip(VERTICES, CORNER_COLORS):
     ax.scatter([vx],[vy], marker="^", s=300, color=vc,
                edgecolors="none", zorder=5)
 
-# Corner labels — bold, coloured, outside triangle
+# Corner labels â€” bold, coloured, outside triangle
 CORNER_OFFSETS = [(0,0.055,"center","bottom"),
                   (-0.07,-0.055,"right","top"),
                   ( 0.07,-0.055,"left","top")]
@@ -157,7 +157,7 @@ for (vx,vy),(dx,dy,ha,va),lbl,vc in zip(VERTICES,CORNER_OFFSETS,CORNER_NAMES,COR
     ax.text(vx+dx, vy+dy, lbl, ha=ha, va=va,
             fontsize=11, fontweight="bold", color=vc)
 
-# Scatter — circles only, colour by species
+# Scatter â€” circles only, colour by species
 hum_r=[r for r in rows if r["species"]=="HUM"]
 mou_r=[r for r in rows if r["species"]=="MOU"]
 ax.scatter([r["x"] for r in mou_r],[r["y"] for r in mou_r],
@@ -167,7 +167,7 @@ ax.scatter([r["x"] for r in hum_r],[r["y"] for r in hum_r],
            color=C_HUM, s=30, edgecolors="none", alpha=0.70, zorder=3,
            label="Human GPX6 variants")
 
-# Legend — top right, clean
+# Legend â€” top right, clean
 ax.legend(loc="upper right", framealpha=0.9, fontsize=9,
           title="Sequence group", title_fontsize=9,
           markerscale=1.4, handletextpad=0.5, borderpad=0.7)
@@ -181,3 +181,4 @@ fig.savefig(out,dpi=300,bbox_inches="tight")
 plt.show()
 print(f"Saved: {out}")
 print(f"CSV:   {OUTPUT_PREFIX}_coords.csv")
+

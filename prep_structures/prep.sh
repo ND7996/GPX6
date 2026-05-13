@@ -1,6 +1,10 @@
 #!/bin/bash
+set -euo pipefail
+
 # Directory containing PDB files
-pdb_dir=""
+pdb_dir="${PDB_DIR:-./prep_structures/HUMAN/level0}"
+param_dir="${PARAM_DIR:-./parameters}"
+
 # Create a log file
 log_file="$pdb_dir/solvation_log.txt"
 echo "Starting solvation process at $(date)" > "$log_file"
@@ -17,9 +21,9 @@ for pdb_file in "$pdb_dir"/*.pdb; do
     
     # Create input file for qprep5 in the target directory
     cat <<EOF > "$pdb_dir/${base_name}.inp"
-readlib /home/hp/nayanika/github/GPX6/parameters/qoplsaa.lib
-readlib /home/hp/nayanika/github/GPX6/parameters/GPX.lib
-readprm /home/hp/nayanika/github/GPX6/parameters/qoplsaa_all2.prm
+readlib $param_dir/qoplsaa.lib
+readlib $param_dir/GPX.lib
+readprm $param_dir/qoplsaa_all2.prm
 readpdb "$pdb_file"
 set solvent_pack 2.7
 boundary sphere 49:SE 25.
@@ -44,6 +48,8 @@ done
 # Report summary
 echo "Solvation process completed at $(date)" | tee -a "$log_file"
 echo "Summary:" | tee -a "$log_file"
-echo "Total PDB files: $(ls "$pdb_dir"/*.pdb | grep -v "_solvated.pdb" | wc -l)" | tee -a "$log_file"
-echo "Successfully solvated: $(ls "$pdb_dir"/*_solvated.pdb | wc -l)" | tee -a "$log_file"
-echo "Failed: $(($(ls "$pdb_dir"/*.pdb | grep -v "_solvated.pdb" | wc -l) - $(ls "$pdb_dir"/*_solvated.pdb | wc -l)))" | tee -a "$log_file"
+total_pdb=$(find "$pdb_dir" -maxdepth 1 -name "*.pdb" ! -name "*_solvated.pdb" | wc -l)
+solvated_pdb=$(find "$pdb_dir" -maxdepth 1 -name "*_solvated.pdb" | wc -l)
+echo "Total PDB files: $total_pdb" | tee -a "$log_file"
+echo "Successfully solvated: $solvated_pdb" | tee -a "$log_file"
+echo "Failed: $((total_pdb - solvated_pdb))" | tee -a "$log_file"

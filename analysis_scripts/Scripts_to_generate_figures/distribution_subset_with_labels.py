@@ -1,4 +1,4 @@
-import sys
+﻿import sys
 import os
 from pathlib import Path
 import csv
@@ -12,7 +12,7 @@ from adjustText import adjust_text
 
 # =================== JCIM PUBLICATION STYLE ===================
 # Add path to acsfonts.py
-ACS_PATH = r"D:\PhD_Thesis\analysis\FINAL_PUBLICATION_FIGURES"
+ACS_PATH = r"./analysis_scripts/Scripts_to_generate_figures/Figures"
 if ACS_PATH not in sys.path:
     sys.path.append(ACS_PATH)
 
@@ -29,10 +29,10 @@ plt.rcParams.update({
     "ytick.color": "black"
 })
 
-# ── Paths ──────────────────────────────────────────────────────────────────────
-FASTA_MOUSE    = Path(r"D:\PhD_Thesis\GPX6\prep_structures\MOUSE\mutant_pdbs\sequences_mouse.fasta")
-FASTA_HUMAN    = Path(r"D:\PhD_Thesis\GPX6\prep_structures\HUMAN\mutant_pdbs\sequences_human.fasta")
-FASTA_ANCESTOR = Path(r"D:\PhD_Thesis\analysis\alignment\subset.fasta")
+# â”€â”€ Paths â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+FASTA_MOUSE    = Path(r"./prep_structures\MOUSE\mutant_pdbs\sequences_mouse.fasta")
+FASTA_HUMAN    = Path(r"./prep_structures\HUMAN\mutant_pdbs\sequences_human.fasta")
+FASTA_ANCESTOR = Path(r"./analysis_scripts/alignment/gpx6_human_mouse_input.fasta")
 
 OUTPUT_PREFIX = Path("results/gpx6")
 
@@ -52,11 +52,11 @@ _LABEL_OFFSETS = [
     dict(dx= 0.000, dy= 0.040, ha="center", va="bottom"),
 ]
 
-SOFTMAX_TEMP = 0.20   # controls spread along Mouse–Human axis
+SOFTMAX_TEMP = 0.20   # controls spread along Mouseâ€“Human axis
 ARC_HEIGHT   = 0.30   # how high dots bow toward Ancestor (0=flat, ~0.15=pronounced arc)
 RNG          = np.random.default_rng(seed=42)
 
-# ── Mutation table ─────────────────────────────────────────────────────────────
+# â”€â”€ Mutation table â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 MUTATION_TABLE = {
     3:   ("K", "N"),  4:   ("S", "R"),  16:  ("V", "I"),  22:  ("N", "L"),
     24:  ("I", "L"),  25:  ("D", "N"),  27:  ("G", "E"),  29:  ("F", "Y"),
@@ -99,7 +99,7 @@ def build_label_lookup(query_records):
             label_lookup[sid] = make_label(HUMAN_YELLOW_POSITIONS[row_idx], is_mouse=False)
     return label_lookup
 
-# ── FASTA parser ───────────────────────────────────────────────────────────────
+# â”€â”€ FASTA parser â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 def parse_fasta(path: Path):
     records, header, chunks = [], None, []
     with path.open() as fh:
@@ -132,7 +132,7 @@ def load_all_records():
                 print(f"    [WARN] Duplicate ID skipped: '{sid}'")
     return list(seen.items())
 
-# ── Distance metrics ───────────────────────────────────────────────────────────
+# â”€â”€ Distance metrics â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 def levenshtein_distance(a: str, b: str) -> int:
     if len(a) < len(b):
         a, b = b, a
@@ -170,7 +170,7 @@ METRICS = [
     ("Sqrt Levenshtein",    dist_sqrt_lev),
 ]
 
-# ── Softmax barycentric ────────────────────────────────────────────────────────
+# â”€â”€ Softmax barycentric â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 def distances_to_xy(d_A, d_B, d_C, temp=SOFTMAX_TEMP):
     ds  = np.array([d_A, d_B, d_C], dtype=float)
     ds -= ds.min()
@@ -179,7 +179,7 @@ def distances_to_xy(d_A, d_B, d_C, temp=SOFTMAX_TEMP):
     xy  = w[0]*VERTICES[0] + w[1]*VERTICES[1] + w[2]*VERTICES[2]
     return float(xy[0]), float(xy[1]), w[0], w[1], w[2], int(np.argmin([d_A, d_B, d_C]))
 
-# ── Arc jitter ─────────────────────────────────────────────────────────────────
+# â”€â”€ Arc jitter â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 def arc_jitter(x, y, rng, arc_height=ARC_HEIGHT, noise_scale=0.008):
     t = np.clip(x, 0.0, 1.0)
     base = (1.0 - t) * VERTICES[0] + t * VERTICES[1]
@@ -193,7 +193,7 @@ def arc_jitter(x, y, rng, arc_height=ARC_HEIGHT, noise_scale=0.008):
     py = base[1] + lift * direction[1] + noise[1]
     return float(px), float(py)
 
-# ── Grouping ───────────────────────────────────────────────────────────────────
+# â”€â”€ Grouping â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 GROUP_STYLE = {
     "Mouse GPX6 variants": dict(color="#2166ac", marker="o", zorder=4),
     "Human GPX6 variants": dict(color="#E87722", marker="o", zorder=5),
@@ -214,7 +214,7 @@ def get_group(seq_id: str) -> str:
         return "Human GPX6 variants"
     return "Other"
 
-# ── Plot helpers ───────────────────────────────────────────────────────────────
+# â”€â”€ Plot helpers â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 def draw_triangle(ax):
     tri = np.vstack([VERTICES, VERTICES[0]])
     ax.plot(tri[:, 0], tri[:, 1], color="#333333", linewidth=1.8, zorder=2)
@@ -301,7 +301,7 @@ def write_csv(path: Path, rows, fieldnames):
         w.writeheader()
         w.writerows(rows)
 
-# ── Main ───────────────────────────────────────────────────────────────────────
+# â”€â”€ Main â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 def main():
     print("Loading FASTA files...")
     all_records = load_all_records()
@@ -324,7 +324,7 @@ def main():
         missing = [r for r in REFERENCE_IDS
                    if not any(r.lower() in sid.lower() for sid, _ in ref_records)]
         raise ValueError(
-            f"Expected 3 references, found {len(ref_records)}.\n"
+            f"Expected 3 references, found {len(ref_records)}./n"
             f"  Found:   {found}\n"
             f"  Missing substrings: {missing}\n"
             f"  Update REFERENCE_IDS to match the headers printed above."
@@ -350,7 +350,7 @@ def main():
     label_lookup = build_label_lookup(query_records)
     print(f"  Labelled sequences: {len(label_lookup)}")
     for sid, lbl in label_lookup.items():
-        print(f"    {sid}  →  {lbl}")
+        print(f"    {sid}  â†’  {lbl}")
 
     FIG10_NAMES = ["Fig10_1a", "Fig10_1b", "Fig10_1c", "Fig10_1d"]
     all_csv = []
@@ -377,7 +377,7 @@ def main():
 
         all_csv.extend(rows)
 
-        print(f"[{metric_label}] nearest counts → "
+        print(f"[{metric_label}] nearest counts â†’ "
               f"Mouse:{nearest_counts[0]}  Human:{nearest_counts[1]}  Ancestor:{nearest_counts[2]}")
 
         fig, ax = plt.subplots(figsize=(9, 9))
@@ -408,3 +408,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+

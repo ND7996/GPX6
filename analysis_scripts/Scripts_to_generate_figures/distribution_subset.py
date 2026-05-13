@@ -1,7 +1,7 @@
-import sys
+﻿import sys
 import os
 
-ACS_PATH = r"D:\PhD_Thesis\analysis\FINAL_PUBLICATION_FIGURES"
+ACS_PATH = r"./analysis_scripts/Scripts_to_generate_figures/Figures"
 
 if ACS_PATH not in sys.path:
     sys.path.append(ACS_PATH)
@@ -16,38 +16,38 @@ import matplotlib.pyplot as plt
 import matplotlib.gridspec as gridspec
 import numpy as np
 
-# ── Paths ──────────────────────────────────────────────────────────────────────
+# â”€â”€ Paths â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 # All three FASTA files are loaded and merged
-FASTA_MOUSE    = Path(r"D:\PhD_Thesis\GPX6\prep_structures\MOUSE\mutant_pdbs\sequences_mouse.fasta")
-FASTA_HUMAN    = Path(r"D:\PhD_Thesis\GPX6\prep_structures\HUMAN\mutant_pdbs\sequences_human.fasta")
-FASTA_ANCESTOR = Path(r"D:\PhD_Thesis\analysis\alignment\ancestor_25.fasta")
+FASTA_MOUSE    = Path(r"./prep_structures\MOUSE\mutant_pdbs\sequences_mouse.fasta")
+FASTA_HUMAN    = Path(r"./prep_structures\HUMAN\mutant_pdbs\sequences_human.fasta")
+FASTA_ANCESTOR = Path(r"./analysis_scripts/alignment/gpx6_human_mouse_input.fasta")
 
 OUTPUT_PREFIX = Path("results/gpx6")
 
-# ── Reference IDs: substrings matched against FASTA headers (case-insensitive) ─
+# â”€â”€ Reference IDs: substrings matched against FASTA headers (case-insensitive) â”€
 # Order: A = Mouse (BL), B = Human (BR), C = Ancestor (top)
 REFERENCE_IDS = ["original_mousecys", "original_humansec", "ANCESTOR_node_25"]
 
 # Triangle vertices: A=Mouse BL, B=Human BR, C=Ancestor top
 VERTICES = np.array([
-    [0.0, 0.0],                    # A – Mouse
-    [1.0, 0.0],                    # B – Human
-    [0.5, math.sqrt(3) / 2],       # C – Ancestor
+    [0.0, 0.0],                    # A â€“ Mouse
+    [1.0, 0.0],                    # B â€“ Human
+    [0.5, math.sqrt(3) / 2],       # C â€“ Ancestor
 ])
 REF_LABELS  = ["Mouse\nGPX6 WT", "Human\nGPX6 WT", "Ancestor\n(node_25)"]
 REF_COLORS  = ["#2166ac", "#d6604d", "#4a9c6d"]
 
 _LABEL_OFFSETS = [
-    dict(dx=-0.10, dy=-0.10, ha="right",  va="top"),    # Mouse – bottom left
-    dict(dx= 0.10, dy=-0.10, ha="left",   va="top"),    # Human – bottom right
-    dict(dx= 0.00, dy= 0.08, ha="center", va="bottom"), # Ancestor – top
+    dict(dx=-0.10, dy=-0.10, ha="right",  va="top"),    # Mouse â€“ bottom left
+    dict(dx= 0.10, dy=-0.10, ha="left",   va="top"),    # Human â€“ bottom right
+    dict(dx= 0.00, dy= 0.08, ha="center", va="bottom"), # Ancestor â€“ top
 ]
 
 SOFTMAX_TEMP = 0.03
 JITTER_SCALE = 0.006
 RNG          = np.random.default_rng(seed=42)
 
-# ── FASTA parser ───────────────────────────────────────────────────────────────
+# â”€â”€ FASTA parser â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 def parse_fasta(path: Path):
     records, header, chunks = [], None, []
     with path.open() as fh:
@@ -81,7 +81,7 @@ def load_all_records():
                 print(f"    [WARN] Duplicate ID skipped: '{sid}'")
     return list(seen.items())
 
-# ── Core edit distance ─────────────────────────────────────────────────────────
+# â”€â”€ Core edit distance â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 def levenshtein_distance(a: str, b: str) -> int:
     if len(a) < len(b):
         a, b = b, a
@@ -93,7 +93,7 @@ def levenshtein_distance(a: str, b: str) -> int:
         prev = curr
     return prev[-1]
 
-# ── Distance metrics ───────────────────────────────────────────────────────────
+# â”€â”€ Distance metrics â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 def dist_p(a: str, b: str, scale: float = None) -> float:
     if len(a) == len(b):
         cols = [(ca, cb) for ca, cb in zip(a, b) if ca != '-' and cb != '-']
@@ -120,7 +120,7 @@ METRICS = [
     ("Sqrt Levenshtein",    dist_sqrt_lev),
 ]
 
-# ── Softmax barycentric ────────────────────────────────────────────────────────
+# â”€â”€ Softmax barycentric â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 def distances_to_xy(d_A, d_B, d_C, temp=SOFTMAX_TEMP):
     ds  = np.array([d_A, d_B, d_C], dtype=float)
     ds -= ds.min()
@@ -129,9 +129,9 @@ def distances_to_xy(d_A, d_B, d_C, temp=SOFTMAX_TEMP):
     xy  = w[0]*VERTICES[0] + w[1]*VERTICES[1] + w[2]*VERTICES[2]
     return float(xy[0]), float(xy[1]), w[0], w[1], w[2], int(np.argmin([d_A, d_B, d_C]))
 
-# ── Grouping ───────────────────────────────────────────────────────────────────
-# Mouse variants: GPX6_level01_ … GPX6_level20_  (prefixed with "GPX6_")
-# Human variants: level01_ … level19_            (no GPX6_ prefix)
+# â”€â”€ Grouping â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+# Mouse variants: GPX6_level01_ â€¦ GPX6_level20_  (prefixed with "GPX6_")
+# Human variants: level01_ â€¦ level19_            (no GPX6_ prefix)
 GROUP_STYLE = {
     "Mouse GPX6 variants": dict(color="#2166ac", marker="o", zorder=4),
     "Human GPX6 variants": dict(color="#d6604d", marker="o", zorder=5),
@@ -146,7 +146,7 @@ def get_group(seq_id: str) -> str:
         return "Human GPX6 variants"
     return "Other"
 
-# ── Plot helpers ───────────────────────────────────────────────────────────────
+# â”€â”€ Plot helpers â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 def draw_triangle(ax):
     tri = np.vstack([VERTICES, VERTICES[0]])
     ax.plot(tri[:, 0], tri[:, 1], color="#333333", linewidth=1.8, zorder=2)
@@ -182,19 +182,19 @@ def write_csv(path: Path, rows, fieldnames):
         w.writeheader()
         w.writerows(rows)
 
-# ── Main ───────────────────────────────────────────────────────────────────────
+# â”€â”€ Main â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 def main():
     print("Loading FASTA files...")
     all_records = load_all_records()
     print(f"Total unique sequences: {len(all_records)}\n")
 
-    # ── Debug: show all headers ────────────────────────────────────────────────
+    # â”€â”€ Debug: show all headers â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     print("All sequence IDs:")
     for sid, seq in all_records:
         print(f"  '{sid}'  (len={len(seq)})")
     print()
 
-    # ── Split into references and queries ─────────────────────────────────────
+    # â”€â”€ Split into references and queries â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     ref_records, query_records = [], []
     for sid, seq in all_records:
         if any(r.lower() in sid.lower() for r in REFERENCE_IDS):
@@ -207,7 +207,7 @@ def main():
         missing = [r for r in REFERENCE_IDS
                    if not any(r.lower() in sid.lower() for sid, _ in ref_records)]
         raise ValueError(
-            f"Expected 3 references, found {len(ref_records)}.\n"
+            f"Expected 3 references, found {len(ref_records)}./n"
             f"  Found:   {found}\n"
             f"  Missing substrings: {missing}\n"
             f"  Update REFERENCE_IDS to match the headers printed above."
@@ -256,10 +256,10 @@ def main():
 
         all_csv.extend(rows)
 
-        print(f"[{metric_label}] nearest counts → "
+        print(f"[{metric_label}] nearest counts â†’ "
               f"Mouse:{nearest_counts[0]}  Human:{nearest_counts[1]}  Ancestor:{nearest_counts[2]}")
 
-        # Save each metric as Fig10a–d
+        # Save each metric as Fig10aâ€“d
         fig_s, ax_s = plt.subplots(figsize=(7, 7))
         draw_triangle(ax_s)
         scatter_groups(ax_s, rows)
@@ -285,3 +285,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+

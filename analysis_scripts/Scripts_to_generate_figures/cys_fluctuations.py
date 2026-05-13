@@ -1,9 +1,9 @@
-"""
+﻿"""
 plot_U49C_pathway.py
 
 Reads: human_HBONDS.csv
 Plots U49C mutation across all available levels
-Shows ΔG* fluctuation with mutation level
+Shows Î”G* fluctuation with mutation level
 
 JCIM compliant
 - ALL text forced black
@@ -22,7 +22,7 @@ import matplotlib.text as mtext
 # ==========================================================
 # JCIM STYLE
 # ==========================================================
-ACS_PATH = r"D:\PhD_Thesis\analysis\FINAL_PUBLICATION_FIGURES"
+ACS_PATH = r"./analysis_scripts/Scripts_to_generate_figures/Figures"
 if ACS_PATH not in sys.path:
     sys.path.append(ACS_PATH)
 
@@ -45,8 +45,8 @@ plt.rcParams.update({
 # ==========================================================
 # FILES
 # ==========================================================
-INPUT_FILE = r"D:\PhD_Thesis\analysis\dipole\human_HBONDS.csv"
-OUTPUT_FILE = r"D:\PhD_Thesis\analysis\NetworkX\U49C_fluctuation.png"
+INPUT_FILE = r"./analysis_scripts\human_HBONDS.csv"
+OUTPUT_FILE = r"./analysis_scripts/Scripts_to_generate_figures/Figures/U49C_fluctuation.png"
 
 os.makedirs(os.path.dirname(OUTPUT_FILE), exist_ok=True)
 
@@ -152,3 +152,4 @@ plt.savefig(
 )
 
 print(f"Saved: {OUTPUT_FILE}")
+

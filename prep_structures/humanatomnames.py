@@ -2,7 +2,7 @@ import os
 import re
 
 # Define the base directory containing mutation folders
-base_directory = '/home/hp/results//level1'
+base_directory = os.environ.get("BASE_DIR", "./prep_structures/HUMAN/level1")
 mutation_folders = [
     "A178T", "A47S", "A52T", "A60T", "C99R", "E148D", "F104Y",
     "L139F", "L24I", "Q144H", "Q177H", "Q54T", "R4S", "S102G",

@@ -1,7 +1,7 @@
-import sys
+﻿import sys
 import os
 
-ACS_PATH = r"D:\PhD_Thesis\analysis\FINAL_PUBLICATION_FIGURES"
+ACS_PATH = r"./analysis_scripts/Scripts_to_generate_figures/Figures"
 
 if ACS_PATH not in sys.path:
     sys.path.append(ACS_PATH)
@@ -16,7 +16,7 @@ from pathlib import Path
 # ==========================================================
 # OUTPUT DIRECTORY
 # ==========================================================
-OUTDIR = Path(r"D:\PhD_Thesis\analysis\parameter_plots")
+OUTDIR = Path(r"./analysis_scripts/Scripts_to_generate_figures/Figures/parameter_plots")
 OUTDIR.mkdir(parents=True, exist_ok=True)
 
 jcim_figure()

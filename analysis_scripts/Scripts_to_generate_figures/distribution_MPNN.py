@@ -1,8 +1,8 @@
-import sys
+﻿import sys
 import os
 
 # =================== JCIM PUBLICATION STYLE ===================
-ACS_PATH = r"D:\PhD_Thesis\analysis\FINAL_PUBLICATION_FIGURES"
+ACS_PATH = r"./analysis_scripts/Scripts_to_generate_figures/Figures"
 if ACS_PATH not in sys.path:
     sys.path.append(ACS_PATH)
 
@@ -23,12 +23,12 @@ import csv
 import math
 import numpy as np
 
-# ── Paths ──────────────────────────────────────────────────────────────────────
-FASTA_HUMAN    = Path(r"D:\PhD_Thesis\MPNN\Human\GPX6MPNN_generated\all_generated_sequences.fasta")
-FASTA_MOUSE    = Path(r"D:\PhD_Thesis\MPNN\Mouse\GPX6MPNN_generated\all_generated_sequences.fasta")
+# â”€â”€ Paths â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+FASTA_HUMAN    = Path(r"./analysis_scripts/MPNN/Human/GPX6MPNN_generated/all_generated_sequences.fasta")
+FASTA_MOUSE    = Path(r"./analysis_scripts/MPNN/Mouse/GPX6MPNN_generated/all_generated_sequences.fasta")
 OUTPUT_PREFIX = Path("results/gpx6_mpnn_ternary_sharp")
 
-# ── Reference sequences ────────────────────────────────────────────────────────
+# â”€â”€ Reference sequences â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 ANC_SEQ = "PQKMKMDCNKGVTGTIYEYGALTLNGEEYIQFKQYAGKHVLFVNVATYGLTAQYPELNALQEELKHFGVIVLGFPCNQFGKQEPGKNSEILSGLKYVRPGGGFVPNFQLFEKGDVNGEKEQKVFTFLKNSCPPTSDLLGSSSQLFWEPMKVHDIRWNFEKFLVGPDGVPVMRWFHRAPVSTVKSDILEYLKQF"
 HUM_SEQ = "PQNRKVDNKGVTGTIYEYGALTLNGEEYIQFKQFAGKVLFVNVAAYLAAQYPELNALQEELKNFGVIVLAFPCNQFGKQEPGTNSEILLGLKYVCPGSGFVPSFQLFEKGDVNGEKEQKVFTFLKNSPPTSDLLGSSSQLFWEPMKVDIRWNFEKFLVGPDGVPVMWFQAPVSTVKSDILEYLKQFNT"
 MOU_SEQ = "PQKSKVDNKGVTGTVYEYGANTIDGGEFVNFQQYAGKILFVNVASFCGLTATYPELNTLQEELKPFNVTVLGFPCNQFGKQEPGKNSEILLGLKYVRPGGGYVPNFQLFEKGDVNGDNEQKVFSFLKNSPPTSELFGSPELFWDPMKVDIRWNFEKFLVGPDGVPVMRWFTPVRIVQSDIMEYLNQTS"
@@ -55,7 +55,7 @@ SOFTMAX_TEMP = 0.03
 JITTER_SCALE = 0.006
 RNG          = np.random.default_rng(seed=42)
 
-# ── FASTA parser ───────────────────────────────────────────────────────────────
+# â”€â”€ FASTA parser â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 def parse_fasta(path: Path):
     records, header, chunks = [], None, []
     with path.open() as fh:
@@ -76,7 +76,7 @@ def parse_fasta(path: Path):
         raise ValueError(f"No FASTA records in {path}")
     return records
 
-# ── Distance metrics ───────────────────────────────────────────────────────────
+# â”€â”€ Distance metrics â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 def levenshtein_distance(a: str, b: str) -> int:
     if len(a) < len(b):
         a, b = b, a
@@ -115,7 +115,7 @@ METRICS = [
     ("Sqrt Levenshtein",    dist_sqrt_lev),
 ]
 
-# ── Softmax barycentric ────────────────────────────────────────────────────────
+# â”€â”€ Softmax barycentric â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 def distances_to_xy(d_A, d_B, d_C):
     ds  = np.array([d_A, d_B, d_C], dtype=float)
     ds -= ds.min()
@@ -124,7 +124,7 @@ def distances_to_xy(d_A, d_B, d_C):
     xy  = w[0]*VERTICES[0] + w[1]*VERTICES[1] + w[2]*VERTICES[2]
     return float(xy[0]), float(xy[1]), w[0], w[1], w[2], int(np.argmin([d_A, d_B, d_C]))
 
-# ── Groups ───────────────────────────────────────────────────────────────────
+# â”€â”€ Groups â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 GROUP_STYLE = {
     "Human-designed": dict(color="#d6604d", marker="o", zorder=5),
     "Mouse-designed": dict(color="#2166ac", marker="o", zorder=4),
@@ -183,7 +183,7 @@ def write_csv(path: Path, rows, fieldnames):
         w.writeheader()
         w.writerows(rows)
 
-# ── Main ───────────────────────────────────────────────────────────────────────
+# â”€â”€ Main â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 def main():
     human_records = parse_fasta(FASTA_HUMAN)
     mouse_records = parse_fasta(FASTA_MOUSE)
@@ -224,3 +224,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+

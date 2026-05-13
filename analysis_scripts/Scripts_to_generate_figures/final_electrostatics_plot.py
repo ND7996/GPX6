@@ -1,4 +1,4 @@
-"""
+﻿"""
 heatmap_levels_gpx6_jcim.py
 JCIM publication style:
   - Font:  Arial (fallback DejaVu Sans), 7 pt tick labels, 8 pt axis labels
@@ -6,7 +6,7 @@ JCIM publication style:
   - Ticks: inward, 3 pt major
   - No bold anywhere (except panel labels a and b)
   - No white gaps between cells (edgecolor='none')
-  - All level numbers on x-axis (0, 1, 2, …)
+  - All level numbers on x-axis (0, 1, 2, â€¦)
   - Mouse: levels 0-20 (21 cols), Human: levels 0-19 (20 cols)
   - X-axis label on BOTH panels
   - Legend: 2 rows, no overlap
@@ -27,7 +27,7 @@ from matplotlib.patches import FancyBboxPatch
 import numpy as np
 import pandas as pd
 
-# ── JCIM font: Arial 8 pt ─────────────────────────────────────
+# â”€â”€ JCIM font: Arial 8 pt â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 import matplotlib.font_manager as fm
 
 _arial_found = any("arial" in f.lower() for f in fm.findSystemFonts())
@@ -64,9 +64,9 @@ plt.rcParams.update({
     "ps.fonttype":           42,
 })
 
-# ─────────────────────────────────────────────────────────────
+# â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 # ROW ORDER
-# ─────────────────────────────────────────────────────────────
+# â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 MOUSE_ORDER = [
     ("C49U",  0.0), ("F48Y",  3.9), ("T52A",  5.2), ("S47A",  5.6),
     ("R99C",  9.5), ("T54Q", 10.0), ("H144Q", 11.6), ("H177Q", 11.5),
@@ -89,12 +89,12 @@ HUMAN_DIST      = {m: d for m, d in HUMAN_ORDER}
 MOUSE_ROW_ORDER = [m for m, _ in MOUSE_ORDER]
 HUMAN_ROW_ORDER = [m for m, _ in HUMAN_ORDER]
 
-# ─────────────────────────────────────────────────────────────
+# â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 # CONFIG
-# ─────────────────────────────────────────────────────────────
+# â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 CONFIG = dict(
-    human_file = r"D:\PhD_Thesis\analysis\dipole\human_HBONDS.csv",
-    mouse_file = r"D:\PhD_Thesis\analysis\dipole\mouse_HBONDS.csv",
+    human_file = r"./analysis_scripts\human_HBONDS.csv",
+    mouse_file = r"./analysis_scripts\mouse_HBONDS.csv",
     human_refs = ["humansec", "humancys"],
     mouse_refs = ["mousecys", "C49U"],
     cmap       = "RdBu_r",
@@ -104,14 +104,14 @@ CONFIG = dict(
     },
 )
 
-SAVE_DIR  = r"D:\PhD_Thesis\analysis\FINAL_PUBLICATION_FIGURES\Figures_FINAL"
+SAVE_DIR  = r"./analysis_scripts/Scripts_to_generate_figures/Figures/Figures_FINAL"
 os.makedirs(SAVE_DIR, exist_ok=True)
 SAVE_PATH = os.path.join(SAVE_DIR, "heatmap_levels_gpx6_jcim")
 MISSING_CLR = "#e0e0e0"
 
-# ─────────────────────────────────────────────────────────────
+# â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 # DATA LOADING
-# ─────────────────────────────────────────────────────────────
+# â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 def get_wt_ref(path, refs):
     df   = pd.read_csv(path)
     mask = df["mutation"].isin(refs) & (df["level"] == "Level0")
@@ -149,13 +149,13 @@ h_pivot, h_meta = load_pivot(
 m_pivot, m_meta = load_pivot(
     CONFIG["mouse_file"], CONFIG["mouse_refs"], m_ref, MOUSE_DIST, MOUSE_ROW_ORDER)
 
-# ─────────────────────────────────────────────────────────────
+# â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 # FORCE LEVEL RANGES (JCIM CONSISTENCY)
-# ─────────────────────────────────────────────────────────────
-# Mouse: levels 0–20 (21 columns)
+# â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+# Mouse: levels 0â€“20 (21 columns)
 m_pivot = m_pivot.reindex(columns=list(range(21)))
 
-# Human: levels 0–19 (20 columns)
+# Human: levels 0â€“19 (20 columns)
 h_pivot = h_pivot.reindex(columns=list(range(20)))
 
 vabs     = max(np.nanmax(np.abs(h_pivot.values)),
@@ -164,10 +164,10 @@ vabs     = np.ceil(vabs / 2) * 2
 norm     = mcolors.TwoSlopeNorm(vmin=-vabs, vcenter=0, vmax=vabs)
 cmap_obj = plt.get_cmap(CONFIG["cmap"])
 
-# ─────────────────────────────────────────────────────────────
-# FIGURE GEOMETRY  (sized so 1 cell ≈ correct pt size at 600 dpi)
+# â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+# FIGURE GEOMETRY  (sized so 1 cell â‰ˆ correct pt size at 600 dpi)
 # Mouse: 21 cols (0-20)   Human: 20 cols (0-19)
-# ─────────────────────────────────────────────────────────────
+# â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 n_m          = len(m_pivot)
 n_h          = len(h_pivot)
 n_cols_mouse = len(m_pivot.columns)   # 21
@@ -208,16 +208,16 @@ fig, (ax_top, ax_bot) = plt.subplots(
     },
 )
 
-# ─────────────────────────────────────────────────────────────
+# â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 # DRAW FUNCTION (FIXED: No overlapping H-bond labels)
-# ─────────────────────────────────────────────────────────────
+# â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 def draw_heatmap(ax, pivot, meta, species_label, panel_label, n_cols_max):
     mutations = list(pivot.index)
     levels    = sorted(pivot.columns)
     n_muts    = len(mutations)
     n_lev     = len(levels)
 
-    # ── colour cells — no gap (edgecolor none) ────────────────
+    # â”€â”€ colour cells â€” no gap (edgecolor none) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     for ri, mut in enumerate(mutations):
         for ci, lv in enumerate(levels):
             val  = pivot.loc[mut, lv] if lv in pivot.columns else np.nan
@@ -227,13 +227,13 @@ def draw_heatmap(ax, pivot, meta, species_label, panel_label, n_cols_max):
                 facecolor=face, edgecolor="none", linewidth=0,
             ))
 
-    # ── y-axis: mutation labels ───────────────────────────────
+    # â”€â”€ y-axis: mutation labels â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     ax.set_yticks([r + 0.5 for r in range(n_muts)])
     ax.set_yticklabels(mutations, fontsize=7, va="center")
     ax.tick_params(axis="y", pad=2, length=0, width=0, left=False, right=False)
     ax.set_ylabel("Mutation", fontsize=8, labelpad=5)
 
-    # ── H-bond badges (FIXED: No overlapping labels) ──────────────────────────
+    # â”€â”€ H-bond badges (FIXED: No overlapping labels) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     badge_x  = n_lev + 0.15
     badge_sz = 0.68
     badge_w  = 0.58
@@ -289,7 +289,7 @@ def draw_heatmap(ax, pivot, meta, species_label, panel_label, n_cols_max):
                 fontweight='normal'
             )
 
-    # ── x-axis: ALL level numbers with rotation to prevent overlap ──
+    # â”€â”€ x-axis: ALL level numbers with rotation to prevent overlap â”€â”€
     ax.set_xticks([lv + 0.5 for lv in levels])
     ax.set_xticklabels([str(lv) for lv in levels], ha="right")
     
@@ -303,13 +303,13 @@ def draw_heatmap(ax, pivot, meta, species_label, panel_label, n_cols_max):
     )
     ax.set_xlabel("Mutation Level", fontsize=8, labelpad=4)
 
-    # ── spines ────────────────────────────────────────────────
+    # â”€â”€ spines â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     ax.spines["top"].set_visible(False)
     ax.spines["right"].set_visible(False)
     ax.spines["left"].set_visible(False)
     ax.spines["bottom"].set_linewidth(0.5)
 
-    # ── panel label (a)/(b) — BOLD, no parentheses ──────────────────────
+    # â”€â”€ panel label (a)/(b) â€” BOLD, no parentheses â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     ax.text(
         -0.08, 1.04, panel_label,
         transform=ax.transAxes,
@@ -327,9 +327,9 @@ def draw_heatmap(ax, pivot, meta, species_label, panel_label, n_cols_max):
 draw_heatmap(ax_top, m_pivot, m_meta, "Mouse", "a", n_cols_max)  # CHANGED: "a" not "(a)"
 draw_heatmap(ax_bot, h_pivot, h_meta, "Human", "b", n_cols_max)  # CHANGED: "b" not "(b)"
 
-# ─────────────────────────────────────────────────────────────
-# LEGEND — CLEAN (FINAL FIX, NO OVERLAP)
-# ─────────────────────────────────────────────────────────────
+# â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+# LEGEND â€” CLEAN (FINAL FIX, NO OVERLAP)
+# â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 cx = (l_frac + r_frac) / 2
 
 hb_handles = [
@@ -347,8 +347,8 @@ hb_handles.append(
     )
 )
 
-# 🔧 Proper vertical placement (key fix)
-legend_y = 0.55 / fig_h   # LOWER than before → avoids overlap
+# ðŸ”§ Proper vertical placement (key fix)
+legend_y = 0.55 / fig_h   # LOWER than before â†’ avoids overlap
 
 leg = fig.legend(
     handles        = hb_handles,
@@ -368,7 +368,7 @@ leg = fig.legend(
     handletextpad  = 0.5,
 )
 
-# 🔧 Add spacing between title and legend items (CRITICAL FIX)
+# ðŸ”§ Add spacing between title and legend items (CRITICAL FIX)
 leg.set_title("Local H-bond count")
 leg._legend_box.align = "center"
 
@@ -380,9 +380,9 @@ leg.get_title().set_color("black")
 # Manually adjust the legend title position to prevent overlap
 leg._legend_box.sep = 8  # INCREASED from 5 to 8 for more space between title and labels
 
-# ─────────────────────────────────────────────────────────────
-# COLORBAR — JCIM style
-# ─────────────────────────────────────────────────────────────
+# â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+# COLORBAR â€” JCIM style
+# â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 sm = plt.cm.ScalarMappable(cmap=cmap_obj, norm=norm)
 sm.set_array([])
 
@@ -411,24 +411,25 @@ cbar.set_ticklabels([
     (f"{v:+.0f}" if v != 0 else "0") for v in tick_vals
 ])
 
-# ─────────────────────────────────────────────────────────────
+# â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 # ADJUST LAYOUT to give more space for rotated labels
-# ─────────────────────────────────────────────────────────────
+# â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 plt.subplots_adjust(bottom=b_frac + 0.05)
 
-# ─────────────────────────────────────────────────────────────
-# SAVE — 600 dpi PNG + 300 dpi PDF
-# ─────────────────────────────────────────────────────────────
+# â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+# SAVE â€” 600 dpi PNG + 300 dpi PDF
+# â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 for ext, dpi_val in [("png", 600), ("pdf", 300)]:
     out = f"{SAVE_PATH}.{ext}"
     plt.savefig(out, dpi=dpi_val, bbox_inches="tight",
                 pad_inches=0.02, facecolor="white")
-    print(f"Saved → {out}")
+    print(f"Saved â†’ {out}")
 
 plt.close()
-print("\nDone — JCIM style applied.")
+print("\nDone â€” JCIM style applied.")
 print("Fixes included:")
 print("  - X-axis labels rotated to prevent overlap")
 print("  - Legend spacing increased to prevent title-label overlap")
 print("  - H-bond labels intelligently positioned to prevent overlap")
 print("  - Panel labels 'a' and 'b' are bold (no parentheses)")
+

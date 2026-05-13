@@ -1,4 +1,4 @@
-from pathlib import Path
+﻿from pathlib import Path
 import csv
 import math
 from pprint import pprint
@@ -6,16 +6,16 @@ from pprint import pprint
 import matplotlib.pyplot as plt
 import numpy as np
 
-# ── Input / Output ────────────────────────────────────────────────────────────
+# â”€â”€ Input / Output â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 INPUT_FASTA = Path(
-    r"D:\PhD_Thesis\analysis\alignment\all_sequences_for_selection.fasta"
+    r"./analysis_scripts/alignment/gpx6_human_mouse_input.fasta"
 )
 OUTPUT_PREFIX = Path("results/gpx6_trilateration")
 
 REFERENCE_IDS = ["MOUSE_GPX6_WT", "HUMAN_GPX6_WT", "ANCESTOR_node_25"]
 
 
-# ── Parsers ───────────────────────────────────────────────────────────────────
+# â”€â”€ Parsers â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 def parse_fasta(path: Path):
     records = []
     header = None
@@ -136,9 +136,9 @@ def main():
     # MOUSE=bottom-left, HUMAN=bottom-right, ANCESTOR=top
     # Reference order from REFERENCE_IDS: [MOUSE, HUMAN, ANCESTOR]
     reference_xy = np.array([
-        [0.0, 0.0],                      # MOUSE  — bottom-left
-        [1.0, 0.0],                      # HUMAN  — bottom-right
-        [0.5, math.sqrt(3.0) / 2.0],    # ANCESTOR — top
+        [0.0, 0.0],                      # MOUSE  â€” bottom-left
+        [1.0, 0.0],                      # HUMAN  â€” bottom-right
+        [0.5, math.sqrt(3.0) / 2.0],    # ANCESTOR â€” top
     ])
 
     rows = []
@@ -171,7 +171,7 @@ def main():
               fieldnames=[k for k in rows[0].keys() if k!="closest_xy"])
     print(f"\nSaved CSV : {output_csv}")
 
-    # ── Plot ──────────────────────────────────────────────────────────────────
+    # â”€â”€ Plot â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     fig, ax = plt.subplots(figsize=(8, 8))
     ax.set_aspect("equal")
     ax.axis("off")
@@ -192,7 +192,7 @@ def main():
         ax.plot([r["x"], cxy[0]], [r["y"], cxy[1]],
                 color=col, linewidth=0.5, alpha=0.30, zorder=2)
 
-    # Query scatter — grouped, drawn largest group first so small groups visible
+    # Query scatter â€” grouped, drawn largest group first so small groups visible
     groups_present = sorted(set(r["group"] for r in rows),
                             key=lambda g: -sum(1 for r in rows if r["group"]==g))
     for group in groups_present:

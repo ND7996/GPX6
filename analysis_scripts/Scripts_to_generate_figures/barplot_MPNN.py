@@ -1,7 +1,7 @@
-# ═══════════════════════════════════════════════════════════════════
+﻿# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 # Horizontal Barplot: Distance from Ancestor Reference
 # Exports PNG (300 dpi) + SVG (for Figma / Illustrator)
-# ═══════════════════════════════════════════════════════════════════
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 
 from pathlib import Path
 import numpy as np
@@ -15,26 +15,26 @@ import pandas as pd
 
 matplotlib.rcParams['svg.fonttype'] = 'none'   # keeps text as <text> in SVG (editable in Figma)
 
-# ── PATHS ───────────────────────────────────────────────────────────
-FASTA_ANCESTOR = Path(r"D:\PhD_Thesis\MPNN\results\proteinmpnn_all\proteinmpnn_outputs\combined_ANCESTOR_labeled.fasta")
-FASTA_HUMAN    = Path(r"D:\PhD_Thesis\MPNN\results\proteinmpnn_all\proteinmpnn_outputs\combined_HUMAN_labeled.fasta")
-FASTA_MOUSE    = Path(r"D:\PhD_Thesis\MPNN\results\proteinmpnn_all\proteinmpnn_outputs\combined_MOUSE_labeled.fasta")
-OUTPUT_DIR     = Path(r"D:\PhD_Thesis\analysis\FINAL_PUBLICATION_FIGURES\Phylogeny")
+# â”€â”€ PATHS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+FASTA_ANCESTOR = Path(r"./analysis_scripts/MPNN/proteinmpnn_outputs/combined_ANCESTOR_labeled.fasta")
+FASTA_HUMAN    = Path(r"./analysis_scripts/MPNN/proteinmpnn_outputs/combined_HUMAN_labeled.fasta")
+FASTA_MOUSE    = Path(r"./analysis_scripts/MPNN/proteinmpnn_outputs/combined_MOUSE_labeled.fasta")
+OUTPUT_DIR     = Path(r"./analysis_scripts/Scripts_to_generate_figures/Figures/Phylogeny")
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
-# ── WT sequences ────────────────────────────────────────────────────
+# â”€â”€ WT sequences â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 ANC_WT = "PQKMKMDCNKGVTGTIYEYGALTLNGEEYIQFKQYAGKHVLFVNVATYGLTAQYPELNALQEELKHFGVIVLGFPCNQFGKQEPGKNSEILSGLKYVRPGGGFVPNFQLFEKGDVNGEKEQKVFTFLKNSCPPTSDLLGSSSQLFWEPMKVHDIRWNFEKFLVGPDGVPVMRWFHRAPVSTVKSDILEYLKQF"
 HUM_WT = "PQNRKVDNKGVTGTIYEYGALTLNGEEYIQFKQFAGKVLFVNVAAYLAAQYPELNALQEELKNFGVIVLAFPCNQFGKQEPGTNSEILLGLKYVCPGSGFVPSFQLFEKGDVNGEKEQKVFTFLKNSPPTSDLLGSSSQLFWEPMKVDIRWNFEKFLVGPDGVPVMWFQAPVSTVKSDILEYLKQFNT"
 MOU_WT = "PQKSKVDNKGVTGTVYEYGANTIDGGEFVNFQQYAGKILFVNVASFCGLTATYPELNTLQEELKPFNVTVLGFPCNQFGKQEPGKNSEILLGLKYVRPGGGYVPNFQLFEKGDVNGDNEQKVFSFLKNSPPTSELFGSPELFWDPMKVDIRWNFEKFLVGPDGVPVMRWFTPVRIVQSDIMEYLNQTS"
 
-# ── COLORS ──────────────────────────────────────────────────────────
+# â”€â”€ COLORS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 COLOR_OF = {
     "human":    "#E07B39",
     "mouse":    "#3A7EBF",
     "ancestor": "#9B59B6",
 }
 
-# ── Read sequences from FASTA ────────────────────────────────────────
+# â”€â”€ Read sequences from FASTA â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 def read_sequences(fasta_path, seq_type):
     sequences = {}
     if fasta_path.exists():
@@ -42,7 +42,7 @@ def read_sequences(fasta_path, seq_type):
             sequences[f"{seq_type}_{record.id}"] = str(record.seq)
     return sequences
 
-# ── BLOSUM62 distance (1 − fractional identity on global alignment) ──
+# â”€â”€ BLOSUM62 distance (1 âˆ’ fractional identity on global alignment) â”€â”€
 def calculate_distance(seq1, seq2):
     aligner = PairwiseAligner()
     aligner.mode = 'global'
@@ -61,7 +61,7 @@ def calculate_distance(seq1, seq2):
     identity = matches / total if total > 0 else 0
     return 1.0 - identity
 
-# ────────────────────────────────────────────────────────────────────
+# â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 print("="*60)
 print("Generating Barplot: Distance from Ancestor Reference")
 print("="*60)
@@ -106,7 +106,7 @@ print(f"   Mean: {df['distance'].mean():.4f}")
 
 df.to_csv(OUTPUT_DIR / "distances_from_ancestor.csv", index=False)
 
-# ── Build figure ─────────────────────────────────────────────────────
+# â”€â”€ Build figure â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 print("\n3. Generating figure...")
 
 n      = len(df)
@@ -155,15 +155,15 @@ ax.legend(handles=legend_patches, loc="lower right", fontsize=9,
 
 plt.tight_layout(pad=0.8)
 
-# ── Save PNG (300 dpi, for publication) ──────────────────────────────
+# â”€â”€ Save PNG (300 dpi, for publication) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 png_path = OUTPUT_DIR / "Barplot_Distance_from_Ancestor.png"
 fig.savefig(png_path, dpi=300, bbox_inches="tight")
-print(f"   ✓ PNG saved : {png_path}")
+print(f"   âœ“ PNG saved : {png_path}")
 
-# ── Save SVG (Figma / Illustrator — tiny file, fully editable) ───────
+# â”€â”€ Save SVG (Figma / Illustrator â€” tiny file, fully editable) â”€â”€â”€â”€â”€â”€â”€
 svg_path = OUTPUT_DIR / "Barplot_Distance_from_Ancestor.svg"
 fig.savefig(svg_path, format="svg", bbox_inches="tight")
-print(f"   ✓ SVG saved : {svg_path}")
+print(f"   âœ“ SVG saved : {svg_path}")
 
 plt.close()
 
@@ -172,6 +172,7 @@ print("DONE")
 print("="*60)
 print(f"\nOutput directory: {OUTPUT_DIR}")
 print("\nFiles generated:")
-print("  Barplot_Distance_from_Ancestor.png  ← publication figure (300 dpi)")
-print("  Barplot_Distance_from_Ancestor.svg  ← drag into Figma; all text & bars editable")
-print("  distances_from_ancestor.csv         ← raw distance table")
+print("  Barplot_Distance_from_Ancestor.png  â† publication figure (300 dpi)")
+print("  Barplot_Distance_from_Ancestor.svg  â† drag into Figma; all text & bars editable")
+print("  distances_from_ancestor.csv         â† raw distance table")
+

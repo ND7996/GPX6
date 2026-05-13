@@ -1,4 +1,4 @@
-#!/bin/bash
+﻿#!/bin/bash
 #############################
 
 #SBATCH -J relax
@@ -12,6 +12,7 @@ echo '##################################################'
 echo 'running run_qdyn'
 echo '##################################################'
 
-cd /home/ndas/cysM/replicamousecys000
+cd ./analysis_scripts/humanWT/replicamousecys000
 sh run_qdyn.sh
+
 
