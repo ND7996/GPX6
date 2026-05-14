@@ -91,9 +91,6 @@ Inside the shell, always run from the repository root:
 
 ```bash
 cd /workspace/GPX6
-```
-
-All `.sh`, `.py`, and `.ipynb` workflow paths have been converted away from machine-specific paths such as `/home/...`, `D:\...`, and `C:\...`. Scripts now use repo-root relative paths such as:
 
 ```bash
 ./parameters
