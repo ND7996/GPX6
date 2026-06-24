@@ -1,0 +1,197 @@
+[The instructions in this document are in square brackets and the level of obligation of each section is included at the beginning of them.]
+
+[When you have completed this document, remove all instructions and delete sections that you did not complete because they are not applicable in your dataset.]
+
+[Fill in as many sections as possible in this document to facilitate the reuse of your dataset.]
+
+[This document has been created by the CSUC Research Support Working Group based on the staff of the Libraries Service of the Universitat Autònoma de Barcelona.]
+
+[For any information on this document, contact XXX.]
+
+[This template is released under a CC0 license.] 
+  
+This file has been created on [date in format DD-MM-YYYY] by [Name].
+ 
+
+GENERAL INFORMATION
+------------------
+
+1. Dataset title:
+[Mandatory]
+
+
+2. Authorship:
+[Mandatory | Fill in the information of all the authors following the format below. Repeat the structure, one for each author.]
+
+	Name:
+	Institution:
+	Email:
+	ORCID:  
+
+
+
+DESCRIPTION
+----------
+
+1. Dataset language:
+[Mandatory if applicable]
+
+
+2. Abstract:
+[Mandatory | Summary of the dataset, not of the research results. This must be different from the abstract of the article, book or thesis. You can add the abstract in different languages.] 
+
+
+3. Keywords: 
+[Mandatory | Minimum 3 keywords. You can add them in different languages.]
+
+
+4. Date of data collection (single date or date range):
+[Mandatory | Format DD-MM-YYYY, or DD-MM-YYYY - DD-MM-YYYY] 
+
+5. Publication Date:
+[Mandatory if applicable | Format DD-MM-YYYY] 
+
+
+6. Grant information:
+[Mandatory if applicable | Repeat the scheme for each agency if necessary.]
+
+	Grant Agency:
+	Grant Number:
+
+
+7. Geographical location/s of data collection:
+[Mandatory if applicable | Latitude, longitude, city, region, country, etc.]
+
+
+
+ACCESS INFORMATION
+------------------------
+
+1. Creative Commons License of the dataset:
+[Mandatory | The recommended license is CC-0. See recommended CC licenses to (pendiente grupo licencias)]  
+
+
+2. Dataset DOI:
+[Mandatory]
+
+
+3. Related publication:
+[Mandatory if applicable | Bibliographic citation, in the standard style of your discipline, of the publication related to the dataset, including the DOI.]
+
+4. Link to related datasets:
+[Recommended if applicable | (E.g. other datasets from the same project) following the format below.] 
+
+	DOI/URL: 
+
+
+
+VERSIONING AND PROVENANCE
+---------------
+
+1. Last modification date:
+[Recommended if applicable | Format DD-MM-YYYY] 
+
+
+2. Were data derived from another source?:
+[Mandatory if applicable | Answer Yes or No; if yes, cite the source following the standard style of your discipline.] 
+
+
+3. Additional related data not included in this dataset:
+[Optional]
+
+
+METHODOLOGICAL INFORMATION
+-----------------------
+[Description of the methodology used to generate the dataset.]
+[Do not copy and paste the text of the methodology section of a document that is pending of publication, unless you know that it is allowed: some publishers may consider it as a previous publication and not accept your manuscript.]
+[If you are referring to an unpublished article, please provide as much information as you can.]
+[Include DOI in references.] 
+
+
+1. Description of the methods used to collect and generate the data:
+[Recommended | Reference, in the standard style of your discipline, the publications or documents that contain the experimental design or the protocols used in data collection.]
+
+
+2. Data processing methods:
+[Recommended | Describes how the published dataset was generated from the collected raw data.]
+
+
+3. Software or instruments needed to interpret the data:
+[Mandatory if applicable | Include the software version. If there is specific software with restricted access, explain how it can be obtained. Please assess whether it is possible to change the dataset to an open format (recommended).]
+
+4. Information about instruments, calibration and standards:
+[Mandatory if applicable]
+
+
+5. Environmental or experimental conditions:
+[Mandatory if applicable | E.g.: atmospheric influences, computational environment, etc.]
+
+
+6. Quality-assurance procedures performed on the data:
+[Optional]
+
+
+
+FILE OVERVIEW
+----------------------
+[All files included in the dataset must be mentioned, with the name and extension (.csv, .pdf, etc.) of each file. Include the directory structure, if applicable.]
+
+
+1. Explain the file naming conversion, if applicable:
+[Mandatory] 
+
+
+2. File list:
+[Mandatory | Repeat the scheme for each file.]
+
+	File name:
+	Description:    
+
+
+3. Relationship between files:
+[Mandatory if applicable]
+
+
+4. File format:
+[Mandatory]
+
+
+5. If the dataset includes multiple files, specify the directory structure and relationships between the files:
+[Mandatory if applicable]    
+
+
+
+SPECIFIC INFORMATION FOR TABULAR ATA
+-------------------------------------------
+[This section should be repeated for each data file that requires the explanation of variables (usually tabular data). All variables are described, including units of measure.]
+
+1. Name file:
+[Optional]
+
+
+2. Number of rows and columns: 
+[Optional]
+
+
+3. Variables list:
+[Optional | Repeat the structure for each variable.]
+
+Variable name:
+         Description:
+	 Units of measure or value labels: 
+
+
+4. Codes or symbols for missing data:
+[Optional | Repeat the structure for each code or symbol.]
+
+	Code or symbol:
+	Definition:
+
+        
+5. Special formats or abbreviations used:
+[Optional]
+
+
+MORE INFORMATION
+--------------
+[Include any other information about the dataset that is not reflected in this template and that you consider relevant.]

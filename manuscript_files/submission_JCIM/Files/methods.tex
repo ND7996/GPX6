@@ -1,0 +1,102 @@
+\section{Methods}
+
+\subsection{System Preparation}
+
+Initial coordinates were taken from the mouse GPX6 crystal structure 7FC2 for the Cys-containing enzyme and an AlphaFold model was built for human Sec-GPX6.\cite{PDB7FC2,jumper2021alphafold} 
+Crystallographic solvent and nonessential hydrogen atoms were removed before setup. 
+
+Protein sequences for human GPX6 (UniProtKB P59796) and mouse GPX6 (UniProtKB Q91WR8) were retrieved from UniProt and aligned with Clustal Omega 1.2.4\cite{Sievers2011ClustalOmega} to identify homolog-specific substitutions (Figure~\ref{SI-fig:gpx6_sequence_alignment}). The final mutational set was restricted to the 20 nonidentical positions located within 20~\AA{} of the catalytic chalcogen atom.
+
+\subsection{EVB Formalism and Workflow}
+
+In the two-state empirical valence bond formalism,\cite{warshel_empirical_1980} the reacting system is described by the Hamiltonian
+\begin{equation}
+\mathbf{H}_{\mathrm{EVB}}=
+\begin{pmatrix}
+\epsilon_1 & H_{12} \\
+H_{12} & \epsilon_2 + \alpha
+\end{pmatrix},
+\label{eq:evb_hamiltonian}
+\end{equation}
+where $\epsilon_1$ and $\epsilon_2$ are the diabatic state energies corresponding to reactants and products, $H_{12}$ is the off-diagonal coupling term, and $\alpha$ is the empirical state-energy shift between the two states.\cite{warshel_empirical_1980,oanca_efficient_2023} The corresponding ground-state energy is
+\begin{equation}
+E_g=\frac{\epsilon_1+\epsilon_2+\alpha}{2}
+-\sqrt{\left(\frac{\epsilon_2-\epsilon_1+\alpha}{2}\right)^2+H_{12}^2}.
+\label{eq:evb_ground_state}
+\end{equation}
+
+The reactive region comprised the catalytic Cys/Sec residue at position~49, hydrogen peroxide, and Gln83, which together define the proton-transfer step that generates the catalytic thiolate or selenolate. Partial charges for the reactive atoms in the different diabatic states were derived using Schrödinger's \texttt{ffld\_server} tool in Maestro 14.5 with the OPLS-AA force field.\cite{Schrodinger2024Maestro} State-specific parameters for the EVB reactive region, including Morse terms and reactant/product charges for the sulfur-, selenium-, peroxide-, and glutamine-containing states, are summarized in Tables~\ref{SI-tab:morse} and \ref{SI-tab:partial_charges}; the reactive-atom naming is provided in the Supporting Information (Figure~\ref{SI-fig:atoms}). In the Q FEP files, Morse bond terms were used only for bonds whose connectivity changes between the two diabatic states: the peroxide O1--H1 and chalcogen--HG1 bonds in the reactant state, and the O1--HG1 and Gln83 OE1--H1 bonds in the product state. These Morse terms are part of the EVB state potentials sampled by the mapping windows. Other local bond adjustments, such as changes within Gln83 and the Sec C$\beta$--Se bond, were described with harmonic bond terms in the FEP topology and should not be confused with the external flat-bottom distance restraints described below.
+
+In the standard FEP/EVB formulation developed by Warshel and co-workers, sampling is performed on a set of mapping potentials rather than directly on the mixed EVB ground-state surface.\cite{warshel_empirical_1980,Warshel2006,Kamerlin2010,oanca_efficient_2023} For a two-state reaction, this mapping potential is commonly written as
+\begin{equation}
+\epsilon_m=(1-\theta_m)\epsilon_1+\theta_m\epsilon_2,
+\quad 0\leq\theta_m\leq 1,
+\label{eq:emapping_general}
+\end{equation}
+where $\epsilon_1$ and $\epsilon_2$ are the reactant and product diabatic potentials, and $\theta_m$ is advanced in small increments from reactants to products.\cite{marelius_q_1999,oanca_efficient_2023} More generally, for multiple FEP/EVB states this corresponds to a weighted sum of state potentials,
+\begin{equation}
+V_m=\sum_i \lambda_i^m\epsilon_i,
+\quad \sum_i\lambda_i^m=1.
+\label{eq:emapping_two_state}
+\end{equation}
+With the Q input convention used here, the mapping vector $\boldsymbol{\lambda}^m=(1.0,0.0)$ corresponds to pure state~1, the reactant state, and $\boldsymbol{\lambda}^m=(0.0,1.0)$ corresponds to pure state~2, the product state. The energy-gap reaction coordinate used for the EVB free-energy profile is
+\begin{equation}
+X=\Delta V=\epsilon_1-\epsilon_2.
+\label{eq:energy_gap}
+\end{equation}
+The free-energy difference between two adjacent mapping potentials is evaluated with the FEP exponential average
+\begin{equation}
+\Delta G_{m\rightarrow m+1}
+=-\beta^{-1}\ln
+\left\langle
+\exp\left[-\beta\left(V_{m+1}-V_m\right)\right]
+\right\rangle_m,
+\label{eq:fep_zwanzig}
+\end{equation}
+where $\beta=(k_{\mathrm{B}}T)^{-1}$ and $\langle\cdots\rangle_m$ denotes an ensemble average sampled with $V_m$. The accumulated free energy of mapping potential $m$ relative to the reactant mapping potential is therefore
+\begin{equation}
+\Delta G_m=
+\sum_{n=0}^{m-1}\Delta G_{n\rightarrow n+1}.
+\label{eq:fep_cumulative}
+\end{equation}
+The EVB free-energy profile is then obtained by reweighting configurations from a sampled mapping potential to the EVB ground-state energy along the energy-gap coordinate,
+\begin{equation}
+G(X)=
+\Delta G_m
+-\beta^{-1}\ln
+\left\langle
+\delta(X'-X)
+\exp\left[-\beta\left(E_g(X')-\epsilon_m(X')\right)\right]
+\right\rangle_m,
+\label{eq:evb_reweighting}
+\end{equation}
+where $\delta(X'-X)$ projects the sampled configurations onto the desired value of the reaction coordinate.\cite{marelius_q_1999} 
+
+The EVB state-energy shift $\alpha$ and coupling $H_{12}$ were calibrated against the quantum-mechanical free-energy profile reported for the human Sec-containing glutathione peroxidase mechanism,\cite{prabhakar_is_2006} using $\Delta G^{\ddagger}=16.40$~kcal/mol and $\Delta G^{\circ}=-60.52$~kcal/mol as reference targets. $H_{ij}$ can be expressed as a distance-dependent off-diagonal function or as a function of other variables, such as the energy gap between the two EVB states, but in this work we used a constant coupling. The resulting calibrated parameter set (Table~\ref{SI-tab:evb_parameters}) was then kept fixed across all mutant and homolog calculations so that energetic differences reflect changes in the protein scaffold rather than re-fitting of the EVB surface.
+
+All calculations were done using the software Q6.\cite{marelius_q_1999} Input generation and EVB analysis were supported by qtools, a Python library and command-line toolset for preparing, mapping, and analyzing Q MD/FEP/EVB simulations.\cite{PurgBauer2017Qtools} The systems were prepared with Qprep and simulated with Qdyn, using the OPLS-AA force field for the nonreactive region.\cite{jorgensen1996opls_aa} During the Qdyn FEP simulations, the predefined off-diagonal term in the FEP file was set to zero, so the trajectories were generated on the mapping potentials in Eq.~\ref{eq:emapping_two_state}. EVB mixing and the calibrated state-energy shift (Table~\ref{SI-tab:evb_parameters}) were applied during QMapper analysis. In practice, QFEP and QMapper replace the projection in Eq.~\ref{eq:evb_reweighting} by binning $X$, combine overlapping contributions from the FEP windows, and apply the calibrated EVB Hamiltonian in Eq.~\ref{eq:evb_ground_state}.\cite{marelius_q_1999,oanca_efficient_2023,PurgBauer2017Qtools}
+ A schematic overview of the workflow is provided in the Supporting Information (Figure~\ref{SI-fig:workflow}).
+
+\subsection{Geometric Restraints, Solvation, and Relaxation}
+
+The reactive region was placed in a 25~\AA{} sphere of water centered on the catalytic sulfur or selenium atom of residue~49. Spherical boundary conditions were treated with the surface constrained all-atom solvent (SCAAS) model, which constrains the finite solvent boundary so that it approximates a bulk environment.\cite{king_surface_1989} All simulations used 10~\AA{} cutoffs for solute--solute, solute--solvent, and solvent--solvent interactions, long-range electrostatic corrections, and SHAKE constraints on solvent bonds.
+
+The initial structure-relaxation inputs were generated with the qtools script \texttt{q\_genrelax.py}\cite{PurgBauer2017Qtools} using the EVB FEP file, but with the Q lambda vector fixed at \texttt{1.00 0.00}, corresponding to the reactant diabatic state. This initial relaxation did not include the active-site flat-bottom distance restraints used for FEP sampling. The template comprised two 25.1~ps stages at low temperature: solvent relaxation with sequence restraints on the solute, followed by relaxation without sequence restraints, yielding 50.2~ps of preproduction relaxation. The minimized restart from this step was used to write the structure for subsequent EVB sampling.
+
+Flat-bottom harmonic distance restraints were introduced during the pre-FEP equilibration and retained during the production FEP windows to preserve a chemically productive reactive geometry while still allowing local motion along the proton-transfer coordinate.  The restrained coordinates were the chalcogen--peroxide O1 and Gln83 OE1--peroxide O1 donor--acceptor distances, the reactant chalcogen--HG1 and peroxide O1--H1 bonds, and the two product-side proton-transfer distances Gln83 OE1--H1 and peroxide O1--HG1 (Table~\ref{SI-tab:flatbottom}); the corresponding potentials are provided in the Supporting Information (Figure~\ref{SI-fig:flatbottom}). Before each EVB production profile, systems were heated for 2~ps at 1~K, 3~ps at 100~K, and 5~ps at 300~K, followed by six 10~ps restraint-release stages, giving 70~ps of pre-FEP equilibration. During this pre-FEP stage, sequence restraints were progressively reduced and then removed, while the active-site flat-bottom restraints were reduced from their initial heat-up values to the final production value of 2~kcal~mol$^{-1}$~\AA$^{-2}$, which was retained in all production FEP windows. The stepwise protocol is summarized in Table~\ref{SI-tab:combined_protocol}.
+
+\subsection{EVB Free-Energy Calculations}
+
+Production EVB profiles were obtained from 51 FEP windows generated from $\boldsymbol{\lambda}=(1.0,0.0)$ to $\boldsymbol{\lambda}=(0.0,1.0)$, i.e., from the reactant mapping potential to the product mapping potential. The production template used a 1.0~fs timestep at 300~K. Each FEP window was sampled for 20\,000 steps (20~ps), corresponding to 1.02~ns per complete EVB profile. Energy files were written every 5 MD steps, giving 4000 saved energy records per window and 204\,000 records per complete profile per replica before QFEP point skipping. Free-energy surfaces were reconstructed with 50 energy-gap bins, requiring at least 10 points per bin and excluding the first 100 sampled points from the final analysis. Activation free energies ($\Delta G^{\ddagger}$) were obtained from the bin-averaged free-energy profiles, and uncertainties are reported as the standard error across replicas.
+
+\subsection{Mutational Pathway Analysis}
+
+Human and mouse GPX6 differ at 47 positions. To focus on substitutions most likely to influence catalysis while maintaining a tractable EVB dataset, we selected the 20 residues located within 20~\AA{} of the catalytic chalcogen atom. Each single-site variant was prepared with the same structural and EVB protocol used for the residue-49 swap. For pathway construction, the catalytic-residue replacement at position~49 (Cys$\leftrightarrow$Sec) was treated as the initial defining change that converts each extant wild-type background, human Sec-GPX6 or mouse Cys-GPX6, into the corresponding catalytic-residue-swapped state. The greedy pathway analysis then begins at level~0 from this catalytic-residue-swapped background. At each subsequent level, all remaining single substitutions were evaluated on the current background, and the substitution producing the lowest activation barrier was fixed before the next iteration. This greedy algorithm therefore defines one low-barrier trajectory in each direction without claiming that the selected route is globally unique.
+
+\subsection{Phylogenetic and Sequence-Design Analyses}
+
+To place the EVB-derived trajectories in phylogenetic context, the GPX6 maximum-likelihood framework and reconstructed ancestral sequence were taken from Rees et al.\cite{rees_ancient_2024} The ancestral reference used here is the reconstructed Sec-containing ancestor subtending the primate and rodent/lagomorph branches, referred to as node~25 in that study. Pairwise sequence distances among the EVB-generated human and mouse GPX6 variants and this ancestral sequence were calculated over the focused 20-residue subset used in the pathway analysis as normalized sequence distances, $d_{ij}=1-I_{ij}$, where $I_{ij}$ is the fraction of identical residues in the compared subset. These distances were visualized as a pairwise distance heatmap with Ward hierarchical clustering and projected into a triangular geometric representation of sequence space.
+
+To test whether the EVB-derived trajectories retain ancestral-like sequence information beyond the selected energetic paths, we complemented the EVB analysis with backbone-conditioned sequence generation using ProteinMPNN.\cite{Dauparas2022ProteinMPNN} Sequence ensembles were generated for all available endpoint and intermediate mutant backbones along the EVB-derived mouse-to-human and human-to-mouse trajectories. For each mutant level, the structural input was the transition-state-region structure from the $\lambda=0.5$ EVB window, focusing the design calculation on a structure resembling the transition state of the reaction. ProteinMPNN was run in fixed-backbone mode using the soluble-protein model, generating 100 designed sequences per backbone.
+
+To visualize the positioning of sequences relative to the modern endpoints and the ancestor, we projected all sequences into a two-dimensional triangular coordinate system. The three vertices of the equilateral triangle were defined by the mouse GPX6 wild-type sequence at the bottom-left, the human GPX6 wild-type sequence at the bottom-right, and the node~25 ancestral sequence at the apex. For every query sequence, we computed three pairwise distances to the reference sequences using the normalized Levenshtein metric,\cite{LiLiu2007NormalizedLevenshtein} defined here as the edit distance divided by the longer of the two compared sequence lengths. Distances to the three vertices were converted into barycentric weights using $w_i=\exp(-d_i/\tau)/\sum_j\exp(-d_j/\tau)$, with a dimensionless softmax temperature $\tau=1.0$ for both the EVB-pathway and ProteinMPNN projections. The final Cartesian coordinate was the weighted sum of the three triangle vertices. This triangular representation enabled direct comparison of how the greedy EVB trajectories and the ProteinMPNN designs explore sequence space and approach the reconstructed ancestor.

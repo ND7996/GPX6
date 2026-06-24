@@ -1,0 +1,329 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{booktabs}
+\usepackage{microtype}
+\usepackage{parskip}
+\usepackage{siunitx}
+\usepackage[hidelinks]{hyperref}
+
+\newcommand{\ReviewerComment}[1]{\par\noindent\textbf{Reviewer comment. #1}\par}
+\newcommand{\AuthorResponse}{\par\noindent\textit{Response.}\ }
+\newcommand{\Location}[1]{\par\noindent For details, see #1\par}
+\newcommand{\kcalmol}{kcal\,mol$^{-1}$}
+
+\begin{document}
+
+\begin{flushright}
+Vic, 22 June 2026
+\end{flushright}
+
+Professor Xiao He\\
+Associate Editor\\
+\textit{Journal of Chemical Information and Modeling}\\
+American Chemical Society
+
+\textbf{Re: Revised manuscript ci-2026-01502w, ``Epistatic Modulation of Sec/Cys
+Catalysis in GPX6 Revealed by EVB Free-Energy Landscapes''}
+
+Dear Professor He,
+
+Please find enclosed the revised version of manuscript ci-2026-01502w. We thank you
+and the three reviewers for the careful and constructive assessment. Their comments
+identified several places where the original presentation did not make the scope,
+statistical unit, methodological limitations, and mechanistic contribution sufficiently
+clear. We have revised the manuscript and Supporting Information accordingly.
+
+We made the following principal changes: (i) we redesigned and reorganized the figures,
+replacing the original two-panel mechanistic overview with a focused single-panel stepwise
+mechanism, replacing the previous detailed workflow with a concise computational workflow,
+replacing the original full-structure main-text view with a more informative human/mouse
+active-site overlay, and adding representative active-site configurations along the EVB
+proton-transfer coordinate; (ii) we clarified the rationale for the 20~\AA{}
+residue-selection cutoff and the 51-window protocol; (iii) we explained the EVB calibration
+and the nuclear quantum effects that we did not treat explicitly; (iv) we strengthened the
+connection between the calculated energetic asymmetry and the experimental evolutionary
+interpretation of Rees et al.; and (v) we expanded the discussion of activation profiles and
+their implications for enzyme engineering. We also audited the statistical summary and report
+the corrected arithmetic transparently in the separate note to the Editor below.
+
+The revision package contains a clean manuscript, a marked manuscript showing additions
+and deletions, a clean Supporting Information file, and a marked Supporting Information
+file. All authors have reviewed and approved the final files before submission. We hope that
+the revisions address the concerns and make the scope and limitations of the study clear.
+
+Thank you for considering the revised manuscript.
+
+Sincerely,
+
+Jordi Vill\`a-Freixa\\
+Corresponding author\\
+Computational Biochemistry and Biophysics Lab, BI$^2$\\
+Universitat de Vic -- Universitat Central de Catalunya\\
+\href{mailto:jordi.villa@uvic.cat}{jordi.villa@uvic.cat}
+
+\newpage
+\section*{Separate note to the Editor: correction of SEM values}
+
+During preparation of the revision, we performed an arithmetic audit of the statistical
+summary. We found that four SEM entries in the working summary were inconsistent with
+the stated sample standard deviation (SD) and number of complete EVB profiles ($N$).
+We have corrected these values using $\mathrm{SEM}=\mathrm{SD}/\sqrt{N}$; we did not alter
+any mean barrier or reaction free energy. We list the corrected entries below.
+
+\begin{center}
+\small
+\begin{tabular}{llrrrr}
+\toprule
+System & Quantity & SD & $N$ & Previous SEM & Corrected SEM \\
+\midrule
+Human Sec-GPX6 & $\Delta G^{\ddagger}$ & 3.21 & 22 & 0.83 & 0.68 \\
+Human Sec-GPX6 & $\Delta G^{\circ}$     & 3.48 & 22 & 1.46 & 0.74 \\
+Human Cys-GPX6 & $\Delta G^{\circ}$     & 5.00 & 14 & 1.68 & 1.34 \\
+Mouse Cys-GPX6 & $\Delta G^{\circ}$     & 13.87 & 21 & 1.03 & 3.03 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+We now provide the complete audited summary, including means, SDs, medians, SEMs, and
+the number of valid complete profiles, in Table~S8. We use the corrected SEMs for the
+four catalytic-residue systems in the main text. We bring this correction to
+the Editor's attention separately because it resulted from our revision audit rather than
+from a specific reviewer request.
+
+\Location{Manuscript, Results, ``Catalytic-Residue Swap Profiles in Human and Mouse GPX6''; Supporting Information, Table~S8.}
+
+\section*{Response to editorial and technical requirements}
+
+\ReviewerComment{Authors are required to report all funding sources and grant or award
+numbers relevant to the manuscript. ORCID records must be validated, and the revision
+must include clean and marked manuscript files and a clean Supporting Information file.}
+
+\AuthorResponse We have retained a dedicated Funding Sources section in the manuscript
+and have checked the acknowledgements of computational resources and travel bursaries.
+We will ensure that the submission-system funding fields and ORCID validation agree with
+the manuscript metadata. We include the requested clean and marked manuscript files and
+the clean Supporting Information for publication; we also
+provide a marked Supporting Information file for transparent review of its changes.
+
+\newpage
+\section*{Response to Reviewer 1}
+
+\ReviewerComment{The manuscript presents an EVB-based computational investigation of the catalytic consequences of Sec/Cys exchange in GPX6 and attempts to connect energetic landscapes with evolutionary epistasis. The topic is potentially interesting because it combines enzymatic catalysis, evolutionary biophysics, and free-energy simulations within a unified framework. In particular, the idea of studying how sequence background modulates the catalytic benefit of selenocysteine is conceptually appealing, and the use of EVB calculations to analyze mutational pathways provides a physically motivated perspective on epistatic effects. However, the current presentation and methodological rigor do not yet meet the standard expected for publication in a high-quality computational chemistry or biophysics journal.}
+
+\AuthorResponse We agree that the main result was obscured by methodological detail. We
+have revised the figures, workflow description, statistical reporting, and Discussion.
+The new result is not simply that Sec is more reactive than Cys. It is that the same
+residue-49 exchange changes the barrier by different amounts in human and mouse GPX6.
+We also state clearly that the selected paths are calculated low-barrier routes, not
+reconstructions of the historical mutation order.
+
+\Location{Manuscript, Discussion, first three paragraphs.}
+
+\ReviewerComment{A major issue concerns the presentation quality of the manuscript. Figure 1, which introduces the catalytic cycle and mechanistic framework, is visually unattractive and difficult to follow. Although the scientific content itself may be acceptable, the figure requires substantial redesign to improve clarity, aesthetics, and readability. Similarly, the overall figure quality throughout the manuscript is below the expected standard. Font sizes are inconsistent and often too small, coloring schemes are not optimized for readability, and several panels appear visually crowded. Improving graphical quality is essential because the manuscript relies heavily on visual interpretation of free-energy landscapes and mutational pathways.}
+
+\AuthorResponse We agree. We revised the figure files, organization, and captions.
+We removed the crowded catalytic-cycle panel from Figure~1 and retained a single,
+redesigned stepwise mechanism focused on the modeled I$\rightarrow$II$\rightarrow$III
+pathway. The revised figure identifies Sec49, Gln83, H$_2$O$_2$, the three intermediates,
+and both transition-state regions, and uses curved arrows to show the four nucleophilic
+attacks. We replaced Figure~2 with a focused
+human/mouse active-site comparison and moved the full-structure view of the selected
+substitutions to Figure~S1. We replaced the previous detailed workflow with the concise
+computational overview in Figure~S3 and added representative active-site configurations
+as Figure~S6. We also removed the supplementary concerted-pathway scheme; the less
+favorable concerted alternative is now mentioned in the text with citations to the
+calculations of Prabhakar, Morokuma, and coworkers rather than presented as a separate
+figure.
+
+\Location{Manuscript, Figures~1 and 2 and their captions; Supporting Information, Figures~S1, S3, and S6.}
+
+\ReviewerComment{Figure 2 is particularly problematic. At present, it appears to be little more than a visualization of an existing structure with highlighted residues and provides minimal novelty or mechanistic insight. Moreover, the corresponding PDB code is not explicitly indicated in the figure itself, which is inappropriate for a structural presentation. The authors should either substantially enrich the figure with meaningful structural analysis or consider removing it entirely.}
+
+\AuthorResponse We agree and have replaced the original figure. Revised Figure~2 is now a
+focused active-site overlay of the experimental mouse Cys-GPX6 structure (PDB~7FC2) and
+the AlphaFold~2-predicted human Sec-GPX6 model (UniProtKB P59796). It explicitly shows
+the catalytic chalcogen, Gln83, Trp157, and peroxide, with mouse in orange and human in
+white. The Methods now explain the numbering: the PDB header reports residues 1--24 as
+unresolved, and omission followed by renumbering of the retained coordinate model makes
+study residue~49 correspond to UniProt/PDB residue~73. We moved the full-structure view
+of all 20 selected substitutions to Supporting Information Figure~S1 and expanded its
+caption to define the highlighted positions and connect them to Tables~S1 and S2.
+
+\Location{Manuscript, Methods, ``System Preparation,'' and Figure~2; Supporting Information, Figure~S1 and caption.}
+
+\ReviewerComment{The methods section is mathematically extensive but pedagogically weak. A large number of standard EVB equations are reproduced, including conventional definitions of mapping potentials, free-energy reconstruction, and energy-gap coordinates, yet none of these formulations are newly derived in the present work. Consequently, the section becomes unnecessarily dense and somewhat textbook-like. Instead of emphasizing routine formalism, the authors should introduce a concise workflow figure summarizing the complete computational protocol, including structure preparation, EVB calibration, equilibration, mutational scanning, pathway construction, and ProteinMPNN analysis. Such a workflow would significantly improve readability and accessibility.}
+
+\AuthorResponse We agree. We shortened the main-text EVB section to the parts specific to this work:
+reactive system, parameterization, calibration, software implementation, and sampling
+protocol. We moved the standard Hamiltonian, mapping-potential, energy-gap, FEP, and
+reweighting equations to a dedicated Supporting Information section. We replaced the
+previous detailed workflow with Figure~S3, which provides a compact overview of structure
+preparation, EVB calibration, equilibration,
+mutational scanning, pathway construction, and ProteinMPNN analysis.
+
+\Location{Manuscript, Methods, ``EVB Model and Parameterization''; Supporting Information, ``EVB Formalism and Free-Energy Reconstruction'' and Figure~S3.}
+
+\ReviewerComment{From a scientific perspective, the central conclusions are plausible but their novelty should be stated more explicitly. The manuscript repeatedly emphasizes epistasis and background dependence, but it remains somewhat unclear what fundamentally new mechanistic insight is obtained beyond confirming that Sec generally lowers the catalytic barrier and that sequence context modulates this effect. The connection to experimental observations, especially the evolutionary and functional implications discussed in Rees et al., should therefore be strengthened and articulated more directly.}
+
+\AuthorResponse We agree. We revised the Discussion to separate the known chemical
+difference between Sec and Cys from the effect of the surrounding sequence. Replacing
+Sec with Cys raises the barrier by 1.43~\kcalmol{} in human GPX6, whereas replacing Cys
+with Sec lowers it by 2.84~\kcalmol{} in mouse GPX6. The pathway calculations also show
+which substitutions change their effect when Sec is replaced by Cys. We relate these
+results to the independent Sec losses, higher evolutionary rates, and convergent changes
+reported by Rees et al. We do not claim that the calculated paths reproduce the
+historical mutation order.
+
+\Location{Manuscript, Discussion, first and third paragraphs.}
+
+\ReviewerComment{Another important weakness concerns statistical rigor. Although the manuscript reports standard errors across replicas, there is insufficient discussion of sampling convergence and statistical independence. In particular, the autocorrelation times of the system energy and key reaction coordinates should be explicitly evaluated. The effective number of independent samples should be estimated, and uncertainties should be derived in a statistically meaningful manner rather than relying solely on replica averages. Given that the conclusions rely heavily on relatively modest barrier differences (e.g., $\sim$1--3 kcal/mol), rigorous statistical treatment is essential.}
+
+\AuthorResponse A barrier is obtained only after QFEP combines data from all 51 windows
+into one free-energy profile. A saved MD record or an energy-gap bin is therefore not an
+independent barrier measurement. Counting these records separately would amount to
+pseudoreplication. Each independently initiated 51-window calculation gives one barrier
+value and is treated as one observation. $N$ is the number of runs that produced a
+complete profile and met the same acceptance criteria; it is not the number of saved
+frames or the number of runs initially planned. We now report $N$, SD, median, and
+$\mathrm{SD}/\sqrt{N}$ for each system and quantity.
+
+We also distinguish $\Delta G^{\ddagger}$ and $\Delta G^{\circ}$, which require a
+complete EVB profile, from $\Delta G_{\lambda}$. The latter is the FEP free-energy
+difference accumulated across the 51 mapping windows and is reported only as a check of
+the mapping. QFEP can return $\Delta G_{\lambda}$ even when the energy-gap data are
+insufficient to reconstruct a full profile, so its $N$ can be larger. Those additional
+values were not used to calculate barriers or reaction free energies.
+
+We did not use autocorrelation within individual windows to rescale the barrier
+uncertainty. Each window is only 20~ps long, and its autocorrelation time describes local
+fluctuations in the energy or energy gap. It does not describe the uncertainty of the
+barrier reconstructed from all 51 windows. There is also no instantaneous barrier value
+for each saved frame. Autocorrelation within a window can be used as a local sampling
+check, but it cannot replace the variation among complete profiles.
+
+The relevant repeat is therefore the complete 1.02~ns EVB profile, and the uncertainty is
+estimated from the variation among independently initiated profiles. This statistical unit
+follows from our replica design: a barrier is reconstructed from a complete 51-window
+profile and is not an instantaneous observable associated with an individual frame. We
+cite Oanca and {\AA}qvist, ``Why Do Empirical Valence Bond Simulations Yield Accurate
+Arrhenius Plots?'' (\textit{J. Chem. Theory Comput.} \textbf{2024}, 20, 2582--2591;
+DOI: 10.1021/acs.jctc.4c00126), for the related analysis of the robustness of EVB-derived
+activation parameters in computational Arrhenius plots. We do not use that article as the
+basis for defining our statistical unit, and our single-temperature calculations do not
+constitute an Arrhenius analysis. We limit our claim to the precision among independent
+profiles and do not claim to have performed an autocorrelation analysis.
+
+\Location{Manuscript, Methods, ``EVB Free-Energy Calculations,'' second paragraph, and
+Results, ``Catalytic-Residue Swap Profiles in Human and Mouse GPX6,'' first paragraph;
+Supporting Information, Table~S8.}
+
+\newpage
+\section*{Response to Reviewer 2}
+
+\ReviewerComment{Vill\`a-Freixa et al present a very good theoretical study on the long-standing question of why the enzyme GPX6 favors selenocysteine (Sec) over cysteine (Cys) through the lens of protein epistasis. The use of Empirical Valence Bond (EVB) simulations to map free-energy landscapes across various mutational backgrounds is appropriate. This study demonstrates that the catalytic advantage of Sec is integrated into the protein's architecture. I recommend minor revisions and would like to offer a few comments and suggestions to the authors before this manuscript is suitable for publication in JCIM.\\
+(1) On page 11, the authors mentioned the 20 residues that are located within 20 angstroms of the catalytic chalcogen atom. It would be better if the authors clarify why the distance was set to 20~\AA{}, or cite references on this selection.}
+
+\AuthorResponse We agree that the cutoff should not appear as a universal physical
+boundary. We now define 20~\AA{} as an operational selection that includes
+first-shell and more distant sites that can alter the active-site electrostatic and
+structural environment, while keeping iterative evaluation of all candidate substitutions
+tractable. We also clarify that this region lies inside, but is not defined by, the
+25~\AA{} SCAAS solvent sphere. We do not cite the cutoff as an established universal
+value because it is a practical compromise for the present calculations.
+
+\Location{Manuscript, Methods, ``System Preparation,'' second paragraph.}
+
+\ReviewerComment{(2) The proton-transfer step is analyzed via free-energy landscapes, but the treatment of possible quantum effects is not mentioned. Could the authors comment on whether these factors were considered and their potential impact on barrier estimates?}
+
+\AuthorResponse We agree and now state explicitly that the transferring proton was treated
+classically. Although we calibrated the EVB diabatic potentials against a quantum-mechanical
+reference profile, we did not calculate nuclear zero-point energy, proton tunneling, or
+kinetic isotope effects. These effects can be substantial in enzymatic proton transfer, as
+discussed by Vill\`a and Warshel (\textit{J. Phys. Chem. B} \textbf{2001}, 105,
+7887--7907; DOI: 10.1021/jp011048h), and could be included with a dedicated
+quantum-nuclear correction or path-integral treatment. Because our primary observable is
+the difference between Sec and Cys variants treated with the same mechanism, calibration,
+and protocol, we expect the common component of the omitted correction to cancel
+substantially. We also make clear that this cancellation may be incomplete if the variants
+alter donor--acceptor geometries or force constants, and that explicit calculations would
+be required to quantify it.
+
+\Location{Manuscript, Discussion, limitation paragraph on quantum effects.}
+
+\ReviewerComment{(3) The conclusions in this manuscript mention the Sec/Cys effects, which could be useful for enzyme engineering. It would be valuable to include a brief discussion on how these findings might be useful for designing enzyme-engineering strategies.}
+
+\AuthorResponse We agree. We expanded the Conclusions to explain why Sec/Cys substitutions
+should be evaluated jointly with first-, second-, and third-shell variants rather than
+selected from intrinsic solution chemistry alone. We propose combining sequence-design
+models with mechanistic free-energy ranking and testing whether predicted improvements
+persist across alternative scaffolds.
+
+\Location{Manuscript, Conclusions, second paragraph.}
+
+\ReviewerComment{(4) The manuscript could be further improved if the authors consider adding a figure illustrating the active site rearrangements at the transition states. Additionally, including an overlay of the AlphaFold3-generated structure with the mouse GPX6 crystal structure (PDB Code 7FC2) in the Supporting Information would be valuable for assessing the accuracy of the AF3 predictions.}
+
+\AuthorResponse We have added representative active-site configurations from the reactant,
+transition-state-region, and product EVB windows (Figure~S6), showing Sec49, Gln83, and
+hydrogen peroxide. We use the term ``transition-state region'' deliberately: these are
+representative configurations along the EVB energy-gap profile, not independently
+optimized quantum-mechanical stationary points. We did not generate or use an
+AlphaFold~3 model in this study. The human structure used throughout the calculations is
+the AlphaFold~2-predicted model, so to avoid mixing structural models we overlaid that
+same model with the mouse crystal structure (PDB~7FC2) in revised main-text Figure~2,
+where their active sites can be compared at a useful scale. We identify the model and its
+provenance consistently in the Methods and captions.
+
+\Location{Manuscript, Methods, ``System Preparation,'' and Figure~2 and caption;
+Supporting Information, Figure~S6.}
+
+\ReviewerComment{(5) It would be better if the authors mark and emphasize the critical residues in Figure 2 to enrich its informative content, since the current version provides limited useful information.}
+
+\AuthorResponse We agree. Revised Figure~2 now focuses on the active site and explicitly
+labels the catalytic chalcogen, Gln83, Trp157, and peroxide in the superposed mouse and
+human structures. We moved the broader view of the 20 pathway positions to Supporting
+Information Figure~S1, where Tables~S1 and S2 give the corresponding substitutions and
+distances.
+
+\Location{Manuscript, Figure~2 and caption; Supporting Information, Figure~S1 and Tables~S1 and S2.}
+
+\newpage
+\section*{Response to Reviewer 3}
+
+\ReviewerComment{In their work, the authors applied empirical valence bond (EVB) simulations, free-energy calculations and mutational pathway analysis to probe molecular mechanism for the energetic consequences of this Sec/Cys exchange. Their results indicated that Projection onto the GPX6 phylogeny indicates that rodent Cys-GPX6 is best understood as a compensatory catalytic regime. Overall, this is an interesting work. Recommending that their work can be accepted after minor revision.\\
+1. In figure 1, the authors had better describe those residues located at the yellow regions so that their work can be understood.}
+
+\AuthorResponse We thank the reviewer for identifying this ambiguity. The highlighted
+yellow residues occurred in the original Figure~2 rather than Figure~1. We have replaced
+that panel with a focused active-site overlay and moved the full-structure view to
+Supporting Information Figure~S1. Its caption defines the highlighted sites as the 20
+nonidentical human/mouse positions selected within 20~\AA{} of the catalytic chalcogen;
+Tables~S1 and S2 provide the substitutions and distances.
+
+\Location{Manuscript, Figure~2 and caption; Supporting Information, Figure~S1 and Tables~S1 and S2.}
+
+\ReviewerComment{2. Dose the FEP indicate free energy perturbation? Abbreviations should be defined (or spelled out) at first use / occurrence. In their work, the 51 FEP windows were adopted to calculate the free energies. The authors should simply discuss if those windows are sufficient for their study.}
+
+\AuthorResponse We agree. We now define FEP as free-energy perturbation at first use.
+We also state that 51 evenly spaced windows correspond to a mapping increment of 0.02,
+with 4000 saved energy records per window before QFEP filtering. This density is consistent
+with established Q/EVB practice, and we applied it identically to every homolog and variant.
+We avoid claiming that window count alone proves convergence; it defines a consistent,
+dense mapping schedule, while we assess reproducibility at the level of complete
+replica profiles.
+
+\Location{Manuscript, Methods, ``EVB Model and Parameterization'' and ``EVB Free-Energy Calculations.''}
+
+\ReviewerComment{3. The authors should perform more discussion using their calculations of activation free-energy profile.}
+
+\AuthorResponse We agree and have added a dedicated paragraph interpreting the profile
+shapes. We explain that the human-to-mouse trajectory remains
+elevated and fluctuates after U49C as the mouse-like background is rebuilt, whereas the
+mouse-to-human trajectory after C49U contains more neutral or barrier-lowering steps.
+This directional contrast identifies candidate epistatic partners but does not establish
+a unique historical pathway.
+
+\Location{Manuscript, Discussion, second paragraph.}
+
+\end{document}

@@ -1,0 +1,260 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[margin=2.4cm]{geometry}
+\usepackage{amsmath,amssymb,booktabs,longtable,array,microtype}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{listings}
+
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue}
+\lstset{basicstyle=\ttfamily\small,columns=fullflexible,breaklines=true,
+  frame=single,showstringspaces=false}
+
+\title{Protocol for Autocorrelation Analysis, Effective Sample Sizes,\\
+and Correction of the EVB Statistical Summary}
+\author{Technical note for the GPX6 resubmission}
+\date{21 June 2026}
+
+\begin{document}
+\maketitle
+
+\section{Purpose and scope}
+
+Reviewer~1 requested explicit evaluation of autocorrelation times for the system energy and key reaction coordinates, estimation of the effective number of independent samples, and statistically justified uncertainties. This note defines the calculations required to answer that request and audits the draft statistical table supplied for the resubmission.
+
+Two distinct levels of statistical dependence must not be conflated:
+\begin{enumerate}
+  \item \textbf{Within-trajectory correlation.} Consecutive molecular-dynamics records from one replica and one FEP window are correlated in time. Integrated autocorrelation times and effective sample sizes quantify this dependence.
+  \item \textbf{Between-replica variation.} The final activation and reaction free energies are obtained independently for replicas initiated with different random velocity seeds. The uncertainty of the reported system-level mean should be calculated from the distribution of valid replica-level estimates, provided that the replicas truly have independent initial velocities and do not share continued trajectories.
+\end{enumerate}
+
+The within-window analysis demonstrates whether each biased ensemble was sampled adequately. It does not turn the thousands of saved MD frames into thousands of independent estimates of the final barrier. Conversely, reporting only the number of independent replicas does not answer the reviewer's explicit request about temporal autocorrelation.
+
+\section{Raw data required}
+
+For every one of the four core systems---human Sec-GPX6, human Cys-GPX6, mouse Cys-GPX6, and mouse Sec-GPX6---the following files are required for every valid replica and each of its 51 FEP windows:
+\begin{itemize}
+  \item the time series of the total system energy (or the most complete consistently recorded system-energy quantity produced by Qdyn);
+  \item the two diabatic-state energies, $\epsilon_1(t)$ and $\epsilon_2(t)$, or the directly recorded EVB energy gap;
+  \item the sampling interval and window identifier $\lambda$;
+  \item the QFEP/QMapper output containing the final replica-level $\Delta G^{\ddagger}$ and $\Delta G^{\circ}$ estimates;
+  \item the random seed or another auditable indication that replicas were independently initialized;
+  \item a log of every excluded replica and the objective exclusion reason.
+\end{itemize}
+
+The manuscript states that energies were saved every five 1-fs MD steps, so the nominal interval is $\Delta t=5$~fs $=0.005$~ps and each 20-ps window contains 4000 saved records before the QFEP skip operation. This must be verified against the actual input and output files rather than assumed from the template.
+
+The principal EVB reaction coordinate is the energy gap
+\begin{equation}
+  X(t)=\Delta V(t)=\epsilon_1(t)-\epsilon_2(t).
+\end{equation}
+If the sign convention in the QFEP output is reversed, it must be used consistently; reversing the sign does not change the autocorrelation time. Useful supplementary geometric coordinates are the transferring-proton distances or their difference, for example
+\begin{equation}
+  \xi(t)=r_{\mathrm{donor-H}}(t)-r_{\mathrm{acceptor-H}}(t),
+\end{equation}
+provided those coordinates were saved. The review can be answered with total energy and $X(t)$; geometric coordinates strengthen the convergence analysis but should not be claimed if they were not recorded.
+
+\section{Correct unit of analysis}
+
+\subsection{Do not concatenate FEP windows}
+
+Autocorrelation must be evaluated separately for each replica and FEP window. The 51 windows have different mapping potentials and therefore different stationary distributions. Concatenating their records would introduce artificial jumps at the window boundaries and violate the stationarity assumption of the autocorrelation function.
+
+For each observable $A$, system $s$, replica $r$, and window $w$, analyze the stationary series
+\[
+  A_{s,r,w}(t_1),\ldots,A_{s,r,w}(t_N).
+\]
+The same production segment and equilibration rule must be applied consistently. If a window contains a detectable initial transient, remove it using a predeclared automated criterion or a fixed protocol justified for all systems. Do not choose trimming points manually based on whether they improve the final result.
+
+\subsection{Stationarity checks}
+
+Before calculating an autocorrelation time:
+\begin{enumerate}
+  \item plot $A(t)$ for representative and worst-case windows;
+  \item compare means in the first and second halves of the retained series;
+  \item apply an equilibration-detection method such as maximization of the post-truncation effective sample size;
+  \item flag drift, abrupt jumps, or a failure to visit the region expected for that window;
+  \item record exclusions before examining the aggregate barrier difference.
+\end{enumerate}
+
+A long autocorrelation time is not by itself a reason to delete a window or replica. It is evidence of low effective sampling and should trigger either longer sampling, a sensitivity analysis, or an explicit limitation.
+
+\section{Autocorrelation and statistical inefficiency}
+
+For a stationary series $A_1,\ldots,A_N$ with sample mean $\bar A$, estimate the lag-$k$ normalized autocorrelation as
+\begin{equation}
+  \widehat{\rho}_A(k)=
+  \frac{\sum_{i=1}^{N-k}(A_i-\bar A)(A_{i+k}-\bar A)}
+       {\sum_{i=1}^{N}(A_i-\bar A)^2}.
+\end{equation}
+The integrated autocorrelation time in units of saved records is
+\begin{equation}
+  \widehat{\tau}_{\mathrm{int},A}
+  =\frac{1}{2}+\sum_{k=1}^{k_{\max}}\widehat{\rho}_A(k),
+\end{equation}
+and the statistical inefficiency is
+\begin{equation}
+  \widehat{g}_A=1+2\sum_{k=1}^{k_{\max}}\widehat{\rho}_A(k)
+  =2\widehat{\tau}_{\mathrm{int},A}.
+\end{equation}
+The effective number of independent records is then
+\begin{equation}
+  N_{\mathrm{eff},A}=\frac{N}{\widehat{g}_A},
+\end{equation}
+and the correlation time in physical units is
+\begin{equation}
+  \tau_{\mathrm{int},A}^{(\mathrm{time})}
+  =\widehat{\tau}_{\mathrm{int},A}\,\Delta t.
+\end{equation}
+
+The infinite autocorrelation sum cannot be estimated reliably from a finite noisy series. Use a documented truncation rule, such as an initial-positive/initial-convex sequence or the self-consistent window implemented in a validated library. The exact library version and settings must be recorded. A practical Python implementation is \texttt{pymbar.timeseries.statistical\_inefficiency}; an independent block-averaging calculation should be used as a sensitivity check.
+
+Because the windows may differ substantially, report at minimum the median, interquartile range, 95th percentile, and maximum $\tau_{\mathrm{int}}$ or $g$ across replica--window combinations for both total energy and $X$. Also report the minimum $N_{\mathrm{eff}}$ and identify the system/window responsible for the worst case. A table containing only a grand average can conceal poorly sampled transition-region windows.
+
+\section{Recommended calculation workflow}
+
+\begin{enumerate}
+  \item \textbf{Inventory.} Build one manifest row per system, replica, and window, including file paths, random seed, number of records, and validity status.
+  \item \textbf{Parse.} Extract time, total energy, $\epsilon_1$, $\epsilon_2$, and $X=\epsilon_1-\epsilon_2$ without rounding.
+  \item \textbf{Verify cadence.} Confirm that timestamps are monotonic, the interval is constant, and the expected number of records is present.
+  \item \textbf{Detect equilibration.} Determine a retained stationary segment using one prespecified rule. Save the discarded-record count.
+  \item \textbf{Estimate correlation.} Calculate $g$, $\tau_{\mathrm{int}}$, and $N_{\mathrm{eff}}$ separately for total energy and $X$ in each retained window.
+  \item \textbf{Block check.} Recalculate the standard error of the window mean with increasing block sizes. It should reach a plateau when blocks exceed the correlation time.
+  \item \textbf{Summarize.} Produce system-level distributions and highlight the transition-region and worst-sampled windows.
+  \item \textbf{Assess sufficiency.} Compare the retained trajectory length $T$ with $\tau_{\mathrm{int}}$. As a diagnostic, a series with only a few correlation times cannot yield a stable autocorrelation estimate. If key windows have very small $N_{\mathrm{eff}}$, extend those simulations or state the limitation.
+  \item \textbf{Re-run mapping if needed.} If additional sampling is generated, rerun QFEP/QMapper using the same objective quality criteria and rebuild all replica-level statistics.
+\end{enumerate}
+
+The following pseudocode shows the required grouping. It is deliberately format-neutral because the exact Q energy-file columns must be confirmed from the actual files.
+
+\begin{lstlisting}[language=Python]
+for system in systems:
+    for replica in system.replicas:
+        for window in replica.windows:
+            df = parse_q_energy_file(window.energy_file)
+            df["energy_gap"] = df["epsilon1"] - df["epsilon2"]
+            for observable in ["total_energy", "energy_gap"]:
+                values = df[observable].to_numpy()
+                t0, g, neff = detect_equilibration(values)
+                retained = values[t0:]
+                g = statistical_inefficiency(retained)
+                tau_records = g / 2.0
+                tau_ps = tau_records * sampling_interval_ps
+                save(system, replica, window, observable,
+                     t0, len(retained), g, tau_ps,
+                     len(retained) / g)
+\end{lstlisting}
+
+\section{Uncertainty of \texorpdfstring{$\Delta G^{\ddagger}$ and $\Delta G^{\circ}$}{activation and reaction free energies}}
+
+The primary system-level observations are the valid replica-level free-energy estimates, not the individual MD frames. For a system with $R$ valid independent replicas and replica estimates $y_1,\ldots,y_R$, calculate
+\begin{align}
+  \bar y &= \frac{1}{R}\sum_{r=1}^{R}y_r,\\
+  s &= \sqrt{\frac{1}{R-1}\sum_{r=1}^{R}(y_r-\bar y)^2},\\
+  \mathrm{SEM} &= \frac{s}{\sqrt{R}}.
+\end{align}
+Use the sample standard deviation ($R-1$ denominator). For transparent finite-sample inference, report a 95\% Student-$t$ confidence interval,
+\begin{equation}
+  \bar y \pm t_{0.975,R-1}\frac{s}{\sqrt{R}},
+\end{equation}
+and a replica-level bootstrap confidence interval as a sensitivity analysis. Bootstrap complete replicas, not individual correlated frames.
+
+If replicas have unequal precision because of markedly different within-window effective sample sizes, first report the unweighted result because each independently initiated replica is a natural replicate. A precision-weighted analysis may be included only as a declared sensitivity analysis with justified per-replica variance estimates; weights must not be invented from the number of raw frames.
+
+For a difference between independently simulated systems $a$ and $b$,
+\begin{equation}
+  \mathrm{SE}(\bar y_a-\bar y_b)
+  =\sqrt{\frac{s_a^2}{R_a}+\frac{s_b^2}{R_b}}.
+\end{equation}
+Use a Welch confidence interval rather than claiming significance merely because a difference exceeds the sum of two SEMs. If systems were generated with deliberately paired seeds or matched structural starting points, a paired analysis may be more powerful, but pairing must be documented and used consistently.
+
+\section{Audit of the proposed Table S8}
+
+The draft table is internally inconsistent. The following values are arithmetic checks only: they recompute $s/\sqrt{N}$ from the displayed standard deviation and displayed $N$. They do not validate the underlying means, standard deviations, exclusions, or sample identities.
+
+\begin{longtable}{llrrrr}
+\toprule
+System & Quantity & Displayed SD & Displayed $N$ & Draft SEM & $SD/\sqrt{N}$ \\
+\midrule
+\endfirsthead
+\toprule
+System & Quantity & Displayed SD & Displayed $N$ & Draft SEM & $SD/\sqrt{N}$ \\
+\midrule
+\endhead
+Human Sec & $\Delta G^{\ddagger}$ & 3.21 & 22 & 0.83 & \textbf{0.68} \\
+Human Sec & $\Delta G^{\circ}$     & 3.48 & 22 & 1.46 & \textbf{0.74} \\
+Human Sec & $\Delta G_{\lambda}$  & 3.47 & 25 & 0.69 & 0.69 \\
+Human Cys & $\Delta G^{\ddagger}$ & 3.63 & 14 & 0.97 & 0.97 \\
+Human Cys & $\Delta G^{\circ}$     & 5.00 & 14 & 1.68 & \textbf{1.34} \\
+Human Cys & $\Delta G_{\lambda}$  & 4.50 & 22 & 0.96 & 0.96 \\
+Mouse Cys & $\Delta G^{\ddagger}$ & 4.18 & 21 & 0.91 & 0.91 \\
+Mouse Cys & $\Delta G^{\circ}$     & 13.87 & 21 & 1.03 & \textbf{3.03} \\
+Mouse Cys & $\Delta G_{\lambda}$  & 4.71 & 24 & 0.96 & 0.96 \\
+Mouse Sec & $\Delta G^{\ddagger}$ & 2.43 & 22 & 0.52 & 0.52 \\
+Mouse Sec & $\Delta G^{\circ}$     & 2.75 & 22 & 0.59 & 0.59 \\
+Mouse Sec & $\Delta G_{\lambda}$  & 2.71 & 25 & 0.54 & 0.54 \\
+\bottomrule
+\end{longtable}
+
+The human Sec activation row is especially informative: $3.21/\sqrt{22}=0.68$, whereas the manuscript reports 0.83. A SEM of approximately 0.83 would result from $N\approx15$ with the displayed SD. This suggests that the SD, SEM, and $N$ may have been taken from different filtering stages or different versions of the replica set. The mismatch must not be fixed by changing a single cell without reconstructing every row from the underlying replica-level values.
+
+The draft statement that mean--median agreement within 1.5~kcal/mol confirms the absence of influential outliers must also be removed. First, the human Cys activation row differs by 1.65~kcal/mol. Second, the mouse Cys reaction energy has mean $-56.96$ and median $-61.38$~kcal/mol, a 4.42~kcal/mol difference together with an SD of 13.87~kcal/mol. This is direct evidence of skewness or influential replicas that requires inspection. Mean--median proximity is not a formal outlier diagnostic.
+
+\section{Exact procedure for rebuilding Table S8}
+
+\begin{enumerate}
+  \item Export one machine-readable row per attempted replica with: system, replica ID, random seed, mapping status, exclusion reason, $\Delta G^{\ddagger}$, $\Delta G^{\circ}$, and any $\Delta G_{\lambda}$ quantity retained for calibration diagnostics.
+  \item Freeze explicit validity criteria before recomputing summary statistics. ``Failed profile'' must be operationally defined (for example, missing energy list, QFEP failure, insufficient populated bins, or absence of a complete reactant minimum--barrier--product profile).
+  \item Do not use different undocumented replica sets for mean, SD, median, SEM, and $N$. Each row must be calculated from one identifiable vector of values.
+  \item For each system and quantity, record $N$, mean, sample SD with \texttt{ddof=1}, median, SEM $=SD/\sqrt{N}$, interquartile range, minimum, maximum, and a 95\% confidence interval.
+  \item Inspect all replica-level values and profiles. Keep valid extreme observations unless an objective simulation or mapping failure justifies exclusion. Report exclusions and repeat the analysis with and without questionable but technically valid replicas.
+  \item Reconcile the barrier values in the main text, figure captions, response letter, and Table~S8 from the same frozen dataset.
+  \item Verify every printed SEM automatically to the displayed precision. With values rounded to two decimals, allow only a small rounding tolerance; calculate statistics from unrounded inputs and round only for presentation.
+  \item Archive the input CSV, analysis script, output table, software versions, and a checksum of the final replica list.
+\end{enumerate}
+
+If $\Delta G_{\lambda}$ is retained in the table, define it precisely and explain why its number of valid estimates can differ from that of complete barriers. Otherwise remove it: an undefined diagnostic risks distracting from the quantities requested by the reviewer.
+
+\section{Minimum outputs for the resubmission}
+
+The analysis should produce:
+\begin{itemize}
+  \item a CSV with autocorrelation results for every system--replica--window--observable combination;
+  \item plots of total energy and energy-gap traces plus autocorrelation functions for representative and worst-case windows;
+  \item a compact SI table summarizing $\tau_{\mathrm{int}}$, $g$, and $N_{\mathrm{eff}}$ distributions by system and observable;
+  \item a replica-level CSV and corrected Table~S8;
+  \item an exclusion ledger;
+  \item a sensitivity analysis for influential replicas and for uncertainty intervals;
+  \item exact manuscript and response-letter wording supported by those outputs.
+\end{itemize}
+
+\section{Wording that may be used only after the calculation}
+
+The following template must be filled with computed values; placeholders must not remain in the submitted manuscript:
+
+\begin{quote}
+Temporal convergence was assessed separately for every replica and FEP window because adjacent windows sample different mapping potentials. For the total system energy and EVB energy-gap coordinate, we estimated the integrated autocorrelation time after removal of the detected equilibration segment using [method and software version]. Across the four core systems, the median [95th-percentile] integrated autocorrelation times were [values] ps for total energy and [values] ps for the energy gap; the minimum effective sample sizes per retained window were [values]. System-level activation and reaction free energies were summarized over independently initialized replicas. Reported uncertainties are standard errors calculated from the sample standard deviation across valid replica-level estimates, and 95\% confidence intervals were obtained using [Student-$t$/replica bootstrap]. Replica exclusions and criteria are listed in Table~[X].
+\end{quote}
+
+If the raw time series cannot be recovered, the response must say so explicitly. In that case the defensible fallback is to report between-replica statistics, acknowledge that the requested temporal autocorrelation analysis could not be performed retrospectively, and avoid claiming a within-trajectory effective sample size. Given the reviewer's emphasis and the modest 1--3~kcal/mol effects, regenerating or extending the relevant windows is preferable.
+
+\begin{thebibliography}{9}
+\bibitem{shirts2008}
+M. R. Shirts and J. D. Chodera,
+Statistically optimal analysis of samples from multiple equilibrium states,
+\emph{J. Chem. Phys.} \textbf{2008}, \emph{129}, 124105.
+
+\bibitem{chodera2016}
+J. D. Chodera,
+A simple method for automated equilibration detection in molecular simulations,
+\emph{J. Chem. Theory Comput.} \textbf{2016}, \emph{12}, 1799--1805.
+
+\bibitem{flyvbjerg1989}
+H. Flyvbjerg and H. G. Petersen,
+Error estimates on averages of correlated data,
+\emph{J. Chem. Phys.} \textbf{1989}, \emph{91}, 461--466.
+\end{thebibliography}
+
+\end{document}

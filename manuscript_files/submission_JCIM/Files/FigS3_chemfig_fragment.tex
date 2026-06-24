@@ -1,0 +1,142 @@
+\documentclass[11pt]{article}
+
+\usepackage[margin=1.8cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{xcolor}
+\usepackage{chemfig}
+\usepackage{chemformula}
+\usepackage{subcaption}
+\usepackage{caption}
+
+\pagestyle{empty}
+\captionsetup{font=small,labelfont=bf}
+\captionsetup[subfigure]{labelformat=parens,font=small,labelfont=bf}
+
+\definecolor{backbonegray}{RGB}{120,135,135}
+
+\setchemfig{
+  atom sep=1.95em,
+  bond offset=2pt,
+  bond style={line width=0.85pt},
+  cram width=3.5pt,
+  cram dash width=0.45pt,
+  cram dash sep=1.1pt,
+  double bond sep=2.2pt
+}
+
+\newcommand{\moltitle}[1]{\vspace{0.35em}\textbf{#1}}
+\newcommand{\bbatom}[1]{\textcolor{backbonegray}{#1}}
+\newlength{\peroxidepanelheight}
+\setlength{\peroxidepanelheight}{12.7em}
+
+\begin{document}
+
+\begin{figure}
+\centering
+
+\begin{subfigure}[t]{0.46\textwidth}
+\centering
+\schemestart
+\chemfig{
+  @{cysN}\bbatom{N}
+    (-[:120,,,,draw=backbonegray] @{cysHN1}\bbatom{H})
+    (-[:240,,,,draw=backbonegray] @{cysHN2}\phantom{H})
+  -[,,,,draw=backbonegray] @{cysCA}\bbatom{CA}
+    (
+      -[2,,,,draw=backbonegray] @{cysH}\bbatom{HA}
+    )
+    (
+      -[6,1.35] @{cysCB}CB
+        (-[4,1.25] @{cysHB1}HB1)
+        (-[0,1.25] @{cysHB2}HB2)
+        -[6,1.35] @{cysSG}{SG}
+          -[6,1.25] @{cysHG}HG1
+    )
+  -[,,,,draw=backbonegray] @{cysC}\bbatom{C}
+    (=[1,,,,draw=backbonegray] @{cysO}\bbatom{O})
+    -[-1,,,,draw=backbonegray] @{cysOH}\phantom{O}
+}
+\schemestop
+\caption{Cysteine}
+\end{subfigure}
+\hfill
+\begin{subfigure}[t]{0.46\textwidth}
+\centering
+\schemestart
+\chemfig{
+  @{secN}\bbatom{N}
+    (-[:120,,,,draw=backbonegray] @{secHN1}\bbatom{H})
+    (-[:240,,,,draw=backbonegray] @{secHN2}\phantom{H})
+  -[,,,,draw=backbonegray] @{secCA}\bbatom{CA}
+    (
+      -[2,,,,draw=backbonegray] @{secH}\bbatom{HA}
+    )
+    (
+      -[6,1.35] @{secCB}CB
+        (-[4,1.25] @{secHB1}HB1)
+        (-[0,1.25] @{secHB2}HB2)
+        -[6,1.35] @{secSE}{SE}
+          -[6,1.25] @{secHG}HG1
+    )
+  -[,,,,draw=backbonegray] @{secC}\bbatom{C}
+    (=[1,,,,draw=backbonegray] @{secO}\bbatom{O})
+    -[-1,,,,draw=backbonegray] @{secOH}\phantom{O}
+}
+\schemestop
+\caption{Selenocysteine}
+\end{subfigure}
+
+\vspace{1.6em}
+
+\begin{subfigure}[t]{0.46\textwidth}
+\centering
+\begin{minipage}[c][\peroxidepanelheight][c]{\linewidth}
+\centering
+  \schemestart
+  \chemfig{
+    @{hpa}H1
+    - @{hpoa}{O1}
+    - @{hpob}{O2}
+    - @{hpb}H2
+  }
+  \schemestop
+\end{minipage}
+\caption{Hydrogen peroxide}
+\end{subfigure}
+\hfill
+\begin{subfigure}[t]{0.46\textwidth}
+\centering
+\schemestart
+\chemfig{
+  @{glnN}\bbatom{N}
+    (-[:120,,,,draw=backbonegray] @{glnHN1}\bbatom{H})
+    (-[:240,,,,draw=backbonegray] @{glnHN2}\phantom{H})
+  -[,,,,draw=backbonegray] @{glnCA}\bbatom{CA}
+    (
+      -[2,,,,draw=backbonegray] @{glnH}\bbatom{HA}
+    )
+    (
+      -[6,1.28] @{glnCB}CB
+        (-[4,1.18] @{glnHB1}HB1)
+        (-[0,1.18] @{glnHB2}HB2)
+        -[6,1.28] @{glnCG}CG
+          (-[4,1.18] @{glnHG1}HG1)
+          (-[0,1.18] @{glnHG2}HG2)
+          -[6,1.28] @{glnCD}CD
+            (=[0,1.18] @{glnOE}OE1)
+            -[6,1.18] @{glnNE}NE2
+              (-[4,1.12] @{glnHE21}HE21)
+              (-[0,1.12] @{glnHE22}HE22)
+    )
+  -[,,,,draw=backbonegray] @{glnC}\bbatom{C}
+    (=[1,,,,draw=backbonegray] @{glnO}\bbatom{O})
+    -[-1,,,,draw=backbonegray] @{glnOH}\phantom{O}
+}
+\schemestop
+\caption{Glutamine}
+\end{subfigure}
+
+\end{figure}
+
+\end{document}

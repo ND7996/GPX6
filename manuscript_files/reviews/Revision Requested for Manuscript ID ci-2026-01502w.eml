@@ -1,0 +1,432 @@
+Received: from DU6PR04MB11183.eurprd04.prod.outlook.com (2603:10a6:10:5c4::16)
+ by VI1PR04MB6909.eurprd04.prod.outlook.com with HTTPS; Fri, 5 Jun 2026
+ 12:58:39 +0000
+Received: from AM0PR10CA0036.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:20b:150::16)
+ by DU6PR04MB11183.eurprd04.prod.outlook.com (2603:10a6:10:5c4::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.92.8; Fri, 5 Jun 2026
+ 12:58:32 +0000
+Received: from AM2PEPF0001C716.eurprd05.prod.outlook.com
+ (2603:10a6:20b:150:cafe::52) by AM0PR10CA0036.outlook.office365.com
+ (2603:10a6:20b:150::16) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.92.8 via Frontend Transport; Fri, 5
+ Jun 2026 12:58:32 +0000
+Authentication-Results: spf=pass (sender IP is 54.240.27.61)
+ smtp.mailfrom=outbound.manuscriptcentral.com; dkim=pass (signature was
+ verified) header.d=manuscriptcentral.com;dkim=pass (signature was verified)
+ header.d=amazonses.com;dmarc=pass action=none
+ header.from=manuscriptcentral.com;compauth=pass reason=100
+Received-SPF: Pass (protection.outlook.com: domain of
+ outbound.manuscriptcentral.com designates 54.240.27.61 as permitted sender)
+ receiver=protection.outlook.com; client-ip=54.240.27.61;
+ helo=a27-61.smtp-out.us-west-2.amazonses.com; pr=C
+Received: from a27-61.smtp-out.us-west-2.amazonses.com (54.240.27.61) by
+ AM2PEPF0001C716.mail.protection.outlook.com (10.167.16.186) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.92.5 via
+ Frontend Transport; Fri, 5 Jun 2026 12:58:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=zpznxeidjqub2tus7cajdamhvcf6ct3w; d=manuscriptcentral.com;
+	t=1780664310;
+	h=Date:From:Reply-To:To:Message-ID:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=6UokDH61QQoBtbVobcWAMky75sJ9qSWvgEJgv7n5gZg=;
+	b=JKoJhX8qgYckySa4jcfy6/3tUvtMCsYZeQAI4gRJ0eEjMCuIhiYOyUSL3iDbMhEf
+	XC7d/4UxB7ruAGSDb2AEhUT2HZE7oht5Ps03NQM8m7XoDaTpzKjGIpC+gquHyO8BgJC
+	74NXxo/YTJ1IxVnNXIucudwfxmlCkT2w0rlHrjUg=
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=hsbnp7p3ensaochzwyq5wwmceodymuwv; d=amazonses.com; t=1780664310;
+	h=Date:From:Reply-To:To:Message-ID:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Feedback-ID;
+	bh=6UokDH61QQoBtbVobcWAMky75sJ9qSWvgEJgv7n5gZg=;
+	b=y+bWVZGURqYZcJ/o2GnX9DOtqGzZ3tZWadAGeoTX6fqFUnNqWxlBqZGNtdSfjLsZ
+	+dCJikQVzfEO6AZx81DLaj5+Tt1N9r6+DWVGxrh0uamo8cIFGhfaI10FlOk7/mxtKWe
+	PZ5tqu8ADQDYWUziEUfm3HJfqtQ/2BoIixpYVbqU=
+Date: Fri, 5 Jun 2026 12:58:29 +0000
+From: Journal of Chemical Information and Modeling <onbehalfof@manuscriptcentral.com>
+Reply-To: he-office@jcim.acs.org
+To: jordi.villa@uvic.cat
+Message-ID: <0101019e97dd17bf-764050c3-a1a6-40fc-ba07-bddec06a8f9e-000000@us-west-2.amazonses.com>
+Subject: Revision Requested for Manuscript ID ci-2026-01502w
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-SID: 2
+X-PRODUCT: s1m
+X-ENV-TYPE: prod
+X-ENV-NAME: 4280
+X-S1Info: xik_4wxSqRAzficUv3mqYNECtacX7ZsnPoxBuXVTXMGA1iMh9CCRiSZYu1KDoaPoAkm2bwD9ThQgCAUKCHnjNPc9GXni
+Feedback-ID: ::1.us-west-2.y8789kd/oyDlGffYrP88IUZ2JiqaxJLDOSJ1+/ZSPI4=:AmazonSES
+X-SES-Outgoing: 2026.06.05-54.240.27.61
+Return-Path: 0101019e97dd17bf-764050c3-a1a6-40fc-ba07-bddec06a8f9e-000000@outbound.manuscriptcentral.com
+X-MS-Exchange-Organization-ExpirationStartTime: 05 Jun 2026 12:58:32.5159
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id: a9762d2c-ea04-44a7-8728-08dec30225d3
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: 05bec039-4f4f-4087-9f2e-1e71aa64c56e:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM2PEPF0001C716:EE_|DU6PR04MB11183:EE_|VI1PR04MB6909:EE_
+X-MS-Exchange-Organization-AuthSource: AM2PEPF0001C716.eurprd05.prod.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-Office365-Filtering-Correlation-Id: a9762d2c-ea04-44a7-8728-08dec30225d3
+X-MS-Exchange-AtpMessageProperties: SA|SL
+X-MS-Exchange-Organization-SCL: 1
+X-Microsoft-Antispam: BCL:4;ARA:13230040|704162111799003|13012899012|13102899012|5062899012|2092899012|32142699015|12012899012|3072899012|3092899012|3023799007|18003699003|5023799004|11063799006|5063699009|16102099003|4113699003|19002099003|6133799003|57112099003|55112099003|13003099007;
+X-Forefront-Antispam-Report: CIP:54.240.27.61;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:a27-61.smtp-out.us-west-2.amazonses.com;PTR:a27-61.smtp-out.us-west-2.amazonses.com;CAT:NONE;SFS:(13230040)(704162111799003)(13012899012)(13102899012)(5062899012)(2092899012)(32142699015)(12012899012)(3072899012)(3092899012)(3023799007)(18003699003)(5023799004)(11063799006)(5063699009)(16102099003)(4113699003)(19002099003)(6133799003)(57112099003)(55112099003)(13003099007);DIR:INB;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Jun 2026 12:58:31.8384
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: a9762d2c-ea04-44a7-8728-08dec30225d3
+X-MS-Exchange-CrossTenant-Id: 05bec039-4f4f-4087-9f2e-1e71aa64c56e
+X-MS-Exchange-CrossTenant-AuthSource: AM2PEPF0001C716.eurprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU6PR04MB11183
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:07.7582701
+X-MS-Exchange-Processed-By-BccFoldering: 15.21.0092.005
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;auth:0;dest:I;ENG:(910005)(944490095)(944506478)(944626604)(920097)(930201)(20251009189)(140003)(1420198);
+X-Microsoft-Antispam-Message-Info:
+	=?Windows-1252?Q?PTXwAfORnKruP21NYaDvk1x7fGm1jmWqqNfIQpgntWzJaQJ9+t6KTLh4?=
+ =?Windows-1252?Q?GMZMa6AZM95Uy9QeS7ZIvrDkz1YvHEEP/3jKco9Zi5J1z60uZdml7MtN?=
+ =?Windows-1252?Q?hlbCNCxXh68lqokmonyRdsmI74oHQl6IB67qwu2voN8KLv/0/ayPcBMm?=
+ =?Windows-1252?Q?T7KCPf+PAb6WK0S/1N9wi76Y30nPuZNFHflt52w5kWTs89ojVumUCjog?=
+ =?Windows-1252?Q?4qkQrAVRquWsGNKAzW9Aa/4/OFea/wP/pLm1IzO+8AJyi1IhRyK01yyo?=
+ =?Windows-1252?Q?X+876Zi38HUIGSwE0ebRz6BiqxeGWQZDTyA5TciA+ocn3hEC4bQJSW18?=
+ =?Windows-1252?Q?ofsPgQbCVMQ6YTefJm6fbHJyn2WJFMJX7i88nSU5Xwzn9DbM2G/Y2TK3?=
+ =?Windows-1252?Q?uShTeHcHmaWizDDxrmlq+RAO+LDQ8tULjEuK4r6SymgL3P9RVq7OF7Eu?=
+ =?Windows-1252?Q?zD5EcWYvew2dwBrq+IesGH8glTVEIm4RT3s8dczmpIQLHY5e1Tm+7+Oa?=
+ =?Windows-1252?Q?2TeyrfMHfLy2rqzlPseCHkcVOI2xWzjjMbLY1sUgl6MnUPEwKRgVeUJm?=
+ =?Windows-1252?Q?Uv4lfp9G6OsUXerQgZaCcH4x32Iz8M0g053nG6MRLSaIyBOlMw3QtatA?=
+ =?Windows-1252?Q?rSBURC3w3toCGURkQNNI4FTVT0VbQPmaSRj65rfuLoiYfnO6T2AN3TN8?=
+ =?Windows-1252?Q?KG6/1UlDx9mhXzA9bkhwmqbcnpHavWGBoxANxFcvfKBnm2/zA1Eo4rsM?=
+ =?Windows-1252?Q?yORT4WDEFB+8dD+/kwOr8Ri6dXGlsQKFcFJqs6XBN8ZrVpKtu2EEQYwf?=
+ =?Windows-1252?Q?dQXLlNLqkEFeFbR1MoEKWigORgD8wsvhD/VuGE2BKPgJuo+ofZqIjrSQ?=
+ =?Windows-1252?Q?kFDiRUZO+LM1dHLLCzylFO/c9MKeWPnWhKNt/GCZFXVfcZsNvT5OeaMA?=
+ =?Windows-1252?Q?vG6+EHNw9WJzJuvy2HJBeoL6cir1js6q+1wuJEMYm+6I1S74tzVEG7FJ?=
+ =?Windows-1252?Q?vW3SOmKqQPxQUuXMMKRrim4UHWAWfaK6p1Re2Ngr2Rudd708R8ubSWJl?=
+ =?Windows-1252?Q?tM5rubIK4Rlo1krmciB1BKQ9bKZyx0/v84ccdavd7ICtfBR0F1+I+5mS?=
+ =?Windows-1252?Q?Agr2UN246iT5JD1jysuyXWOYtU5K7oMeRTmjOrMtAXvGGvboXqD32Qow?=
+ =?Windows-1252?Q?8xuUal6nKV0U87tiktKsmcKBTo449/fdCDlrpqFKGXef5s7y7bIDegz/?=
+ =?Windows-1252?Q?bzLczuXMi/+QHENbSwJvQT83awnmCV3iQs5vNZ+sJD1KGD2eBaTtAkLj?=
+ =?Windows-1252?Q?z5dKxP3We5GCiWjTblMUWgz/Oja155bmR7EiTZoCZU8d8ajuQtH3atMW?=
+ =?Windows-1252?Q?xbxzBvABbEWRqFyRmZadfxAYNNmcy7ImHCzPFoQqdyGPynG5RKH+p1Dj?=
+ =?Windows-1252?Q?o4pZfg/VuxXHJwsgegXAMWxexohNjMCq98RJiKlXgpdxNZTRC/6HtHAK?=
+ =?Windows-1252?Q?qcMqZVdbDIv4XgiptXyKUzwr2YFP+Mtx4ftM7Ssf6MyjBxpNcrDh5iNT?=
+ =?Windows-1252?Q?yqTHY8OSbrJ/ExUzQ35KmeH1HN7QoWPXhlPHatoVA+nwW1GxSEgbEZYk?=
+ =?Windows-1252?Q?r/nmaUTqP3ifbxJo2K5GkFoNhxpbS/HdAJz5EJv6FrrlznKeIcNfxCtI?=
+ =?Windows-1252?Q?aFLgCadf8mS0IVtyf38JQrPFfsSuTwYj/E4UPtJyQOji9wbudARjPK0M?=
+ =?Windows-1252?Q?ujm8dWSTPJ+90DLMEOHy/6ZjIBLcSDxuFZmjE90kHQuK+NEJeurDdvZ4?=
+ =?Windows-1252?Q?Qy3PFcjXCoM1o+YPW96/YWZJppH78BF+lSQUcIBoyWZAuHisXCkBsEIy?=
+ =?Windows-1252?Q?OP2CuSl/D8D5euQzz/e3W/gUNaYDzMjbWhbmczzoN73tWeJUhietI2E/?=
+ =?Windows-1252?Q?Rhyko0XZaRvf8s6WeY3SpQf71ZOG/lOzfLijkauE/2m+fbRVVkpNSNXk?=
+ =?Windows-1252?Q?CkwjR1hlOmjVBNfxhYJvtt1pddY54Rn/ObNWltO1KrsKDly7dGd00st0?=
+ =?Windows-1252?Q?9TcDtYf9RxNULX9e8jP7tFEP2wWrQYIdgAE4VwWC8j3olLUwuJzjXnIZ?=
+ =?Windows-1252?Q?Ee3jhdVkRdeCyFjjsgyR4WxRqLxdMx9mG6J4KQOLWZVgELp/lot4GdqV?=
+ =?Windows-1252?Q?AGzbFtvT6S83KNsWtljhf2rSsdimNVkQPLzPOTEm92j6e8ZQE4/gNNV+?=
+ =?Windows-1252?Q?iGTPIxHzyZL9rRGTyk5WE01JWGL0Ww8ycpA6imdxWB4Wx7c8wphbo/jG?=
+ =?Windows-1252?Q?tvIJ/lMPy0YFe7tab/UuZ7TR00/u/WtK3Mjx3XG+IIbSZljrb/MlW54X?=
+ =?Windows-1252?Q?itvpxzIGOqHtIoNm4514F3MQzLNgr3GMa/5KhWg61k+MRa/mRlwZTlsh?=
+ =?Windows-1252?Q?MzJkR/T+tSxWh/w/5AJjfLJ74v6JmsUxcqngEHcisOTmwsc7zSOYZIms?=
+ =?Windows-1252?Q?CIYmSk0e6o5kNQoK5VXicX5NsfQuITo2ThqLdBloPea017NVV3A+GHyY?=
+ =?Windows-1252?Q?kmG0Xt0dFYZqFUk2hR5BkrjvXbQRkczJpTDl8WPVMj9dNmRDdxtAubzB?=
+ =?Windows-1252?Q?hY9BWI1vLa03HXmu+0MKgBe05hr3whAx+8o8LCnYwr+we7srghXVVlPl?=
+ =?Windows-1252?Q?FMMqTsrPI3c4FV+RJuqwXLnGm6ut3xzmgwjQly7IR8SnzoV6kInBUwSL?=
+ =?Windows-1252?Q?x3HBnTftyuHlF0W47+qF7BrhXQ+HpZ8HSIFKB/kMO6c+xsSaokUQiIxT?=
+ =?Windows-1252?Q?v6zQAQ=3D=3D?=
+MIME-Version: 1.0
+
+05-Jun-2026
+
+Manuscript ID: ci-2026-01502w
+Title: "Epistatic Modulation of Sec/Cys Catalysis in GPX6 Revealed by EVB F=
+ree-Energy Landscapes"
+Author(s): Das, Nayanika; Baladhye, Vijay B.; Vill=C3=A0-Freixa, Jordi
+
+Dear Dr. Vill=C3=A0-Freixa:
+
+Thank you for submitting your manuscript to JCIM. Expert reviewers have eva=
+luated the manuscript, and in their opinion it is of interest to the JCIM r=
+eadership. The reviewers=E2=80=99 comments are generally positive, but they=
+ have raised points that require consideration and revision. I would be ple=
+ased to consider a revised manuscript that addresses the reviewers=E2=80=99=
+ concerns and the following technical issues. Please submit the revised man=
+uscript by 19-Jun-2026 at the latest.
+
+Please note that you may receive a follow-up message within 24 hours descri=
+bing the non-scientific changes you should also make to your manuscript, in=
+ accordance with our author guidelines, before you submit the revision. It =
+is important to address these changes in your revision so that processing y=
+our manuscript can proceed without further delay.
+
+Funding Sources: Authors are required to report ALL funding sources and gra=
+nt/award numbers relevant to this manuscript. Confirm all sources of fundin=
+g for ALL authors relevant to this manuscript are included in BOTH the subm=
+ission form and in the manuscript file to meet this requirement. See https:=
+//eur02.safelinks.protection.outlook.com/?url=3Dhttp%3A%2F%2Fpubs.acs.org%2=
+Fpage%2F4authors%2Ffunder_options.html&data=3D05%7C02%7Cjordi.villa%40uvic.=
+cat%7Ca9762d2cea0444a7872808dec30225d3%7C05bec0394f4f40879f2e1e71aa64c56e%7=
+C0%7C0%7C639162611197492257%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWU=
+sIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7=
+C%7C%7C&sdata=3DPrJ%2F64vOMZxcHVdDFc%2FiIxMzxUzP0x%2BWywRCU84xYFE%3D&reserv=
+ed=3D0 for complete instructions.
+
+ORCID: Authors submitting manuscript revisions are required to provide thei=
+r own validated ORCID iDs before completing the submission, if an ORCID iD =
+is not already associated with their user profiles. This iD may be provided=
+ during original manuscript submission or when submitting the manuscript re=
+vision. You can provide only your own ORCID iD, a unique researcher identif=
+ier. If your ORCID iD is not already validated and associated with your  us=
+er profile, you may do so by following the ORCID-related links in the Email=
+/Name section of your user account. All authors are encouraged to register =
+for and associate their own ORCID iDs with their user profiles. The ORCID i=
+D will be displayed in the published article for any author on a manuscript=
+ who has a validated ORCID iD associated with their user account when the m=
+anuscript is accepted. Learn more at https://eur02.safelinks.protection.out=
+look.com/?url=3Dhttp%3A%2F%2Fwww.orcid.org%2F&data=3D05%7C02%7Cjordi.villa%=
+40uvic.cat%7Ca9762d2cea0444a7872808dec30225d3%7C05bec0394f4f40879f2e1e71aa6=
+4c56e%7C0%7C0%7C639162611197529261%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGki=
+OnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3=
+D%7C0%7C%7C%7C&sdata=3DLq4ePrMffaK5ztS7vylqV7JVo6FPnTlMO1ZLPEIHyWo%3D&reser=
+ved=3D0.
+
+On resubmission you must provide the following:
+a) A point-by-point response to the reviewers.
+b) A clean, unmarked copy of the manuscript document file.
+c) A marked copy of the revised manuscript in which all the changes are cle=
+arly tracked or highlighted. Upload this file as Supporting Information for=
+ Review.
+d) A clean, unmarked Supporting Information for Publication file, without a=
+ny highlighting or tracked changes.
+
+JCIM is now accepting images to appear on the front cover of the journal. I=
+f you have a visually arresting and scientifically interesting image, pleas=
+e upload it and a brief (80 word) description of the image as part of your =
+revised submission. Please use the designations Cover Art and Cover Art Cap=
+tion for these files. Additional information about the technical specificat=
+ions for the image can be found at  https://eur02.safelinks.protection.outl=
+ook.com/?url=3Dhttps%3A%2F%2Fpubsapp.acs.org%2Fparagonplus%2Fsubmission%2Fj=
+cisd8%2Fjcisd8_authguide.pdf&data=3D05%7C02%7Cjordi.villa%40uvic.cat%7Ca976=
+2d2cea0444a7872808dec30225d3%7C05bec0394f4f40879f2e1e71aa64c56e%7C0%7C0%7C6=
+39162611197551913%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwL=
+jAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sd=
+ata=3D6zb5igWqGfMSsmy1Nc4e7LLG9oTramnQqP9Q8w8hQaI%3D&reserved=3D0.
+
+Please contact the JCIM editorial office at eic@jcim.acs.org if you have an=
+y specific questions regarding these guidelines.
+Please note that you may receive a follow-up message within 24 hours descri=
+bing the non-scientific changes you should also make to your manuscript, in=
+ accordance with our author guidelines, before you submit the revision. It =
+is important to address these changes in your revision so that processing y=
+our manuscript can proceed without further delay.
+
+We look forward to seeing your paper in JCIM.
+
+ACS Publications uses Crossref Similarity Check Powered by iThenticate to d=
+etect instances of similarity in submitted manuscripts. In publishing only =
+original research, ACS is committed to deterring plagiarism, including self=
+-plagiarism. Your manuscript may be screened for similarity to published ma=
+terial.
+
+Sincerely,
+
+Prof. Xiao He
+Associate Editor
+Journal of Chemical Information and Modeling
+Email: he-office@jcim.acs.org
+
+Professor,
+School of Chemistry and Molecular Engineering, East China Normal University=
+, Shanghai, China
+Affiliate Professor,
+New York University-East China Normal University Center for Computational C=
+hemistry at New York University Shanghai, Shanghai, China
+Tel: +86-21-62238987, Cell: +86-13661832741
+Email: xiaohe@phy.ecnu.edu.cn
+English webpage: https://eur02.safelinks.protection.outlook.com/?url=3Dhttp=
+s%3A%2F%2Ffaculty.ecnu.edu.cn%2F_s34%2Fhx2_en%2Fmain.psp&data=3D05%7C02%7Cj=
+ordi.villa%40uvic.cat%7Ca9762d2cea0444a7872808dec30225d3%7C05bec0394f4f4087=
+9f2e1e71aa64c56e%7C0%7C0%7C639162611197572767%7CUnknown%7CTWFpbGZsb3d8eyJFb=
+XB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldU=
+IjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=3DvZNdv8%2Fq45vrGnAYZDDf%2F2OxNxUnnbl%2Fq2c=
+%2F5%2BzjOzA%3D&reserved=3D0
+Chinese webpage: https://eur02.safelinks.protection.outlook.com/?url=3Dhttp=
+s%3A%2F%2Ffaculty.ecnu.edu.cn%2F_s34%2Fhx2%2Fmain.psp&data=3D05%7C02%7Cjord=
+i.villa%40uvic.cat%7Ca9762d2cea0444a7872808dec30225d3%7C05bec0394f4f40879f2=
+e1e71aa64c56e%7C0%7C0%7C639162611197592018%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0=
+eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjo=
+yfQ%3D%3D%7C0%7C%7C%7C&sdata=3DJSV1V7QC56pdbz4ybVv%2BffJ%2BnfuGbRHG%2Bqh9MX=
+YUSYU%3D&reserved=3D0
+ORCID: 0000-0002-4199-8175=20
+Google Scholar page: https://eur02.safelinks.protection.outlook.com/?url=3D=
+https%3A%2F%2Fscholar.google.com.hk%2Fcitations%3Fuser%3DL37jIigAAAAJ%26hl%=
+3Den&data=3D05%7C02%7Cjordi.villa%40uvic.cat%7Ca9762d2cea0444a7872808dec302=
+25d3%7C05bec0394f4f40879f2e1e71aa64c56e%7C0%7C0%7C639162611197610776%7CUnkn=
+own%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zM=
+iIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=3DdoKBUKT994W6CxWgmO=
+BYeUchK4IT4nKM5DADlYznMi4%3D&reserved=3D0
+
+
+------------------------------------
+Go to the ACS Publishing Center at https://eur02.safelinks.protection.outlo=
+ok.com/?url=3Dhttps%3A%2F%2Fpublish.acs.org%2F&data=3D05%7C02%7Cjordi.villa=
+%40uvic.cat%7Ca9762d2cea0444a7872808dec30225d3%7C05bec0394f4f40879f2e1e71aa=
+64c56e%7C0%7C0%7C639162611197629075%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGk=
+iOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%=
+3D%7C0%7C%7C%7C&sdata=3DUgGRB1nnmHy3tw%2Blnefcr9C1CuBQvJ2CX5yCeJPERf8%3D&re=
+served=3D0 to submit your revised manuscript. Your manuscript number will b=
+e appended to denote a revision.
+
+When submitting your revised manuscript, you will be able to respond to the=
+ comments made by the reviewer(s) by attaching a file containing your detai=
+led responses to all of the points raised by the reviewers.
+
+------------------------------------
+
+Reviewer(s)' Comments to Author:
+
+Reviewer: 1
+
+Comments:
+The manuscript presents an EVB-based computational investigation of the cat=
+alytic consequences of Sec/Cys exchange in GPX6 and attempts to connect ene=
+rgetic landscapes with evolutionary epistasis. The topic is potentially int=
+eresting because it combines enzymatic catalysis, evolutionary biophysics, =
+and free-energy simulations within a unified framework. In particular, the =
+idea of studying how sequence background modulates the catalytic benefit of=
+ selenocysteine is conceptually appealing, and the use of EVB calculations =
+to analyze mutational pathways provides a physically motivated perspective =
+on epistatic effects. However, the current presentation and methodological =
+rigor do not yet meet the standard expected for publication in a high-quali=
+ty computational chemistry or biophysics journal.
+
+A major issue concerns the presentation quality of the manuscript. Figure 1=
+, which introduces the catalytic cycle and mechanistic framework, is visual=
+ly unattractive and difficult to follow. Although the scientific content it=
+self may be acceptable, the figure requires substantial redesign to improve=
+ clarity, aesthetics, and readability. Similarly, the overall figure qualit=
+y throughout the manuscript is below the expected standard. Font sizes are =
+inconsistent and often too small, coloring schemes are not optimized for re=
+adability, and several panels appear visually crowded. Improving graphical =
+quality is essential because the manuscript relies heavily on visual interp=
+retation of free-energy landscapes and mutational pathways.
+
+Figure 2 is particularly problematic. At present, it appears to be little m=
+ore than a visualization of an existing structure with highlighted residues=
+ and provides minimal novelty or mechanistic insight. Moreover, the corresp=
+onding PDB code is not explicitly indicated in the figure itself, which is =
+inappropriate for a structural presentation. The authors should either subs=
+tantially enrich the figure with meaningful structural analysis or consider=
+ removing it entirely.
+
+The methods section is mathematically extensive but pedagogically weak. A l=
+arge number of standard EVB equations are reproduced, including conventiona=
+l definitions of mapping potentials, free-energy reconstruction, and energy=
+-gap coordinates, yet none of these formulations are newly derived in the p=
+resent work. Consequently, the section becomes unnecessarily dense and some=
+what textbook-like. Instead of emphasizing routine formalism, the authors s=
+hould introduce a concise workflow figure summarizing the complete computat=
+ional protocol, including structure preparation, EVB calibration, equilibra=
+tion, mutational scanning, pathway construction, and ProteinMPNN analysis. =
+Such a workflow would significantly improve readability and accessibility.
+
+From a scientific perspective, the central conclusions are plausible but th=
+eir novelty should be stated more explicitly. The manuscript repeatedly emp=
+hasizes epistasis and background dependence, but it remains somewhat unclea=
+r what fundamentally new mechanistic insight is obtained beyond confirming =
+that Sec generally lowers the catalytic barrier and that sequence context m=
+odulates this effect. The connection to experimental observations, especial=
+ly the evolutionary and functional implications discussed in Rees et al., s=
+hould therefore be strengthened and articulated more directly.
+
+Another important weakness concerns statistical rigor. Although the manuscr=
+ipt reports standard errors across replicas, there is insufficient discussi=
+on of sampling convergence and statistical independence. In particular, the=
+ autocorrelation times of the system energy and key reaction coordinates sh=
+ould be explicitly evaluated. The effective number of independent samples s=
+hould be estimated, and uncertainties should be derived in a statistically =
+meaningful manner rather than relying solely on replica averages. Given tha=
+t the conclusions rely heavily on relatively modest barrier differences (e.=
+g., ~1=E2=80=933 kcal/mol), rigorous statistical treatment is essential.
+
+
+Reviewer: 2
+
+Comments:
+Vill=C3=A0-Freixa et al present a very good theoretical study on the long-s=
+tanding question of why the enzyme GPX6  favors selenocysteine (Sec) over c=
+ysteine (Cys) through the lens of protein epistasis. The use of Empirical V=
+alence Bond (EVB) simulations to map free-energy landscapes across various =
+mutational backgrounds is appropriate. This study demonstrates that the cat=
+alytic advantage of Sec is integrated into the protein=E2=80=99s architectu=
+re. I recommend minor revisions and would like to offer a few comments and =
+suggestions to the authors before this manuscript is suitable for publicati=
+on in JCIM.=20
+(1) On page 11, the authors mentioned the 20 residues that are located with=
+in 20 angstroms of the catalytic chalcogen atom. It would be better if the =
+authors clarify why the distance was set to 20 =C3=85, or cite references o=
+n this selection.
+(2) The proton-transfer step is analyzed via free-energy landscapes, but th=
+e treatment of possible quantum effects is not mentioned. Could the authors=
+ comment on whether these factors were considered and their potential impac=
+t on barrier estimates?
+(3) The conclusions in this manuscript mention the Sec/Cys effects, which c=
+ould be useful for enzyme engineering. It would be valuable to include a br=
+ief discussion on how these findings might be useful for designing enzyme-e=
+ngineering strategies.
+(4) The manuscript could be further improved if the authors consider adding=
+ a figure illustrating the active site rearrangements at the transition sta=
+tes. Additionally, including an overlay of the AlphaFold3-generated structu=
+re with the mouse GPX6 crystal structure (PDB Code 7FC2) in the Supporting =
+Information would be valuable for assessing the accuracy of the AF3 predict=
+ions.
+(5) It would be better if the authors mark and emphasize the critical resid=
+ues in Figure 2 to enrich its informative content, since the current versio=
+n provides limited useful information.
+
+
+Reviewer: 3
+
+Comments:
+In their work, the authors applied empirical valence bond (EVB) simulations=
+, free-energy calculations and mutational pathway analysis to probe molecul=
+ar mechanism for the energetic consequences of this Sec/Cys exchange. Their=
+ results indicated that Projection onto the GPX6 phylogeny indicates that r=
+odent Cys-GPX6 is best understood as a compensatory catalytic regime. Overa=
+ll, this is an interesting work. Recommending that their work can be accept=
+ed after minor revision.
+1. In figure 1, the authors had better describe those residues located at t=
+he yellow regions so that their work can be understood.
+2. Dose the FEP indicate free energy perturbation? Abbreviations should be =
+defined (or spelled out) at first use / occurrence. In their work, the 51 F=
+EP windows were adopted to calculate the free energies. The authors should =
+simply discuss if those windows are sufficient for their study.
+3. The authors should perform more discussion using their calculations of a=
+ctivation free-energy profile.
+
+------------------------------------------------------------------------
+FOR ASSISTANCE WITH YOUR MANUSCRIPT SUBMISSION PLEASE CONTACT:
+ACS Publications Customer Services & Information (CSI)
+Email: support@services.acs.org
+Phone: 202-872-4357
+Toll Free Phone: 800-227-9919 (USA/Canada only)
+
+
+------------
+PLEASE NOTE: This email message, including any attachments, contains confid=
+ential information related to peer review and is intended solely for the pe=
+rsonal use of the recipient(s) named above. No part of this communication o=
+r any related attachments may be shared with or disclosed to any third part=
+y or organization without the explicit prior written consent of the journal=
+ Editor and ACS. If the reader of this message is not the intended recipien=
+t or is not responsible for delivering it to the intended recipient, you ha=
+ve received this communication in error. Please notify the sender immediate=
+ly by e-mail, and delete the original message.
+=C2=A0
+As an author or reviewer for ACS Publications, we may send you communicatio=
+ns about related journals, topics or products and=C2=A0services from=C2=A0t=
+he American Chemical Society. Please email us at=C2=A0pubs-comms-unsub@acs.=
+org=C2=A0if you do not want to receive these.=C2=A0Note, you will still rec=
+eive updates about your manuscripts, reviews, or future invitations to revi=
+ew.=C2=A0=C2=A0=C2=A0
+
+Thank you.

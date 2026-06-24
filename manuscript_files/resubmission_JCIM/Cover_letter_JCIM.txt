@@ -1,0 +1,57 @@
+Vic, May 11, 2026
+
+Professor Kenneth M. Merz, Jr.
+Editor-in-Chief
+Journal of Chemical Information and Modeling
+American Chemical Society
+
+Dear Professor Merz,
+
+We are pleased to submit our manuscript, "Epistatic Modulation of Sec/Cys Catalysis in GPX6 Revealed by EVB Free-Energy Landscapes," for consideration as an Article in the Journal of Chemical Information and Modeling.
+
+This work addresses how the surrounding sequence and structural background in enzymes modulates the chemical effect of a catalytic-residue substitution. GPX6 provides a natural test case because primate enzymes retain catalytic selenocysteine, whereas several rodent lineages have replaced it with cysteine. Using empirical valence bond free-energy simulations in human and mouse GPX6 backgrounds, we quantify the proton-transfer step that generates the reactive selenolate or thiolate and show that the energetic advantage of selenium is not a fixed local property of the catalytic residue. Instead, the magnitude of the Sec/Cys effect depends strongly on the surrounding protein scaffold.
+
+The main finding is that the same Sec/Cys exchange has different energetic consequences in different homologous scaffolds. Introducing selenocysteine into mouse GPX6 lowers the activation barrier by 2.84 kcal/mol, whereas replacing selenocysteine with cysteine in human GPX6 raises it by 1.43 kcal/mol. Greedy pathway calculations across 20 active-site-proximal substitutions further reveal direction-dependent and epistatic energetic effects. When projected onto the GPX6 phylogeny, these trajectories support a model in which rodent Cys-GPX6 represents a compensatory catalytic regime rather than a simple loss of selenium chemistry.
+
+We believe the manuscript is well suited to JCIM because it combines molecular simulation, empirical valence bond free-energy modeling, sequence analysis, and structural interpretation to produce a computational framework for connecting enzyme catalysis with evolutionary sequence background. The work falls directly within JCIM's scope in computer simulation using molecular dynamics and free-energy methods, molecular modeling of biological systems, and computational analysis of chemical and physical data. More broadly, it provides a systematic protocol for mapping evolutionary catalytic landscapes, with potential relevance for enzyme design strategies based on electrostatic preorganization.
+
+We confirm that the manuscript is original, has not been published elsewhere, and is not under consideration by another journal. A preprint has been deposited for this manuscript at ChemRxiv. All authors have approved the submitted version, agree with its content, and share responsibility for the reported results and conclusions. The authors declare no competing financial interests. An AI-based language tool was used only for language editing and improvement of the manuscript text; all scientific content was reviewed and approved by the authors.
+
+Suggested reviewers:
+
+1. Professor Johan Åqvist
+   Department of Cell and Molecular Biology, Uppsala University, Sweden
+   Email: Johan.Aqvist@icm.uu.se
+   Expertise: empirical valence bond simulations, enzyme catalysis, free-energy calculations, and the Q simulation framework.
+
+2. Professor Shina C. L. (Lynn) Kamerlin
+   School of Chemistry and Biochemistry, Georgia Institute of Technology, USA
+   Email: shina.kamerlin@chemistry.gatech.edu
+   Expertise: computational enzymology, enzyme evolution, protein dynamics, and free-energy modeling of catalytic mechanisms.
+
+3. Professor Elias Set Jeno Arner
+   Department of Medical Biochemistry and Biophysics, Karolinska Institutet, Sweden
+   Email: elias.arner@ki.se
+   Profile: https://ki.se/en/people/elias-arner
+   Expertise: selenoproteins, selenium biochemistry, glutathione peroxidases, thioredoxin reductases, and redox biology.
+
+4. Dr. Marco Mariotti
+   Department of Genetics, Microbiology and Statistics, Faculty of Biology, Universitat de Barcelona, Spain
+   Email: marco.mariotti@ub.edu
+   Profile: https://www.linkedin.com/in/marco-mariotti-mm/
+   Expertise: selenoprotein evolution, comparative genomics of selenocysteine, stop-codon readthrough, and computational annotation of selenoprotein genes.
+
+To the best of our knowledge, these suggested reviewers have no conflicts of interest with the authors.
+
+Thank you for your time and consideration.
+
+Sincerely,
+
+Jordi Villà-Freixa
+Corresponding author
+Computational Biochemistry and Biophysics Lab
+Research Group on Bioinformatics and Bioimaging (BI2)
+Department of Biosciences
+Universitat de Vic - Universitat Central de Catalunya
+08500 Vic, Spain
+Email: jordi.villa@uvic.cat

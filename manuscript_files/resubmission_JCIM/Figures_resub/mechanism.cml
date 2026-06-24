@@ -1,0 +1,329 @@
+<?xml version='1.0' encoding='utf-8'?>
+<cml xmlns="http://www.xml-cml.org/schema">
+  <name>First chemical step of GPX6: Sec oxidation by hydrogen peroxide</name>
+  <molecule id="I">
+    <name dictRef="mech:stateLabel">I</name>
+    <scalar dictRef="mech:description">Peptide-bound Sec-SeH, neutral Gln and hydrogen peroxide.</scalar>
+    <atomArray>
+      <atom id="I_sec_nr" elementType="R" x2="-4.40" y2="0.80" hydrogenCount="0" />
+      <atom id="I_sec_n" elementType="N" x2="-2.30" y2="0.00" hydrogenCount="1" />
+      <atom id="I_sec_ca" elementType="C" x2="0.00" y2="0.00" hydrogenCount="1" />
+      <atom id="I_sec_c" elementType="C" x2="2.10" y2="0.90" hydrogenCount="0" />
+      <atom id="I_sec_o" elementType="O" x2="3.20" y2="-0.20" hydrogenCount="0" />
+      <atom id="I_sec_cr" elementType="R" x2="4.20" y2="1.80" hydrogenCount="0" />
+      <atom id="I_sec_cb" elementType="C" x2="-0.20" y2="2.10" hydrogenCount="2" />
+      <atom id="I_sec_se" elementType="Se" x2="0.80" y2="3.90" hydrogenCount="0" />
+      <atom id="I_sec_hse" elementType="H" x2="0.95" y2="5.45" hydrogenCount="0" />
+      <atom id="I_gln_nr" elementType="R" x2="-4.40" y2="18.80" hydrogenCount="0" />
+      <atom id="I_gln_n" elementType="N" x2="-2.30" y2="18.00" hydrogenCount="1" />
+      <atom id="I_gln_ca" elementType="C" x2="0.00" y2="18.00" hydrogenCount="1" />
+      <atom id="I_gln_c" elementType="C" x2="2.10" y2="18.90" hydrogenCount="0" />
+      <atom id="I_gln_o" elementType="O" x2="3.20" y2="17.80" hydrogenCount="0" />
+      <atom id="I_gln_cr" elementType="R" x2="4.20" y2="19.80" hydrogenCount="0" />
+      <atom id="I_gln_cb" elementType="C" x2="-0.80" y2="15.90" hydrogenCount="2" />
+      <atom id="I_gln_cg" elementType="C" x2="0.35" y2="14.00" hydrogenCount="2" />
+      <atom id="I_gln_cd" elementType="C" x2="2.25" y2="13.00" hydrogenCount="0" />
+      <atom id="I_gln_oe" elementType="O" x2="2.35" y2="11.00" hydrogenCount="0" />
+      <atom id="I_gln_ne" elementType="N" x2="4.15" y2="13.65" hydrogenCount="2" />
+      <atom id="I_per_o1" elementType="O" x2="0.20" y2="7.10" hydrogenCount="0" />
+      <atom id="I_per_o2" elementType="O" x2="2.65" y2="7.95" hydrogenCount="0" />
+      <atom id="I_per_h1" elementType="H" x2="-1.50" y2="7.85" hydrogenCount="0" />
+      <atom id="I_per_h2" elementType="H" x2="3.75" y2="9.35" hydrogenCount="0" />
+    </atomArray>
+    <bondArray>
+      <bond id="I_sec_b1" atomRefs2="I_sec_nr I_sec_n" order="1">
+        <scalar dictRef="mech:display">wavy</scalar>
+      </bond>
+      <bond id="I_sec_b2" atomRefs2="I_sec_n I_sec_ca" order="1" />
+      <bond id="I_sec_b3" atomRefs2="I_sec_ca I_sec_c" order="1" />
+      <bond id="I_sec_b4" atomRefs2="I_sec_c I_sec_cr" order="1">
+        <scalar dictRef="mech:display">wavy</scalar>
+      </bond>
+      <bond id="I_sec_b5" atomRefs2="I_sec_ca I_sec_cb" order="1" />
+      <bond id="I_sec_b6" atomRefs2="I_sec_cb I_sec_se" order="1" />
+      <bond id="I_sec_b7" atomRefs2="I_sec_c I_sec_o" order="2" />
+      <bond id="I_sec_b8" atomRefs2="I_sec_se I_sec_hse" order="1" />
+      <bond id="I_gln_b1" atomRefs2="I_gln_nr I_gln_n" order="1">
+        <scalar dictRef="mech:display">wavy</scalar>
+      </bond>
+      <bond id="I_gln_b2" atomRefs2="I_gln_n I_gln_ca" order="1" />
+      <bond id="I_gln_b3" atomRefs2="I_gln_ca I_gln_c" order="1" />
+      <bond id="I_gln_b4" atomRefs2="I_gln_c I_gln_cr" order="1">
+        <scalar dictRef="mech:display">wavy</scalar>
+      </bond>
+      <bond id="I_gln_b5" atomRefs2="I_gln_ca I_gln_cb" order="1" />
+      <bond id="I_gln_b6" atomRefs2="I_gln_cb I_gln_cg" order="1" />
+      <bond id="I_gln_b7" atomRefs2="I_gln_cg I_gln_cd" order="1" />
+      <bond id="I_gln_b8" atomRefs2="I_gln_cd I_gln_ne" order="1" />
+      <bond id="I_gln_b9" atomRefs2="I_gln_c I_gln_o" order="2" />
+      <bond id="I_gln_b10" atomRefs2="I_gln_cd I_gln_oe" order="2" />
+      <bond id="I_per_b1" atomRefs2="I_per_o1 I_per_o2" order="1" />
+      <bond id="I_per_b2" atomRefs2="I_per_o1 I_per_h1" order="1" />
+      <bond id="I_per_b3" atomRefs2="I_per_o2 I_per_h2" order="1" />
+    </bondArray>
+  </molecule>
+  <molecule id="TS_I_II">
+    <name dictRef="mech:stateLabel">TS I-II</name>
+    <scalar dictRef="mech:description">Nucleophilic attack by peroxide O at the Sec proton and by Gln O-epsilon at a peroxide proton.</scalar>
+    <atomArray>
+      <atom id="TS_I_II_sec_nr" elementType="R" x2="9.60" y2="0.80" hydrogenCount="0" />
+      <atom id="TS_I_II_sec_n" elementType="N" x2="11.70" y2="0.00" hydrogenCount="1" />
+      <atom id="TS_I_II_sec_ca" elementType="C" x2="14.00" y2="0.00" hydrogenCount="1" />
+      <atom id="TS_I_II_sec_c" elementType="C" x2="16.10" y2="0.90" hydrogenCount="0" />
+      <atom id="TS_I_II_sec_o" elementType="O" x2="17.20" y2="-0.20" hydrogenCount="0" />
+      <atom id="TS_I_II_sec_cr" elementType="R" x2="18.20" y2="1.80" hydrogenCount="0" />
+      <atom id="TS_I_II_sec_cb" elementType="C" x2="13.80" y2="2.10" hydrogenCount="2" />
+      <atom id="TS_I_II_sec_se" elementType="Se" x2="14.80" y2="3.90" hydrogenCount="0" />
+      <atom id="TS_I_II_sec_hse" elementType="H" x2="14.95" y2="5.45" hydrogenCount="0" />
+      <atom id="TS_I_II_gln_nr" elementType="R" x2="9.60" y2="18.80" hydrogenCount="0" />
+      <atom id="TS_I_II_gln_n" elementType="N" x2="11.70" y2="18.00" hydrogenCount="1" />
+      <atom id="TS_I_II_gln_ca" elementType="C" x2="14.00" y2="18.00" hydrogenCount="1" />
+      <atom id="TS_I_II_gln_c" elementType="C" x2="16.10" y2="18.90" hydrogenCount="0" />
+      <atom id="TS_I_II_gln_o" elementType="O" x2="17.20" y2="17.80" hydrogenCount="0" />
+      <atom id="TS_I_II_gln_cr" elementType="R" x2="18.20" y2="19.80" hydrogenCount="0" />
+      <atom id="TS_I_II_gln_cb" elementType="C" x2="13.20" y2="15.90" hydrogenCount="2" />
+      <atom id="TS_I_II_gln_cg" elementType="C" x2="14.35" y2="14.00" hydrogenCount="2" />
+      <atom id="TS_I_II_gln_cd" elementType="C" x2="16.25" y2="13.00" hydrogenCount="0" />
+      <atom id="TS_I_II_gln_oe" elementType="O" x2="16.35" y2="11.00" hydrogenCount="0" />
+      <atom id="TS_I_II_gln_ne" elementType="N" x2="18.15" y2="13.65" hydrogenCount="2" />
+      <atom id="TS_I_II_per_o1" elementType="O" x2="14.20" y2="7.10" hydrogenCount="0" />
+      <atom id="TS_I_II_per_o2" elementType="O" x2="16.65" y2="7.95" hydrogenCount="0" />
+      <atom id="TS_I_II_per_h1" elementType="H" x2="12.50" y2="7.85" hydrogenCount="0" />
+      <atom id="TS_I_II_per_h2" elementType="H" x2="17.75" y2="9.35" hydrogenCount="0" />
+    </atomArray>
+    <bondArray>
+      <bond id="TS_I_II_sec_b1" atomRefs2="TS_I_II_sec_nr TS_I_II_sec_n" order="1">
+        <scalar dictRef="mech:display">wavy</scalar>
+      </bond>
+      <bond id="TS_I_II_sec_b2" atomRefs2="TS_I_II_sec_n TS_I_II_sec_ca" order="1" />
+      <bond id="TS_I_II_sec_b3" atomRefs2="TS_I_II_sec_ca TS_I_II_sec_c" order="1" />
+      <bond id="TS_I_II_sec_b4" atomRefs2="TS_I_II_sec_c TS_I_II_sec_cr" order="1">
+        <scalar dictRef="mech:display">wavy</scalar>
+      </bond>
+      <bond id="TS_I_II_sec_b5" atomRefs2="TS_I_II_sec_ca TS_I_II_sec_cb" order="1" />
+      <bond id="TS_I_II_sec_b6" atomRefs2="TS_I_II_sec_cb TS_I_II_sec_se" order="1" />
+      <bond id="TS_I_II_sec_b7" atomRefs2="TS_I_II_sec_c TS_I_II_sec_o" order="2" />
+      <bond id="TS_I_II_sec_b8" atomRefs2="TS_I_II_sec_se TS_I_II_sec_hse" order="0.5">
+        <scalar dictRef="mech:role">breaking</scalar>
+      </bond>
+      <bond id="TS_I_II_gln_b1" atomRefs2="TS_I_II_gln_nr TS_I_II_gln_n" order="1">
+        <scalar dictRef="mech:display">wavy</scalar>
+      </bond>
+      <bond id="TS_I_II_gln_b2" atomRefs2="TS_I_II_gln_n TS_I_II_gln_ca" order="1" />
+      <bond id="TS_I_II_gln_b3" atomRefs2="TS_I_II_gln_ca TS_I_II_gln_c" order="1" />
+      <bond id="TS_I_II_gln_b4" atomRefs2="TS_I_II_gln_c TS_I_II_gln_cr" order="1">
+        <scalar dictRef="mech:display">wavy</scalar>
+      </bond>
+      <bond id="TS_I_II_gln_b5" atomRefs2="TS_I_II_gln_ca TS_I_II_gln_cb" order="1" />
+      <bond id="TS_I_II_gln_b6" atomRefs2="TS_I_II_gln_cb TS_I_II_gln_cg" order="1" />
+      <bond id="TS_I_II_gln_b7" atomRefs2="TS_I_II_gln_cg TS_I_II_gln_cd" order="1" />
+      <bond id="TS_I_II_gln_b8" atomRefs2="TS_I_II_gln_cd TS_I_II_gln_ne" order="1" />
+      <bond id="TS_I_II_gln_b9" atomRefs2="TS_I_II_gln_c TS_I_II_gln_o" order="2" />
+      <bond id="TS_I_II_gln_b10" atomRefs2="TS_I_II_gln_cd TS_I_II_gln_oe" order="2" />
+      <bond id="TS_I_II_per_b1" atomRefs2="TS_I_II_per_o1 TS_I_II_per_o2" order="1" />
+      <bond id="TS_I_II_per_b2" atomRefs2="TS_I_II_per_o1 TS_I_II_per_h1" order="1" />
+      <bond id="TS_I_II_per_b3" atomRefs2="TS_I_II_per_o2 TS_I_II_per_h2" order="0.5">
+        <scalar dictRef="mech:role">breaking</scalar>
+      </bond>
+      <bond id="TS_I_II_per_b4" atomRefs2="TS_I_II_per_o1 TS_I_II_sec_hse" order="0.5">
+        <scalar dictRef="mech:role">forming</scalar>
+      </bond>
+      <bond id="TS_I_II_per_b5" atomRefs2="TS_I_II_per_h2 TS_I_II_gln_oe" order="0.5">
+        <scalar dictRef="mech:role">forming</scalar>
+      </bond>
+    </bondArray>
+  </molecule>
+  <molecule id="II">
+    <name dictRef="mech:stateLabel">II</name>
+    <scalar dictRef="mech:description">Sec selenolate and O-protonated Gln represented as C=OH+; H2O2 is restored.</scalar>
+    <atomArray>
+      <atom id="II_sec_nr" elementType="R" x2="23.60" y2="0.80" hydrogenCount="0" />
+      <atom id="II_sec_n" elementType="N" x2="25.70" y2="0.00" hydrogenCount="1" />
+      <atom id="II_sec_ca" elementType="C" x2="28.00" y2="0.00" hydrogenCount="1" />
+      <atom id="II_sec_c" elementType="C" x2="30.10" y2="0.90" hydrogenCount="0" />
+      <atom id="II_sec_o" elementType="O" x2="31.20" y2="-0.20" hydrogenCount="0" />
+      <atom id="II_sec_cr" elementType="R" x2="32.20" y2="1.80" hydrogenCount="0" />
+      <atom id="II_sec_cb" elementType="C" x2="27.80" y2="2.10" hydrogenCount="2" />
+      <atom id="II_sec_se" elementType="Se" x2="28.80" y2="3.90" formalCharge="-1" hydrogenCount="0" />
+      <atom id="II_gln_nr" elementType="R" x2="23.60" y2="18.80" hydrogenCount="0" />
+      <atom id="II_gln_n" elementType="N" x2="25.70" y2="18.00" hydrogenCount="1" />
+      <atom id="II_gln_ca" elementType="C" x2="28.00" y2="18.00" hydrogenCount="1" />
+      <atom id="II_gln_c" elementType="C" x2="30.10" y2="18.90" hydrogenCount="0" />
+      <atom id="II_gln_o" elementType="O" x2="31.20" y2="17.80" hydrogenCount="0" />
+      <atom id="II_gln_cr" elementType="R" x2="32.20" y2="19.80" hydrogenCount="0" />
+      <atom id="II_gln_cb" elementType="C" x2="27.20" y2="15.90" hydrogenCount="2" />
+      <atom id="II_gln_cg" elementType="C" x2="28.35" y2="14.00" hydrogenCount="2" />
+      <atom id="II_gln_cd" elementType="C" x2="30.25" y2="13.00" hydrogenCount="0" />
+      <atom id="II_gln_oe" elementType="O" x2="30.35" y2="11.00" formalCharge="1" hydrogenCount="0" />
+      <atom id="II_gln_ne" elementType="N" x2="32.15" y2="13.65" hydrogenCount="2" />
+      <atom id="II_gln_hgln" elementType="H" x2="29.55" y2="9.55" hydrogenCount="0" />
+      <atom id="II_per_o1" elementType="O" x2="28.20" y2="7.00" hydrogenCount="0" />
+      <atom id="II_per_o2" elementType="O" x2="30.65" y2="7.85" hydrogenCount="0" />
+      <atom id="II_per_h1" elementType="H" x2="26.50" y2="7.75" hydrogenCount="0" />
+      <atom id="II_per_h2" elementType="H" x2="31.75" y2="9.25" hydrogenCount="0" />
+    </atomArray>
+    <bondArray>
+      <bond id="II_sec_b1" atomRefs2="II_sec_nr II_sec_n" order="1">
+        <scalar dictRef="mech:display">wavy</scalar>
+      </bond>
+      <bond id="II_sec_b2" atomRefs2="II_sec_n II_sec_ca" order="1" />
+      <bond id="II_sec_b3" atomRefs2="II_sec_ca II_sec_c" order="1" />
+      <bond id="II_sec_b4" atomRefs2="II_sec_c II_sec_cr" order="1">
+        <scalar dictRef="mech:display">wavy</scalar>
+      </bond>
+      <bond id="II_sec_b5" atomRefs2="II_sec_ca II_sec_cb" order="1" />
+      <bond id="II_sec_b6" atomRefs2="II_sec_cb II_sec_se" order="1" />
+      <bond id="II_sec_b7" atomRefs2="II_sec_c II_sec_o" order="2" />
+      <bond id="II_gln_b1" atomRefs2="II_gln_nr II_gln_n" order="1">
+        <scalar dictRef="mech:display">wavy</scalar>
+      </bond>
+      <bond id="II_gln_b2" atomRefs2="II_gln_n II_gln_ca" order="1" />
+      <bond id="II_gln_b3" atomRefs2="II_gln_ca II_gln_c" order="1" />
+      <bond id="II_gln_b4" atomRefs2="II_gln_c II_gln_cr" order="1">
+        <scalar dictRef="mech:display">wavy</scalar>
+      </bond>
+      <bond id="II_gln_b5" atomRefs2="II_gln_ca II_gln_cb" order="1" />
+      <bond id="II_gln_b6" atomRefs2="II_gln_cb II_gln_cg" order="1" />
+      <bond id="II_gln_b7" atomRefs2="II_gln_cg II_gln_cd" order="1" />
+      <bond id="II_gln_b8" atomRefs2="II_gln_cd II_gln_ne" order="1" />
+      <bond id="II_gln_b9" atomRefs2="II_gln_c II_gln_o" order="2" />
+      <bond id="II_gln_b10" atomRefs2="II_gln_cd II_gln_oe" order="2" />
+      <bond id="II_gln_b11" atomRefs2="II_gln_oe II_gln_hgln" order="1" />
+      <bond id="II_per_b1" atomRefs2="II_per_o1 II_per_o2" order="1" />
+      <bond id="II_per_b2" atomRefs2="II_per_o1 II_per_h1" order="1" />
+      <bond id="II_per_b3" atomRefs2="II_per_o2 II_per_h2" order="1" />
+    </bondArray>
+  </molecule>
+  <molecule id="TS_II_III">
+    <name dictRef="mech:stateLabel">TS II-III</name>
+    <scalar dictRef="mech:description">Nucleophilic attack by Se- at one peroxide O and by the other peroxide O at the proton of O-protonated Gln.</scalar>
+    <atomArray>
+      <atom id="TS_II_III_sec_nr" elementType="R" x2="37.60" y2="0.80" hydrogenCount="0" />
+      <atom id="TS_II_III_sec_n" elementType="N" x2="39.70" y2="0.00" hydrogenCount="1" />
+      <atom id="TS_II_III_sec_ca" elementType="C" x2="42.00" y2="0.00" hydrogenCount="1" />
+      <atom id="TS_II_III_sec_c" elementType="C" x2="44.10" y2="0.90" hydrogenCount="0" />
+      <atom id="TS_II_III_sec_o" elementType="O" x2="45.20" y2="-0.20" hydrogenCount="0" />
+      <atom id="TS_II_III_sec_cr" elementType="R" x2="46.20" y2="1.80" hydrogenCount="0" />
+      <atom id="TS_II_III_sec_cb" elementType="C" x2="41.80" y2="2.10" hydrogenCount="2" />
+      <atom id="TS_II_III_sec_se" elementType="Se" x2="42.80" y2="3.90" formalCharge="-1" hydrogenCount="0" />
+      <atom id="TS_II_III_gln_nr" elementType="R" x2="37.60" y2="18.80" hydrogenCount="0" />
+      <atom id="TS_II_III_gln_n" elementType="N" x2="39.70" y2="18.00" hydrogenCount="1" />
+      <atom id="TS_II_III_gln_ca" elementType="C" x2="42.00" y2="18.00" hydrogenCount="1" />
+      <atom id="TS_II_III_gln_c" elementType="C" x2="44.10" y2="18.90" hydrogenCount="0" />
+      <atom id="TS_II_III_gln_o" elementType="O" x2="45.20" y2="17.80" hydrogenCount="0" />
+      <atom id="TS_II_III_gln_cr" elementType="R" x2="46.20" y2="19.80" hydrogenCount="0" />
+      <atom id="TS_II_III_gln_cb" elementType="C" x2="41.20" y2="15.90" hydrogenCount="2" />
+      <atom id="TS_II_III_gln_cg" elementType="C" x2="42.35" y2="14.00" hydrogenCount="2" />
+      <atom id="TS_II_III_gln_cd" elementType="C" x2="44.25" y2="13.00" hydrogenCount="0" />
+      <atom id="TS_II_III_gln_oe" elementType="O" x2="44.35" y2="11.00" formalCharge="1" hydrogenCount="0" />
+      <atom id="TS_II_III_gln_ne" elementType="N" x2="46.15" y2="13.65" hydrogenCount="2" />
+      <atom id="TS_II_III_gln_hgln" elementType="H" x2="43.55" y2="9.55" hydrogenCount="0" />
+      <atom id="TS_II_III_per_o1" elementType="O" x2="42.35" y2="6.55" hydrogenCount="0" />
+      <atom id="TS_II_III_per_o2" elementType="O" x2="44.80" y2="7.40" hydrogenCount="0" />
+      <atom id="TS_II_III_per_h1" elementType="H" x2="40.65" y2="7.30" hydrogenCount="0" />
+      <atom id="TS_II_III_per_h2" elementType="H" x2="45.90" y2="8.80" hydrogenCount="0" />
+    </atomArray>
+    <bondArray>
+      <bond id="TS_II_III_sec_b1" atomRefs2="TS_II_III_sec_nr TS_II_III_sec_n" order="1">
+        <scalar dictRef="mech:display">wavy</scalar>
+      </bond>
+      <bond id="TS_II_III_sec_b2" atomRefs2="TS_II_III_sec_n TS_II_III_sec_ca" order="1" />
+      <bond id="TS_II_III_sec_b3" atomRefs2="TS_II_III_sec_ca TS_II_III_sec_c" order="1" />
+      <bond id="TS_II_III_sec_b4" atomRefs2="TS_II_III_sec_c TS_II_III_sec_cr" order="1">
+        <scalar dictRef="mech:display">wavy</scalar>
+      </bond>
+      <bond id="TS_II_III_sec_b5" atomRefs2="TS_II_III_sec_ca TS_II_III_sec_cb" order="1" />
+      <bond id="TS_II_III_sec_b6" atomRefs2="TS_II_III_sec_cb TS_II_III_sec_se" order="1" />
+      <bond id="TS_II_III_sec_b7" atomRefs2="TS_II_III_sec_c TS_II_III_sec_o" order="2" />
+      <bond id="TS_II_III_gln_b1" atomRefs2="TS_II_III_gln_nr TS_II_III_gln_n" order="1">
+        <scalar dictRef="mech:display">wavy</scalar>
+      </bond>
+      <bond id="TS_II_III_gln_b2" atomRefs2="TS_II_III_gln_n TS_II_III_gln_ca" order="1" />
+      <bond id="TS_II_III_gln_b3" atomRefs2="TS_II_III_gln_ca TS_II_III_gln_c" order="1" />
+      <bond id="TS_II_III_gln_b4" atomRefs2="TS_II_III_gln_c TS_II_III_gln_cr" order="1">
+        <scalar dictRef="mech:display">wavy</scalar>
+      </bond>
+      <bond id="TS_II_III_gln_b5" atomRefs2="TS_II_III_gln_ca TS_II_III_gln_cb" order="1" />
+      <bond id="TS_II_III_gln_b6" atomRefs2="TS_II_III_gln_cb TS_II_III_gln_cg" order="1" />
+      <bond id="TS_II_III_gln_b7" atomRefs2="TS_II_III_gln_cg TS_II_III_gln_cd" order="1" />
+      <bond id="TS_II_III_gln_b8" atomRefs2="TS_II_III_gln_cd TS_II_III_gln_ne" order="1" />
+      <bond id="TS_II_III_gln_b9" atomRefs2="TS_II_III_gln_c TS_II_III_gln_o" order="2" />
+      <bond id="TS_II_III_gln_b10" atomRefs2="TS_II_III_gln_cd TS_II_III_gln_oe" order="2" />
+      <bond id="TS_II_III_gln_b11" atomRefs2="TS_II_III_gln_oe TS_II_III_gln_hgln" order="0.5">
+        <scalar dictRef="mech:role">breaking</scalar>
+      </bond>
+      <bond id="TS_II_III_per_b1" atomRefs2="TS_II_III_per_o1 TS_II_III_per_o2" order="0.5">
+        <scalar dictRef="mech:role">breaking</scalar>
+      </bond>
+      <bond id="TS_II_III_per_b2" atomRefs2="TS_II_III_per_o1 TS_II_III_per_h1" order="1" />
+      <bond id="TS_II_III_per_b3" atomRefs2="TS_II_III_per_o2 TS_II_III_per_h2" order="1" />
+      <bond id="TS_II_III_per_b4" atomRefs2="TS_II_III_per_o1 TS_II_III_sec_se" order="0.5">
+        <scalar dictRef="mech:role">forming</scalar>
+      </bond>
+      <bond id="TS_II_III_per_b5" atomRefs2="TS_II_III_per_o2 TS_II_III_gln_hgln" order="0.5">
+        <scalar dictRef="mech:role">forming</scalar>
+      </bond>
+    </bondArray>
+  </molecule>
+  <molecule id="III">
+    <name dictRef="mech:stateLabel">III</name>
+    <scalar dictRef="mech:description">Peptide-bound selenenic acid, water and regenerated neutral Gln.</scalar>
+    <atomArray>
+      <atom id="III_sec_nr" elementType="R" x2="51.60" y2="0.80" hydrogenCount="0" />
+      <atom id="III_sec_n" elementType="N" x2="53.70" y2="0.00" hydrogenCount="1" />
+      <atom id="III_sec_ca" elementType="C" x2="56.00" y2="0.00" hydrogenCount="1" />
+      <atom id="III_sec_c" elementType="C" x2="58.10" y2="0.90" hydrogenCount="0" />
+      <atom id="III_sec_o" elementType="O" x2="59.20" y2="-0.20" hydrogenCount="0" />
+      <atom id="III_sec_cr" elementType="R" x2="60.20" y2="1.80" hydrogenCount="0" />
+      <atom id="III_sec_cb" elementType="C" x2="55.80" y2="2.10" hydrogenCount="2" />
+      <atom id="III_sec_se" elementType="Se" x2="56.80" y2="3.90" hydrogenCount="0" />
+      <atom id="III_sec_ose" elementType="O" x2="56.45" y2="5.85" hydrogenCount="0" />
+      <atom id="III_sec_ho" elementType="H" x2="57.15" y2="7.25" hydrogenCount="0" />
+      <atom id="III_gln_nr" elementType="R" x2="51.60" y2="18.80" hydrogenCount="0" />
+      <atom id="III_gln_n" elementType="N" x2="53.70" y2="18.00" hydrogenCount="1" />
+      <atom id="III_gln_ca" elementType="C" x2="56.00" y2="18.00" hydrogenCount="1" />
+      <atom id="III_gln_c" elementType="C" x2="58.10" y2="18.90" hydrogenCount="0" />
+      <atom id="III_gln_o" elementType="O" x2="59.20" y2="17.80" hydrogenCount="0" />
+      <atom id="III_gln_cr" elementType="R" x2="60.20" y2="19.80" hydrogenCount="0" />
+      <atom id="III_gln_cb" elementType="C" x2="55.20" y2="15.90" hydrogenCount="2" />
+      <atom id="III_gln_cg" elementType="C" x2="56.35" y2="14.00" hydrogenCount="2" />
+      <atom id="III_gln_cd" elementType="C" x2="58.25" y2="13.00" hydrogenCount="0" />
+      <atom id="III_gln_oe" elementType="O" x2="58.35" y2="11.00" hydrogenCount="0" />
+      <atom id="III_gln_ne" elementType="N" x2="60.15" y2="13.65" hydrogenCount="2" />
+      <atom id="III_water_o" elementType="O" x2="54.00" y2="10.00" hydrogenCount="0" />
+      <atom id="III_water_h1" elementType="H" x2="52.65" y2="11.10" hydrogenCount="0" />
+      <atom id="III_water_h2" elementType="H" x2="55.35" y2="11.10" hydrogenCount="0" />
+    </atomArray>
+    <bondArray>
+      <bond id="III_sec_b1" atomRefs2="III_sec_nr III_sec_n" order="1">
+        <scalar dictRef="mech:display">wavy</scalar>
+      </bond>
+      <bond id="III_sec_b2" atomRefs2="III_sec_n III_sec_ca" order="1" />
+      <bond id="III_sec_b3" atomRefs2="III_sec_ca III_sec_c" order="1" />
+      <bond id="III_sec_b4" atomRefs2="III_sec_c III_sec_cr" order="1">
+        <scalar dictRef="mech:display">wavy</scalar>
+      </bond>
+      <bond id="III_sec_b5" atomRefs2="III_sec_ca III_sec_cb" order="1" />
+      <bond id="III_sec_b6" atomRefs2="III_sec_cb III_sec_se" order="1" />
+      <bond id="III_sec_b7" atomRefs2="III_sec_c III_sec_o" order="2" />
+      <bond id="III_sec_b8" atomRefs2="III_sec_se III_sec_ose" order="1" />
+      <bond id="III_sec_b9" atomRefs2="III_sec_ose III_sec_ho" order="1" />
+      <bond id="III_gln_b1" atomRefs2="III_gln_nr III_gln_n" order="1">
+        <scalar dictRef="mech:display">wavy</scalar>
+      </bond>
+      <bond id="III_gln_b2" atomRefs2="III_gln_n III_gln_ca" order="1" />
+      <bond id="III_gln_b3" atomRefs2="III_gln_ca III_gln_c" order="1" />
+      <bond id="III_gln_b4" atomRefs2="III_gln_c III_gln_cr" order="1">
+        <scalar dictRef="mech:display">wavy</scalar>
+      </bond>
+      <bond id="III_gln_b5" atomRefs2="III_gln_ca III_gln_cb" order="1" />
+      <bond id="III_gln_b6" atomRefs2="III_gln_cb III_gln_cg" order="1" />
+      <bond id="III_gln_b7" atomRefs2="III_gln_cg III_gln_cd" order="1" />
+      <bond id="III_gln_b8" atomRefs2="III_gln_cd III_gln_ne" order="1" />
+      <bond id="III_gln_b9" atomRefs2="III_gln_c III_gln_o" order="2" />
+      <bond id="III_gln_b10" atomRefs2="III_gln_cd III_gln_oe" order="2" />
+      <bond id="III_water_b1" atomRefs2="III_water_o III_water_h1" order="1" />
+      <bond id="III_water_b2" atomRefs2="III_water_o III_water_h2" order="1" />
+    </bondArray>
+  </molecule>
+</cml>

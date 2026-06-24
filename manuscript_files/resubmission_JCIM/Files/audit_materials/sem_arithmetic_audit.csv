@@ -1,0 +1,13 @@
+system,quantity,sd,n,draft_sem,recomputed_sem,difference
+Human Sec,dG barrier,3.21,22,0.83,0.6844,0.1456
+Human Sec,dG reaction,3.48,22,1.46,0.7419,0.7181
+Human Sec,dG lambda,3.47,25,0.69,0.6940,-0.0040
+Human Cys,dG barrier,3.63,14,0.97,0.9702,-0.0002
+Human Cys,dG reaction,5.00,14,1.68,1.3363,0.3437
+Human Cys,dG lambda,4.50,22,0.96,0.9594,0.0006
+Mouse Cys,dG barrier,4.18,21,0.91,0.9122,-0.0022
+Mouse Cys,dG reaction,13.87,21,1.03,3.0267,-1.9967
+Mouse Cys,dG lambda,4.71,24,0.96,0.9614,-0.0014
+Mouse Sec,dG barrier,2.43,22,0.52,0.5181,0.0019
+Mouse Sec,dG reaction,2.75,22,0.59,0.5863,0.0037
+Mouse Sec,dG lambda,2.71,25,0.54,0.5420,-0.0020
